@@ -62,7 +62,7 @@ const pillars = [
       "Corporate Retreats",
       "Transformational Experiences",
     ],
-    cta: { label: "Explore retreats", to: "/retreats" as const },
+    cta: { label: "Enquire about retreats", to: "/contact" as const },
   },
 ];
 
