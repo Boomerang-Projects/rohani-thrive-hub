@@ -5,8 +5,6 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/workshops", label: "Workshops" },
-  { to: "/retreats", label: "Retreats" },
 ] as const;
 
 export function SiteHeader() {
