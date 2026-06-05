@@ -68,7 +68,8 @@ function AboutPage() {
             width={1600}
             height={900}
             loading="lazy"
-            className="w-full aspect-[16/9] object-cover object-top rounded-3xl"
+            className="w-full aspect-[16/9] object-cover rounded-3xl"
+            style={{ objectPosition: "center 15%" }}
           />
         </section>
 
