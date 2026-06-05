@@ -63,7 +63,7 @@ function AboutPage() {
 
         <section className="px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-28">
           <img
-            src={founderImage}
+            src={founderImage.url}
             alt="The Rohani practice"
             width={1600}
             height={900}
