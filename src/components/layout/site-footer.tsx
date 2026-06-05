@@ -17,7 +17,7 @@ export function SiteFooter() {
             Explore
           </p>
           <ul className="space-y-2.5 text-sm">
-            <li><Link to="/about" className="hover:text-accent">About</Link></li>
+            <li><Link to="/about" className="hover:text-accent">ABOUT ROHANI</Link></li>
             <li><Link to="/services" className="hover:text-accent">Services</Link></li>
             <li><Link to="/contact" className="hover:text-accent">Contact</Link></li>
           </ul>

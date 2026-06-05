@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { to: "/about", label: "About" },
+  { to: "/about", label: "ABOUT ROHANI" },
   { to: "/services", label: "Services" },
 ] as const;
 
