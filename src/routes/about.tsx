@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Founder } from "@/components/sections/Founder";
-import founderImage from "@/assets/founder-portrait.jpg";
+import founderImage from "@/assets/about-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
