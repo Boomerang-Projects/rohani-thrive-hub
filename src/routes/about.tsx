@@ -58,7 +58,7 @@ function AboutPage() {
         <PageHero
           eyebrow="ABOUT ROHANI"
           title={<>Elevating wellbeing, sustainability and quality of life through modern psychology.</>}
-          intro="Rohani was founded to bridge psychology, mindfulness and human development — for the people, teams and organizations who shape our world."
+          intro="Rohani was founded to bridge psychology, mindfulness and human development - for the people, teams and organizations who shape our world."
         />
 
         <section className="px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-28">
