@@ -56,7 +56,7 @@ function AboutPage() {
       <SiteHeader />
       <main className="flex-1">
         <PageHero
-          eyebrow="ABOUT ROHANI"
+          eyebrow="ABOUT"
           title={<>A modern psychology practice for life and leadership</>}
           intro="Rohani was founded to bridge psychology, mindfulness and human development — for the people, teams and organizations who shape our world."
         />
