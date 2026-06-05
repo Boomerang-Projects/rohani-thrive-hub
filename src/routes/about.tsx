@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Founder } from "@/components/sections/Founder";
-import founderImage from "@/assets/founder-portrait.jpg";
+import founderImage from "@/assets/about-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -63,7 +63,7 @@ function AboutPage() {
 
         <section className="px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-28">
           <img
-            src={founderImage}
+            src={founderImage.url}
             alt="The Rohani practice"
             width={1600}
             height={900}
