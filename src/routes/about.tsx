@@ -62,16 +62,27 @@ function AboutPage() {
         />
 
         <section className="px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-28">
-          <img
-            src={founderImage.url}
-            alt="The Rohani practice"
-            width={1600}
-            height={900}
-            loading="lazy"
-            className="w-full aspect-[16/9] object-cover rounded-3xl"
-            style={{ objectPosition: "center 15%" }}
-          />
+          <div className="relative">
+            <img
+              src={founderImage.url}
+              alt="The Rohani practice"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="w-full aspect-[16/9] object-cover rounded-3xl"
+              style={{ objectPosition: "center 15%" }}
+            />
+            <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-background p-6 md:p-8 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] max-w-[20rem] hidden sm:block border border-taupe/40">
+              <p className="font-serif italic text-lg leading-snug">
+                "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
+              </p>
+              <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
+                — The Rohani Philosophy
+              </p>
+            </div>
+          </div>
         </section>
+
 
         <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
