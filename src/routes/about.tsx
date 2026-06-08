@@ -122,7 +122,7 @@ function AboutPage() {
             {principles.map((p, i) => (
               <div
                 key={p.title}
-                className="p-8 md:p-10 border border-border rounded-3xl bg-background"
+                className="p-8 md:p-10 border border-border rounded-3xl bg-secondary"
               >
                 <p className="font-serif text-3xl text-accent mb-4">
                   {String(i + 1).padStart(2, "0")}
