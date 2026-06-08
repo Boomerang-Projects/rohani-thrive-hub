@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import founderImage from "@/assets/founder-portrait-v2.jpg.asset.json";
+import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 
 export function Founder() {
   return (
