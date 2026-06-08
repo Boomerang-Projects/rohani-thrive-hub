@@ -39,14 +39,14 @@ const principles = [
       "People are never treated as problems to solve or performances to optimize. We meet individuals and teams with warmth, respect and genuine presence, creating the conditions for growth, connection and wellbeing.",
   },
   {
-    title: "Internationally fluent",
+    title: "Globally fluent",
     body:
-      "We work fluently across cultures, industries and seniority levels, from boardrooms to retreat spaces.",
+      "Human experience is universal, yet every person, culture and context is unique. We design and facilitate experiences that honor diversity while creating meaningful connection across cultures, communities and organizational enviroments.",
   },
   {
     title: "Quietly premium",
     body:
-      "Every detail is considered. The work feels calm because it is rigorous underneath.",
+      "Excellence lives in the details. Every experience is thoughtfully designed, carefully facilitated and intentionally delivered. The work feels effortless because of the depth, rigor and care behind it.",
   },
 ];
 
