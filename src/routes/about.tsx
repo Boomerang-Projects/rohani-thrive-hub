@@ -31,12 +31,12 @@ const principles = [
   {
     title: "Evidence-based",
     body:
-      "Every program is anchored in modern psychology, behavioral science and clinical mindfulness — not trends.",
+      "Every workshop is anchored in modern psychology, behavioral science and evidence-based mindfulness. We combine scientific rigor with practical application to create meaningful and lasting impact.",
   },
   {
     title: "Human first",
     body:
-      "We design experiences that meet people where they are, with warmth, dignity and genuine presence.",
+      "People are never treated as problems to solve or performances to optimize. We meet individuals and teams with warmth, respect and genuine presence, creating the conditions for growth, connection and wellbeing.",
   },
   {
     title: "Internationally fluent",
