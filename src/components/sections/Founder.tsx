@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import founderImage from "@/assets/founder-portrait.jpg";
+import founderImage from "@/assets/founder-portrait-v2.jpg.asset.json";
 
 export function Founder() {
   return (
@@ -7,7 +7,7 @@ export function Founder() {
       <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
         <div className="relative">
           <img
-            src={founderImage}
+            src={founderImage.url}
             alt="Founder of Rohani — psychologist and facilitator"
             width={1024}
             height={1280}
