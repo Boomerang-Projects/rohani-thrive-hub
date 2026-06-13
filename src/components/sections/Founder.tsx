@@ -28,9 +28,15 @@ export function Founder() {
             A psychologist devoted to human potential
           </h2>
           <p className="text-lg leading-relaxed text-foreground/75">
-            Psychologist, facilitator and speaker with an international
-            background and a passion for helping people reconnect with their
-            strengths, purpose and potential.
+            My journey has taken me across cultures, disciplines and
+            perspectives, shaping a deep curiosity about what helps people
+            thrive. I believe that wellbeing is not a luxury or a benefit. –
+            It is the foundation upon which people, relationships and
+            organizations thrive.
+          </p>
+          <p className="text-lg leading-relaxed text-foreground/75">
+            My name is Madeeha Qazi, and I am a licensed psychologist,
+            facilitator and the founder of ROHANI.
           </p>
           <p className="text-base leading-relaxed text-foreground/60">
             With years of experience working across cultures and industries,
