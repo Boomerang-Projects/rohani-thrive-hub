@@ -16,7 +16,7 @@ export function Founder() {
             style={{ objectPosition: "center 20%" }}
           />
           <div className="absolute -top-6 -right-6 hidden md:block bg-secondary px-5 py-3 rounded-full text-[10px] uppercase tracking-[0.25em]">
-            Psychologist · Facilitator
+            PSYCHOLOGIST · FACILITATOR · SPEAKER
           </div>
         </div>
 
