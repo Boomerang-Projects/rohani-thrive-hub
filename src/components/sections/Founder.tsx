@@ -39,10 +39,31 @@ export function Founder() {
             facilitator and the founder of ROHANI.
           </p>
           <p className="text-base leading-relaxed text-foreground/60">
-            With years of experience working across cultures and industries,
-            the founder of Rohani brings together evidence-based psychology,
-            mindfulness facilitation and emotional intelligence to guide
-            organizations and individuals toward sustainable wellbeing.
+            My work is rooted in modern psychology and enriched by a lifelong
+            curiosity about human potential, wellbeing and what allows people
+            to live, lead and relate more fully. Over the years, I have
+            worked with individuals, groups and organizations, supporting
+            growth, resilience and meaningful change through evidence-based
+            approaches and real human connection.
+          </p>
+          <p className="text-base leading-relaxed text-foreground/60">
+            Having lived, studied and worked across different countries and
+            cultures, I have come to appreciate both the universality of
+            human experience and the uniqueness of every individual story.
+            These experiences continue to shape the way I work - with
+            openness, cultural sensitivity and a deep respect for the
+            complexity of being human.
+          </p>
+          <p className="text-base leading-relaxed text-foreground/60">
+            ROHANI was created as a bridge between psychological science and
+            human experience. A space where evidence-based knowledge meets
+            presence, reflection and personal growth. Whether working with
+            individuals, teams or organizations, my intention is always the
+            same: to create the conditions for people to flourish.
+          </p>
+          <p className="text-base leading-relaxed text-foreground/60">
+            Because when people are supported to thrive, everything else
+            grows from there.
           </p>
           <div className="grid grid-cols-3 gap-6 pt-4 border-t border-border">
             <div>
