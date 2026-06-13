@@ -13,6 +13,7 @@ export function Founder() {
             height={1280}
             loading="lazy"
             className="aspect-[4/5] w-full object-cover rounded-3xl"
+            style={{ objectPosition: "center 20%" }}
           />
           <div className="absolute -top-6 -right-6 hidden md:block bg-secondary px-5 py-3 rounded-full text-[10px] uppercase tracking-[0.25em]">
             Psychologist · Facilitator
