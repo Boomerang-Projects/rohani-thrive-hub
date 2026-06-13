@@ -65,26 +65,6 @@ export function Founder() {
             Because when people are supported to thrive, everything else
             grows from there.
           </p>
-          <div className="grid grid-cols-3 gap-6 pt-4 border-t border-border">
-            <div>
-              <p className="font-serif text-2xl">10+</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-foreground/55 mt-1">
-                Years in practice
-              </p>
-            </div>
-            <div>
-              <p className="font-serif text-2xl">3</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-foreground/55 mt-1">
-                Continents served
-              </p>
-            </div>
-            <div>
-              <p className="font-serif text-2xl">100+</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-foreground/55 mt-1">
-                Organizations
-              </p>
-            </div>
-          </div>
           <div className="pt-2">
             <Link
               to="/about"
