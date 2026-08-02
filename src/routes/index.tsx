@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { Impact } from "@/components/sections/Impact";
 import { Founder } from "@/components/sections/Founder";
@@ -43,7 +42,6 @@ function HomePage() {
       <SiteHeader />
       <main className="flex-1">
         <Hero />
-        <About />
         <Services />
         <Impact />
         <Founder />
