@@ -77,7 +77,7 @@ function ServicesPage() {
           intro="From corporate wellbeing strategies to executive coaching and immersive retreats, every engagement is shaped around the people and the outcomes that matter."
         />
 
-        <section className="px-6 md:px-10 max-w-7xl mx-auto -mt-8 md:-mt-12 -mb-8 md:-mb-12 relative z-10">
+        <section className="px-6 md:px-10 max-w-7xl mx-auto -mt-[72px] md:-mt-[88px] -mb-8 md:-mb-12 relative z-10">
           <div className="md:max-w-[52%]">
             <div className="bg-secondary rounded-3xl px-5 py-4 md:px-6 md:py-5 shadow-sm">
               <p className="font-serif text-base md:text-lg leading-relaxed text-center text-foreground/80">
