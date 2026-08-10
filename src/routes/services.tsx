@@ -77,12 +77,14 @@ function ServicesPage() {
           intro="From corporate wellbeing strategies to executive coaching and immersive retreats, every engagement is shaped around the people and the outcomes that matter."
         />
 
-        <section className="px-6 md:px-10 max-w-7xl mx-auto py-10 md:py-16">
-          <div className="bg-secondary rounded-3xl px-8 py-10 md:px-16 md:py-14 shadow-sm">
-            <p className="font-serif text-xl md:text-2xl lg:text-[1.75rem] text-center leading-relaxed text-foreground/80 max-w-4xl mx-auto">
-              Sustainable change happens when people feel safe, understood and
-              equipped with practical tools for everyday life and work.
-            </p>
+        <section className="px-6 md:px-10 max-w-7xl mx-auto -mt-4 md:-mt-6">
+          <div className="md:max-w-[66.666%]">
+            <div className="bg-secondary rounded-4xl px-6 py-7 md:px-10 md:py-9 shadow-sm">
+              <p className="font-serif text-lg md:text-xl lg:text-2xl text-center leading-relaxed text-foreground/80">
+                Sustainable change happens when people feel safe, understood and
+                equipped with practical tools for everyday life and work.
+              </p>
+            </div>
           </div>
         </section>
 
