@@ -80,7 +80,7 @@ function AboutPage() {
                 width={1024}
                 height={1280}
                 loading="lazy"
-                className="w-full h-full min-h-[32rem] md:min-h-[38rem] object-cover rounded-3xl"
+                className="w-full h-full min-h-[20rem] md:min-h-0 object-cover rounded-3xl"
                 style={{ objectPosition: "center 18%" }}
               />
               <div className="absolute bottom-0 left-0 md:-bottom-5 md:-left-10 right-0 md:right-auto bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[17rem] border border-taupe/40">
