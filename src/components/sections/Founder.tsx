@@ -4,7 +4,7 @@ import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 export function Founder({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-stretch">
         {/* Left: labels + portrait */}
         <div className="flex flex-col">
           <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -34,7 +34,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             A psychologist devoted to human potential
           </h2>
 
-          <p className="mt-8 text-lg md:text-xl leading-[1.7] text-foreground/80 font-serif italic">
+          <p className="mt-6 text-lg md:text-xl leading-[1.6] text-foreground/80 font-serif italic">
             My journey has taken me across cultures, disciplines and
             perspectives, shaping a deep curiosity about what helps people
             thrive. I believe that wellbeing is not a luxury or a benefit. – It
@@ -42,15 +42,15 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             organizations thrive.
           </p>
 
-          <p className="mt-8 text-lg leading-relaxed text-foreground/80">
+          <p className="mt-6 text-lg leading-relaxed text-foreground/80">
             My name is Madeeha Qazi, and I am a licensed psychologist,
             facilitator and the founder of ROHANI.
           </p>
 
-          <div className="w-12 border-t border-accent/40 my-8" />
+          <div className="w-12 border-t border-accent/40 my-3" />
 
-          <div className="space-y-6">
-            <p className="text-base leading-[1.85] text-foreground/65">
+          <div className="space-y-1">
+            <p className="text-base leading-[1.55] text-foreground/65">
               My work is rooted in modern psychology and enriched by a lifelong
               curiosity about human potential, wellbeing and what allows people
               to live, lead and relate more fully. Over the years, I have
@@ -58,7 +58,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               growth, resilience and meaningful change through evidence-based
               approaches and real human connection.
             </p>
-            <p className="text-base leading-[1.85] text-foreground/65">
+            <p className="text-base leading-[1.55] text-foreground/65">
               Having lived, studied and worked across different countries and
               cultures, I have come to appreciate both the universality of
               human experience and the uniqueness of every individual story.
@@ -66,18 +66,19 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               openness, cultural sensitivity and a deep respect for the
               complexity of being human.
             </p>
-            <p className="text-base leading-[1.85] text-foreground/65">
+            <p className="text-base leading-[1.55] text-foreground/65">
               ROHANI was created as a bridge between psychological science and
               human experience. A space where evidence-based knowledge meets
               presence, reflection and personal growth. Whether working with
               individuals, teams or organizations, my intention is always the
               same: to create the conditions for people to flourish.
             </p>
-            <p className="text-base leading-[1.85] text-foreground/65">
-              Because when people are supported to thrive, everything else
-              grows from there.
-            </p>
           </div>
+
+          <p className="mt-auto pt-2 text-base leading-[1.55] text-foreground/65">
+            Because when people are supported to thrive, everything else
+            grows from there.
+          </p>
           {showLink && (
             <div className="pt-8">
               <Link
