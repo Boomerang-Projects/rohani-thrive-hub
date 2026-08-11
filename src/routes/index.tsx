@@ -55,7 +55,7 @@ function AboutPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* About ROHANI — 50/50 text + image */}
-        <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 max-w-7xl mx-auto">
+        <section className="pt-24 md:pt-32 pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
             <div className="flex flex-col justify-between py-1 md:pr-8">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -96,7 +96,7 @@ function AboutPage() {
         </section>
 
         {/* Our Philosophy — moved up, sits between About ROHANI and Meet the Founder */}
-        <section className="pt-0 pb-24 md:pb-32 px-6 md:px-10">
+        <section className="pt-0 pb-0 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
             <div className="md:col-span-5 space-y-4">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -153,7 +153,7 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
+        <section className="pt-24 md:pt-32 pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="mb-14 max-w-2xl">
             <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
               What guides us
