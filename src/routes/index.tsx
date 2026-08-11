@@ -150,7 +150,9 @@ function AboutPage() {
           </div>
         </section>
 
-        <Founder showLink={false} />
+        <div className="pb-10 md:pb-14">
+          <Founder showLink={false} />
+        </div>
 
         {/* Our Approach */}
         <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
