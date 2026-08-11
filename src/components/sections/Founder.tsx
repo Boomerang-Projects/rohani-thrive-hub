@@ -49,7 +49,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
 
           <div className="w-12 border-t border-accent/40 my-3" />
 
-          <div className="space-y-2">
+          <div className="space-y-1">
             <p className="text-base leading-[1.55] text-foreground/65">
               My work is rooted in modern psychology and enriched by a lifelong
               curiosity about human potential, wellbeing and what allows people
@@ -75,7 +75,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             </p>
           </div>
 
-          <p className="mt-auto pt-4 text-base leading-[1.7] text-foreground/65">
+          <p className="mt-auto pt-2 text-base leading-[1.55] text-foreground/65">
             Because when people are supported to thrive, everything else
             grows from there.
           </p>
