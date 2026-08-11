@@ -398,19 +398,21 @@ function ServicesPage() {
                       )}
 
                       {svc.ideal && (
-                        <div className="pt-4 grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                          <p className="sm:col-span-2 text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                        <div className="pt-4">
+                          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-4">
                             {svc.idealLabel}
                           </p>
-                          {svc.ideal.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-baseline gap-3 text-base text-foreground/80"
-                            >
-                              <span className="size-1 rounded-full bg-accent/70 mt-2 shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
+                          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                            {svc.ideal.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-baseline gap-3 text-base text-foreground/80"
+                              >
+                                <span className="size-1 rounded-full bg-accent/70 mt-2 shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       )}
                     </div>
