@@ -4,18 +4,6 @@ import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 export function Founder({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
-      {/* Header above the two-column block */}
-      <div className="space-y-4 mb-10 md:mb-14">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-          Meet the Founder
-        </p>
-        <div className="inline-block bg-secondary px-5 py-2 rounded-full border border-border">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
-            Psychologist · Facilitator · Speaker
-          </span>
-        </div>
-      </div>
-
       <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
         {/* Left: portrait */}
         <div className="relative">
@@ -30,11 +18,20 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
           />
         </div>
 
-        {/* Right: heading + narrative */}
+        {/* Right: labels + heading + narrative */}
         <div className="space-y-6">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+            Meet the Founder
+          </p>
+          <div className="inline-block bg-secondary px-5 py-2 rounded-full border border-border">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
+              Psychologist · Facilitator · Speaker
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-serif leading-[1.1]">
             A psychologist devoted to human potential
           </h2>
+
           <p className="text-lg leading-relaxed text-foreground/80 font-serif italic">
             My journey has taken me across cultures, disciplines and
             perspectives, shaping a deep curiosity about what helps people
