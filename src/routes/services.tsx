@@ -367,12 +367,17 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
+            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 items-start">
               {teamServices.map((svc) => (
                 <ServiceCard
                   key={svc.title}
                   title={svc.title}
                   intro={svc.description}
+                  className="min-h-[20rem] md:min-h-[24rem]"
+                  open={openTeam === svc.title}
+                  onToggle={() =>
+                    setOpenTeam((cur) => (cur === svc.title ? null : svc.title))
+                  }
                 >
                   {svc.body?.map((p, i) => (
                     <Body key={i} text={p} />
