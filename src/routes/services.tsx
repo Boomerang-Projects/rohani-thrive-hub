@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -227,6 +228,7 @@ function Body({ text }: { text: string }) {
 /* ---------- Page ---------- */
 
 function ServicesPage() {
+  const [openTeam, setOpenTeam] = useState<string | null>(null);
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
