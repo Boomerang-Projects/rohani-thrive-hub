@@ -70,7 +70,7 @@ export function ServiceCard({
             type="button"
             onClick={toggle}
             aria-expanded={open}
-            className="mt-8 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+            className="mt-8 mt-auto pt-8 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
           >
             {open ? "Read less" : "Read more"}
           </button>
