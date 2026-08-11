@@ -5,13 +5,23 @@ export function ServiceCard({
   title,
   intro,
   children,
+  className = "",
+  open: openProp,
+  onToggle,
 }: {
   eyebrow?: string;
   title: string;
   intro: string;
   children?: React.ReactNode;
+  className?: string;
+  open?: boolean;
+  onToggle?: () => void;
 }) {
-  const [open, setOpen] = useState(false);
+  const [openState, setOpenState] = useState(false);
+  const isControlled = openProp !== undefined;
+  const open = isControlled ? openProp : openState;
+  const toggle = () =>
+    isControlled ? onToggle?.() : setOpenState((v) => !v);
   const innerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
@@ -26,7 +36,9 @@ export function ServiceCard({
   }, [children]);
 
   return (
-    <article className="flex h-full flex-col rounded-3xl border border-border bg-background p-8 md:p-10 transition-colors duration-500 hover:border-forest/60">
+    <article
+      className={`flex flex-col rounded-3xl border border-border bg-background p-8 md:p-10 transition-colors duration-500 hover:border-forest/60 ${className}`}
+    >
       {eyebrow && (
         <p className="text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
           {eyebrow}
@@ -56,7 +68,7 @@ export function ServiceCard({
 
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
+            onClick={toggle}
             aria-expanded={open}
             className="mt-8 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
           >
