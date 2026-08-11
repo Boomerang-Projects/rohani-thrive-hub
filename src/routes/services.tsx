@@ -369,7 +369,6 @@ function ServicesPage() {
               {teamServices.map((svc) => (
                 <ServiceCard
                   key={svc.title}
-                  eyebrow={svc.title}
                   title={svc.title}
                   intro={svc.description}
                 >
