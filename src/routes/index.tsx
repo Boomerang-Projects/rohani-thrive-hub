@@ -55,7 +55,7 @@ function AboutPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* About ROHANI — 50/50 text + image */}
-        <section className="pt-12 md:pt-16 pb-12 md:pb-16 px-6 md:px-10 max-w-7xl mx-auto">
+        <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
             <div className="flex flex-col justify-between py-1 md:pr-8">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -95,6 +95,32 @@ function AboutPage() {
           </div>
         </section>
 
+        {/* Our Philosophy — moved up, sits between About ROHANI and Meet the Founder */}
+        <section className="pt-0 pb-24 md:pb-32 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
+            <div className="md:col-span-5 space-y-4">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                Our Philosophy
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+                Wellbeing is not a benefit. It is the foundation of everything
+                good work rests on.
+              </h2>
+            </div>
+            <div className="md:col-span-7 space-y-6">
+              <p className="text-xl leading-relaxed text-foreground/75">
+                We believe that lasting performance, healthy cultures and
+                resilient leadership begin with the same thing — people who feel
+                safe, seen and capable of leading themselves.
+              </p>
+              <p className="text-base leading-relaxed text-foreground/60">
+                Rohani exists for HR leaders, executives and international
+                organizations who want to invest in their people seriously, and
+                for individuals ready to grow with intention.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <Founder showLink={false} />
 
@@ -122,33 +148,6 @@ function AboutPage() {
                 understand that lasting performance is built on psychological
                 safety, emotional intelligence and the quiet skill of leading
                 oneself well.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Philosophy — same layout language as Our Approach */}
-        <section className="py-24 md:py-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
-            <div className="md:col-span-5 space-y-4">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                Our Philosophy
-              </p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-                Wellbeing is not a benefit. It is the foundation of everything
-                good work rests on.
-              </h2>
-            </div>
-            <div className="md:col-span-7 space-y-6">
-              <p className="text-xl leading-relaxed text-foreground/75">
-                We believe that lasting performance, healthy cultures and
-                resilient leadership begin with the same thing — people who feel
-                safe, seen and capable of leading themselves.
-              </p>
-              <p className="text-base leading-relaxed text-foreground/60">
-                Rohani exists for HR leaders, executives and international
-                organizations who want to invest in their people seriously, and
-                for individuals ready to grow with intention.
               </p>
             </div>
           </div>
@@ -183,11 +182,11 @@ function AboutPage() {
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
-              Ready to begin a conversation?
+              Begin where you are.
             </h2>
             <p className="text-primary-foreground/70 text-lg">
-              We work with organizations and individuals worldwide. Most
-              partnerships begin with a quiet 30-minute call.
+              Meaningful change rarely starts with having all the answers.
+              Sometimes, it simply starts with a conversation.
             </p>
             <Link
               to="/contact"

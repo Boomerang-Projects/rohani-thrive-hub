@@ -17,7 +17,7 @@ export function SiteFooter() {
             Explore
           </p>
           <ul className="space-y-2.5 text-sm">
-            <li><Link to="/" className="hover:text-accent">ABOUT ROHANI</Link></li>
+            <li><Link to="/" className="hover:text-accent">About</Link></li>
             <li><Link to="/services" className="hover:text-accent">Services</Link></li>
             <li><Link to="/experience" className="hover:text-accent">Experience</Link></li>
             <li><Link to="/contact" className="hover:text-accent">Contact</Link></li>
@@ -30,8 +30,8 @@ export function SiteFooter() {
           </p>
           <ul className="space-y-2.5 text-sm">
             <li>
-              <a href="mailto:hello@rohani.co" className="hover:text-accent">
-                hello@rohani.co
+              <a href="mailto:madeeha@rohani.se" className="hover:text-accent">
+                madeeha@rohani.se
               </a>
             </li>
             <li>
@@ -41,10 +41,20 @@ export function SiteFooter() {
                 rel="noreferrer"
                 className="hover:text-accent"
               >
-                LinkedIn
+                Madeeha Rani Qazi
               </a>
             </li>
-            <li className="text-foreground/60">For HR & Leadership teams worldwide</li>
+            <li>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-accent"
+              >
+                ROHANI
+              </a>
+            </li>
+            <li className="text-foreground/60">Based in: Scandinavia - Online - Working Globally</li>
           </ul>
         </div>
       </div>
