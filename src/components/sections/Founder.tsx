@@ -11,7 +11,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             Meet the Founder
           </p>
 
-          <div className="mt-6 md:ml-8 self-start bg-secondary px-5 py-2 rounded-full border border-border">
+          <div className="mt-6 self-start bg-secondary px-5 py-2 rounded-full border border-border">
             <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
               Psychologist · Facilitator · Speaker
             </span>
