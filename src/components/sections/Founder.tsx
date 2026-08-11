@@ -3,7 +3,7 @@ import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 
 export function Founder({ showLink = true }: { showLink?: boolean }) {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
+    <section className="px-6 md:px-10 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-stretch">
         {/* Left: labels + portrait */}
         <div className="flex flex-col">
