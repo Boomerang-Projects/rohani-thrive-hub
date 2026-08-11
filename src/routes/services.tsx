@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -227,6 +228,7 @@ function Body({ text }: { text: string }) {
 /* ---------- Page ---------- */
 
 function ServicesPage() {
+  const [openTeam, setOpenTeam] = useState<string | null>(null);
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -365,12 +367,17 @@ function ServicesPage() {
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
+            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 items-start">
               {teamServices.map((svc) => (
                 <ServiceCard
                   key={svc.title}
                   title={svc.title}
                   intro={svc.description}
+                  className="min-h-[20rem] md:min-h-[24rem]"
+                  open={openTeam === svc.title}
+                  onToggle={() =>
+                    setOpenTeam((cur) => (cur === svc.title ? null : svc.title))
+                  }
                 >
                   {svc.body?.map((p, i) => (
                     <Body key={i} text={p} />
