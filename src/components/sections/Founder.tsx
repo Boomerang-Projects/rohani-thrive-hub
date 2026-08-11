@@ -5,11 +5,11 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
       {/* Labels aligned to the same left grid line as the image */}
-      <div className="space-y-4 mb-10 md:mb-14">
+      <div className="flex flex-col items-start gap-4 mb-10 md:mb-14">
         <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
           Meet the Founder
         </p>
-        <div className="inline-block bg-secondary px-5 py-2 rounded-full border border-border">
+        <div className="bg-secondary px-5 py-2 rounded-full border border-border">
           <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
             Psychologist · Facilitator · Speaker
           </span>

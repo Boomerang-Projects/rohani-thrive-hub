@@ -34,17 +34,7 @@ export function SiteFooter() {
                 madeeha@rohani.se
               </a>
             </li>
-            <li>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-accent"
-              >
-                Madeeha Rani Qazi
-              </a>
-            </li>
-            <li>
+            <li className="flex items-baseline gap-2">
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
@@ -52,6 +42,17 @@ export function SiteFooter() {
                 className="hover:text-accent"
               >
                 ROHANI
+              </a>
+              <span aria-hidden="true" className="text-foreground/35 text-xs">
+                ·
+              </span>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-accent"
+              >
+                Madeeha Rani Qazi
               </a>
             </li>
             <li className="text-foreground/60">Based in: Scandinavia - Online - Working Globally</li>
