@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { PageHero } from "@/components/sections/PageHero";
 import { Founder } from "@/components/sections/Founder";
 import aboutImage from "@/assets/about-rohani-portrait.jpg.asset.json";
 
