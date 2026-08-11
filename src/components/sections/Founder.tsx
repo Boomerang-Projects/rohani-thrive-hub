@@ -47,9 +47,9 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             facilitator and the founder of ROHANI.
           </p>
 
-          <div className="w-12 border-t border-accent/40 my-5" />
+          <div className="w-12 border-t border-accent/40 my-3" />
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             <p className="text-base leading-[1.7] text-foreground/65">
               My work is rooted in modern psychology and enriched by a lifelong
               curiosity about human potential, wellbeing and what allows people
