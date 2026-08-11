@@ -24,7 +24,7 @@ export function Contact() {
               Get in Touch
             </p>
             <h2 className="text-3xl md:text-4xl font-serif leading-tight">
-              Let's create meaningful change together
+              Start a conversation
             </h2>
             <div className="w-12 border-t border-accent/40" />
             <p className="text-lg text-foreground/75 max-w-md leading-relaxed">
