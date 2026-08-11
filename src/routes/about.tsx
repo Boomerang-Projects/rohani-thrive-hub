@@ -162,7 +162,7 @@ function AboutPage() {
           </div>
         </section>
 
-        <Founder />
+        <Founder showLink={false} />
 
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">

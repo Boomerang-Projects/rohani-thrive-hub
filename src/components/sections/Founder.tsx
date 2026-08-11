@@ -1,40 +1,40 @@
 import { Link } from "@tanstack/react-router";
 import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 
-export function Founder() {
+export function Founder({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        {/* Left: portrait + sticky header */}
-        <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-8">
-          <div className="relative">
-            <img
-              src={founderImage.url}
-              alt="Founder of Rohani — psychologist and facilitator"
-              width={1024}
-              height={1280}
-              loading="lazy"
-              className="aspect-[4/5] w-full object-cover rounded-3xl"
-              style={{ objectPosition: "center 20%" }}
-            />
-          </div>
-          <div className="space-y-5">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-              Meet the Founder
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif leading-[1.1]">
-              A psychologist devoted to human potential
-            </h2>
-            <div className="inline-block bg-secondary px-5 py-2 rounded-full border border-border">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
-                Psychologist · Facilitator · Speaker
-              </span>
-            </div>
-          </div>
+      {/* Header above the two-column block */}
+      <div className="space-y-4 mb-10 md:mb-14">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+          Meet the Founder
+        </p>
+        <div className="inline-block bg-secondary px-5 py-2 rounded-full border border-border">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
+            Psychologist · Facilitator · Speaker
+          </span>
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
+        {/* Left: portrait */}
+        <div className="relative">
+          <img
+            src={founderImage.url}
+            alt="Founder of Rohani — psychologist and facilitator"
+            width={1024}
+            height={1280}
+            loading="lazy"
+            className="w-full h-full min-h-[26rem] object-cover rounded-3xl"
+            style={{ objectPosition: "center 20%" }}
+          />
         </div>
 
-        {/* Right: narrative */}
-        <div className="lg:col-span-7 space-y-6">
+        {/* Right: heading + narrative */}
+        <div className="space-y-6">
+          <h2 className="text-4xl md:text-5xl font-serif leading-[1.1]">
+            A psychologist devoted to human potential
+          </h2>
           <p className="text-lg leading-relaxed text-foreground/80 font-serif italic">
             My journey has taken me across cultures, disciplines and
             perspectives, shaping a deep curiosity about what helps people
@@ -74,14 +74,16 @@ export function Founder() {
             Because when people are supported to thrive, everything else
             grows from there.
           </p>
-          <div className="pt-4">
-            <Link
-              to="/about"
-              className="text-xs uppercase tracking-[0.22em] font-medium border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
-            >
-              Read the full story
-            </Link>
-          </div>
+          {showLink && (
+            <div className="pt-4">
+              <Link
+                to="/about"
+                className="text-xs uppercase tracking-[0.22em] font-medium border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Read the full story
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </section>
