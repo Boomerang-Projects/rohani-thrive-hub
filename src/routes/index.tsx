@@ -74,15 +74,15 @@ function AboutPage() {
 
             {/* Right: portrait with anchored quote bubble */}
             <div className="relative pb-16 md:pb-0 md:h-full">
-              <div className="relative min-h-[20rem] md:h-full">
+              <div className="relative min-h-[20rem] md:h-full overflow-hidden rounded-3xl">
                 <img
                   src={aboutImage.url}
                   alt="Rohani — psychology-based wellbeing and human development"
                   width={1920}
                   height={1382}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover rounded-3xl"
-                  style={{ objectPosition: "52% 30%" }}
+                  className="absolute inset-0 w-full h-full object-cover scale-125"
+                  style={{ objectPosition: "50% 32%" }}
                 />
               </div>
               <div className="absolute bottom-0 left-0 md:-bottom-5 md:-left-10 right-0 md:right-auto bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[17rem] border border-taupe/40">
@@ -97,36 +97,8 @@ function AboutPage() {
           </div>
         </section>
 
-        <Founder showLink={false} />
-
-        {/* What Guides Us */}
-        <section className="pt-24 md:pt-32 pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
-          <div className="mb-14 max-w-2xl">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
-              What guides us
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-              Four principles, in everything we do
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {principles.map((p, i) => (
-              <div
-                key={p.title}
-                className="p-8 md:p-10 border border-border rounded-3xl bg-secondary"
-              >
-                <p className="font-serif text-3xl text-accent mb-4">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="text-2xl font-serif mb-3">{p.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Our Philosophy */}
-        <section className="pt-0 pb-0 px-6 md:px-10">
+        <section className="pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
             <div className="md:col-span-5 space-y-4">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -151,6 +123,34 @@ function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* What Guides Us */}
+        <section className="pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
+          <div className="mb-14 max-w-2xl">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
+              What guides us
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+              Four principles, in everything we do
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {principles.map((p, i) => (
+              <div
+                key={p.title}
+                className="p-8 md:p-10 border border-border rounded-3xl bg-secondary"
+              >
+                <p className="font-serif text-3xl text-accent mb-4">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="text-2xl font-serif mb-3">{p.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Founder showLink={false} />
 
         {/* Our Approach */}
         <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
