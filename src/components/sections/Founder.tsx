@@ -50,7 +50,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
           <div className="w-12 border-t border-accent/40 my-3" />
 
           <div className="space-y-2">
-            <p className="text-base leading-[1.7] text-foreground/65">
+            <p className="text-base leading-[1.55] text-foreground/65">
               My work is rooted in modern psychology and enriched by a lifelong
               curiosity about human potential, wellbeing and what allows people
               to live, lead and relate more fully. Over the years, I have
@@ -58,7 +58,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               growth, resilience and meaningful change through evidence-based
               approaches and real human connection.
             </p>
-            <p className="text-base leading-[1.7] text-foreground/65">
+            <p className="text-base leading-[1.55] text-foreground/65">
               Having lived, studied and worked across different countries and
               cultures, I have come to appreciate both the universality of
               human experience and the uniqueness of every individual story.
@@ -66,7 +66,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               openness, cultural sensitivity and a deep respect for the
               complexity of being human.
             </p>
-            <p className="text-base leading-[1.7] text-foreground/65">
+            <p className="text-base leading-[1.55] text-foreground/65">
               ROHANI was created as a bridge between psychological science and
               human experience. A space where evidence-based knowledge meets
               presence, reflection and personal growth. Whether working with
