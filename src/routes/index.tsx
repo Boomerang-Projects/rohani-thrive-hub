@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
-import aboutImage from "@/assets/about-rohani-portrait.jpg.asset.json";
+import aboutImage from "@/assets/about-rohani-portrait-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
