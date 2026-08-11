@@ -58,7 +58,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               growth, resilience and meaningful change through evidence-based
               approaches and real human connection.
             </p>
-            <p className="text-base leading-[1.85] text-foreground/65">
+            <p className="text-base leading-[1.7] text-foreground/65">
               Having lived, studied and worked across different countries and
               cultures, I have come to appreciate both the universality of
               human experience and the uniqueness of every individual story.
@@ -66,7 +66,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               openness, cultural sensitivity and a deep respect for the
               complexity of being human.
             </p>
-            <p className="text-base leading-[1.85] text-foreground/65">
+            <p className="text-base leading-[1.7] text-foreground/65">
               ROHANI was created as a bridge between psychological science and
               human experience. A space where evidence-based knowledge meets
               presence, reflection and personal growth. Whether working with
