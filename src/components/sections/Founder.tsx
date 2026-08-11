@@ -34,7 +34,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             A psychologist devoted to human potential
           </h2>
 
-          <p className="mt-8 text-lg md:text-xl leading-[1.7] text-foreground/80 font-serif italic">
+          <p className="mt-6 text-lg md:text-xl leading-[1.6] text-foreground/80 font-serif italic">
             My journey has taken me across cultures, disciplines and
             perspectives, shaping a deep curiosity about what helps people
             thrive. I believe that wellbeing is not a luxury or a benefit. – It
@@ -42,15 +42,15 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             organizations thrive.
           </p>
 
-          <p className="mt-8 text-lg leading-relaxed text-foreground/80">
+          <p className="mt-6 text-lg leading-relaxed text-foreground/80">
             My name is Madeeha Qazi, and I am a licensed psychologist,
             facilitator and the founder of ROHANI.
           </p>
 
-          <div className="w-12 border-t border-accent/40 my-8" />
+          <div className="w-12 border-t border-accent/40 my-5" />
 
-          <div className="space-y-6">
-            <p className="text-base leading-[1.85] text-foreground/65">
+          <div className="space-y-3">
+            <p className="text-base leading-[1.7] text-foreground/65">
               My work is rooted in modern psychology and enriched by a lifelong
               curiosity about human potential, wellbeing and what allows people
               to live, lead and relate more fully. Over the years, I have
@@ -75,7 +75,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             </p>
           </div>
 
-          <p className="mt-auto pt-6 text-base leading-[1.85] text-foreground/65">
+          <p className="mt-auto pt-4 text-base leading-[1.7] text-foreground/65">
             Because when people are supported to thrive, everything else
             grows from there.
           </p>
