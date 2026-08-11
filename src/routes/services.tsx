@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { PageHero } from "@/components/sections/PageHero";
+
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -203,36 +203,52 @@ function ServicesPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <PageHero
-          eyebrow="ROHANI Approach"
-          title={<>Human&nbsp;First.</>}
-          intro="ROHANI is a psychology-based wellbeing and human development practice serving individuals, teams, organizations and communities."
-        />
+        {/* ===== ROHANI Approach ===== */}
+        <section className="px-6 md:px-10 pt-20 md:pt-32 pb-24 md:pb-40">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-10 md:mb-14">
+              ROHANI Approach
+            </p>
 
-        {/* Approach intro */}
-        <section className="px-6 md:px-10 max-w-7xl mx-auto pb-16 md:pb-24">
-          <div className="grid md:grid-cols-12 gap-10">
-            <div className="md:col-span-7 space-y-6">
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/80">
+            <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance mb-12 md:mb-16">
+              Human First.
+            </h1>
+
+            <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-2xl mb-12 md:mb-16">
+              ROHANI is a psychology-based wellbeing and human development
+              practice serving individuals, teams, organizations and
+              communities.
+            </p>
+
+            <div className="space-y-8 md:space-y-10 max-w-2xl">
+              <p className="text-base md:text-lg leading-[1.75] text-foreground/70">
                 We believe sustainable change happens when people feel safe,
                 understood, and equipped with practical tools they can carry
                 into everyday life.
               </p>
-              <p className="text-base md:text-lg leading-relaxed text-foreground/70">
+              <p className="text-base md:text-lg leading-[1.75] text-foreground/70">
                 Our work combines modern psychology with mindfulness, nervous
                 system regulation, and experiential learning to create
                 meaningful change that lasts.
               </p>
             </div>
-            <div className="md:col-span-5 md:pl-8 md:border-l border-border">
-              <div className="space-y-2 font-serif text-xl md:text-2xl leading-snug">
-                <p>Grounded in science.</p>
-                <p>Guided by humanity.</p>
-                <p>Designed for lasting impact.</p>
+
+            <div className="mt-16 md:mt-24 pt-10 md:pt-14 border-t border-border/60">
+              <div className="space-y-5 md:space-y-6">
+                <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
+                  Grounded in science.
+                </p>
+                <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
+                  Guided by humanity.
+                </p>
+                <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
+                  Designed for lasting impact.
+                </p>
               </div>
             </div>
           </div>
         </section>
+
 
         {/* ===== For Individuals ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
