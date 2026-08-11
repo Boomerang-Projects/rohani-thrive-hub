@@ -55,32 +55,21 @@ function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <PageHero
-          eyebrow="ABOUT ROHANI"
-          title={<>Elevating wellbeing, sustainability and quality of life through modern psychology.</>}
-          intro="Rohani was founded to bridge psychology, mindfulness and human development - for the people, teams and organizations who shape our world."
-        />
-
-        <section className="py-16 md:py-24 px-6 md:px-10 max-w-7xl mx-auto">
+        {/* About ROHANI — 50/50 text + image */}
+        <section className="pt-16 md:pt-24 pb-16 md:pb-24 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
-            {/* Left: About Rohani copy */}
-            <div className="space-y-6">
+            <div className="flex flex-col justify-center space-y-6">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                Our Philosophy
+                ABOUT ROHANI
               </p>
-              <h2 className="text-3xl md:text-4xl font-serif leading-tight">
-                Wellbeing is not a benefit. It is the foundation of everything good work rests on.
-              </h2>
-              <div className="w-12 border-t border-accent/40 my-2" />
-              <p className="text-lg leading-relaxed text-foreground/75">
-                We believe that lasting performance, healthy cultures and
-                resilient leadership begin with the same thing — people who feel
-                safe, seen and capable of leading themselves.
-              </p>
-              <p className="text-lg leading-relaxed text-foreground/75">
-                Rohani exists for HR leaders, executives and international
-                organizations who want to invest in their people seriously, and
-                for individuals ready to grow with intention.
+              <h1 className="text-4xl md:text-5xl font-serif leading-[1.1]">
+                Elevating wellbeing, sustainability and quality of life through
+                modern psychology.
+              </h1>
+              <p className="text-lg md:text-xl leading-relaxed text-foreground/75 max-w-xl">
+                Rohani was founded to bridge psychology, mindfulness and human
+                development - for the people, teams and organizations who shape
+                our world.
               </p>
             </div>
 
@@ -107,7 +96,9 @@ function AboutPage() {
           </div>
         </section>
 
+        <Founder showLink={false} />
 
+        {/* Our Approach */}
         <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
             <div className="md:col-span-5 space-y-4">
@@ -136,7 +127,34 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
+        {/* Our Philosophy — same layout language as Our Approach */}
+        <section className="py-24 md:py-32 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
+            <div className="md:col-span-5 space-y-4">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                Our Philosophy
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+                Wellbeing is not a benefit. It is the foundation of everything
+                good work rests on.
+              </h2>
+            </div>
+            <div className="md:col-span-7 space-y-6">
+              <p className="text-xl leading-relaxed text-foreground/75">
+                We believe that lasting performance, healthy cultures and
+                resilient leadership begin with the same thing — people who feel
+                safe, seen and capable of leading themselves.
+              </p>
+              <p className="text-base leading-relaxed text-foreground/60">
+                Rohani exists for HR leaders, executives and international
+                organizations who want to invest in their people seriously, and
+                for individuals ready to grow with intention.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="mb-14 max-w-2xl">
             <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
               What guides us
@@ -161,7 +179,6 @@ function AboutPage() {
           </div>
         </section>
 
-        <Founder showLink={false} />
 
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
