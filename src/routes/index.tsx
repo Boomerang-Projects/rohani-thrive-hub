@@ -55,17 +55,17 @@ function AboutPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* About ROHANI — 50/50 text + image */}
-        <section className="pt-24 md:pt-32 pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
+        <section className="pt-14 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
-            <div className="flex flex-col justify-between py-1 md:pr-8">
+            <div className="flex flex-col py-1 md:pr-8">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
                 ABOUT ROHANI
               </p>
-              <h1 className="text-4xl md:text-5xl font-serif leading-[1.1] mt-6 md:mt-0">
+              <h1 className="text-4xl md:text-5xl font-serif leading-[1.1] mt-8 md:mt-10">
                 Elevating wellbeing, sustainability and quality of life through
                 modern psychology.
               </h1>
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/75 max-w-xl mt-6 md:mt-0">
+              <p className="text-lg md:text-xl leading-relaxed text-foreground/75 max-w-xl mt-8 md:mt-10">
                 Rohani was founded to bridge psychology, mindfulness and human
                 development - for the people, teams and organizations who shape
                 our world.
@@ -80,7 +80,7 @@ function AboutPage() {
                 width={1024}
                 height={1280}
                 loading="lazy"
-                className="w-full h-full min-h-[26rem] max-h-[34rem] object-cover rounded-3xl"
+                className="w-full h-full min-h-[32rem] md:min-h-[38rem] object-cover rounded-3xl"
                 style={{ objectPosition: "center 18%" }}
               />
               <div className="absolute bottom-0 left-0 md:-bottom-5 md:-left-10 right-0 md:right-auto bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[17rem] border border-taupe/40">
@@ -97,7 +97,7 @@ function AboutPage() {
 
         {/* Our Philosophy — moved up, sits between About ROHANI and Meet the Founder */}
         <section className="pt-0 pb-0 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
             <div className="md:col-span-5 space-y-4">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
                 Our Philosophy
@@ -107,7 +107,7 @@ function AboutPage() {
                 good work rests on.
               </h2>
             </div>
-            <div className="md:col-span-7 space-y-6">
+            <div className="md:col-span-7 space-y-6 md:self-center">
               <p className="text-xl leading-relaxed text-foreground/75">
                 We believe that lasting performance, healthy cultures and
                 resilient leadership begin with the same thing — people who feel
@@ -121,6 +121,7 @@ function AboutPage() {
             </div>
           </div>
         </section>
+
 
         <Founder showLink={false} />
 
