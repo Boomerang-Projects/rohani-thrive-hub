@@ -83,7 +83,7 @@ function AboutPage() {
                 className="w-full h-full min-h-[26rem] max-h-[34rem] object-cover rounded-3xl"
                 style={{ objectPosition: "center 12%" }}
               />
-              <div className="absolute bottom-0 left-0 md:-bottom-6 md:-left-8 right-0 md:right-auto bg-background p-6 md:p-7 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[19rem] border border-taupe/40">
+              <div className="absolute bottom-0 left-0 md:-bottom-5 md:-left-10 right-0 md:right-auto bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[17rem] border border-taupe/40">
                 <p className="font-serif italic text-base md:text-lg leading-snug">
                   "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
                 </p>
