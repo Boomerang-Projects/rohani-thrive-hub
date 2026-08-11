@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-
+import { ServiceCard, CardList } from "@/components/sections/ServiceCard";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -21,6 +21,8 @@ export const Route = createFileRoute("/services")({
         content:
           "Human-first psychology, mindfulness and wellbeing programs for individuals, organizations and communities. Grounded in science. Guided by humanity. Designed for lasting impact.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -173,26 +175,52 @@ const communityExamples = [
   "Preventive mental health interventions",
 ];
 
-/* ---------- Small UI helpers ---------- */
+const sections = [
+  { id: "individuals", index: "01", label: "For Individuals" },
+  { id: "teams", index: "02", label: "For Teams & Organizations" },
+  { id: "communities", index: "03", label: "For Communities" },
+];
+
+/* ---------- Helpers ---------- */
 
 function SectionHeader({
+  id,
   index,
-  eyebrow,
   title,
+  intro,
 }: {
+  id: string;
   index: string;
-  eyebrow: string;
   title: string;
+  intro?: string;
 }) {
   return (
-    <div className="space-y-4">
-      <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-        {index} · {eyebrow}
-      </p>
-      <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-balance">
-        {title}
-      </h2>
+    <div
+      id={id}
+      className="scroll-mt-28 grid md:grid-cols-12 gap-8 md:gap-12 items-end"
+    >
+      <div className="md:col-span-7 space-y-4">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+          {index} · {title}
+        </p>
+        <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-balance">
+          {title}
+        </h2>
+      </div>
+      {intro && (
+        <div className="md:col-span-5">
+          <p className="text-base leading-relaxed text-foreground/70">
+            {intro}
+          </p>
+        </div>
+      )}
     </div>
+  );
+}
+
+function Body({ text }: { text: string }) {
+  return (
+    <p className="text-base leading-relaxed text-foreground/75">{text}</p>
   );
 }
 
@@ -202,103 +230,96 @@ function ServicesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1">
-        {/* ===== ROHANI Approach ===== */}
-        <section className="px-6 md:px-10 pt-20 md:pt-32 pb-24 md:pb-40">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-10 md:mb-14">
-              ROHANI Approach
-            </p>
+      <main className="flex-1 scroll-smooth">
+        {/* ===== Hero ===== */}
+        <section className="px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-end">
+            <div className="md:col-span-7 space-y-8">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                ROHANI Approach
+              </p>
+              <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance">
+                Human First.
+              </h1>
+              <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-xl">
+                ROHANI is a psychology-based wellbeing and human development
+                practice serving individuals, teams, organizations and
+                communities.
+              </p>
+            </div>
 
-            <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance mb-12 md:mb-16">
-              Human First.
-            </h1>
-
-            <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-2xl mb-12 md:mb-16">
-              ROHANI is a psychology-based wellbeing and human development
-              practice serving individuals, teams, organizations and
-              communities.
-            </p>
-
-            <div className="space-y-8 md:space-y-10 max-w-2xl">
-              <p className="text-base md:text-lg leading-[1.75] text-foreground/70">
+            <div className="md:col-span-5 space-y-6">
+              <p className="text-base leading-[1.75] text-foreground/70">
                 We believe sustainable change happens when people feel safe,
                 understood, and equipped with practical tools they can carry
                 into everyday life.
               </p>
-              <p className="text-base md:text-lg leading-[1.75] text-foreground/70">
+              <p className="text-base leading-[1.75] text-foreground/70">
                 Our work combines modern psychology with mindfulness, nervous
                 system regulation, and experiential learning to create
                 meaningful change that lasts.
               </p>
             </div>
+          </div>
 
-            <div className="mt-16 md:mt-24 pt-10 md:pt-14 border-t border-border/60">
-              <div className="space-y-5 md:space-y-6">
-                <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
-                  Grounded in science.
-                </p>
-                <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
-                  Guided by humanity.
-                </p>
-                <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
-                  Designed for lasting impact.
-                </p>
-              </div>
+          {/* Statement + in-page nav */}
+          <div className="max-w-7xl mx-auto mt-16 md:mt-20 pt-10 md:pt-14 border-t border-border/60 grid md:grid-cols-12 gap-10 md:gap-16">
+            <div className="md:col-span-7 space-y-3">
+              <p className="font-serif text-2xl md:text-3xl leading-snug">
+                Grounded in science.
+              </p>
+              <p className="font-serif text-2xl md:text-3xl leading-snug">
+                Guided by humanity.
+              </p>
+              <p className="font-serif text-2xl md:text-3xl leading-snug">
+                Designed for lasting impact.
+              </p>
             </div>
+            <nav className="md:col-span-5 flex flex-col gap-4 md:pt-2">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                Explore
+              </p>
+              {sections.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className="group flex items-baseline justify-between gap-4 border-b border-border/70 pb-3 hover:border-accent transition-colors"
+                >
+                  <span className="text-base md:text-lg font-serif group-hover:text-accent transition-colors">
+                    {s.label}
+                  </span>
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/40">
+                    {s.index}
+                  </span>
+                </a>
+              ))}
+            </nav>
           </div>
         </section>
-
 
         {/* ===== For Individuals ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
+              id="individuals"
               index="01"
-              eyebrow="For individuals"
               title="For Individuals"
+              intro="Psychology-informed support, mindfulness and embodied practice — tailored to where you are right now."
             />
-
-            <div className="mt-12 md:mt-16 space-y-8">
+            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
               {individualServices.map((s) => (
-                <article
+                <ServiceCard
                   key={s.title}
-                  className="grid md:grid-cols-12 gap-8 md:gap-12 p-8 md:p-12 bg-background border border-border rounded-3xl"
+                  title={s.title}
+                  intro={s.body[0]}
                 >
-                  <div className="md:col-span-4">
-                    <h3 className="text-2xl md:text-3xl font-serif leading-tight">
-                      {s.title}
-                    </h3>
-                  </div>
-                  <div className="md:col-span-8 space-y-5">
-                    {s.body.map((p, i) => (
-                      <p
-                        key={i}
-                        className="text-base md:text-lg leading-relaxed text-foreground/75"
-                      >
-                        {p}
-                      </p>
-                    ))}
-                    {s.items && (
-                      <div className="pt-4">
-                        <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-4">
-                          {s.listLabel}
-                        </p>
-                        <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                          {s.items.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-baseline gap-3 text-base text-foreground/80"
-                            >
-                              <span className="size-1 rounded-full bg-accent/70 mt-2 shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </article>
+                  {s.body.slice(1).map((p, i) => (
+                    <Body key={i} text={p} />
+                  ))}
+                  {s.items && (
+                    <CardList label={s.listLabel} items={s.items} />
+                  )}
+                </ServiceCard>
               ))}
             </div>
           </div>
@@ -308,14 +329,15 @@ function ServicesPage() {
         <section className="py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
+              id="teams"
               index="02"
-              eyebrow="For teams & organizations"
               title="For Teams & Organizations"
+              intro="Every collaboration is tailored to the needs, culture, and objectives of your organization."
             />
 
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-10 p-8 md:p-12 bg-background border border-border rounded-3xl">
-              <div className="md:col-span-5 space-y-5">
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
+            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-12">
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
                   Sustainable Performance Starts with People
                 </h3>
               </div>
@@ -337,103 +359,57 @@ function ServicesPage() {
                 </p>
                 <p>
                   Whether you're planning a leadership workshop, wellbeing
-                  initiative, conference, or team development day, the content is
-                  designed to create meaningful and lasting impact.
+                  initiative, conference, or team development day, the content
+                  is designed to create meaningful and lasting impact.
                 </p>
               </div>
             </div>
 
-            {/* Sub-services */}
-            <div className="mt-10 space-y-10">
+            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
               {teamServices.map((svc) => (
-                <article
+                <ServiceCard
                   key={svc.title}
-                  className="p-8 md:p-12 bg-background border border-border rounded-3xl"
+                  eyebrow={svc.title}
+                  title={svc.title}
+                  intro={svc.description}
                 >
-                  <div className="grid md:grid-cols-12 gap-8 md:gap-12">
-                    <div className="md:col-span-4 space-y-4">
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                        {svc.title}
+                  {svc.body?.map((p, i) => (
+                    <Body key={i} text={p} />
+                  ))}
+
+                  {svc.hasCategories && (
+                    <div className="space-y-6">
+                      <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                        Popular topics include:
                       </p>
-                      <h3 className="text-2xl md:text-3xl font-serif leading-tight">
-                        {svc.title}
-                      </h3>
-                      <p className="text-base leading-relaxed text-foreground/70">
-                        {svc.description}
-                      </p>
-                    </div>
-                    <div className="md:col-span-8 space-y-6">
-                      {svc.body?.map((p, i) => (
-                        <p
-                          key={i}
-                          className="text-base md:text-lg leading-relaxed text-foreground/75"
-                        >
-                          {p}
-                        </p>
+                      {workshopCategories.map((cat) => (
+                        <div key={cat.category}>
+                          <p className="font-serif text-lg mb-3">
+                            {cat.category}
+                          </p>
+                          <CardList items={cat.topics} />
+                        </div>
                       ))}
-
-                      {svc.hasCategories && (
-                        <div className="space-y-8 pt-2">
-                          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                            Popular topics include:
-                          </p>
-                          {workshopCategories.map((cat) => (
-                            <div key={cat.category}>
-                              <p className="font-serif text-lg md:text-xl mb-4 text-foreground">
-                                {cat.category}
-                              </p>
-                              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                                {cat.topics.map((topic) => (
-                                  <li
-                                    key={topic}
-                                    className="flex items-baseline gap-3 text-base text-foreground/80"
-                                  >
-                                    <span className="size-1 rounded-full bg-accent/70 mt-2 shrink-0" />
-                                    <span>{topic}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {svc.combine && (
-                        <div className="pt-2">
-                          <ul className="flex flex-wrap gap-2">
-                            {svc.combine.map((item) => (
-                              <li
-                                key={item}
-                                className="px-4 py-2 rounded-full bg-secondary text-sm text-foreground/80"
-                              >
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {svc.ideal && (
-                        <div className="pt-4">
-                          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-4">
-                            {svc.idealLabel}
-                          </p>
-                          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                            {svc.ideal.map((item) => (
-                              <li
-                                key={item}
-                                className="flex items-baseline gap-3 text-base text-foreground/80"
-                              >
-                                <span className="size-1 rounded-full bg-accent/70 mt-2 shrink-0" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
                     </div>
-                  </div>
-                </article>
+                  )}
+
+                  {svc.combine && (
+                    <ul className="flex flex-wrap gap-2">
+                      {svc.combine.map((item) => (
+                        <li
+                          key={item}
+                          className="px-4 py-2 rounded-full bg-secondary text-sm text-foreground/80"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {svc.ideal && (
+                    <CardList label={svc.idealLabel} items={svc.ideal} />
+                  )}
+                </ServiceCard>
               ))}
             </div>
           </div>
@@ -443,44 +419,35 @@ function ServicesPage() {
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
+              id="communities"
               index="03"
-              eyebrow="For communities"
               title="For Communities"
+              intro="Accessible programs that strengthen wellbeing, resilience, and belonging."
             />
 
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-12 p-8 md:p-12 bg-background border border-border rounded-3xl">
-              <div className="md:col-span-5 space-y-5">
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
-                  Programs that Create Meaningful Change
-                </h3>
-              </div>
-              <div className="md:col-span-7 space-y-6">
-                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
-                  ROHANI collaborates with municipalities, schools, NGOs, and
-                  community organizations to design accessible programs that
-                  strengthen wellbeing, resilience, and belonging.
+            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
+              <ServiceCard
+                title="Programs that Create Meaningful Change"
+                intro="ROHANI collaborates with municipalities, schools, NGOs, and community organizations to design accessible programs that strengthen wellbeing, resilience, and belonging."
+              >
+                <Body text="Projects are tailored to each community and may include workshops, group programs, retreats, or educational initiatives for children, adolescents, adults, or families." />
+              </ServiceCard>
+
+              <div className="sm:col-span-1 lg:col-span-2 rounded-3xl border border-border bg-background p-8 md:p-10">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
+                  Examples include:
                 </p>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
-                  Projects are tailored to each community and may include
-                  workshops, group programs, retreats, or educational
-                  initiatives for children, adolescents, adults, or families.
-                </p>
-                <div className="pt-4">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-4">
-                    Examples include:
-                  </p>
-                  <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                    {communityExamples.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-baseline gap-3 text-base text-foreground/80"
-                      >
-                        <span className="size-1 rounded-full bg-accent/70 mt-2 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                  {communityExamples.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-baseline gap-3 text-base text-foreground/80"
+                    >
+                      <span className="size-1 rounded-full bg-accent/70 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
