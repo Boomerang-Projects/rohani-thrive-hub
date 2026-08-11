@@ -4,14 +4,14 @@ import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 export function Founder({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-stretch">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
         {/* Left: labels + portrait */}
         <div className="flex flex-col">
           <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
             Meet the Founder
           </p>
 
-          <div className="mt-6 self-start bg-secondary px-5 py-2 rounded-full border border-border">
+          <div className="mt-6 md:ml-8 self-start bg-secondary px-5 py-2 rounded-full border border-border">
             <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/70">
               Psychologist · Facilitator · Speaker
             </span>
@@ -23,13 +23,13 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
             width={1024}
             height={1280}
             loading="lazy"
-            className="mt-10 md:mt-14 w-full flex-1 h-[32rem] md:h-auto md:min-h-[42rem] object-cover rounded-3xl"
+            className="mt-10 md:mt-14 w-full h-[32rem] md:h-[42rem] object-cover rounded-3xl"
             style={{ objectPosition: "center 20%" }}
           />
         </div>
 
         {/* Right: heading + narrative */}
-        <div className="flex flex-col md:max-w-[36rem] md:pt-[4.5rem]">
+        <div className="flex flex-col md:max-w-[36rem]">
           <h2 className="text-4xl md:text-5xl font-serif leading-[1.1]">
             A psychologist devoted to human potential
           </h2>
