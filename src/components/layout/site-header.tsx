@@ -33,12 +33,6 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/contact"
-            className="hidden md:inline-flex px-6 py-3 border border-foreground/20 rounded-full text-[10px] uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all"
-          >
-            Contact
-          </Link>
           <button
             type="button"
             aria-label="Toggle menu"
@@ -62,13 +56,6 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
-            className="text-accent"
-          >
-            Contact
-          </Link>
         </div>
       )}
     </header>
