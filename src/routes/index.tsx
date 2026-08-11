@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Founder } from "@/components/sections/Founder";
-import founderImage from "@/assets/about-portrait.jpg.asset.json";
+import aboutImage from "@/assets/about-rohani-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,53 +61,52 @@ function AboutPage() {
           intro="Rohani was founded to bridge psychology, mindfulness and human development - for the people, teams and organizations who shape our world."
         />
 
-        <section className="px-6 md:px-10 max-w-7xl mx-auto pb-20 md:pb-28">
-          <div className="relative">
-            <img
-              src={founderImage.url}
-              alt="The Rohani practice"
-              width={1600}
-              height={900}
-              loading="lazy"
-              className="w-full aspect-[16/9] object-cover rounded-3xl"
-              style={{ objectPosition: "center 15%" }}
-            />
-            <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-background p-6 md:p-8 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] max-w-[20rem] hidden sm:block border border-taupe/40">
-              <p className="font-serif italic text-lg leading-snug">
-                "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
-              </p>
-              <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
-                — The Rohani Philosophy
-              </p>
-            </div>
-          </div>
-        </section>
-
-
-        <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
-            <div className="md:col-span-5">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
+        <section className="py-16 md:py-24 px-6 md:px-10 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
+            {/* Left: About Rohani copy */}
+            <div className="space-y-6">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
                 Our Philosophy
               </p>
               <h2 className="text-3xl md:text-4xl font-serif leading-tight">
                 Wellbeing is not a benefit. It is the foundation of everything good work rests on.
               </h2>
-            </div>
-            <div className="md:col-span-7 space-y-6 text-lg text-foreground/75 leading-relaxed">
-              <p>
+              <div className="w-12 border-t border-accent/40 my-2" />
+              <p className="text-lg leading-relaxed text-foreground/75">
                 We believe that lasting performance, healthy cultures and
                 resilient leadership begin with the same thing — people who feel
                 safe, seen and capable of leading themselves.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed text-foreground/75">
                 Rohani exists for HR leaders, executives and international
                 organizations who want to invest in their people seriously, and
                 for individuals ready to grow with intention.
               </p>
             </div>
+
+            {/* Right: portrait with anchored quote bubble */}
+            <div className="relative">
+              <img
+                src={aboutImage.url}
+                alt="Rohani — psychology-based wellbeing and human development"
+                width={1024}
+                height={1280}
+                loading="lazy"
+                className="w-full h-full min-h-[26rem] max-h-[36rem] object-cover rounded-3xl"
+                style={{ objectPosition: "center 20%" }}
+              />
+              <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 right-4 md:right-auto bg-background p-6 md:p-7 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[20rem] border border-taupe/40">
+                <p className="font-serif italic text-base md:text-lg leading-snug">
+                  "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
+                </p>
+                <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
+                  — The Rohani Philosophy
+                </p>
+              </div>
+            </div>
           </div>
         </section>
+
 
         <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">

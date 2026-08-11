@@ -16,21 +16,23 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-10 max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    <section id="contact" className="py-16 md:py-24 px-6 md:px-10 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
         <div className="space-y-10">
           <div className="space-y-6">
             <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
               Get in Touch
             </p>
-            <h2 className="text-4xl md:text-6xl font-serif leading-[1.05] text-balance">
-              Let's Create Meaningful Change Together
+            <h2 className="text-3xl md:text-4xl font-serif leading-tight">
+              Start a conversation
             </h2>
-            <p className="text-lg text-foreground/70 max-w-md leading-relaxed">
+            <div className="w-12 border-t border-accent/40" />
+            <p className="text-lg text-foreground/75 max-w-md leading-relaxed">
               Whether you're an HR leader exploring a partnership or an
               individual ready for the next chapter, we'd love to hear from you.
             </p>
           </div>
+
 
           <div className="space-y-5 pt-2">
             <a
