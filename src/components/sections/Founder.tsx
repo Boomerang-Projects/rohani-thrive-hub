@@ -79,7 +79,7 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
           {showLink && (
             <div className="pt-4">
               <Link
-                to="/about"
+                to="/"
                 className="text-xs uppercase tracking-[0.22em] font-medium border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
               >
                 Read the full story
