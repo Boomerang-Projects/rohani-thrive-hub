@@ -73,11 +73,12 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
               individuals, teams or organizations, my intention is always the
               same: to create the conditions for people to flourish.
             </p>
-            <p className="text-base leading-[1.85] text-foreground/65">
-              Because when people are supported to thrive, everything else
-              grows from there.
-            </p>
           </div>
+
+          <p className="mt-auto pt-6 text-base leading-[1.85] text-foreground/65">
+            Because when people are supported to thrive, everything else
+            grows from there.
+          </p>
           {showLink && (
             <div className="pt-8">
               <Link
