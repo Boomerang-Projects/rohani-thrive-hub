@@ -56,13 +56,6 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            onClick={() => setOpen(false)}
-            className="text-accent"
-          >
-            Contact
-          </Link>
         </div>
       )}
     </header>
