@@ -73,16 +73,18 @@ function AboutPage() {
             </div>
 
             {/* Right: portrait with anchored quote bubble */}
-            <div className="relative pb-16 md:pb-0">
-              <img
-                src={aboutImage.url}
-                alt="Rohani — psychology-based wellbeing and human development"
-                width={1024}
-                height={1280}
-                loading="lazy"
-                className="w-full h-full min-h-[20rem] md:min-h-0 object-cover rounded-3xl"
-                style={{ objectPosition: "center 18%" }}
-              />
+            <div className="relative pb-16 md:pb-0 md:h-full">
+              <div className="relative min-h-[20rem] md:h-full">
+                <img
+                  src={aboutImage.url}
+                  alt="Rohani — psychology-based wellbeing and human development"
+                  width={1024}
+                  height={1280}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover rounded-3xl"
+                  style={{ objectPosition: "center 18%" }}
+                />
+              </div>
               <div className="absolute bottom-0 left-0 md:-bottom-5 md:-left-10 right-0 md:right-auto bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[17rem] border border-taupe/40">
                 <p className="font-serif italic text-base md:text-lg leading-snug">
                   "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
