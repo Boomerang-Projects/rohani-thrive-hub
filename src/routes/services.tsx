@@ -535,7 +535,7 @@ function ServicesPage() {
                   strengthen wellbeing, resilience, and belonging.
                 </p>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 md:pt-14">
                 <p className="text-base leading-[1.8] text-foreground/75">
                   Accessible programs that strengthen wellbeing, resilience, and
                   belonging.
@@ -556,9 +556,9 @@ function ServicesPage() {
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="flex min-h-[7rem] w-full flex-col items-center justify-center gap-2 rounded-3xl border border-border bg-background/70 px-8 py-7 text-center transition-colors duration-500 hover:border-forest/60"
+                    className="flex min-h-[7rem] w-full items-center justify-center gap-3 rounded-3xl border border-border bg-background/70 px-8 py-7 transition-colors duration-500 hover:border-forest/60"
                   >
-                    <span className="size-1 rounded-full bg-accent/70 shrink-0" />
+                    <span className="mt-[0.7em] size-1 self-start rounded-full bg-accent/70 shrink-0" />
                     <h4 className="font-serif text-lg md:text-xl leading-snug text-balance">
                       {item}
                     </h4>
