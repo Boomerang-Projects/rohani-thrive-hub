@@ -266,84 +266,88 @@ function TeamDetail({ svc }: { svc: (typeof teamServices)[number] }) {
   );
 }
 
+const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+
 function TeamsPanel() {
-  const [open, setOpen] = useState<string | null>(null);
-  const active = teamServices.find((s) => s.title === open);
+  const [open, setOpen] = useState<number | null>(null);
+
+  const activeCol = open === null ? null : open % 2;
+  const activeRow = open === null ? null : Math.floor(open / 2);
+
+  const track = (active: number | null, i: number) =>
+    active === null ? "1fr" : active === i ? "3.1fr" : "0.9fr";
 
   return (
-    <div className="rounded-4xl bg-secondary/70 p-5 sm:p-8 md:p-10 min-h-[42rem] md:min-h-[40rem] flex flex-col transition-all duration-500">
-      {!active ? (
-        <div className="grid sm:grid-cols-2 gap-5 md:gap-8 flex-1">
-          {teamServices.map((svc) => (
+    <div className="rounded-4xl bg-secondary/70 p-5 sm:p-8 md:p-10">
+      <div
+        className="grid gap-5 md:gap-8 min-h-[36rem] md:min-h-[40rem]"
+        style={{
+          gridTemplateColumns: `${track(activeCol, 0)} ${track(activeCol, 1)}`,
+          gridTemplateRows: `${track(activeRow, 0)} ${track(activeRow, 1)}`,
+          transition: `grid-template-columns 800ms ${EASE}, grid-template-rows 800ms ${EASE}`,
+        }}
+      >
+        {teamServices.map((svc, i) => {
+          const isOpen = open === i;
+          return (
             <article
               key={svc.title}
-              className="flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9 min-h-[16rem] transition-colors duration-500 hover:border-forest/60"
+              className="min-w-0 min-h-0 flex flex-col rounded-3xl border border-border bg-background p-5 sm:p-7 md:p-9 overflow-hidden hover:border-forest/60"
+              style={{
+                transition: `border-color 500ms ${EASE}, box-shadow 800ms ${EASE}`,
+              }}
             >
-              <h3 className="text-xl md:text-2xl font-serif leading-tight mb-4 text-balance">
+              <h3
+                className="font-serif leading-tight text-balance"
+                style={{
+                  fontSize: isOpen ? "1.75rem" : "1.375rem",
+                  marginBottom: "1rem",
+                  transition: `font-size 800ms ${EASE}`,
+                }}
+              >
                 {svc.title}
               </h3>
-              <p className="text-[0.95rem] leading-relaxed text-foreground/75">
-                {svc.description}
-              </p>
+
+              <div className="min-h-0 flex-1 flex flex-col">
+                <p
+                  className="text-[0.95rem] leading-relaxed text-foreground/75"
+                  style={{
+                    opacity: open === null || isOpen ? 1 : 0.55,
+                    transition: `opacity 700ms ${EASE}`,
+                  }}
+                >
+                  {svc.description}
+                </p>
+
+                <div
+                  className={`min-h-0 ${isOpen ? "flex-1 overflow-y-auto pr-1 mt-5" : "overflow-hidden"}`}
+                  style={{
+                    opacity: isOpen ? 1 : 0,
+                    maxHeight: isOpen ? "100%" : 0,
+                    transition: `opacity ${isOpen ? "700ms 200ms" : "300ms"} ${EASE}`,
+                  }}
+                  aria-hidden={!isOpen}
+                >
+                  <TeamDetail svc={svc} />
+                </div>
+              </div>
+
               <button
                 type="button"
-                onClick={() => setOpen(svc.title)}
-                aria-expanded={false}
-                className="mt-auto pt-7 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                className="mt-auto pt-6 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
               >
-                Read more
+                {isOpen ? "Read less" : "Read more"}
               </button>
             </article>
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-col gap-5 md:gap-6 flex-1">
-          <article className="flex-1 min-h-0 flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9">
-            <div className="flex items-start justify-between gap-6">
-              <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
-                {active.title}
-              </h3>
-              <button
-                type="button"
-                onClick={() => setOpen(null)}
-                aria-expanded
-                className="shrink-0 text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
-              >
-                Read less
-              </button>
-            </div>
-            <div className="mt-5 space-y-5 overflow-y-auto pr-1 max-h-[26rem] md:max-h-[24rem]">
-              <p className="text-base leading-relaxed text-foreground/75">
-                {active.description}
-              </p>
-              <TeamDetail svc={active} />
-            </div>
-          </article>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {teamServices
-              .filter((s) => s.title !== active.title)
-              .map((svc) => (
-                <button
-                  key={svc.title}
-                  type="button"
-                  onClick={() => setOpen(svc.title)}
-                  className="text-left rounded-2xl border border-border bg-background px-5 py-4 hover:border-accent transition-colors"
-                >
-                  <span className="font-serif text-base md:text-lg leading-tight block">
-                    {svc.title}
-                  </span>
-                  <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-foreground/45">
-                    Read more
-                  </span>
-                </button>
-              ))}
-          </div>
-        </div>
-      )}
+          );
+        })}
+      </div>
     </div>
   );
 }
+
 
 
 /* ---------- Page ---------- */
@@ -451,32 +455,31 @@ function ServicesPage() {
         {/* ===== For Teams & Organizations ===== */}
         <section className="py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
+            <div
               id="teams"
-              index="02"
-              title="For Teams & Organizations"
-              
-            />
-
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
-              <div className="md:col-span-5 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+              className="scroll-mt-28 grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start"
+            >
+              <div className="space-y-6">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                  02 · For Teams &amp; Organizations
+                </p>
+                <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-balance">
                   Sustainable Performance Starts with People
-                </h3>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
+                </h2>
+                <p className="text-base md:text-lg leading-[1.8] text-foreground/75">
                   Healthy organizations are built by people who have the
                   psychological resources and regulated nervous systems to
                   thrive.
                 </p>
               </div>
-              <div className="md:col-span-7 md:pt-1 space-y-6">
+              <div className="space-y-6">
                 <p className="text-base leading-[1.8] text-foreground/75">
                   ROHANI partners with companies, educational institutes, and
                   organizations to strengthen wellbeing, resilience, and
                   sustainable performance through evidence-based psychology and
                   engaging, practical experiences.
                 </p>
-                <div className="pt-6 border-t border-border/60 space-y-4">
+                <div className="pt-6 border-t border-border/60 space-y-6">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
                     How we collaborate
                   </p>
@@ -493,6 +496,7 @@ function ServicesPage() {
               </div>
             </div>
 
+
             <div className="mt-12 md:mt-16">
               <TeamsPanel />
             </div>
@@ -502,25 +506,28 @@ function ServicesPage() {
         {/* ===== For Communities ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
+            <div
               id="communities"
-              index="03"
-              title="For Communities"
-              intro="Accessible programs that strengthen wellbeing, resilience, and belonging."
-            />
-
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
-              <div className="md:col-span-5 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+              className="scroll-mt-28 grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start"
+            >
+              <div className="space-y-6">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                  03 · For Communities
+                </p>
+                <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-balance">
                   Programs that Create Meaningful Change
-                </h3>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
+                </h2>
+                <p className="text-base md:text-lg leading-[1.8] text-foreground/75">
                   ROHANI collaborates with municipalities, schools, NGOs, and
                   community organizations to design accessible programs that
                   strengthen wellbeing, resilience, and belonging.
                 </p>
               </div>
-              <div className="md:col-span-7 md:pt-1">
+              <div className="space-y-6">
+                <p className="text-base leading-[1.8] text-foreground/75">
+                  Accessible programs that strengthen wellbeing, resilience, and
+                  belonging.
+                </p>
                 <p className="text-base leading-[1.8] text-foreground/75">
                   Projects are tailored to each community and may include
                   workshops, group programs, retreats, or educational
@@ -533,20 +540,21 @@ function ServicesPage() {
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
                 Examples include:
               </p>
-              <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 transition-colors duration-500 hover:border-forest/60"
+                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 md:p-9 transition-colors duration-500 hover:border-forest/60"
                   >
                     <span className="size-1 rounded-full bg-accent/70 shrink-0 mt-3" />
-                    <h4 className="font-serif text-xl leading-snug text-balance">
+                    <h4 className="font-serif text-xl md:text-2xl leading-snug text-balance">
                       {item}
                     </h4>
                   </article>
                 ))}
               </div>
             </div>
+
           </div>
         </section>
 
