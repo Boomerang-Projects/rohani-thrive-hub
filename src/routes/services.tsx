@@ -278,13 +278,14 @@ function TeamsPanel() {
     active === null ? "1fr" : active === i ? "2.6fr" : "1fr";
 
   return (
-    <div className="rounded-4xl bg-secondary p-4 sm:p-6 md:p-8 border border-foreground/[0.06]">
+    <div className="rounded-4xl bg-secondary p-3 sm:p-4 md:p-6 border border-foreground/[0.06]">
       <div
-        className="grid gap-4 md:gap-6 min-h-[32rem] md:min-h-[38rem]"
+        className="grid gap-3 md:gap-4"
         style={{
           gridTemplateColumns: `${track(activeCol, 0)} ${track(activeCol, 1)}`,
           gridTemplateRows: `${track(activeRow, 0)} ${track(activeRow, 1)}`,
-          transition: `grid-template-columns 900ms ${EASE}, grid-template-rows 900ms ${EASE}`,
+          minHeight: open === null ? "22rem" : "34rem",
+          transition: `grid-template-columns 900ms ${EASE}, grid-template-rows 900ms ${EASE}, min-height 900ms ${EASE}`,
         }}
       >
         {teamServices.map((svc, i) => {
@@ -293,14 +294,15 @@ function TeamsPanel() {
           return (
             <article
               key={svc.title}
-              className="group relative min-w-0 min-h-0 flex flex-col rounded-3xl border border-foreground/10 bg-background/70 px-6 py-6 sm:px-7 sm:py-7 md:px-8 md:py-8 overflow-hidden hover:border-forest/40"
+              className="group relative min-w-0 min-h-0 flex flex-col rounded-3xl border border-foreground/10 bg-background/70 px-5 py-5 sm:px-6 sm:py-6 md:px-7 md:py-6 overflow-hidden hover:border-forest/40"
               style={{
                 transition: `border-color 500ms ${EASE}, background-color 700ms ${EASE}, opacity 700ms ${EASE}`,
                 opacity: dimmed ? 0.72 : 1,
               }}
             >
+
               {/* header row */}
-              <div className="flex items-baseline justify-between gap-4 pb-4 mb-4 border-b border-foreground/10">
+              <div className="flex items-baseline justify-between gap-4 pb-3 mb-3 border-b border-foreground/10">
                 <h3
                   className="font-serif leading-tight text-balance"
                   style={{
@@ -315,7 +317,7 @@ function TeamsPanel() {
                 </span>
               </div>
 
-              <div className="min-h-0 flex-1 flex flex-col">
+              <div className={`min-h-0 flex-1 flex flex-col ${isOpen ? "" : "justify-center"}`}>
                 <p className="text-[0.95rem] leading-[1.75] text-foreground/70">
                   {svc.description}
                 </p>
@@ -338,7 +340,7 @@ function TeamsPanel() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="mt-6 pt-4 border-t border-foreground/10 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-foreground/60 hover:text-accent transition-colors"
+                className="mt-4 pt-3 border-t border-foreground/10 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-foreground/60 hover:text-accent transition-colors"
               >
                 <span>{isOpen ? "Read less" : "Read more"}</span>
                 <span
@@ -550,19 +552,20 @@ function ServicesPage() {
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
                 Examples include:
               </p>
-              <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
+              <div className="grid gap-4 md:gap-5 sm:grid-cols-2 items-start">
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 md:p-9 transition-colors duration-500 hover:border-forest/60"
+                    className="flex items-center justify-center gap-3 rounded-3xl border border-border bg-background px-5 py-4 md:px-6 md:py-5 text-center transition-colors duration-500 hover:border-forest/60"
                   >
-                    <span className="size-1 rounded-full bg-accent/70 shrink-0 mt-3" />
-                    <h4 className="font-serif text-xl md:text-2xl leading-snug text-balance">
+                    <span className="size-1 rounded-full bg-accent/70 shrink-0" />
+                    <h4 className="font-serif text-lg md:text-xl leading-snug text-balance">
                       {item}
                     </h4>
                   </article>
                 ))}
               </div>
+
             </div>
 
           </div>
