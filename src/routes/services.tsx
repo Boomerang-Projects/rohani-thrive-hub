@@ -552,11 +552,11 @@ function ServicesPage() {
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
                 Examples include:
               </p>
-              <div className="grid gap-4 md:gap-5 sm:grid-cols-2 items-start justify-items-center">
+              <div className="grid gap-4 md:gap-5 sm:grid-cols-2 max-w-4xl">
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="inline-flex items-center justify-center gap-3 rounded-3xl border border-border bg-background px-6 py-5 max-w-[22rem] text-center transition-colors duration-500 hover:border-forest/60"
+                    className="flex min-h-[7rem] w-full flex-col items-center justify-center gap-2 rounded-3xl border border-border bg-background/70 px-8 py-7 text-center transition-colors duration-500 hover:border-forest/60"
                   >
                     <span className="size-1 rounded-full bg-accent/70 shrink-0" />
                     <h4 className="font-serif text-lg md:text-xl leading-snug text-balance">
@@ -565,6 +565,7 @@ function ServicesPage() {
                   </article>
                 ))}
               </div>
+
 
 
             </div>
