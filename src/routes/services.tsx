@@ -225,10 +225,130 @@ function Body({ text }: { text: string }) {
   );
 }
 
+function TeamDetail({ svc }: { svc: (typeof teamServices)[number] }) {
+  return (
+    <div className="space-y-5">
+      {svc.body?.map((p, i) => (
+        <Body key={i} text={p} />
+      ))}
+
+      {svc.hasCategories && (
+        <div className="space-y-5">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+            Popular topics include:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {workshopCategories.map((cat) => (
+              <div key={cat.category}>
+                <p className="font-serif text-lg mb-3">{cat.category}</p>
+                <CardList items={cat.topics} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {svc.combine && (
+        <ul className="flex flex-wrap gap-2">
+          {svc.combine.map((item) => (
+            <li
+              key={item}
+              className="px-4 py-2 rounded-full bg-secondary text-sm text-foreground/80"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {svc.ideal && <CardList label={svc.idealLabel} items={svc.ideal} />}
+    </div>
+  );
+}
+
+function TeamsPanel() {
+  const [open, setOpen] = useState<string | null>(null);
+  const active = teamServices.find((s) => s.title === open);
+
+  return (
+    <div className="rounded-4xl bg-secondary/70 p-5 sm:p-8 md:p-10 min-h-[42rem] md:min-h-[40rem] flex flex-col transition-all duration-500">
+      {!active ? (
+        <div className="grid sm:grid-cols-2 gap-5 md:gap-8 flex-1">
+          {teamServices.map((svc) => (
+            <article
+              key={svc.title}
+              className="flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9 min-h-[16rem] transition-colors duration-500 hover:border-forest/60"
+            >
+              <h3 className="text-xl md:text-2xl font-serif leading-tight mb-4 text-balance">
+                {svc.title}
+              </h3>
+              <p className="text-[0.95rem] leading-relaxed text-foreground/75">
+                {svc.description}
+              </p>
+              <button
+                type="button"
+                onClick={() => setOpen(svc.title)}
+                aria-expanded={false}
+                className="mt-auto pt-7 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Read more
+              </button>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-5 md:gap-6 flex-1">
+          <article className="flex-1 min-h-0 flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9">
+            <div className="flex items-start justify-between gap-6">
+              <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+                {active.title}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setOpen(null)}
+                aria-expanded
+                className="shrink-0 text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Read less
+              </button>
+            </div>
+            <div className="mt-5 space-y-5 overflow-y-auto pr-1 max-h-[26rem] md:max-h-[24rem]">
+              <p className="text-base leading-relaxed text-foreground/75">
+                {active.description}
+              </p>
+              <TeamDetail svc={active} />
+            </div>
+          </article>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {teamServices
+              .filter((s) => s.title !== active.title)
+              .map((svc) => (
+                <button
+                  key={svc.title}
+                  type="button"
+                  onClick={() => setOpen(svc.title)}
+                  className="text-left rounded-2xl border border-border bg-background px-5 py-4 hover:border-accent transition-colors"
+                >
+                  <span className="font-serif text-base md:text-lg leading-tight block">
+                    {svc.title}
+                  </span>
+                  <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-foreground/45">
+                    Read more
+                  </span>
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 /* ---------- Page ---------- */
 
 function ServicesPage() {
-  const [openTeam, setOpenTeam] = useState<string | null>(null);
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -314,6 +434,7 @@ function ServicesPage() {
                   key={s.title}
                   title={s.title}
                   intro={s.body[0]}
+                  className="min-h-[26rem]"
                 >
                   {s.body.slice(1).map((p, i) => (
                     <Body key={i} text={p} />
@@ -337,86 +458,43 @@ function ServicesPage() {
               intro="Every collaboration is tailored to the needs, culture, and objectives of your organization."
             />
 
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-12">
-              <div className="md:col-span-5">
+            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
+              <div className="md:col-span-5 space-y-6">
                 <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
                   Sustainable Performance Starts with People
                 </h3>
-              </div>
-              <div className="md:col-span-7 space-y-5 text-base md:text-lg leading-relaxed text-foreground/75">
-                <p>
+                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
                   Healthy organizations are built by people who have the
                   psychological resources and regulated nervous systems to
                   thrive.
                 </p>
-                <p>
+              </div>
+              <div className="md:col-span-7 md:pt-1 space-y-6">
+                <p className="text-base leading-[1.8] text-foreground/75">
                   ROHANI partners with companies, educational institutes, and
                   organizations to strengthen wellbeing, resilience, and
                   sustainable performance through evidence-based psychology and
                   engaging, practical experiences.
                 </p>
-                <p>
-                  Every collaboration is tailored to the needs, culture, and
-                  objectives of your organization.
-                </p>
-                <p>
-                  Whether you're planning a leadership workshop, wellbeing
-                  initiative, conference, or team development day, the content
-                  is designed to create meaningful and lasting impact.
-                </p>
+                <div className="pt-6 border-t border-border/60 space-y-4">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                    How we collaborate
+                  </p>
+                  <p className="text-base leading-[1.8] text-foreground/75">
+                    Every collaboration is tailored to the needs, culture, and
+                    objectives of your organization.
+                  </p>
+                  <p className="text-base leading-[1.8] text-foreground/75">
+                    Whether you're planning a leadership workshop, wellbeing
+                    initiative, conference, or team development day, the content
+                    is designed to create meaningful and lasting impact.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 items-start">
-              {teamServices.map((svc) => (
-                <ServiceCard
-                  key={svc.title}
-                  title={svc.title}
-                  intro={svc.description}
-                  className="min-h-[20rem] md:min-h-[24rem]"
-                  open={openTeam === svc.title}
-                  onToggle={() =>
-                    setOpenTeam((cur) => (cur === svc.title ? null : svc.title))
-                  }
-                >
-                  {svc.body?.map((p, i) => (
-                    <Body key={i} text={p} />
-                  ))}
-
-                  {svc.hasCategories && (
-                    <div className="space-y-6">
-                      <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                        Popular topics include:
-                      </p>
-                      {workshopCategories.map((cat) => (
-                        <div key={cat.category}>
-                          <p className="font-serif text-lg mb-3">
-                            {cat.category}
-                          </p>
-                          <CardList items={cat.topics} />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {svc.combine && (
-                    <ul className="flex flex-wrap gap-2">
-                      {svc.combine.map((item) => (
-                        <li
-                          key={item}
-                          className="px-4 py-2 rounded-full bg-secondary text-sm text-foreground/80"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {svc.ideal && (
-                    <CardList label={svc.idealLabel} items={svc.ideal} />
-                  )}
-                </ServiceCard>
-              ))}
+            <div className="mt-12 md:mt-16">
+              <TeamsPanel />
             </div>
           </div>
         </section>
@@ -431,33 +509,47 @@ function ServicesPage() {
               intro="Accessible programs that strengthen wellbeing, resilience, and belonging."
             />
 
-            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
-              <ServiceCard
-                title="Programs that Create Meaningful Change"
-                intro="ROHANI collaborates with municipalities, schools, NGOs, and community organizations to design accessible programs that strengthen wellbeing, resilience, and belonging."
-              >
-                <Body text="Projects are tailored to each community and may include workshops, group programs, retreats, or educational initiatives for children, adolescents, adults, or families." />
-              </ServiceCard>
-
-              <div className="sm:col-span-1 lg:col-span-2 rounded-3xl border border-border bg-background p-8 md:p-10">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
-                  Examples include:
+            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
+              <div className="md:col-span-5 space-y-6">
+                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+                  Programs that Create Meaningful Change
+                </h3>
+                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
+                  ROHANI collaborates with municipalities, schools, NGOs, and
+                  community organizations to design accessible programs that
+                  strengthen wellbeing, resilience, and belonging.
                 </p>
-                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                  {communityExamples.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-baseline gap-3 text-base text-foreground/80"
-                    >
-                      <span className="size-1 rounded-full bg-accent/70 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              </div>
+              <div className="md:col-span-7 md:pt-1">
+                <p className="text-base leading-[1.8] text-foreground/75">
+                  Projects are tailored to each community and may include
+                  workshops, group programs, retreats, or educational
+                  initiatives for children, adolescents, adults, or families.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 md:mt-16">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
+                Examples include:
+              </p>
+              <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {communityExamples.map((item) => (
+                  <article
+                    key={item}
+                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 transition-colors duration-500 hover:border-forest/60"
+                  >
+                    <span className="size-1 rounded-full bg-accent/70 shrink-0 mt-3" />
+                    <h4 className="font-serif text-xl leading-snug text-balance">
+                      {item}
+                    </h4>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
         </section>
+
 
         {/* Closing CTA */}
         <section className="py-24 md:py-32 px-6 md:px-10">
