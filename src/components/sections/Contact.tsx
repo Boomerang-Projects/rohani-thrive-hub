@@ -63,12 +63,6 @@ export function Contact() {
             </div>
           </div>
 
-          <a
-            href="mailto:hello@rohani.co?subject=Discovery%20Call"
-            className="inline-flex px-8 py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-primary/90 transition-all"
-          >
-            Book a Discovery Call
-          </a>
         </div>
 
         <form
