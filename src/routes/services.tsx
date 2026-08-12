@@ -455,32 +455,31 @@ function ServicesPage() {
         {/* ===== For Teams & Organizations ===== */}
         <section className="py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
+            <div
               id="teams"
-              index="02"
-              title="For Teams & Organizations"
-              
-            />
-
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
-              <div className="md:col-span-5 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+              className="scroll-mt-28 grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start"
+            >
+              <div className="space-y-6">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                  02 · For Teams &amp; Organizations
+                </p>
+                <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-balance">
                   Sustainable Performance Starts with People
-                </h3>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
+                </h2>
+                <p className="text-base md:text-lg leading-[1.8] text-foreground/75">
                   Healthy organizations are built by people who have the
                   psychological resources and regulated nervous systems to
                   thrive.
                 </p>
               </div>
-              <div className="md:col-span-7 md:pt-1 space-y-6">
+              <div className="space-y-6">
                 <p className="text-base leading-[1.8] text-foreground/75">
                   ROHANI partners with companies, educational institutes, and
                   organizations to strengthen wellbeing, resilience, and
                   sustainable performance through evidence-based psychology and
                   engaging, practical experiences.
                 </p>
-                <div className="pt-6 border-t border-border/60 space-y-4">
+                <div className="pt-6 border-t border-border/60 space-y-6">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
                     How we collaborate
                   </p>
@@ -496,6 +495,7 @@ function ServicesPage() {
                 </div>
               </div>
             </div>
+
 
             <div className="mt-12 md:mt-16">
               <TeamsPanel />
