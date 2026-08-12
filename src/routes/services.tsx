@@ -349,7 +349,6 @@ function TeamsPanel() {
 /* ---------- Page ---------- */
 
 function ServicesPage() {
-  const [openTeam, setOpenTeam] = useState<string | null>(null);
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
