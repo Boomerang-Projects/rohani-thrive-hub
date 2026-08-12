@@ -317,7 +317,7 @@ function TeamsPanel() {
                 </span>
               </div>
 
-              <div className="min-h-0 flex-1 flex flex-col">
+              <div className={`min-h-0 flex-1 flex flex-col ${isOpen ? "" : "justify-center"}`}>
                 <p className="text-[0.95rem] leading-[1.75] text-foreground/70">
                   {svc.description}
                 </p>
