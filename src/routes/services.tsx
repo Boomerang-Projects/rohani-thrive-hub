@@ -302,7 +302,7 @@ function TeamsPanel() {
             >
 
               {/* header row */}
-              <div className="flex items-baseline justify-between gap-4 pb-4 mb-4 border-b border-foreground/10">
+              <div className="flex items-baseline justify-between gap-4 pb-3 mb-3 border-b border-foreground/10">
                 <h3
                   className="font-serif leading-tight text-balance"
                   style={{
