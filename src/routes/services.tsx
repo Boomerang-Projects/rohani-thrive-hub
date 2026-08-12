@@ -455,7 +455,7 @@ function ServicesPage() {
               id="teams"
               index="02"
               title="For Teams & Organizations"
-              intro="Every collaboration is tailored to the needs, culture, and objectives of your organization."
+              
             />
 
             <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
