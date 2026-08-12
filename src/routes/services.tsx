@@ -278,13 +278,14 @@ function TeamsPanel() {
     active === null ? "1fr" : active === i ? "2.6fr" : "1fr";
 
   return (
-    <div className="rounded-4xl bg-secondary p-4 sm:p-6 md:p-8 border border-foreground/[0.06]">
+    <div className="rounded-4xl bg-secondary p-3 sm:p-4 md:p-6 border border-foreground/[0.06]">
       <div
-        className="grid gap-4 md:gap-6 min-h-[32rem] md:min-h-[38rem]"
+        className="grid gap-3 md:gap-4"
         style={{
           gridTemplateColumns: `${track(activeCol, 0)} ${track(activeCol, 1)}`,
           gridTemplateRows: `${track(activeRow, 0)} ${track(activeRow, 1)}`,
-          transition: `grid-template-columns 900ms ${EASE}, grid-template-rows 900ms ${EASE}`,
+          minHeight: open === null ? "22rem" : "34rem",
+          transition: `grid-template-columns 900ms ${EASE}, grid-template-rows 900ms ${EASE}, min-height 900ms ${EASE}`,
         }}
       >
         {teamServices.map((svc, i) => {
@@ -293,12 +294,13 @@ function TeamsPanel() {
           return (
             <article
               key={svc.title}
-              className="group relative min-w-0 min-h-0 flex flex-col rounded-3xl border border-foreground/10 bg-background/70 px-6 py-6 sm:px-7 sm:py-7 md:px-8 md:py-8 overflow-hidden hover:border-forest/40"
+              className="group relative min-w-0 min-h-0 flex flex-col rounded-3xl border border-foreground/10 bg-background/70 px-5 py-5 sm:px-6 sm:py-6 md:px-7 md:py-6 overflow-hidden hover:border-forest/40"
               style={{
                 transition: `border-color 500ms ${EASE}, background-color 700ms ${EASE}, opacity 700ms ${EASE}`,
                 opacity: dimmed ? 0.72 : 1,
               }}
             >
+
               {/* header row */}
               <div className="flex items-baseline justify-between gap-4 pb-4 mb-4 border-b border-foreground/10">
                 <h3
