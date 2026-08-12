@@ -506,25 +506,28 @@ function ServicesPage() {
         {/* ===== For Communities ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
+            <div
               id="communities"
-              index="03"
-              title="For Communities"
-              intro="Accessible programs that strengthen wellbeing, resilience, and belonging."
-            />
-
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
-              <div className="md:col-span-5 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+              className="scroll-mt-28 grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-start"
+            >
+              <div className="space-y-6">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+                  03 · For Communities
+                </p>
+                <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-balance">
                   Programs that Create Meaningful Change
-                </h3>
-                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
+                </h2>
+                <p className="text-base md:text-lg leading-[1.8] text-foreground/75">
                   ROHANI collaborates with municipalities, schools, NGOs, and
                   community organizations to design accessible programs that
                   strengthen wellbeing, resilience, and belonging.
                 </p>
               </div>
-              <div className="md:col-span-7 md:pt-1">
+              <div className="space-y-6">
+                <p className="text-base leading-[1.8] text-foreground/75">
+                  Accessible programs that strengthen wellbeing, resilience, and
+                  belonging.
+                </p>
                 <p className="text-base leading-[1.8] text-foreground/75">
                   Projects are tailored to each community and may include
                   workshops, group programs, retreats, or educational
@@ -537,20 +540,21 @@ function ServicesPage() {
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
                 Examples include:
               </p>
-              <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 transition-colors duration-500 hover:border-forest/60"
+                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 md:p-9 transition-colors duration-500 hover:border-forest/60"
                   >
                     <span className="size-1 rounded-full bg-accent/70 shrink-0 mt-3" />
-                    <h4 className="font-serif text-xl leading-snug text-balance">
+                    <h4 className="font-serif text-xl md:text-2xl leading-snug text-balance">
                       {item}
                     </h4>
                   </article>
                 ))}
               </div>
             </div>
+
           </div>
         </section>
 
