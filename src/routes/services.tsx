@@ -275,56 +275,58 @@ function TeamsPanel() {
   const activeRow = open === null ? null : Math.floor(open / 2);
 
   const track = (active: number | null, i: number) =>
-    active === null ? "1fr" : active === i ? "3.1fr" : "0.9fr";
+    active === null ? "1fr" : active === i ? "2.6fr" : "1fr";
 
   return (
-    <div className="rounded-4xl bg-secondary/70 p-5 sm:p-8 md:p-10">
+    <div className="rounded-4xl bg-secondary p-4 sm:p-6 md:p-8 border border-foreground/[0.06]">
       <div
-        className="grid gap-5 md:gap-8 min-h-[36rem] md:min-h-[40rem]"
+        className="grid gap-4 md:gap-6 min-h-[32rem] md:min-h-[38rem]"
         style={{
           gridTemplateColumns: `${track(activeCol, 0)} ${track(activeCol, 1)}`,
           gridTemplateRows: `${track(activeRow, 0)} ${track(activeRow, 1)}`,
-          transition: `grid-template-columns 800ms ${EASE}, grid-template-rows 800ms ${EASE}`,
+          transition: `grid-template-columns 900ms ${EASE}, grid-template-rows 900ms ${EASE}`,
         }}
       >
         {teamServices.map((svc, i) => {
           const isOpen = open === i;
+          const dimmed = open !== null && !isOpen;
           return (
             <article
               key={svc.title}
-              className="min-w-0 min-h-0 flex flex-col rounded-3xl border border-border bg-background p-5 sm:p-7 md:p-9 overflow-hidden hover:border-forest/60"
+              className="group relative min-w-0 min-h-0 flex flex-col rounded-3xl border border-foreground/10 bg-background/70 px-6 py-6 sm:px-7 sm:py-7 md:px-8 md:py-8 overflow-hidden hover:border-forest/40"
               style={{
-                transition: `border-color 500ms ${EASE}, box-shadow 800ms ${EASE}`,
+                transition: `border-color 500ms ${EASE}, background-color 700ms ${EASE}, opacity 700ms ${EASE}`,
+                opacity: dimmed ? 0.72 : 1,
               }}
             >
-              <h3
-                className="font-serif leading-tight text-balance"
-                style={{
-                  fontSize: isOpen ? "1.75rem" : "1.375rem",
-                  marginBottom: "1rem",
-                  transition: `font-size 800ms ${EASE}`,
-                }}
-              >
-                {svc.title}
-              </h3>
-
-              <div className="min-h-0 flex-1 flex flex-col">
-                <p
-                  className="text-[0.95rem] leading-relaxed text-foreground/75"
+              {/* header row */}
+              <div className="flex items-baseline justify-between gap-4 pb-4 mb-4 border-b border-foreground/10">
+                <h3
+                  className="font-serif leading-tight text-balance"
                   style={{
-                    opacity: open === null || isOpen ? 1 : 0.55,
-                    transition: `opacity 700ms ${EASE}`,
+                    fontSize: isOpen ? "1.7rem" : "1.3rem",
+                    transition: `font-size 900ms ${EASE}`,
                   }}
                 >
+                  {svc.title}
+                </h3>
+                <span className="shrink-0 text-[10px] tracking-[0.25em] text-foreground/30 tabular-nums">
+                  0{i + 1}
+                </span>
+              </div>
+
+              <div className="min-h-0 flex-1 flex flex-col">
+                <p className="text-[0.95rem] leading-[1.75] text-foreground/70">
                   {svc.description}
                 </p>
 
                 <div
-                  className={`min-h-0 ${isOpen ? "flex-1 overflow-y-auto pr-1 mt-5" : "overflow-hidden"}`}
+                  className={`min-h-0 ${isOpen ? "flex-1 overflow-y-auto pr-2 mt-6" : "overflow-hidden"}`}
                   style={{
                     opacity: isOpen ? 1 : 0,
+                    transform: isOpen ? "translateY(0)" : "translateY(8px)",
                     maxHeight: isOpen ? "100%" : 0,
-                    transition: `opacity ${isOpen ? "700ms 200ms" : "300ms"} ${EASE}`,
+                    transition: `opacity ${isOpen ? "800ms 350ms" : "250ms"} ${EASE}, transform ${isOpen ? "800ms 350ms" : "250ms"} ${EASE}`,
                   }}
                   aria-hidden={!isOpen}
                 >
@@ -336,9 +338,16 @@ function TeamsPanel() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="mt-auto pt-6 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+                className="mt-6 pt-4 border-t border-foreground/10 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-foreground/60 hover:text-accent transition-colors"
               >
-                {isOpen ? "Read less" : "Read more"}
+                <span>{isOpen ? "Read less" : "Read more"}</span>
+                <span
+                  aria-hidden
+                  className="text-sm leading-none transition-transform duration-500 group-hover:translate-x-1"
+                  style={{ transform: isOpen ? "rotate(180deg)" : undefined }}
+                >
+                  →
+                </span>
               </button>
             </article>
           );
@@ -347,6 +356,7 @@ function TeamsPanel() {
     </div>
   );
 }
+
 
 
 
