@@ -340,7 +340,7 @@ function TeamsPanel() {
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="mt-6 pt-4 border-t border-foreground/10 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-foreground/60 hover:text-accent transition-colors"
+                className="mt-4 pt-3 border-t border-foreground/10 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-foreground/60 hover:text-accent transition-colors"
               >
                 <span>{isOpen ? "Read less" : "Read more"}</span>
                 <span
