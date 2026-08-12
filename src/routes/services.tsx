@@ -225,6 +225,127 @@ function Body({ text }: { text: string }) {
   );
 }
 
+function TeamDetail({ svc }: { svc: (typeof teamServices)[number] }) {
+  return (
+    <div className="space-y-5">
+      {svc.body?.map((p, i) => (
+        <Body key={i} text={p} />
+      ))}
+
+      {svc.hasCategories && (
+        <div className="space-y-5">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+            Popular topics include:
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {workshopCategories.map((cat) => (
+              <div key={cat.category}>
+                <p className="font-serif text-lg mb-3">{cat.category}</p>
+                <CardList items={cat.topics} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {svc.combine && (
+        <ul className="flex flex-wrap gap-2">
+          {svc.combine.map((item) => (
+            <li
+              key={item}
+              className="px-4 py-2 rounded-full bg-secondary text-sm text-foreground/80"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {svc.ideal && <CardList label={svc.idealLabel} items={svc.ideal} />}
+    </div>
+  );
+}
+
+function TeamsPanel() {
+  const [open, setOpen] = useState<string | null>(null);
+  const active = teamServices.find((s) => s.title === open);
+
+  return (
+    <div className="rounded-4xl bg-secondary/70 p-5 sm:p-8 md:p-10 min-h-[42rem] md:min-h-[40rem] flex flex-col transition-all duration-500">
+      {!active ? (
+        <div className="grid sm:grid-cols-2 gap-5 md:gap-8 flex-1">
+          {teamServices.map((svc) => (
+            <article
+              key={svc.title}
+              className="flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9 min-h-[16rem] transition-colors duration-500 hover:border-forest/60"
+            >
+              <h3 className="text-xl md:text-2xl font-serif leading-tight mb-4 text-balance">
+                {svc.title}
+              </h3>
+              <p className="text-[0.95rem] leading-relaxed text-foreground/75">
+                {svc.description}
+              </p>
+              <button
+                type="button"
+                onClick={() => setOpen(svc.title)}
+                aria-expanded={false}
+                className="mt-auto pt-7 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Read more
+              </button>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col gap-5 md:gap-6 flex-1">
+          <article className="flex-1 min-h-0 flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9">
+            <div className="flex items-start justify-between gap-6">
+              <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+                {active.title}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setOpen(null)}
+                aria-expanded
+                className="shrink-0 text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                Read less
+              </button>
+            </div>
+            <div className="mt-5 space-y-5 overflow-y-auto pr-1 max-h-[26rem] md:max-h-[24rem]">
+              <p className="text-base leading-relaxed text-foreground/75">
+                {active.description}
+              </p>
+              <TeamDetail svc={active} />
+            </div>
+          </article>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {teamServices
+              .filter((s) => s.title !== active.title)
+              .map((svc) => (
+                <button
+                  key={svc.title}
+                  type="button"
+                  onClick={() => setOpen(svc.title)}
+                  className="text-left rounded-2xl border border-border bg-background px-5 py-4 hover:border-accent transition-colors"
+                >
+                  <span className="font-serif text-base md:text-lg leading-tight block">
+                    {svc.title}
+                  </span>
+                  <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-foreground/45">
+                    Read more
+                  </span>
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 /* ---------- Page ---------- */
 
 function ServicesPage() {
