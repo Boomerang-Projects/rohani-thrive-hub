@@ -552,19 +552,20 @@ function ServicesPage() {
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
                 Examples include:
               </p>
-              <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
+              <div className="grid gap-4 md:gap-5 sm:grid-cols-2 items-start">
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 md:p-9 transition-colors duration-500 hover:border-forest/60"
+                    className="flex items-center justify-center gap-3 rounded-3xl border border-border bg-background px-5 py-4 md:px-6 md:py-5 text-center transition-colors duration-500 hover:border-forest/60"
                   >
-                    <span className="size-1 rounded-full bg-accent/70 shrink-0 mt-3" />
-                    <h4 className="font-serif text-xl md:text-2xl leading-snug text-balance">
+                    <span className="size-1 rounded-full bg-accent/70 shrink-0" />
+                    <h4 className="font-serif text-lg md:text-xl leading-snug text-balance">
                       {item}
                     </h4>
                   </article>
                 ))}
               </div>
+
             </div>
 
           </div>
