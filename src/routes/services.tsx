@@ -434,6 +434,7 @@ function ServicesPage() {
                   key={s.title}
                   title={s.title}
                   intro={s.body[0]}
+                  className="min-h-[26rem]"
                 >
                   {s.body.slice(1).map((p, i) => (
                     <Body key={i} text={p} />
@@ -457,86 +458,43 @@ function ServicesPage() {
               intro="Every collaboration is tailored to the needs, culture, and objectives of your organization."
             />
 
-            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-12">
-              <div className="md:col-span-5">
+            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
+              <div className="md:col-span-5 space-y-6">
                 <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
                   Sustainable Performance Starts with People
                 </h3>
-              </div>
-              <div className="md:col-span-7 space-y-5 text-base md:text-lg leading-relaxed text-foreground/75">
-                <p>
+                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
                   Healthy organizations are built by people who have the
                   psychological resources and regulated nervous systems to
                   thrive.
                 </p>
-                <p>
+              </div>
+              <div className="md:col-span-7 md:pt-1 space-y-6">
+                <p className="text-base leading-[1.8] text-foreground/75">
                   ROHANI partners with companies, educational institutes, and
                   organizations to strengthen wellbeing, resilience, and
                   sustainable performance through evidence-based psychology and
                   engaging, practical experiences.
                 </p>
-                <p>
-                  Every collaboration is tailored to the needs, culture, and
-                  objectives of your organization.
-                </p>
-                <p>
-                  Whether you're planning a leadership workshop, wellbeing
-                  initiative, conference, or team development day, the content
-                  is designed to create meaningful and lasting impact.
-                </p>
+                <div className="pt-6 border-t border-border/60 space-y-4">
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
+                    How we collaborate
+                  </p>
+                  <p className="text-base leading-[1.8] text-foreground/75">
+                    Every collaboration is tailored to the needs, culture, and
+                    objectives of your organization.
+                  </p>
+                  <p className="text-base leading-[1.8] text-foreground/75">
+                    Whether you're planning a leadership workshop, wellbeing
+                    initiative, conference, or team development day, the content
+                    is designed to create meaningful and lasting impact.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 items-start">
-              {teamServices.map((svc) => (
-                <ServiceCard
-                  key={svc.title}
-                  title={svc.title}
-                  intro={svc.description}
-                  className="min-h-[20rem] md:min-h-[24rem]"
-                  open={openTeam === svc.title}
-                  onToggle={() =>
-                    setOpenTeam((cur) => (cur === svc.title ? null : svc.title))
-                  }
-                >
-                  {svc.body?.map((p, i) => (
-                    <Body key={i} text={p} />
-                  ))}
-
-                  {svc.hasCategories && (
-                    <div className="space-y-6">
-                      <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                        Popular topics include:
-                      </p>
-                      {workshopCategories.map((cat) => (
-                        <div key={cat.category}>
-                          <p className="font-serif text-lg mb-3">
-                            {cat.category}
-                          </p>
-                          <CardList items={cat.topics} />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {svc.combine && (
-                    <ul className="flex flex-wrap gap-2">
-                      {svc.combine.map((item) => (
-                        <li
-                          key={item}
-                          className="px-4 py-2 rounded-full bg-secondary text-sm text-foreground/80"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {svc.ideal && (
-                    <CardList label={svc.idealLabel} items={svc.ideal} />
-                  )}
-                </ServiceCard>
-              ))}
+            <div className="mt-12 md:mt-16">
+              <TeamsPanel />
             </div>
           </div>
         </section>
@@ -551,33 +509,47 @@ function ServicesPage() {
               intro="Accessible programs that strengthen wellbeing, resilience, and belonging."
             />
 
-            <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
-              <ServiceCard
-                title="Programs that Create Meaningful Change"
-                intro="ROHANI collaborates with municipalities, schools, NGOs, and community organizations to design accessible programs that strengthen wellbeing, resilience, and belonging."
-              >
-                <Body text="Projects are tailored to each community and may include workshops, group programs, retreats, or educational initiatives for children, adolescents, adults, or families." />
-              </ServiceCard>
-
-              <div className="sm:col-span-1 lg:col-span-2 rounded-3xl border border-border bg-background p-8 md:p-10">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
-                  Examples include:
+            <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-14">
+              <div className="md:col-span-5 space-y-6">
+                <h3 className="text-2xl md:text-3xl font-serif leading-tight text-balance">
+                  Programs that Create Meaningful Change
+                </h3>
+                <p className="text-base md:text-lg leading-relaxed text-foreground/75">
+                  ROHANI collaborates with municipalities, schools, NGOs, and
+                  community organizations to design accessible programs that
+                  strengthen wellbeing, resilience, and belonging.
                 </p>
-                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                  {communityExamples.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-baseline gap-3 text-base text-foreground/80"
-                    >
-                      <span className="size-1 rounded-full bg-accent/70 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              </div>
+              <div className="md:col-span-7 md:pt-1">
+                <p className="text-base leading-[1.8] text-foreground/75">
+                  Projects are tailored to each community and may include
+                  workshops, group programs, retreats, or educational
+                  initiatives for children, adolescents, adults, or families.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 md:mt-16">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
+                Examples include:
+              </p>
+              <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {communityExamples.map((item) => (
+                  <article
+                    key={item}
+                    className="flex items-start gap-4 min-h-[8rem] rounded-3xl border border-border bg-background p-7 transition-colors duration-500 hover:border-forest/60"
+                  >
+                    <span className="size-1 rounded-full bg-accent/70 shrink-0 mt-3" />
+                    <h4 className="font-serif text-xl leading-snug text-balance">
+                      {item}
+                    </h4>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
         </section>
+
 
         {/* Closing CTA */}
         <section className="py-24 md:py-32 px-6 md:px-10">
