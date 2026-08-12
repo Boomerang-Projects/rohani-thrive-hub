@@ -481,7 +481,7 @@ function ExperiencePage() {
           {/* Statement + in-page nav */}
           <div className="max-w-7xl mx-auto mt-14 md:mt-20 pt-10 md:pt-14 border-t border-border/60 grid md:grid-cols-12 gap-10 md:gap-16">
             <div className="md:col-span-7">
-              <p className="font-serif text-2xl md:text-3xl leading-snug max-w-lg">
+              <p className="font-serif text-xl md:text-[1.6rem] leading-snug max-w-xl text-balance">
                 These are the environments, organisations and initiatives ROHANI
                 has contributed to.
               </p>
