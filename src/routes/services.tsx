@@ -556,10 +556,10 @@ function ServicesPage() {
                 {communityExamples.map((item) => (
                   <article
                     key={item}
-                    className="flex min-h-[7rem] w-full items-center justify-center gap-3 rounded-3xl border border-border bg-background/70 px-8 py-7 transition-colors duration-500 hover:border-forest/60"
+                    className="flex min-h-[7rem] w-full items-center justify-center rounded-3xl border border-border bg-background/70 px-8 py-7 transition-[transform,box-shadow,border-color] duration-500 ease-in-out will-change-transform hover:scale-[1.015] hover:shadow-lg hover:shadow-foreground/5 hover:border-forest/60"
                   >
-                    <span className="mt-[0.7em] size-1 self-start rounded-full bg-accent/70 shrink-0" />
-                    <h4 className="font-serif text-lg md:text-xl leading-snug text-balance">
+                    <h4 className="font-serif text-lg md:text-xl leading-snug text-balance pl-4 -indent-4">
+                      <span className="inline-block align-middle mb-[0.18em] mr-3 size-1 rounded-full bg-accent/70" />
                       {item}
                     </h4>
                   </article>
