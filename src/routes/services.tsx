@@ -575,23 +575,24 @@ function ServicesPage() {
 
 
         {/* Closing CTA */}
-        <section className="py-24 md:py-32 px-6 md:px-10">
+        <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
-              Let's design something meaningful, together.
+              Begin where you are.
             </h2>
-            <p className="text-foreground/70 text-lg">
-              Every person, team and community is different. We'll listen first,
-              then shape a path that fits your context and goals.
+            <p className="text-primary-foreground/70 text-lg">
+              Meaningful change rarely starts with having all the answers.
+              Sometimes, it simply starts with a conversation.
             </p>
             <Link
               to="/contact"
-              className="inline-flex px-8 py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-primary/90 transition-all"
+              className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
             >
               Book a Discovery Call
             </Link>
           </div>
         </section>
+
       </main>
       <SiteFooter />
     </div>
