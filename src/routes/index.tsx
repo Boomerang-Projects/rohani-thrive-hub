@@ -97,8 +97,34 @@ function AboutPage() {
           </div>
         </section>
 
+        {/* What Guides Us */}
+        <section className="pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
+          <div className="mb-14 max-w-2xl">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
+              What guides us
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+              Four principles, in everything we do
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {principles.map((p, i) => (
+              <div
+                key={p.title}
+                className="p-8 md:p-10 border border-border rounded-3xl bg-secondary"
+              >
+                <p className="font-serif text-3xl text-accent mb-4">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="text-2xl font-serif mb-3">{p.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Our Philosophy */}
-        <section className="pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10">
+        <section className="pb-24 md:pb-32 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
             <div className="md:col-span-5 space-y-4">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -124,31 +150,6 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* What Guides Us */}
-        <section className="pb-24 md:pb-32 px-6 md:px-10 max-w-7xl mx-auto">
-          <div className="mb-14 max-w-2xl">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
-              What guides us
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-              Four principles, in everything we do
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {principles.map((p, i) => (
-              <div
-                key={p.title}
-                className="p-8 md:p-10 border border-border rounded-3xl bg-secondary"
-              >
-                <p className="font-serif text-3xl text-accent mb-4">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="text-2xl font-serif mb-3">{p.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         <div className="pb-10 md:pb-14">
           <Founder showLink={false} />
