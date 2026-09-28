@@ -25,7 +25,7 @@ export function HorizontalTimeline({
 
   return (
     <div className="mt-10 md:mt-14">
-      <div className="overflow-x-auto pb-3" aria-label="Timeline">
+      <div className="overflow-x-auto pb-3">
         <div className="relative grid grid-cols-5 min-w-[740px] md:min-w-0">
           <span aria-hidden className="absolute top-[38px] left-[10%] right-[10%] h-px bg-border" />
           {items.map((entry, index) => (
