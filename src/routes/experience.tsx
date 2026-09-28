@@ -287,7 +287,7 @@ function SectionHeader({
   return (
     <div id={id} className="scroll-mt-28 text-center">
       <p
-        className={`text-4xl md:text-5xl uppercase tracking-[0.15em] leading-snug text-balance ${
+        className={`text-4xl md:text-5xl font-bold uppercase tracking-[0.15em] leading-snug text-balance ${
           dark ? "text-gold" : "text-accent"
         }`}
       >
