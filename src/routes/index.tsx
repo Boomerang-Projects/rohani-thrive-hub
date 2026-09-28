@@ -67,27 +67,41 @@ function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />
 
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-              ABOUT ROHANI
-            </p>
-            <h1 className="text-4xl md:text-6xl font-serif leading-[1.08] text-background max-w-3xl mt-8 md:mt-10">
-              Elevating wellbeing, sustainability and quality of life through
-              modern psychology.
-            </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-background/85 max-w-xl mt-8 md:mt-10">
-              Rohani was founded to bridge psychology, mindfulness and human
-              development - for the people, teams and organizations who shape
-              our world.
-            </p>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-16">
+              <div className="max-w-3xl">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
+                  ABOUT ROHANI
+                </p>
+                <h1 className="text-4xl md:text-6xl font-serif leading-[1.08] text-background max-w-3xl mt-8 md:mt-10">
+                  Elevating wellbeing, sustainability and quality of life through
+                  modern psychology.
+                </h1>
+                <p className="text-lg md:text-xl leading-relaxed text-background/85 max-w-xl mt-8 md:mt-10">
+                  Rohani was founded to bridge psychology, mindfulness and human
+                  development - for the people, teams and organizations who shape
+                  our world.
+                </p>
+              </div>
 
-            {/* Quote card */}
-            <div className="mt-8 md:mt-0 md:absolute md:bottom-0 md:right-0 max-w-[17rem] bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] border border-taupe/40">
-              <p className="font-serif italic text-base md:text-lg leading-snug">
-                "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
-              </p>
-              <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
-                — The Rohani Philosophy
-              </p>
+              {/* Quote card */}
+              <div className="relative max-w-md lg:max-w-[22rem] lg:flex-none bg-background p-7 md:p-9 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+                <div className="absolute top-0 left-0 w-16 h-1 bg-accent" />
+                <span
+                  aria-hidden
+                  className="absolute -top-5 -left-2 font-serif italic text-7xl text-foreground/5 select-none"
+                >
+                  "
+                </span>
+                <blockquote className="relative font-serif italic text-lg md:text-xl leading-relaxed text-foreground">
+                  "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
+                </blockquote>
+                <div className="mt-6 flex items-center gap-4">
+                  <div className="h-px w-6 bg-accent" />
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
+                    The Rohani Philosophy
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
