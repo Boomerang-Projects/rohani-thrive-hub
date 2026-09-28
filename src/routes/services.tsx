@@ -540,6 +540,17 @@ function ServicesPage() {
             </div>
 
 
+            <div className="mt-12 md:mt-16 overflow-hidden rounded-4xl">
+              <img
+                src={servicesTeams}
+                alt="Sunlit meeting space set for a workshop"
+                width={1600}
+                height={1008}
+                loading="lazy"
+                className="w-full h-[14rem] md:h-[22rem] object-cover"
+              />
+            </div>
+
             <div className="mt-12 md:mt-16">
               <TeamsPanel />
             </div>
