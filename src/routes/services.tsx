@@ -616,6 +616,13 @@ function ServicesPage() {
         </section>
 
 
+        {/* Texture band */}
+        <div
+          aria-hidden
+          className="h-24 md:h-40 bg-cover bg-center"
+          style={{ backgroundImage: `url(${servicesTexture})` }}
+        />
+
         {/* Closing CTA */}
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
