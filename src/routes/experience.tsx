@@ -5,6 +5,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
+import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 
 export const Route = createFileRoute("/experience")({
@@ -34,17 +35,6 @@ export const Route = createFileRoute("/experience")({
 });
 
 /* ---------- Data ---------- */
-
-type TimelineItem = {
-  org: string;
-  role: string;
-  context?: string;
-  period: string;
-  feature?: boolean;
-  to?: string;
-  cta?: string;
-  detail: string[];
-};
 
 const timeline: TimelineItem[] = [
   {
@@ -327,74 +317,6 @@ function SectionHeader({
   );
 }
 
-function TimelineRow({
-  item,
-  last,
-}: {
-  item: TimelineItem;
-  last: boolean;
-}) {
-  return (
-    <div className={`relative pl-8 md:pl-12 ${last ? "" : "pb-12 md:pb-16"}`}>
-      {/* rail */}
-      {!last && (
-        <span
-          aria-hidden
-          className="absolute left-[5px] md:left-[7px] top-3 bottom-0 w-px bg-border"
-        />
-      )}
-      <span
-        aria-hidden
-        className={`absolute left-0 top-2 rounded-full ${
-          item.feature
-            ? "size-3 md:size-4 bg-accent"
-            : "size-2.5 md:size-3.5 bg-taupe"
-        }`}
-      />
-
-      <div className="grid md:grid-cols-12 gap-2 md:gap-8">
-        <p className="md:col-span-3 text-[11px] uppercase tracking-[0.22em] text-accent md:pt-2.5">
-          {item.period}
-        </p>
-        <div className="md:col-span-9 space-y-2.5">
-          <h3
-            className={`font-serif leading-tight text-balance ${
-              item.feature ? "text-3xl md:text-4xl" : "text-2xl md:text-[1.7rem]"
-            }`}
-          >
-            {item.org}
-          </h3>
-          <p className="font-serif italic text-lg md:text-xl leading-snug text-foreground/70">
-            {item.role}
-          </p>
-          {item.context && (
-            <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/45">
-              {item.context}
-            </p>
-          )}
-          <div className="space-y-3 pt-2">
-            {item.detail.map((p) => (
-              <p key={p} className="text-base leading-[1.75] text-foreground/75">
-                {p}
-              </p>
-            ))}
-          </div>
-          {item.to && (
-            <div className="pt-3">
-              <Link
-                to={item.to}
-                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-foreground/30 pb-1 hover:text-accent hover:border-accent transition-colors"
-              >
-                {item.cta ?? "Se erfarenheten"} <span aria-hidden>→</span>
-              </Link>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function ClinicalCard({ entry }: { entry: Entry }) {
   return (
     <article className="flex flex-col rounded-3xl border border-background/15 bg-background/[0.04] p-7 md:p-8 transition-colors duration-500 hover:border-gold/40">
@@ -497,15 +419,7 @@ function ExperiencePageSv() {
               title="Utvald erfarenhet"
               intro="En kurerad professionell resa genom klinisk psykologi, organisationer och samhällsarbete."
             />
-            <div className="mt-14 md:mt-20 max-w-5xl">
-              {timeline.map((item, i) => (
-                <TimelineRow
-                  key={item.org}
-                  item={item}
-                  last={i === timeline.length - 1}
-                />
-              ))}
-            </div>
+            <HorizontalTimeline items={timeline} fallbackCta="Se erfarenheten" />
           </div>
         </section>
 
