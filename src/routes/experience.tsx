@@ -9,6 +9,7 @@ import { HorizontalTimeline, type TimelineItem } from "@/components/sections/Hor
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
+import mediaPodcast from "@/assets/media-podcast.jpg";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -603,48 +604,67 @@ function ExperiencePageSv() {
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="I media" />
-            <div className="mt-12 md:mt-16 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <div className="lg:col-span-7 divide-y divide-border/70 border-t border-border/70">
-                {[
-                  {
-                    name: "Sveriges Radio",
-                    text: "Intervjuad om ungdomars välbefinnande, psykologi och samhällsbaserad folkbildning.",
-                  },
-                  {
-                    name: "Psykologtidningen",
-                    text: "Uppmärksammad i samband med G-Flow och skärningspunkten mellan psykologi, kultur och ungdomsutveckling.",
-                  },
-                ].map((m) => (
-                  <div
-                    key={m.name}
-                    className="py-6 grid md:grid-cols-12 gap-2 md:gap-6 items-baseline"
-                  >
-                    <p className="md:col-span-5 font-serif text-xl md:text-2xl">
-                      {m.name}
-                    </p>
-                    <p className="md:col-span-7 text-base leading-[1.75] text-foreground/70">
-                      {m.text}
-                    </p>
-                  </div>
-                ))}
+            <div className="mt-12 md:mt-16 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
+              {/* Sveriges Radio */}
+              <div>
+                <img
+                  src={mediaRadio}
+                  alt="Studiomikrofon i varmt ljus"
+                  loading="lazy"
+                  width={1200}
+                  height={900}
+                  draggable={false}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                />
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                  Sveriges Radio
+                </h3>
+                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                  Intervjuad om ungdomars välbefinnande, psykologi och samhällsbaserad folkbildning.
+                </p>
               </div>
-              <div className="lg:col-span-4 lg:col-start-9 max-w-sm mx-auto w-full">
-                <div className="relative rounded-[2rem] bg-terracotta/30">
-                  <button
-                    type="button"
-                    onClick={() => setLightboxOpen(true)}
-                    aria-label="Öppna artikeln i full storlek"
-                    className="relative block w-full cursor-zoom-in p-3 md:p-4"
-                  >
-                    <img
-                      src={mediaArticle.url}
-                      alt="Artikel i Psykologtidningen om G-Flow"
-                      loading="lazy"
-                      draggable={false}
-                      className="w-full h-auto rounded-2xl shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.01]"
-                    />
-                  </button>
-                </div>
+
+              {/* Psykologtidningen */}
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setLightboxOpen(true)}
+                  aria-label="Öppna artikeln i full storlek"
+                  className="block cursor-zoom-in"
+                >
+                  <img
+                    src={mediaArticle.url}
+                    alt="Artikel i Psykologtidningen om G-Flow"
+                    loading="lazy"
+                    draggable={false}
+                    className="size-32 md:size-36 rounded-full object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                  />
+                </button>
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                  Psykologtidningen
+                </h3>
+                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                  Uppmärksammad i samband med G-Flow och skärningspunkten mellan psykologi, kultur och ungdomsutveckling.
+                </p>
+              </div>
+
+              {/* Podd */}
+              <div>
+                <img
+                  src={mediaPodcast}
+                  alt="Podcastmikrofoner i inspelningsstudio"
+                  loading="lazy"
+                  width={1200}
+                  height={900}
+                  draggable={false}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                />
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                  Podd
+                </h3>
+                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                  Gäst i samtal om psykologi, kultur och välbefinnande.
+                </p>
               </div>
             </div>
 
