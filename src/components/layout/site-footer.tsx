@@ -1,6 +1,8 @@
+import { useLang } from "@/lib/i18n";
+import { SiteFooterEn } from "@/components/en/site-footer";
 import { Link } from "@tanstack/react-router";
 
-export function SiteFooter() {
+function SiteFooterSv() {
   return (
     <footer className="bg-background border-t border-border/50">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 grid md:grid-cols-12 gap-10">
@@ -70,4 +72,9 @@ export function SiteFooter() {
       </div>
     </footer>
   );
+}
+
+export function SiteFooter(props: Record<string, never>) {
+  const { lang } = useLang();
+  return lang === "en" ? <SiteFooterEn {...props} /> : <SiteFooterSv {...props} />;
 }

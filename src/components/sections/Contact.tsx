@@ -1,7 +1,9 @@
+import { useLang } from "@/lib/i18n";
+import { ContactEn } from "@/components/en/Contact";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 
-export function Contact() {
+function ContactSv() {
   const [submitting, setSubmitting] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -93,4 +95,9 @@ function Field({
       />
     </div>
   );
+}
+
+export function Contact(props: Record<string, never>) {
+  const { lang } = useLang();
+  return lang === "en" ? <ContactEn {...props} /> : <ContactSv {...props} />;
 }

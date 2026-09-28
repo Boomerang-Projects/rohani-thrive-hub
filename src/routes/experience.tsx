@@ -1,3 +1,5 @@
+import { useLang } from "@/lib/i18n";
+import { ExperienceEn } from "@/components/en/ExperienceEn";
 import { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -433,7 +435,7 @@ function TimelineRow({
 
 /* ---------- Page ---------- */
 
-function ExperiencePage() {
+function ExperiencePageSv() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -710,4 +712,9 @@ function ExperiencePage() {
       <SiteFooter />
     </div>
   );
+}
+
+function ExperiencePage() {
+  const { lang } = useLang();
+  return lang === "en" ? <ExperienceEn /> : <ExperiencePageSv />;
 }

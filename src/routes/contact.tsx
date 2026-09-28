@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Contact } from "@/components/sections/Contact";
+import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -29,31 +30,31 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { t } = useLang();
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
         <PageHero
           centered
-          eyebrow="Kontakt"
-          title={<>Låt oss skapa meningsfull förändring tillsammans</>}
-          intro="Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar."
+          eyebrow={t("Kontakt", "Contact") as string}
+          title={t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
+          intro={t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.") as string}
         />
         <Contact />
         <section id="cta" className="scroll-mt-24 bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
-              Börja där du är.
+              {t("Börja där du är.", "Begin where you are.")}
             </h2>
             <p className="text-primary-foreground/70 text-lg">
-              Meningsfull förändring börjar sällan med att ha alla svar.
-              Ibland börjar den helt enkelt med ett samtal.
+              {t("Meningsfull förändring börjar sällan med att ha alla svar. Ibland börjar den helt enkelt med ett samtal.", "Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.")}
             </p>
             <a
               href="#contact"
               className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
             >
-              Boka ett introducerande samtal
+              {t("Boka ett introducerande samtal", "Book a Discovery Call")}
             </a>
           </div>
         </section>

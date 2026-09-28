@@ -7,3 +7,6 @@
 - [x] Mobile: dedicated mobile hero crop (src/assets/hero-mobile.jpg) served via <picture>
 - [x] Hero portrait upscaled 1.5x (desktop 2880×2100 via Lanczos; src/assets/hero-desktop.jpg)
 - [x] Nav hover dropdowns with section links (verified at desktop widths)
+
+- [x] Language switch SV/EN in navbar + mobile menu
+- [x] Mobile hero: separate image (not overlay) on mobile
