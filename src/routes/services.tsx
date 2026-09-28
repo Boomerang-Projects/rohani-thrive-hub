@@ -3,6 +3,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ServiceCard, CardList } from "@/components/sections/ServiceCard";
+import servicesHero from "@/assets/services-hero.jpg";
+import servicesIndividuals from "@/assets/services-individuals.jpg";
+import servicesTeams from "@/assets/services-teams.jpg";
+import servicesTexture from "@/assets/services-texture.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
