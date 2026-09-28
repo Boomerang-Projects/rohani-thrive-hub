@@ -608,20 +608,22 @@ export function ExperienceEn() {
 
               {/* Psykologtidningen */}
               <div>
-                <button
-                  type="button"
-                  onClick={() => setLightboxOpen(true)}
-                  aria-label="Open the article full size"
-                  className="block cursor-zoom-in"
-                >
-                  <img
-                    src={mediaArticle.url}
-                    alt="Article in Psykologtidningen about G-Flow"
-                    loading="lazy"
-                    draggable={false}
-                    className="size-32 md:size-36 rounded-full object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
-                  />
-                </button>
+                <div className="flex aspect-[4/3] w-full items-center">
+                  <button
+                    type="button"
+                    onClick={() => setLightboxOpen(true)}
+                    aria-label="Open the article full size"
+                    className="block cursor-zoom-in"
+                  >
+                    <img
+                      src={mediaArticle.url}
+                      alt="Article in Psykologtidningen about G-Flow"
+                      loading="lazy"
+                      draggable={false}
+                      className="size-32 md:size-40 rounded-full object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                    />
+                  </button>
+                </div>
                 <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
                   Psykologtidningen
                 </h3>
