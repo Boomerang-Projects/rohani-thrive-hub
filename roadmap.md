@@ -1,2 +1,4 @@
-- [x] Convert About page top picture into a hero
-- [x] Center-align the top text of the contact page with the contact form
+# Roadmap
+
+- [ ] Hero (homepage): keep text from covering the face at all viewport sizes
+- [ ] Contact page: decrease space between hero text and the contact form
