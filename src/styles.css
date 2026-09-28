@@ -62,12 +62,12 @@
 :root {
   --radius: 1rem;
 
-  /* Reference palette: cream #F6E3BB, apricot #F9B85E, orange #C25C22, rust #792712. */
-  --background: #F6E3BB;
+  /* Earthy beige and burgundy-brown lead; reference apricot and orange are accents. */
+  --background: #EDE1D5;
   --foreground: #792712;
   --apricot: #F9B85E;
   --terracotta: #C25C22;
-  --sage-tint: color-mix(in oklab, var(--apricot) 45%, var(--background));
+  --sage-tint: #E2CBBF;
   --sage: var(--terracotta);
 
   /* Existing role names retain their meaning throughout the site. */
@@ -85,7 +85,7 @@
   --primary-foreground: var(--background);
   --secondary: var(--sage-tint);
   --secondary-foreground: var(--foreground);
-  --muted: color-mix(in oklab, var(--apricot) 30%, var(--background));
+  --muted: color-mix(in srgb, var(--foreground) 10%, var(--background));
   --muted-foreground: var(--foreground);
   --accent: color-mix(in srgb, var(--terracotta) 55%, var(--foreground));
   --accent-foreground: var(--background);
@@ -113,23 +113,23 @@
 
 .dark {
   --background: #792712;
-  --foreground: #F6E3BB;
+  --foreground: #EDE1D5;
   --card: #792712;
-  --card-foreground: #F6E3BB;
+  --card-foreground: #EDE1D5;
   --popover: #792712;
-  --popover-foreground: #F6E3BB;
+  --popover-foreground: #EDE1D5;
   --primary: #F9B85E;
   --primary-foreground: #792712;
   --secondary: color-mix(in srgb, #C25C22 32%, #792712);
-  --secondary-foreground: #F6E3BB;
+  --secondary-foreground: #EDE1D5;
   --muted: color-mix(in srgb, #C25C22 32%, #792712);
-  --muted-foreground: #F6E3BB;
+  --muted-foreground: #EDE1D5;
   --accent: #F9B85E;
   --accent-foreground: #792712;
   --destructive: #F9B85E;
   --destructive-foreground: #792712;
-  --border: color-mix(in srgb, #F6E3BB 20%, transparent);
-  --input: color-mix(in srgb, #F6E3BB 25%, transparent);
+  --border: color-mix(in srgb, #EDE1D5 20%, transparent);
+  --input: color-mix(in srgb, #EDE1D5 25%, transparent);
   --ring: color-mix(in srgb, #F9B85E 50%, transparent);
 }
 
