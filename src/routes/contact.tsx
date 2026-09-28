@@ -40,7 +40,7 @@ function ContactPage() {
           intro="Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar."
         />
         <Contact />
-        <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
+        <section id="cta" className="scroll-mt-24 bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
               Börja där du är.

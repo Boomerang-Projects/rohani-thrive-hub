@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
-import aboutImage from "@/assets/about-rohani-portrait-v2.jpg.asset.json";
+import heroDesktop from "@/assets/hero-desktop.jpg";
+import heroMobile from "@/assets/hero-mobile.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,14 +59,17 @@ function AboutPage() {
       <main className="flex-1">
         {/* Hero — full-bleed portrait with overlay copy */}
         <section className="relative flex items-end min-h-[110vh] md:min-h-[95vh] xl:min-h-[85vh] overflow-hidden">
-          <img
-            src={aboutImage.url}
-            alt="Rohani — psykologibaserad verksamhet för välbefinnande och mänsklig utveckling"
-            width={1920}
-            height={1400}
-            className="absolute inset-0 w-full h-full object-cover scale-[1.35] -translate-y-[17%] md:-translate-y-[15%] lg:-translate-y-[14%] xl:-translate-y-[8%]"
-            style={{ objectPosition: "50% 32%" }}
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcSet={heroMobile} />
+            <img
+              src={heroDesktop}
+              alt="Rohani — psykologibaserad verksamhet för välbefinnande och mänsklig utveckling"
+              width={2880}
+              height={2100}
+              className="absolute inset-0 w-full h-full object-cover scale-[1.2] md:scale-[1.35] md:-translate-y-[15%] lg:-translate-y-[14%] xl:-translate-y-[8%]"
+              style={{ objectPosition: "50% 32%" }}
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />
 
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
@@ -111,7 +115,7 @@ function AboutPage() {
         </section>
 
         {/* What Guides Us */}
-        <section className="pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
+        <section id="vagleder" className="scroll-mt-24 pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <div className="mb-14 max-w-2xl">
             <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
               Det som vägleder oss
@@ -137,7 +141,7 @@ function AboutPage() {
         </section>
 
         {/* Our Philosophy */}
-        <section className="pb-24 md:pb-32 px-6 md:px-10">
+        <section id="filosofi" className="scroll-mt-24 pb-24 md:pb-32 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
             <div className="md:col-span-5 space-y-4">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
@@ -164,12 +168,12 @@ function AboutPage() {
         </section>
 
 
-        <div className="pb-10 md:pb-14">
+        <div id="grundaren" className="scroll-mt-24 pb-10 md:pb-14">
           <Founder showLink={false} />
         </div>
 
         {/* Our Approach */}
-        <section className="bg-secondary py-24 md:py-32 px-6 md:px-10">
+        <section id="metod" className="scroll-mt-24 bg-secondary py-24 md:py-32 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
             <div className="md:col-span-5 space-y-4">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
