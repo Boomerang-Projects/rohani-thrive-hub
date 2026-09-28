@@ -409,9 +409,9 @@ export function ExperienceEn() {
         <section className="relative overflow-hidden">
           <img
             src={experienceHero.url}
-            alt="Raised hands reaching toward an open blue sky"
+            alt="A group resting on mats outdoors in the evening sun"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 22%" }}
+            style={{ objectPosition: "50% 60%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/15" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7">
