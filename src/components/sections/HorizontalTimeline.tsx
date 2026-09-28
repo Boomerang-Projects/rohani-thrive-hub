@@ -36,7 +36,7 @@ export function HorizontalTimeline({
                 aria-pressed={selected === index}
                 aria-controls="timeline-detail"
                 onClick={() => setSelected(index)}
-                className="group relative flex h-auto sm:h-[106px] w-full min-w-0 flex-col items-center justify-start gap-0 px-0 sm:px-1 py-0 text-foreground hover:bg-transparent hover:text-foreground focus-visible:ring-accent"
+                className="group relative flex h-auto w-full min-w-0 flex-col items-center justify-start gap-0 px-0 sm:px-1 py-0 text-foreground hover:bg-transparent hover:text-foreground focus-visible:ring-accent"
               >
                 <span className="hidden sm:flex h-[30px] shrink-0 items-center text-center text-[10px] uppercase tracking-[0.16em] text-accent">
                   {entry.period}
@@ -51,7 +51,7 @@ export function HorizontalTimeline({
                 >
                   {entry.period}
                 </span>
-                <span className={`hidden sm:line-clamp-2 mt-5 max-w-full text-center font-serif text-base lg:text-lg leading-tight whitespace-normal break-words transition-opacity duration-200 motion-reduce:transition-none ${selected === index ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"}`}>
+                <span className={`hidden sm:block mt-5 max-w-full text-center font-serif text-base lg:text-lg leading-tight whitespace-normal break-words transition-opacity duration-200 motion-reduce:transition-none ${selected === index ? "opacity-100" : "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"}`}>
                   {entry.org}
                 </span>
               </Button>
