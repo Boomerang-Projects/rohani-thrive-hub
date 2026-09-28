@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
+import mediaRadio from "@/assets/media-radio.jpg";
+import mediaMagazine from "@/assets/media-magazine.jpg";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
