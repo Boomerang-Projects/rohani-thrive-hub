@@ -61,7 +61,7 @@ function ContactPage() {
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
               {t("Börja där du är.", "Begin where you are.")}
             </h2>
-            <p className="text-background/70 text-lg">
+            <p className="text-background/90 text-lg">
               {t("Meningsfull förändring börjar sällan med att ha alla svar. Ibland börjar den helt enkelt med ett samtal.", "Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.")}
             </p>
             <a
