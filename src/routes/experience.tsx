@@ -7,18 +7,18 @@ export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       {
-        title: "Experience — Psychology, Wellbeing & Human Development | Rohani",
+        title: "Erfarenhet — Psykologi, välbefinnande & mänsklig utveckling | Rohani",
       },
       {
         name: "description",
         content:
-          "The professional journey behind ROHANI: clinical psychology, organisational wellbeing, community initiatives and experiential retreats across Sweden and internationally.",
+          "Resan bakom ROHANI: klinisk psykologi, organisatoriskt välbefinnande, samhällsinitiativ och upplevelsebaserade retreats i Sverige och internationellt.",
       },
-      { property: "og:title", content: "Experience — Rohani" },
+      { property: "og:title", content: "Erfarenhet — Rohani" },
       {
         property: "og:description",
         content:
-          "Clinical psychology, workplace wellbeing, youth initiatives and retreats — the environments, organisations and initiatives ROHANI has contributed to.",
+          "Klinisk psykologi, välbefinnande i arbetslivet, ungdomsinitiativ och retreats — miljöerna, organisationerna och initiativen ROHANI har bidragit till.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,12 +32,12 @@ export const Route = createFileRoute("/experience")({
 /* ---------- Data ---------- */
 
 const navSections = [
-  { id: "selected-experience", label: "Selected Experience" },
-  { id: "clinical", label: "Psychology & Clinical Practice" },
-  { id: "organisational", label: "Professional & Organisational Work" },
-  { id: "community", label: "Community & Social Impact" },
-  { id: "wellbeing", label: "Wellbeing & Experiential Work" },
-  { id: "media", label: "In the Media" },
+  { id: "selected-experience", label: "Utvald erfarenhet" },
+  { id: "clinical", label: "Psykologi & kliniskt arbete" },
+  { id: "organisational", label: "Professionellt & organisatoriskt arbete" },
+  { id: "community", label: "Samhälle & social påverkan" },
+  { id: "wellbeing", label: "Välbefinnande & upplevelsebaserat arbete" },
+  { id: "media", label: "I media" },
 ];
 
 type TimelineItem = {
@@ -54,54 +54,54 @@ type TimelineItem = {
 const timeline: TimelineItem[] = [
   {
     org: "ROHANI",
-    role: "Founder · Psychology · Wellbeing · Human Development",
-    context: "Sweden / International",
-    period: "2025 — Present",
+    role: "Grundare · Psykologi · Välbefinnande · Mänsklig utveckling",
+    context: "Sverige / Internationellt",
+    period: "2025 — Nu",
     feature: true,
     to: "/services",
-    cta: "View the ROHANI approach",
+    cta: "Se ROHANIs förhållningssätt",
     detail: [
-      "ROHANI is a psychology-based wellbeing and human development practice working with individuals, teams, organisations and communities.",
-      "The work combines psychological science with mindfulness, nervous system regulation, movement and experiential learning — translated into accessible, practical and human-centred formats.",
+      "ROHANI är en psykologibaserad verksamhet för välbefinnande och mänsklig utveckling som arbetar med individer, team, organisationer och samhällen.",
+      "Arbetet förenar psykologisk vetenskap med mindfulness, reglering av nervsystemet, rörelse och upplevelsebaserat lärande — översatt till tillgängliga, praktiska och människocentrerade format.",
     ],
   },
   {
-    org: "Adult Psychiatry",
-    role: "Clinical Psychologist",
-    context: "Public Healthcare · Mental Health · Psychological Practice",
-    period: "2025 — Present",
+    org: "Vuxenpsykiatrin",
+    role: "Legitimerad psykolog",
+    context: "Offentlig vård · Psykisk hälsa · Kliniskt arbete",
+    period: "2025 — Nu",
     detail: [
-      "Providing psychological assessment and treatment within adult psychiatric care, working with a broad range of mental health concerns including anxiety, depression, stress-related difficulties and complex psychological presentations.",
-      "The role involves independent clinical work, treatment planning and therapeutic interventions.",
+      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
+      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
     ],
   },
   {
-    org: "Haninge Municipality: G-Flow",
-    role: "Founder & Facilitator",
-    context: "Youth Wellbeing · Culture · Community",
+    org: "Haninge kommun: G-Flow",
+    role: "Grundare & facilitator",
+    context: "Ungdomars välbefinnande · Kultur · Gemenskap",
     period: "2023 — 2025",
     detail: [
-      "A youth-focused initiative integrating psychology, movement, self-expression and community to support wellbeing and personal development among young females in SE vulnerable areas.",
-      "Delivered in collaboration with Haninge Municipality and ABF Södertörn, creating accessible spaces for reflection, connection, movement and personal development.",
+      "Ett ungdomsorienterat initiativ som förenar psykologi, rörelse, självuttryck och gemenskap för att stödja välbefinnande och personlig utveckling hos unga flickor i utsatta områden i Sverige.",
+      "Genomförs i samarbete med Haninge kommun och ABF Södertörn och skapar tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
     ],
   },
   {
     org: "BUP: Barn- och Ungdomspsykiatrin",
-    role: "Clinical Psychologist",
-    context: "Child & Adolescent Mental Health · Psychology",
+    role: "Legitimerad psykolog",
+    context: "Barns & ungas psykiska hälsa · Psykologi",
     period: "2018 — 2022",
     detail: [
-      "Worked within child and adolescent psychiatry, supporting young people with a broad range of psychological and mental health challenges.",
-      "The work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
+      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
+      "Arbetet omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering samt samverkan med familjer och tvärprofessionella team.",
     ],
   },
   {
     org: "Karolinska Sjukhuset: Vuxenpsykiatrin",
-    role: "Psychological Practice · Crisis Intervention · Mental Health",
+    role: "Kliniskt arbete · Krisintervention · Psykisk hälsa",
     period: "2018 — 2022",
     detail: [
-      "Experience within adult psychiatric services, working with individuals experiencing a range of severe mental health challenges.",
-      "Developed a strong foundation in crisis intervention, psychological care and working within complex, high-pressure clinical environments.",
+      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
+      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
     ],
   },
 ];
@@ -117,23 +117,23 @@ type Entry = {
 
 const clinicalEntries: Entry[] = [
   {
-    period: "2025 — Present",
-    title: "General Adult Psychiatry",
-    meta: "Public Healthcare · Clinical Psychologist",
+    period: "2025 — Nu",
+    title: "Vuxenpsykiatrin",
+    meta: "Offentlig vård · Legitimerad psykolog",
     body: [
-      "Providing psychological assessment and treatment within adult psychiatric care, working with a broad range of mental health concerns including anxiety, depression, stress-related difficulties and complex psychological presentations.",
-      "The role involves independent clinical work, treatment planning and therapeutic interventions.",
-      "Working across different presentations and individual needs has further developed my ability to adapt psychological approaches, communication and interventions to the person, context and stage of life.",
+      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
+      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
+      "Att arbeta över olika tillstånd och individuella behov har ytterligare utvecklat min förmåga att anpassa psykologiska förhållningssätt, kommunikation och interventioner efter personen, kontexten och livsskeden.",
     ],
   },
   {
     period: "2018 — 2022",
-    title: "Child & Adolescent Mental Health",
-    meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
+    title: "Barns & ungas psykiska hälsa",
+    meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: [
-      "Worked within child and adolescent psychiatry, supporting young people with a broad range of psychological and mental health challenges.",
-      "My work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
-      "This experience helped strengthen and shape my ability to adapt therapeutic approaches, communication and interventions to different developmental stages, individual needs and family constellations.",
+      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
+      "Mitt arbete omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering och samverkan med familjer och tvärprofessionella team.",
+      "Den erfarenheten har stärkt och format min förmåga att anpassa terapeutiska förhållningssätt, kommunikation och interventioner efter olika utvecklingsskeden, individuella behov och familjekonstellationer.",
     ],
     link: {
       label: "BUP Brommaplan",
@@ -142,56 +142,56 @@ const clinicalEntries: Entry[] = [
   },
   {
     period: "2018 — 2022",
-    title: "Psychiatric Hospital & Emergency Healthcare",
-    meta: "Karolinska University Hospital · Crisis Intervention",
+    title: "Sjukhuspsykiatri & akutsjukvård",
+    meta: "Karolinska Universitetssjukhuset · Krisintervention",
     body: [
-      "Experience within adult psychiatric services, working with individuals experiencing a range of severe mental health challenges.",
-      "Developed a strong foundation in crisis intervention, psychological care and working within complex, high-pressure clinical environments.",
-      "Particular areas of experience include personality disorders, psychosis, crisis management and suicide prevention.",
-      "Working in high-pressure clinical environments strengthened my ability to remain grounded, attuned and solution-focused when working with complexity and uncertainty.",
+      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
+      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
+      "Särskilda erfarenhetsområden är personlighetssyndrom, psykos, krishantering och suicidprevention.",
+      "Att arbeta i krävande kliniska miljöer stärkte min förmåga att förbli förankrad, närvarande och lösningsfokuserad i komplexitet och osäkerhet.",
     ],
   },
 ];
 
 const organisationalEntries: Entry[] = [
   {
-    title: "Somaya Women's Support Centre",
-    meta: "Psychological & Wellbeing Work",
+    title: "Somaya Stödjour",
+    meta: "Psykologiskt & välbefinnandearbete",
     body: [
-      "Held a movement workshop for an organisation supporting women and families experiencing complex domestic, social and psychological challenges.",
-      "This work deepened my understanding of the relationship between psychological wellbeing, safety, relationships, culture and wider social circumstances.",
+      "Jag höll en rörelseworkshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
+      "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
     ],
     link: {
-      label: "Somaya Women's Support Centre",
+      label: "Somaya Stödjour",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
     },
   },
   {
-    title: "Workplace Meditation & Wellbeing",
+    title: "Guidad meditation på arbetsplatsen",
     meta: "Region Stockholm · BUP Brommaplan",
     body: [
-      "Facilitated regular guided meditation sessions for healthcare professionals within child and adolescent psychiatry.",
-      "The sessions created a structured space for pausing, grounding and recovery within a demanding clinical environment, introducing practical mindfulness-based tools for stress regulation and sustainable wellbeing at work.",
+      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin.",
+      "Sessionerna skapade en strukturerad pausesmiljö för förankring och återhämtning i en krävande klinisk vardag, och introducerade praktiska mindfulnessbaserade verktyg för stressreglering och hållbart välbefinnande i arbetet.",
     ],
-    tags: "Workplace Wellbeing · Mindfulness · Stress Regulation · Healthcare",
+    tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
 ];
 
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn",
-    meta: "Community Education · Youth Wellbeing · Culture",
+    meta: "Folkbildning · Ungdomars välbefinnande · Kultur",
     body: [
-      "Collaborated with ABF Södertörn on initiatives combining psychology, culture, movement and community-based learning.",
-      "The collaboration reflects my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
+      "Jag samarbetade med ABF Södertörn i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
+      "Samarbetet speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
     ],
   },
   {
-    title: "Haninge Municipality",
-    meta: "Youth Wellbeing · Community Development · Public Sector Collaboration",
+    title: "Haninge kommun",
+    meta: "Ungdomars välbefinnande · Samhällsutveckling · Offentlig sektor",
     body: [
-      "Collaborated with Haninge Municipality through youth-focused wellbeing initiatives, creating accessible spaces for reflection, connection, movement and personal development.",
-      "The work has strengthened my experience of translating psychological perspectives into community-based formats and working across professional and public-sector contexts.",
+      "Jag samarbetade med Haninge kommun i ungdomsorienterade välbefinnandeinitiativ och skapade tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
+      "Arbetet har stärkt min erfarenhet av att översätta psykologiska perspektiv till samhällsbaserade format och att arbeta över professionella och offentliga kontexter.",
     ],
   },
 ];
@@ -199,18 +199,18 @@ const communityEntries: Entry[] = [
 const wellbeingEntries: Entry[] = [
   {
     title: "Joy in the Wild",
-    meta: "Founder & Facilitator",
+    meta: "Grundare & facilitator",
     body: [
-      "A women-centred nature and wellbeing experience exploring connection, presence, movement and self-reflection.",
-      "The initiative brings together psychological perspectives with embodied practices and nature-based experiences, creating space for participants to slow down, reconnect and explore wellbeing beyond the demands of everyday life.",
+      "En natur- och välbefinnandeupplevelse för kvinnor, med fokus på gemenskap, närvaro, rörelse och självreflektion.",
+      "Initiativet förenar psykologiska perspektiv med kroppsnära praktiker och naturupplevelser, och skapar utrymme för deltagarna att sakta ner, återkoppla till sig själva och utforska välbefinnande bortom vardagens krav.",
     ],
   },
   {
     title: "Vägen tillbaka",
-    meta: "Retreat · Psychology · Self-Reflection & Embodied Wellbeing",
+    meta: "Retreat · Psykologi · Självreflektion & kroppsnära välbefinnande",
     body: [
-      "A retreat concept centred around reconnecting with oneself through reflection, psychological insight, mindfulness, movement and embodied practices.",
-      "The retreat format reflects my broader approach to wellbeing: creating experiences that engage the whole person — cognitively, emotionally, relationally and physically.",
+      "Ett retreatkoncept som handlar om att återknyta till sig själv genom reflektion, psykologisk insikt, mindfulness, rörelse och kroppsnära praktiker.",
+      "Retreatformatet speglar min övergripande syn på välbefinnande: att skapa upplevelser som engagerar hela människan — kognitivt, emotionellt, relationellt och fysiskt.",
     ],
   },
 ];
@@ -219,10 +219,10 @@ const organisations = [
   "ROHANI",
   "Region Stockholm",
   "BUP Brommaplan",
-  "Karolinska University Hospital",
-  "Haninge Municipality",
+  "Karolinska Universitetssjukhuset",
+  "Haninge kommun",
   "ABF Södertörn",
-  "Somaya Women's Support Centre",
+  "Somaya Stödjour",
 ];
 
 /* ---------- Helpers ---------- */
@@ -412,7 +412,7 @@ function TimelineRow({
                 to={item.to}
                 className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-foreground/30 pb-1 hover:text-accent hover:border-accent transition-colors"
               >
-                {item.cta ?? "View experience"} <span aria-hidden>→</span>
+                {item.cta ?? "Se erfarenheten"} <span aria-hidden>→</span>
               </Link>
             )}
           </div>
@@ -425,7 +425,7 @@ function TimelineRow({
         aria-expanded={open}
         className="mt-4 text-[10px] uppercase tracking-[0.25em] text-foreground/55 border-b border-foreground/25 pb-1 hover:text-accent hover:border-accent transition-colors"
       >
-        {open ? "Close" : "Read more"} <span aria-hidden>→</span>
+        {open ? "Stäng" : "Läs mer"} <span aria-hidden>→</span>
       </button>
     </div>
   );
@@ -445,35 +445,36 @@ function ExperiencePage() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
             <div className="md:col-span-7 space-y-8">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                Experience
+                Erfarenhet
               </p>
               <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance">
-                Psychology, Wellbeing &amp; Human Development
+                Psykologi, välbefinnande & mänsklig utveckling
               </h1>
               <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-xl">
-                My work brings together psychological expertise, human
-                development and embodied approaches to wellbeing– across
-                clinical, organisational and community settings.
+                Mitt arbete förenar psykologisk expertis, mänsklig utveckling
+                och kroppsnära vägar till välbefinnande — inom klinisk
+                verksamhet, organisationer och samhälle.
               </p>
             </div>
 
             <div className="md:col-span-5 space-y-6 md:pt-24">
               <p className="text-base leading-[1.75] text-foreground/70">
-                At the heart of this work is a curiosity about who we are, what
-                shapes us, and who we are becoming.
+                I hjärtat av detta arbete ligger en nyfikenhet på vem vi är,
+                vad som format oss — och vem vi håller på att bli.
               </p>
               <p className="text-base leading-[1.75] text-foreground/70">
-                How can we move through life with greater awareness, agency and
-                intention– rather than simply reacting to what happens around
-                us?
+                Hur kan vi röra oss genom livet med större medvetenhet,
+                handlingskraft och intention — istället för att bara reagera på
+                det som händer omkring oss?
               </p>
               <p className="text-base leading-[1.75] text-foreground/70">
-                What if meaningful change begins with becoming more conscious of
-                the way we see, experience and engage with the world?
+                Tänk om meningsfull förändring börjar med att bli mer medveten
+                om hur vi ser, upplever och möter världen?
               </p>
               <p className="text-base leading-[1.75] text-foreground/70">
-                My work combines psychological science with a human, embodied
-                and culturally responsive approach to wellbeing and development.
+                Mitt arbete förenar psykologisk vetenskap med ett mänskligt,
+                kroppsnära och kulturellt anpassningsbart förhållningssätt till
+                välbefinnande och utveckling.
               </p>
             </div>
           </div>
@@ -482,13 +483,13 @@ function ExperiencePage() {
           <div className="max-w-7xl mx-auto mt-14 md:mt-20 pt-10 md:pt-14 border-t border-border/60 grid md:grid-cols-12 gap-10 md:gap-16">
             <div className="md:col-span-7">
               <p className="font-serif text-2xl md:text-3xl leading-snug max-w-2xl">
-                These are the environments, organisations and initiatives ROHANI
-                has contributed to.
+                Detta är de miljöer, organisationer och initiativ ROHANI
+                bidragit till.
               </p>
             </div>
             <nav className="md:col-span-5 flex flex-col gap-3.5">
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                Explore
+                Utforska
               </p>
               {navSections.map((s) => (
                 <a
@@ -516,8 +517,8 @@ function ExperiencePage() {
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="selected-experience"
-              title="Selected Experience"
-              intro="A curated professional journey across clinical psychology, organisations and community work."
+              title="Utvald erfarenhet"
+              intro="En kurerad professionell resa genom klinisk psykologi, organisationer och samhällsarbete."
             />
             <div className="mt-14 md:mt-20 max-w-5xl">
               {timeline.map((item, i) => (
@@ -539,8 +540,8 @@ function ExperiencePage() {
             <SectionHeader
               id="clinical"
               index="01"
-              title="Psychology & Clinical Practice"
-              intro="Assessment, treatment and crisis work across adult and child & adolescent psychiatry."
+              title="Psykologi & kliniskt arbete"
+              intro="Utredning, behandling och krisarbete inom vuxenpsykiatri samt barn- och ungdomspsykiatri."
             />
             <div className="mt-12 md:mt-16 grid gap-5 md:gap-6">
               {clinicalEntries.map((e) => (
@@ -556,24 +557,24 @@ function ExperiencePage() {
             <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
               <div className="md:col-span-6 space-y-4">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  Professional Work &amp; Social Impact
+                  Professionellt arbete & social påverkan
                 </p>
                 <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-balance">
-                  Beyond the clinic
+                  Bortom kliniken
                 </h2>
               </div>
               <div className="md:col-span-6 space-y-5 md:pt-10">
                 <p className="text-base leading-[1.75] text-foreground/75">
-                  Beyond clinical psychology, my work has extended into
-                  organisations, education, community development and
-                  experiences that support long-term wellbeing.
+                  Bortom den kliniska psykologin har mitt arbete rört sig in i
+                  organisationer, utbildning, samhällsutveckling och upplevelser
+                  som stödjer långsiktigt välbefinnande.
                 </p>
                 <p className="text-base leading-[1.75] text-foreground/70">
-                  Across these settings, I have explored how psychological
-                  knowledge can be translated into accessible, practical and
-                  human-centred formats — from workplace wellbeing and guided
-                  meditation to youth initiatives, community programmes and
-                  experiential retreats.
+                  I dessa miljöer har jag utforskat hur psykologisk kunskap kan
+                  översättas till tillgängliga, praktiska och
+                  människocentrerade format — från välbefinnande i arbetslivet
+                  och guidad meditation till ungdomsinitiativ, samhällsprogram
+                  och upplevelsebaserade retreats.
                 </p>
               </div>
             </div>
@@ -582,10 +583,10 @@ function ExperiencePage() {
             <div>
               <div id="organisational" className="scroll-mt-28">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">
-                  Professional &amp; Organisational Work
+                  Professionellt & organisatoriskt arbete
                 </p>
                 <h3 className="text-3xl md:text-4xl font-serif leading-tight">
-                  Professional &amp; Organisational Work
+                  Professionellt & organisatoriskt arbete
                 </h3>
               </div>
               <div className="mt-10 md:mt-12 grid gap-5 md:gap-6">
@@ -599,10 +600,10 @@ function ExperiencePage() {
             <div>
               <div id="community" className="scroll-mt-28">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">
-                  Community &amp; Social Impact
+                  Samhälle & social påverkan
                 </p>
                 <h3 className="text-3xl md:text-4xl font-serif leading-tight">
-                  Community &amp; Social Impact
+                  Samhälle & social påverkan
                 </h3>
               </div>
               <div className="mt-10 md:mt-12 grid gap-5 md:gap-6">
@@ -616,10 +617,10 @@ function ExperiencePage() {
             <div>
               <div id="wellbeing" className="scroll-mt-28">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">
-                  Wellbeing, Retreats &amp; Experiential Work
+                  Välbefinnande, retreats & upplevelsebaserat arbete
                 </p>
                 <h3 className="text-3xl md:text-4xl font-serif leading-tight">
-                  Wellbeing, Retreats &amp; Experiential Work
+                  Välbefinnande, retreats & upplevelsebaserat arbete
                 </h3>
               </div>
               <div className="mt-10 md:mt-12 grid gap-5 md:gap-6">
@@ -637,21 +638,21 @@ function ExperiencePage() {
             <div className="rounded-4xl border border-forest/25 bg-background p-9 md:p-16 grid md:grid-cols-12 gap-8 md:gap-16 items-center">
               <div className="md:col-span-5 space-y-4">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  Feature
+                  I fokus
                 </p>
                 <h2 className="text-5xl md:text-6xl font-serif leading-[1.03]">
                   G-Flow
                 </h2>
                 <p className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
-                  Founder &amp; Facilitator
+                  Grundare & facilitator
                 </p>
               </div>
               <div className="md:col-span-7">
                 <p className="text-lg md:text-xl leading-[1.7] text-foreground/80">
-                  A youth-focused initiative integrating psychology, movement,
-                  self-expression and community to support wellbeing and
-                  personal development among young females in SE vulnerable
-                  areas.
+                  Ett ungdomsorienterat initiativ som förenar psykologi,
+                  rörelse, självuttryck och gemenskap för att stödja
+                  välbefinnande och personlig utveckling hos unga flickor i
+                  utsatta områden i Sverige.
                 </p>
               </div>
             </div>
@@ -661,16 +662,16 @@ function ExperiencePage() {
         {/* ===== In the Media ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader id="media" title="In the Media" />
+            <SectionHeader id="media" title="I media" />
             <div className="mt-12 md:mt-16 max-w-4xl divide-y divide-border/70 border-t border-border/70">
               {[
                 {
                   name: "Sveriges Radio",
-                  text: "Interviewed on youth wellbeing, psychology and community-based folkbildning.",
+                  text: "Intervjuad om ungdomars välbefinnande, psykologi och samhällsbaserad folkbildning.",
                 },
                 {
                   name: "Psykologtidningen",
-                  text: "Featured in connection with G-Flow and the intersection of psychology, culture and youth development.",
+                  text: "Uppmärksammad i samband med G-Flow och skärningspunkten mellan psykologi, kultur och ungdomsutveckling.",
                 },
               ].map((m) => (
                 <div
@@ -690,7 +691,7 @@ function ExperiencePage() {
             {/* Selected organisations */}
             <div className="mt-16 md:mt-24 pt-10 md:pt-14 border-t border-border/70">
               <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/45 mb-6">
-                Experience Across
+                Erfarenhet från
               </p>
               <ul className="flex flex-wrap gap-x-8 gap-y-3.5">
                 {organisations.map((o) => (
