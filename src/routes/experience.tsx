@@ -1,6 +1,5 @@
 import { useLang } from "@/lib/i18n";
 import { ExperienceEn } from "@/components/en/ExperienceEn";
-import { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -33,15 +32,6 @@ export const Route = createFileRoute("/experience")({
 
 /* ---------- Data ---------- */
 
-const navSections = [
-  { id: "selected-experience", label: "Utvald erfarenhet" },
-  { id: "clinical", label: "Psykologi & kliniskt arbete" },
-  { id: "organisational", label: "Professionellt & organisatoriskt arbete" },
-  { id: "community", label: "Samhälle & social påverkan" },
-  { id: "wellbeing", label: "Välbefinnande & upplevelsebaserat arbete" },
-  { id: "media", label: "I media" },
-];
-
 type TimelineItem = {
   org: string;
   role: string;
@@ -49,8 +39,8 @@ type TimelineItem = {
   period: string;
   feature?: boolean;
   to?: string;
-  detail: string[];
   cta?: string;
+  detail: string[];
 };
 
 const timeline: TimelineItem[] = [
@@ -100,6 +90,7 @@ const timeline: TimelineItem[] = [
   {
     org: "Karolinska Sjukhuset: Vuxenpsykiatrin",
     role: "Kliniskt arbete · Krisintervention · Psykisk hälsa",
+    context: "Offentlig vård · Sjukhusmiljö",
     period: "2018 — 2022",
     detail: [
       "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
@@ -217,6 +208,40 @@ const wellbeingEntries: Entry[] = [
   },
 ];
 
+const trainingColumns = [
+  {
+    title: "Klinisk kvalifikation",
+    items: [
+      "Legitimerad psykolog",
+      "Psykologisk utredning & behandling",
+      "Behandlingsplanering",
+      "Terapeutiska interventioner",
+      "Krisintervention",
+    ],
+  },
+  {
+    title: "Kliniska områden",
+    items: [
+      "Vuxenpsykiatri",
+      "Barn- & ungdomspsykiatri",
+      "Sjukhuspsykiatri & akutsjukvård",
+      "Kris- & suicidprevention",
+      "Personlighetssyndrom & psykos",
+      "Tvärprofessionella team",
+    ],
+  },
+  {
+    title: "Välbefinnande & facilitation",
+    items: [
+      "Mindfulness & guidad meditation",
+      "Reglering av nervsystemet",
+      "Rörelse & kroppsnära praktiker",
+      "Retreatdesign",
+      "Ungdomsarbete — G-Flow",
+    ],
+  },
+];
+
 const organisations = [
   "ROHANI",
   "Region Stockholm",
@@ -229,13 +254,25 @@ const organisations = [
 
 /* ---------- Helpers ---------- */
 
-function ExternalLink({ label, href }: { label: string; href: string }) {
+function ExternalLink({
+  label,
+  href,
+  dark,
+}: {
+  label: string;
+  href: string;
+  dark?: boolean;
+}) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-foreground/30 pb-1 hover:text-accent hover:border-accent transition-colors"
+      className={`inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b pb-1 transition-colors ${
+        dark
+          ? "border-background/30 text-background/80 hover:text-gold hover:border-gold"
+          : "border-foreground/30 hover:text-accent hover:border-accent"
+      }`}
     >
       {label} <span aria-hidden>→</span>
     </a>
@@ -247,11 +284,13 @@ function SectionHeader({
   index,
   title,
   intro,
+  dark,
 }: {
-  id: string;
+  id?: string;
   index?: string;
   title: string;
   intro?: string;
+  dark?: boolean;
 }) {
   return (
     <div
@@ -259,16 +298,28 @@ function SectionHeader({
       className="scroll-mt-28 grid md:grid-cols-12 gap-8 md:gap-12 items-end"
     >
       <div className="md:col-span-7 space-y-4">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+        <p
+          className={`text-[10px] uppercase tracking-[0.3em] ${
+            dark ? "text-gold" : "text-accent"
+          }`}
+        >
           {index ? `${index} · ${title}` : title}
         </p>
-        <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-balance">
+        <h2
+          className={`text-4xl md:text-5xl font-serif leading-[1.05] text-balance ${
+            dark ? "text-background" : ""
+          }`}
+        >
           {title}
         </h2>
       </div>
       {intro && (
         <div className="md:col-span-5">
-          <p className="text-base leading-relaxed text-foreground/70">
+          <p
+            className={`text-base leading-relaxed ${
+              dark ? "text-background/70" : "text-foreground/70"
+            }`}
+          >
             {intro}
           </p>
         </div>
@@ -277,10 +328,108 @@ function SectionHeader({
   );
 }
 
-function EntryCard({ entry }: { entry: Entry }) {
+function TimelineRow({
+  item,
+  last,
+}: {
+  item: TimelineItem;
+  last: boolean;
+}) {
   return (
-    <article className="rounded-3xl border border-border bg-background/70 p-7 md:p-9 transition-colors duration-500 hover:border-forest/50">
-      <div className="grid md:grid-cols-12 gap-5 md:gap-8">
+    <div className={`relative pl-8 md:pl-12 ${last ? "" : "pb-12 md:pb-16"}`}>
+      {/* rail */}
+      {!last && (
+        <span
+          aria-hidden
+          className="absolute left-[5px] md:left-[7px] top-3 bottom-0 w-px bg-border"
+        />
+      )}
+      <span
+        aria-hidden
+        className={`absolute left-0 top-2 rounded-full ${
+          item.feature
+            ? "size-3 md:size-4 bg-accent"
+            : "size-2.5 md:size-3.5 bg-taupe"
+        }`}
+      />
+
+      <div className="grid md:grid-cols-12 gap-2 md:gap-8">
+        <p className="md:col-span-3 text-[11px] uppercase tracking-[0.22em] text-accent md:pt-2.5">
+          {item.period}
+        </p>
+        <div className="md:col-span-9 space-y-2.5">
+          <h3
+            className={`font-serif leading-tight text-balance ${
+              item.feature ? "text-3xl md:text-4xl" : "text-2xl md:text-[1.7rem]"
+            }`}
+          >
+            {item.org}
+          </h3>
+          <p className="font-serif italic text-lg md:text-xl leading-snug text-foreground/70">
+            {item.role}
+          </p>
+          {item.context && (
+            <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/45">
+              {item.context}
+            </p>
+          )}
+          <div className="space-y-3 pt-2">
+            {item.detail.map((p) => (
+              <p key={p} className="text-base leading-[1.75] text-foreground/75">
+                {p}
+              </p>
+            ))}
+          </div>
+          {item.to && (
+            <div className="pt-3">
+              <Link
+                to={item.to}
+                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-foreground/30 pb-1 hover:text-accent hover:border-accent transition-colors"
+              >
+                {item.cta ?? "Se erfarenheten"} <span aria-hidden>→</span>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ClinicalCard({ entry }: { entry: Entry }) {
+  return (
+    <article className="flex flex-col rounded-3xl border border-background/15 bg-background/[0.04] p-7 md:p-8 transition-colors duration-500 hover:border-gold/40">
+      {entry.period && (
+        <p className="text-[10px] uppercase tracking-[0.25em] text-gold">
+          {entry.period}
+        </p>
+      )}
+      <h3 className="mt-3 text-xl md:text-2xl font-serif leading-tight text-background text-balance">
+        {entry.title}
+      </h3>
+      <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-background/55 leading-relaxed">
+        {entry.meta}
+      </p>
+      <div className="mt-5 space-y-4">
+        {entry.body.map((p) => (
+          <p key={p} className="text-base leading-[1.75] text-background/75">
+            {p}
+          </p>
+        ))}
+      </div>
+      {entry.link && (
+        <div className="mt-auto pt-6">
+          <ExternalLink {...entry.link} dark />
+        </div>
+      )}
+    </article>
+  );
+}
+
+function EntryRow({ entry }: { entry: Entry }) {
+  return (
+    <article className="rounded-2xl border border-border bg-background/60 p-6 md:p-8 transition-colors duration-500 hover:border-forest/40">
+      <div className="grid md:grid-cols-12 gap-4 md:gap-8">
         <div className="md:col-span-4 space-y-2">
           {entry.period && (
             <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
@@ -294,7 +443,7 @@ function EntryCard({ entry }: { entry: Entry }) {
             {entry.meta}
           </p>
         </div>
-        <div className="md:col-span-8 space-y-4">
+        <div className="md:col-span-8 space-y-3">
           {entry.body.map((p) => (
             <p key={p} className="text-base leading-[1.75] text-foreground/75">
               {p}
@@ -316,206 +465,32 @@ function EntryCard({ entry }: { entry: Entry }) {
   );
 }
 
-function TimelineRow({
-  item,
-  open,
-  onToggle,
-  last,
-}: {
-  item: TimelineItem;
-  open: boolean;
-  onToggle: () => void;
-  last: boolean;
-}) {
-  const innerRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    const el = innerRef.current;
-    if (!el) return;
-    const update = () => setHeight(el.scrollHeight);
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  return (
-    <div className={`relative pl-8 md:pl-12 ${last ? "" : "pb-10 md:pb-12"}`}>
-      {/* rail */}
-      {!last && (
-        <span
-          aria-hidden
-          className="absolute left-[5px] md:left-[7px] top-4 bottom-0 w-px bg-border"
-        />
-      )}
-      <span
-        aria-hidden
-        className={`absolute left-0 top-2.5 rounded-full transition-colors ${
-          item.feature
-            ? "size-3 md:size-4 bg-accent"
-            : "size-2.5 md:size-3.5 bg-taupe"
-        }`}
-      />
-
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        className="w-full text-left group"
-      >
-        <div className="grid md:grid-cols-12 gap-2 md:gap-8 items-baseline">
-          <div className="md:col-span-8 space-y-1.5">
-            <h3
-              className={`font-serif leading-tight text-balance transition-colors group-hover:text-accent ${
-                item.feature
-                  ? "text-3xl md:text-4xl"
-                  : "text-2xl md:text-[1.7rem]"
-              }`}
-            >
-              {item.org}
-            </h3>
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.18em] text-foreground/60">
-              {item.role}
-            </p>
-            {item.context && (
-              <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/40">
-                {item.context}
-              </p>
-            )}
-          </div>
-          <div className="md:col-span-4 md:text-right">
-            <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/50">
-              {item.period}
-            </p>
-          </div>
-        </div>
-      </button>
-
-      <div
-        className="overflow-hidden transition-[max-height] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-        style={{ maxHeight: open ? height : 0 }}
-        aria-hidden={!open}
-      >
-        <div
-          ref={innerRef}
-          className={`pt-5 grid md:grid-cols-12 gap-4 md:gap-8 transition-opacity duration-500 ${
-            open ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <div className="md:col-span-8 space-y-4">
-            {item.detail.map((p) => (
-              <p key={p} className="text-base leading-[1.75] text-foreground/75">
-                {p}
-              </p>
-            ))}
-            {item.to && (
-              <Link
-                to={item.to}
-                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-foreground/30 pb-1 hover:text-accent hover:border-accent transition-colors"
-              >
-                {item.cta ?? "Se erfarenheten"} <span aria-hidden>→</span>
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={open}
-        className="mt-4 text-[10px] uppercase tracking-[0.25em] text-foreground/55 border-b border-foreground/25 pb-1 hover:text-accent hover:border-accent transition-colors"
-      >
-        {open ? "Stäng" : "Läs mer"} <span aria-hidden>→</span>
-      </button>
-    </div>
-  );
-}
-
 /* ---------- Page ---------- */
 
 function ExperiencePageSv() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1 scroll-smooth">
-        {/* ===== Introduction ===== */}
-        <section className="px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-            <div className="md:col-span-7 space-y-8">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                Erfarenhet
-              </p>
-              <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance">
-                Psykologi, välbefinnande & mänsklig utveckling
-              </h1>
-              <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-xl">
-                Mitt arbete förenar psykologisk expertis, mänsklig utveckling
-                och kroppsnära vägar till välbefinnande — inom klinisk
-                verksamhet, organisationer och samhälle.
-              </p>
-            </div>
-
-            <div className="md:col-span-5 space-y-6 md:pt-24">
-              <p className="text-base leading-[1.75] text-foreground/70">
-                I hjärtat av detta arbete ligger en nyfikenhet på vem vi är,
-                vad som format oss — och vem vi håller på att bli.
-              </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
-                Hur kan vi röra oss genom livet med större medvetenhet,
-                handlingskraft och intention — istället för att bara reagera på
-                det som händer omkring oss?
-              </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
-                Tänk om meningsfull förändring börjar med att bli mer medveten
-                om hur vi ser, upplever och möter världen?
-              </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
-                Mitt arbete förenar psykologisk vetenskap med ett mänskligt,
-                kroppsnära och kulturellt anpassningsbart förhållningssätt till
-                välbefinnande och utveckling.
-              </p>
-            </div>
-          </div>
-
-          {/* Statement + in-page nav */}
-          <div className="max-w-7xl mx-auto mt-14 md:mt-20 pt-10 md:pt-14 border-t border-border/60 grid md:grid-cols-12 gap-10 md:gap-16">
-            <div className="md:col-span-7">
-              <p className="font-serif text-2xl md:text-3xl leading-snug max-w-2xl">
-                Detta är de miljöer, organisationer och initiativ ROHANI
-                bidragit till.
-              </p>
-            </div>
-            <nav className="md:col-span-5 flex flex-col gap-3.5">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                Utforska
-              </p>
-              {navSections.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className="group flex items-baseline justify-between gap-4 border-b border-border/70 pb-2.5 hover:border-accent transition-colors"
-                >
-                  <span className="text-base font-serif group-hover:text-accent transition-colors">
-                    {s.label}
-                  </span>
-                  <span
-                    aria-hidden
-                    className="text-[10px] text-foreground/35 group-hover:text-accent transition-colors"
-                  >
-                    ↓
-                  </span>
-                </a>
-              ))}
-            </nav>
+        {/* ===== Hero band ===== */}
+        <section className="bg-secondary/60 border-b border-border/60 px-6 md:px-10 pt-24 md:pt-32 pb-20 md:pb-28">
+          <div className="max-w-7xl mx-auto space-y-7">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+              Erfarenhet
+            </p>
+            <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance max-w-4xl">
+              Psykologi, välbefinnande & mänsklig utveckling
+            </h1>
+            <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-2xl">
+              Mitt arbete förenar psykologisk expertis, mänsklig utveckling
+              och kroppsnära vägar till välbefinnande — inom klinisk
+              verksamhet, organisationer och samhälle.
+            </p>
           </div>
         </section>
 
-        {/* ===== Selected Experience ===== */}
-        <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
+        {/* ===== Timeline ===== */}
+        <section className="py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="selected-experience"
@@ -528,33 +503,32 @@ function ExperiencePageSv() {
                   key={item.org}
                   item={item}
                   last={i === timeline.length - 1}
-                  open={openIndex === i}
-                  onToggle={() => setOpenIndex(openIndex === i ? null : i)}
                 />
               ))}
             </div>
           </div>
         </section>
 
-        {/* ===== 01 Psychology & Clinical Practice ===== */}
-        <section className="py-20 md:py-28 px-6 md:px-10">
+        {/* ===== Collaborations — dark band ===== */}
+        <section className="bg-forest py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="clinical"
               index="01"
+              dark
               title="Psykologi & kliniskt arbete"
               intro="Utredning, behandling och krisarbete inom vuxenpsykiatri samt barn- och ungdomspsykiatri."
             />
-            <div className="mt-12 md:mt-16 grid gap-5 md:gap-6">
+            <div className="mt-12 md:mt-16 grid gap-5 md:gap-6 md:grid-cols-3">
               {clinicalEntries.map((e) => (
-                <EntryCard key={e.title} entry={e} />
+                <ClinicalCard key={e.title} entry={e} />
               ))}
             </div>
           </div>
         </section>
 
-        {/* ===== Professional Work & Social Impact ===== */}
-        <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
+        {/* ===== Beyond the clinic ===== */}
+        <section className="py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
             <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
               <div className="md:col-span-6 space-y-4">
@@ -584,16 +558,16 @@ function ExperiencePageSv() {
             {/* Professional & Organisational Work */}
             <div>
               <div id="organisational" className="scroll-mt-28">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
                   Professionellt & organisatoriskt arbete
                 </p>
-                <h3 className="text-3xl md:text-4xl font-serif leading-tight">
+                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
                   Professionellt & organisatoriskt arbete
                 </h3>
               </div>
-              <div className="mt-10 md:mt-12 grid gap-5 md:gap-6">
+              <div className="mt-8 md:mt-10 grid gap-4 md:gap-5">
                 {organisationalEntries.map((e) => (
-                  <EntryCard key={e.title} entry={e} />
+                  <EntryRow key={e.title} entry={e} />
                 ))}
               </div>
             </div>
@@ -601,16 +575,16 @@ function ExperiencePageSv() {
             {/* Community & Social Impact */}
             <div>
               <div id="community" className="scroll-mt-28">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
                   Samhälle & social påverkan
                 </p>
-                <h3 className="text-3xl md:text-4xl font-serif leading-tight">
+                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
                   Samhälle & social påverkan
                 </h3>
               </div>
-              <div className="mt-10 md:mt-12 grid gap-5 md:gap-6">
+              <div className="mt-8 md:mt-10 grid gap-4 md:gap-5">
                 {communityEntries.map((e) => (
-                  <EntryCard key={e.title} entry={e} />
+                  <EntryRow key={e.title} entry={e} />
                 ))}
               </div>
             </div>
@@ -618,33 +592,29 @@ function ExperiencePageSv() {
             {/* Wellbeing, Retreats & Experiential Work */}
             <div>
               <div id="wellbeing" className="scroll-mt-28">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-3">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
                   Välbefinnande, retreats & upplevelsebaserat arbete
                 </p>
-                <h3 className="text-3xl md:text-4xl font-serif leading-tight">
+                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
                   Välbefinnande, retreats & upplevelsebaserat arbete
                 </h3>
               </div>
-              <div className="mt-10 md:mt-12 grid gap-5 md:gap-6">
+              <div className="mt-8 md:mt-10 grid gap-4 md:gap-5">
                 {wellbeingEntries.map((e) => (
-                  <EntryCard key={e.title} entry={e} />
+                  <EntryRow key={e.title} entry={e} />
                 ))}
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ===== G-Flow feature ===== */}
-        <section className="py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="rounded-4xl border border-forest/25 bg-background p-9 md:p-16 grid md:grid-cols-12 gap-8 md:gap-16 items-center">
-              <div className="md:col-span-5 space-y-4">
+            {/* G-Flow highlight */}
+            <div className="rounded-3xl border border-forest/25 bg-secondary/50 p-8 md:p-12 grid md:grid-cols-12 gap-6 md:gap-12 items-center">
+              <div className="md:col-span-5 space-y-3">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
                   I fokus
                 </p>
-                <h2 className="text-5xl md:text-6xl font-serif leading-[1.03]">
+                <h3 className="text-4xl md:text-5xl font-serif leading-[1.03]">
                   G-Flow
-                </h2>
+                </h3>
                 <p className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
                   Grundare & facilitator
                 </p>
@@ -661,7 +631,59 @@ function ExperiencePageSv() {
           </div>
         </section>
 
-        {/* ===== In the Media ===== */}
+        {/* ===== Personal block ===== */}
+        <section className="bg-secondary/60 border-y border-border/60 py-20 md:py-28 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 md:gap-16">
+            <div className="md:col-span-8 md:col-start-5 space-y-6">
+              <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
+                I hjärtat av detta arbete ligger en nyfikenhet på vem vi är,
+                vad som format oss — och vem vi håller på att bli.
+              </p>
+              <p className="text-base leading-[1.75] text-foreground/70">
+                Hur kan vi röra oss genom livet med större medvetenhet,
+                handlingskraft och intention — istället för att bara reagera på
+                det som händer omkring oss?
+              </p>
+              <p className="text-base leading-[1.75] text-foreground/70">
+                Tänk om meningsfull förändring börjar med att bli mer medveten
+                om hur vi ser, upplever och möter världen?
+              </p>
+              <p className="text-base leading-[1.75] text-foreground/70">
+                Mitt arbete förenar psykologisk vetenskap med ett mänskligt,
+                kroppsnära och kulturellt anpassningsbart förhållningssätt till
+                välbefinnande och utveckling.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== Training ===== */}
+        <section className="py-20 md:py-28 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto">
+            <SectionHeader title="Utbildning & kompetens" />
+            <div className="mt-12 md:mt-16 grid gap-10 md:grid-cols-3 md:gap-12">
+              {trainingColumns.map((col) => (
+                <div key={col.title}>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-accent pb-4 border-b border-border/70">
+                    {col.title}
+                  </p>
+                  <ul className="mt-5 space-y-3">
+                    {col.items.map((i) => (
+                      <li
+                        key={i}
+                        className="text-base leading-relaxed text-foreground/70"
+                      >
+                        {i}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== In the Media + organisations ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="I media" />

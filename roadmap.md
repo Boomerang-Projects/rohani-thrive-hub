@@ -9,4 +9,7 @@
 - [x] Nav hover dropdowns with section links (verified at desktop widths)
 
 - [x] Language switch SV/EN in navbar + mobile menu
+
+- [x] Redesign Experience page (new layout: hero band, timeline, dark collaborations, personal block, training) — SV + EN
+- [x] Update design tokens in src/styles.css: off-white #F7F3EC background, espresso #3A2922 foreground, terracotta #B9684D primary/accent, sage #7A8061 secondary; remove leftover non-palette colors; keep fonts/layout/content
 - [x] Mobile hero: separate image (not overlay) on mobile
