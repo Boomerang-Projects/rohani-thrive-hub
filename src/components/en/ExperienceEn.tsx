@@ -620,7 +620,7 @@ export function ExperienceEn() {
                       alt="Article in Psykologtidningen about G-Flow"
                       loading="lazy"
                       draggable={false}
-                      className="size-32 md:size-40 rounded-full object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                      className="w-40 md:w-48 aspect-[4/3] rounded-2xl object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                     />
                   </button>
                 </div>
