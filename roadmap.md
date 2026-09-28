@@ -1,0 +1,2 @@
+- [x] Convert About page top picture into a hero (in progress)
+- [ ] Center-align the top text of the contact page with the contact form
