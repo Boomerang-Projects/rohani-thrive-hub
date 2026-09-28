@@ -13,7 +13,7 @@ export function PageHero({
 }) {
   if (centered) {
     return (
-      <section className="px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-20 max-w-3xl mx-auto text-center">
+      <section className="px-6 md:px-10 pt-16 md:pt-24 pb-8 md:pb-12 max-w-3xl mx-auto text-center">
         <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
           {eyebrow}
         </p>
