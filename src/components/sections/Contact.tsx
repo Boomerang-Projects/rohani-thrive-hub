@@ -16,7 +16,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-6 md:px-10 max-w-3xl mx-auto">
+    <section id="contact" className="pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-10 max-w-3xl mx-auto">
       <div>
         <form
           onSubmit={handleSubmit}
