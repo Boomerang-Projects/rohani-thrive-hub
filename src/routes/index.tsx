@@ -61,7 +61,7 @@ function AboutPage() {
             alt="Rohani — psychology-based wellbeing and human development"
             width={1920}
             height={1382}
-            className="absolute inset-0 w-full h-full object-cover scale-125"
+            className="absolute inset-0 w-full h-full object-cover scale-[1.3] -translate-y-[14%] md:-translate-y-[15%] lg:-translate-y-[12%] xl:-translate-y-[8%]"
             style={{ objectPosition: "50% 32%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />
