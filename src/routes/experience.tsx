@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { ExperienceEn } from "@/components/en/ExperienceEn";
 import { createFileRoute } from "@tanstack/react-router";
@@ -392,8 +392,43 @@ function EntryRow({ entry }: { entry: Entry }) {
 
 /* ---------- Page ---------- */
 
+type BeyondTabId = "organisational" | "community" | "wellbeing";
+
 function ExperiencePageSv() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<BeyondTabId>("organisational");
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      const h = window.location.hash.replace("#", "");
+      if (h === "organisational" || h === "community" || h === "wellbeing") {
+        setActiveTab(h);
+      }
+    };
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
+  const beyondTabs: { id: BeyondTabId; label: string; entries: Entry[] }[] = [
+    {
+      id: "organisational",
+      label: "Professionellt & organisatoriskt arbete",
+      entries: organisationalEntries,
+    },
+    {
+      id: "community",
+      label: "Samhälle & social påverkan",
+      entries: communityEntries,
+    },
+    {
+      id: "wellbeing",
+      label: "Välbefinnande, retreats & upplevelsebaserat arbete",
+      entries: wellbeingEntries,
+    },
+  ];
+  const activeTabData =
+    beyondTabs.find((t) => t.id === activeTab) ?? beyondTabs[0];
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -473,52 +508,38 @@ function ExperiencePageSv() {
               </div>
             </div>
 
-            {/* Professional & Organisational Work */}
+            {/* Beyond-the-clinic tabs */}
             <div>
-              <div id="organisational" className="scroll-mt-28">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
-                  Professionellt & organisatoriskt arbete
-                </p>
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
-                  Professionellt & organisatoriskt arbete
-                </h3>
-              </div>
-              <div className="mt-8 md:mt-10 grid gap-4 md:gap-5">
-                {organisationalEntries.map((e) => (
-                  <EntryRow key={e.title} entry={e} />
+              <div
+                role="tablist"
+                aria-label="Bortom kliniken"
+                className="flex flex-wrap gap-2 md:gap-3"
+              >
+                {beyondTabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    id={tab.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={
+                      "scroll-mt-28 cursor-pointer rounded-full border px-5 py-2.5 text-sm transition-colors duration-200 " +
+                      (activeTab === tab.id
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border text-foreground/70 hover:border-accent hover:text-foreground")
+                    }
+                  >
+                    {tab.label}
+                  </button>
                 ))}
               </div>
-            </div>
-
-            {/* Community & Social Impact */}
-            <div>
-              <div id="community" className="scroll-mt-28">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
-                  Samhälle & social påverkan
-                </p>
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
-                  Samhälle & social påverkan
-                </h3>
-              </div>
-              <div className="mt-8 md:mt-10 grid gap-4 md:gap-5">
-                {communityEntries.map((e) => (
-                  <EntryRow key={e.title} entry={e} />
-                ))}
-              </div>
-            </div>
-
-            {/* Wellbeing, Retreats & Experiential Work */}
-            <div>
-              <div id="wellbeing" className="scroll-mt-28">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
-                  Välbefinnande, retreats & upplevelsebaserat arbete
-                </p>
-                <h3 className="text-2xl md:text-3xl font-serif leading-tight">
-                  Välbefinnande, retreats & upplevelsebaserat arbete
-                </h3>
-              </div>
-              <div className="mt-8 md:mt-10 grid gap-4 md:gap-5">
-                {wellbeingEntries.map((e) => (
+              <div
+                role="tabpanel"
+                aria-label={activeTabData.label}
+                className="mt-8 md:mt-10 grid gap-4 md:gap-5"
+              >
+                {activeTabData.entries.map((e) => (
                   <EntryRow key={e.title} entry={e} />
                 ))}
               </div>
@@ -638,22 +659,20 @@ function ExperiencePageSv() {
 
               {/* Psykologtidningen */}
               <div>
-                <div className="flex aspect-[4/3] w-full items-center">
-                  <button
-                    type="button"
-                    onClick={() => setLightboxOpen(true)}
-                    aria-label="Öppna artikeln i full storlek"
-                    className="block cursor-zoom-in"
-                  >
-                    <img
-                      src={mediaArticle.url}
-                      alt="Artikel i Psykologtidningen om G-Flow"
-                      loading="lazy"
-                      draggable={false}
-                      className="w-40 md:w-48 aspect-[4/3] rounded-2xl object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
-                    />
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setLightboxOpen(true)}
+                  aria-label="Öppna artikeln i full storlek"
+                  className="block w-full cursor-zoom-in"
+                >
+                  <img
+                    src={mediaArticle.url}
+                    alt="Artikel i Psykologtidningen om G-Flow"
+                    loading="lazy"
+                    draggable={false}
+                    className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
+                  />
+                </button>
                 <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
                   Psykologtidningen
                 </h3>

@@ -34,7 +34,7 @@ export function ContactEn() {
             </label>
             <select
               name="inquiry"
-              className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-foreground transition-colors"
               defaultValue="corporate"
             >
               <option value="corporate">Corporate wellbeing program</option>
@@ -52,14 +52,14 @@ export function ContactEn() {
               name="message"
               rows={4}
               required
-              className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-accent transition-colors resize-none"
+              className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-foreground transition-colors resize-none"
               placeholder="Tell us a little about your team or what you're exploring."
             />
           </div>
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-primary/90 transition-all disabled:opacity-60"
+            className="w-full py-4 bg-foreground text-background rounded-full text-xs uppercase tracking-[0.22em] hover:bg-foreground/90 transition-all disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send Message"}
           </button>
@@ -89,7 +89,7 @@ function Field({
         type={type}
         name={name}
         required={required}
-        className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-accent transition-colors"
+        className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-foreground transition-colors"
       />
     </div>
   );

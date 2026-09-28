@@ -65,7 +65,7 @@ function LangSwitch({ className = "" }: { className?: string }) {
       type="button"
       onClick={() => setLang(l)}
       aria-pressed={lang === l}
-      className={`px-1 transition-colors ${lang === l ? "text-accent" : "text-foreground/45 hover:text-foreground"}`}
+      className={`px-1 transition-colors ${lang === l ? "text-foreground" : "text-foreground/45 hover:text-foreground"}`}
     >
       {label}
     </button>
@@ -104,8 +104,8 @@ export function SiteHeader() {
             <div key={link.to} className="relative group">
               <Link
                 to={link.to}
-                className="hover:text-accent transition-colors"
-                activeProps={{ className: "text-accent" }}
+                className="hover:text-foreground transition-colors"
+                activeProps={{ className: "text-foreground" }}
               >
                 {link.label}
               </Link>
@@ -125,7 +125,7 @@ export function SiteHeader() {
                             scrollToSection(sub.id);
                           }
                         }}
-                        className="block px-4 py-2.5 text-[10px] uppercase tracking-[0.2em] text-foreground/65 rounded-xl hover:text-accent hover:bg-secondary/70 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 text-[10px] uppercase tracking-[0.2em] text-foreground/65 rounded-xl hover:text-foreground hover:bg-secondary/70 transition-colors whitespace-nowrap"
                       >
                         {sub.label}
                       </a>
@@ -157,7 +157,7 @@ export function SiteHeader() {
               <Link
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="hover:text-accent"
+                className="hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -175,7 +175,7 @@ export function SiteHeader() {
                           setOpen(false);
                         }
                       }}
-                      className="hover:text-accent transition-colors"
+                      className="hover:text-foreground transition-colors"
                     >
                       {sub.label}
                     </a>
