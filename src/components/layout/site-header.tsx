@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { to: "/", label: "ABOUT" },
-  { to: "/contact", label: "Contact" },
-  { to: "/experience", label: "Experience" },
+  { to: "/", label: "OM" },
+  { to: "/contact", label: "Kontakt" },
+  { to: "/experience", label: "Erfarenhet" },
 ] as const;
 
 export function SiteHeader() {
