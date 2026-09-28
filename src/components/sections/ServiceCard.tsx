@@ -1,6 +1,8 @@
+import { useLang } from "@/lib/i18n";
+import { ServiceCardEn } from "@/components/en/ServiceCard";
 import { useState, useRef, useEffect } from "react";
 
-export function ServiceCard({
+function ServiceCardSv({
   eyebrow,
   title,
   intro,
@@ -107,4 +109,9 @@ export function CardList({
       </ul>
     </div>
   );
+}
+
+export function ServiceCard(props: Parameters<typeof ServiceCardSv>[0]) {
+  const { lang } = useLang();
+  return lang === "en" ? <ServiceCardEn {...props} /> : <ServiceCardSv {...props} />;
 }

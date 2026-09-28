@@ -1,3 +1,5 @@
+import { useLang } from "@/lib/i18n";
+import { ServicesEn } from "@/components/en/ServicesEn";
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -365,7 +367,7 @@ function TeamsPanel() {
 
 /* ---------- Page ---------- */
 
-function ServicesPage() {
+function ServicesPageSv() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -644,4 +646,9 @@ function ServicesPage() {
       <SiteFooter />
     </div>
   );
+}
+
+function ServicesPage() {
+  const { lang } = useLang();
+  return lang === "en" ? <ServicesEn /> : <ServicesPageSv />;
 }

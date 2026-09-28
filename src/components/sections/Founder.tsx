@@ -1,7 +1,9 @@
+import { useLang } from "@/lib/i18n";
+import { FounderEn } from "@/components/en/Founder";
 import { Link } from "@tanstack/react-router";
 import founderImage from "@/assets/founder-portrait-v3.jpg.asset.json";
 
-export function Founder({ showLink = true }: { showLink?: boolean }) {
+function FounderSv({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="px-6 md:px-10 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-stretch">
@@ -94,4 +96,9 @@ export function Founder({ showLink = true }: { showLink?: boolean }) {
       </div>
     </section>
   );
+}
+
+export function Founder(props: { showLink?: boolean }) {
+  const { lang } = useLang();
+  return lang === "en" ? <FounderEn {...props} /> : <FounderSv {...props} />;
 }
