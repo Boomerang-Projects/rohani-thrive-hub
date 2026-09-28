@@ -8,5 +8,5 @@
 - [x] Hero portrait upscaled 1.5x (desktop 2880×2100 via Lanczos; src/assets/hero-desktop.jpg)
 - [x] Nav hover dropdowns with section links (verified at desktop widths)
 
-- [ ] Language switch SV/EN in navbar + mobile menu
-- [ ] Mobile hero: separate image (not overlay) on mobile
+- [x] Language switch SV/EN in navbar + mobile menu
+- [x] Mobile hero: separate image (not overlay) on mobile
