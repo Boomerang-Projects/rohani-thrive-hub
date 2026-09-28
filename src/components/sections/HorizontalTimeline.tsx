@@ -10,6 +10,7 @@ export type TimelineItem = {
   feature?: boolean;
   to?: string;
   cta?: string;
+  logo?: string;
   detail: string[];
 };
 
@@ -67,8 +68,29 @@ export function HorizontalTimeline({
         >
           <div>
             <p className="text-[11px] uppercase tracking-[0.2em] text-accent">{item.period}</p>
-            <h3 className="mt-2 font-serif text-3xl md:text-4xl leading-tight text-balance">{item.org}</h3>
-            <p className="mt-2 font-serif italic text-lg md:text-xl leading-snug text-foreground/70">{item.role}</p>
+            <div className="mt-3 flex items-center gap-4">
+              <div className="flex size-12 md:size-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-border bg-secondary/70 font-serif text-lg md:text-xl text-foreground/75">
+                {item.logo ? (
+                  <img
+                    src={item.logo}
+                    alt=""
+                    className="size-full object-contain p-1.5"
+                  />
+                ) : (
+                  item.org
+                    .split(/[\s:]+/)
+                    .filter(Boolean)
+                    .slice(0, 2)
+                    .map((word) => word[0])
+                    .join("")
+                    .toUpperCase()
+                )}
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-serif text-3xl md:text-4xl leading-tight text-balance">{item.org}</h3>
+                <p className="mt-2 font-serif italic text-lg md:text-xl leading-snug text-foreground/70">{item.role}</p>
+              </div>
+            </div>
             {item.context && (
               <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-foreground/50">{item.context}</p>
             )}

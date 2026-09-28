@@ -248,47 +248,22 @@ function SectionHeader({
   id,
   index,
   title,
-  intro,
   dark,
 }: {
   id?: string;
   index?: string;
   title: string;
-  intro?: string;
   dark?: boolean;
 }) {
   return (
-    <div
-      id={id}
-      className="scroll-mt-28 grid md:grid-cols-12 gap-8 md:gap-12 items-end"
-    >
-      <div className="md:col-span-7 space-y-4">
-        <p
-          className={`text-[10px] uppercase tracking-[0.3em] ${
-            dark ? "text-gold" : "text-accent"
-          }`}
-        >
-          {index ? `${index} · ${title}` : title}
-        </p>
-        <h2
-          className={`text-4xl md:text-5xl font-serif leading-[1.05] text-balance ${
-            dark ? "text-background" : ""
-          }`}
-        >
-          {title}
-        </h2>
-      </div>
-      {intro && (
-        <div className="md:col-span-5">
-          <p
-            className={`text-base leading-relaxed ${
-              dark ? "text-background/70" : "text-foreground/70"
-            }`}
-          >
-            {intro}
-          </p>
-        </div>
-      )}
+    <div id={id} className="scroll-mt-28 text-center">
+      <p
+        className={`text-4xl md:text-5xl uppercase tracking-[0.15em] leading-snug text-balance ${
+          dark ? "text-gold" : "text-accent"
+        }`}
+      >
+        {index ? `${index} · ${title}` : title}
+      </p>
     </div>
   );
 }
@@ -434,7 +409,6 @@ export function ExperienceEn() {
             <SectionHeader
               id="selected-experience"
               title="Selected Experience"
-              intro="A curated professional journey across clinical psychology, organisations and community work."
             />
             <HorizontalTimeline items={timeline} fallbackCta="View experience" />
           </div>
@@ -448,7 +422,6 @@ export function ExperienceEn() {
               index="01"
               dark
               title="Psychology & Clinical Practice"
-              intro="Assessment, treatment and crisis work across adult and child & adolescent psychiatry."
             />
             <div className="mt-12 md:mt-16 grid gap-5 md:gap-6 md:grid-cols-3">
               {clinicalEntries.map((e) => (

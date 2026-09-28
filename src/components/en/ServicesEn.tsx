@@ -166,33 +166,16 @@ function SectionHeader({
   id,
   index,
   title,
-  intro,
 }: {
   id: string;
   index: string;
   title: string;
-  intro?: string;
 }) {
   return (
-    <div
-      id={id}
-      className="scroll-mt-28 grid md:grid-cols-12 gap-8 md:gap-12 items-end"
-    >
-      <div className="md:col-span-7 space-y-4">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-          {index} · {title}
-        </p>
-        <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-balance">
-          {title}
-        </h2>
-      </div>
-      {intro && (
-        <div className="md:col-span-5">
-          <p className="text-base leading-relaxed text-foreground/70">
-            {intro}
-          </p>
-        </div>
-      )}
+    <div id={id} className="scroll-mt-28 text-center">
+      <p className="text-4xl md:text-5xl uppercase tracking-[0.15em] leading-snug text-balance text-accent">
+        {index} · {title}
+      </p>
     </div>
   );
 }
@@ -435,7 +418,6 @@ export function ServicesEn() {
                   id="individuals"
                   index="01"
                   title="For Individuals"
-                  intro="Psychology-informed support, mindfulness and embodied practice — tailored to where you are right now."
                 />
               </div>
               <div className="md:col-span-5">
