@@ -18,6 +18,9 @@
 - [x] Replace the Experience vertical timeline with the selected horizontal editorial timeline in Swedish and English; verify desktop and mobile interactions.
 
 ## Media section rework (Experience, SV+EN)
-- [ ] Three-column media section: radio image / circular Psykologtidningen clipping with lightbox / podcast column
-- [ ] Lightbox close X anchored to the image corner instead of the screen
-- [ ] Verify desktop + mobile in both languages
+- [x] Three-column media section: radio image / smaller Psykologtidningen clipping with lightbox / podcast column
+- [x] Lightbox close X anchored to the image corner instead of the screen
+- [x] Article image same shape (rounded rectangle) as the other columns, smaller, vertically centered so titles align
+- [x] Personal block: placeholder image on the left (to be replaced with user's own image later)
+- [x] Timeline: fix title text clipping at intermediate widths
+- [x] Verify desktop + mobile in both languages
