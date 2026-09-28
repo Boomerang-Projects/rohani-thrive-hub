@@ -26,4 +26,4 @@
 - [x] Personal block: placeholder image on the left (to be replaced with user's own image later)
 - [x] Timeline: fix title text clipping at intermediate widths
 - [x] Verify desktop + mobile in both languages
-- [ ] Timeline logos: small placeholder logo next to each organization title in the Experience timeline detail panel (SV + EN)
+- [x] Timeline logos: small placeholder logo next to each organization title in the Experience timeline detail panel (SV + EN)
