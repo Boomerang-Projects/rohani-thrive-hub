@@ -16,55 +16,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-6 md:px-10 max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
-        <div className="space-y-10">
-          <div className="space-y-6">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-              Get in Touch
-            </p>
-            <h2 className="text-3xl md:text-4xl font-serif leading-tight">
-              Start a conversation
-            </h2>
-            <div className="w-12 border-t border-accent/40" />
-            <p className="text-lg text-foreground/75 max-w-md leading-relaxed">
-              Whether you're an HR leader exploring a partnership or an
-              individual ready for the next chapter, we'd love to hear from you.
-            </p>
-          </div>
-
-
-          <div className="space-y-5 pt-2">
-            <a
-              href="mailto:hello@rohani.co"
-              className="flex items-baseline justify-between border-b border-border pb-3 hover:text-accent transition-colors"
-            >
-              <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                Email
-              </span>
-              <span className="text-sm">hello@rohani.co</span>
-            </a>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-baseline justify-between border-b border-border pb-3 hover:text-accent transition-colors"
-            >
-              <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                LinkedIn
-              </span>
-              <span className="text-sm">Connect with Rohani</span>
-            </a>
-            <div className="flex items-baseline justify-between border-b border-border pb-3">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                Based in
-              </span>
-              <span className="text-sm">Scandinavia · Working globally</span>
-            </div>
-          </div>
-
-        </div>
-
+    <section id="contact" className="py-16 md:py-24 px-6 md:px-10 max-w-3xl mx-auto">
+      <div>
         <form
           onSubmit={handleSubmit}
           className="bg-secondary rounded-3xl p-8 md:p-10 space-y-6"
