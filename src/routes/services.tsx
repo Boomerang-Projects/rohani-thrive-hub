@@ -3,6 +3,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ServiceCard, CardList } from "@/components/sections/ServiceCard";
+import servicesHero from "@/assets/services-hero.jpg";
+import servicesIndividuals from "@/assets/services-individuals.jpg";
+import servicesTeams from "@/assets/services-teams.jpg";
+import servicesTexture from "@/assets/services-texture.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -435,15 +439,42 @@ function ServicesPage() {
           </div>
         </section>
 
+        {/* ===== Atmospheric band ===== */}
+        <section className="px-6 md:px-10 pb-4 md:pb-8">
+          <div className="max-w-7xl mx-auto overflow-hidden rounded-4xl">
+            <img
+              src={servicesHero}
+              alt="Calm, sunlit Scandinavian interior"
+              width={1920}
+              height={912}
+              className="w-full h-[16rem] md:h-[26rem] object-cover"
+            />
+          </div>
+        </section>
+
         {/* ===== For Individuals ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
-              id="individuals"
-              index="01"
-              title="For Individuals"
-              intro="Psychology-informed support, mindfulness and embodied practice — tailored to where you are right now."
-            />
+            <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+              <div className="md:col-span-7">
+                <SectionHeader
+                  id="individuals"
+                  index="01"
+                  title="For Individuals"
+                  intro="Psychology-informed support, mindfulness and embodied practice — tailored to where you are right now."
+                />
+              </div>
+              <div className="md:col-span-5">
+                <img
+                  src={servicesIndividuals}
+                  alt="Quiet, textured corner with linen and warm daylight"
+                  width={1200}
+                  height={1504}
+                  loading="lazy"
+                  className="w-full h-[18rem] md:h-[24rem] object-cover rounded-4xl"
+                />
+              </div>
+            </div>
             <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 items-start">
               {individualServices.map((s) => (
                 <ServiceCard
@@ -509,6 +540,17 @@ function ServicesPage() {
             </div>
 
 
+            <div className="mt-12 md:mt-16 overflow-hidden rounded-4xl">
+              <img
+                src={servicesTeams}
+                alt="Sunlit meeting space set for a workshop"
+                width={1600}
+                height={1008}
+                loading="lazy"
+                className="w-full h-[14rem] md:h-[22rem] object-cover"
+              />
+            </div>
+
             <div className="mt-12 md:mt-16">
               <TeamsPanel />
             </div>
@@ -573,6 +615,13 @@ function ServicesPage() {
           </div>
         </section>
 
+
+        {/* Texture band */}
+        <div
+          aria-hidden
+          className="h-24 md:h-40 bg-cover bg-center"
+          style={{ backgroundImage: `url(${servicesTexture})` }}
+        />
 
         {/* Closing CTA */}
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
