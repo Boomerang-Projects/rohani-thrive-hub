@@ -1,11 +1,12 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLang, type Lang } from "@/lib/i18n";
 
 type SubLink = { id: string; label: string };
 type NavItem = { to: string; label: string; subs?: SubLink[] };
 
-const navLinks: NavItem[] = [
+const navLinksSv: NavItem[] = [
   {
     to: "/",
     label: "OM",
@@ -37,13 +38,56 @@ const navLinks: NavItem[] = [
   },
 ];
 
+const navLinksEn: NavItem[] = [
+  { to: "/", label: "About", subs: [
+    { id: "vagleder", label: "What Guides Us" },
+    { id: "filosofi", label: "Our Philosophy" },
+    { id: "grundaren", label: "Meet the Founder" },
+    { id: "metod", label: "Our Approach" },
+  ] },
+  { to: "/contact", label: "Contact", subs: [
+    { id: "contact", label: "Get in Touch" },
+    { id: "cta", label: "Begin Where You Are" },
+  ] },
+  { to: "/experience", label: "Experience", subs: [
+    { id: "selected-experience", label: "Selected Experience" },
+    { id: "clinical", label: "Psychology & Clinical Practice" },
+    { id: "organisational", label: "Professional & Organisational" },
+    { id: "community", label: "Community & Social Impact" },
+    { id: "media", label: "In the Media" },
+  ] },
+];
+
+function LangSwitch({ className = "" }: { className?: string }) {
+  const { lang, setLang } = useLang();
+  const opt = (l: Lang, label: string) => (
+    <button
+      type="button"
+      onClick={() => setLang(l)}
+      aria-pressed={lang === l}
+      className={`px-1 transition-colors ${lang === l ? "text-accent" : "text-foreground/45 hover:text-foreground"}`}
+    >
+      {label}
+    </button>
+  );
+  return (
+    <div className={`flex items-center gap-1 text-xs uppercase tracking-[0.22em] font-medium ${className}`} aria-label="Language / Språk">
+      {opt("sv", "SV")}
+      <span className="text-foreground/25">/</span>
+      {opt("en", "EN")}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const { lang } = useLang();
+  const navLinks = lang === "en" ? navLinksEn : navLinksSv;
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   function scrollToSection(id: string) {
     setOpen(false);
-    if (pathname !== "/") return; // cross-page anchors load the page, then jump
+    // cross-page anchors load the page, then jump
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -94,9 +138,10 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-3">
+          <LangSwitch className="hidden md:flex ml-10" />
           <button
             type="button"
-            aria-label="Öppna eller stäng menyn"
+            aria-label={lang === "en" ? "Toggle menu" : "Öppna eller stäng menyn"}
             onClick={() => setOpen((v) => !v)}
             className="md:hidden p-2 -mr-2"
           >
@@ -139,6 +184,7 @@ export function SiteHeader() {
               )}
             </div>
           ))}
+          <LangSwitch className="pt-4 border-t border-border/50" />
         </div>
       )}
     </header>
