@@ -7,6 +7,7 @@ import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
 import mediaPodcast from "@/assets/media-podcast.jpg";
+import personalPlaceholder from "@/assets/personal-placeholder.jpg";
 
 /* ---------- Data ---------- */
 
@@ -521,7 +522,18 @@ export function ExperienceEn() {
 
         {/* ===== Personal block ===== */}
         <section className="bg-secondary/60 border-y border-border/60 py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 md:gap-16">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+            <div className="md:col-span-4">
+              <img
+                src={personalPlaceholder}
+                alt="Placeholder image — calm reading corner in morning light"
+                loading="lazy"
+                width={1024}
+                height={1280}
+                draggable={false}
+                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+              />
+            </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
               <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
                 At the heart of this work is a curiosity about who we are, what
