@@ -32,6 +32,7 @@ function ContactPage() {
       <SiteHeader />
       <main className="flex-1">
         <PageHero
+          centered
           eyebrow="Contact"
           title={<>Let's create meaningful change together</>}
           intro="We respond to every enquiry personally — usually within two working days."
