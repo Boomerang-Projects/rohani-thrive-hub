@@ -15,3 +15,4 @@
 - [x] Mobile hero: separate image (not overlay) on mobile
 - [x] Add media article image next to "I media" on Experience (SV + EN): straightened upload, rounded corners, colored offset background
 - [x] Lightbox for the article image: smooth open/close, two-finger pinch zoom on mobile, small square white rounded X top-right
+- [x] Replace the Experience vertical timeline with the selected horizontal editorial timeline in Swedish and English; verify desktop and mobile interactions.
