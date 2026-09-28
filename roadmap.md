@@ -16,3 +16,8 @@
 - [x] Add media article image next to "I media" on Experience (SV + EN): straightened upload, rounded corners, colored offset background
 - [x] Lightbox for the article image: smooth open/close, two-finger pinch zoom on mobile, small square white rounded X top-right
 - [x] Replace the Experience vertical timeline with the selected horizontal editorial timeline in Swedish and English; verify desktop and mobile interactions.
+
+## Media section rework (Experience, SV+EN)
+- [ ] Three-column media section: radio image / circular Psykologtidningen clipping with lightbox / podcast column
+- [ ] Lightbox close X anchored to the image corner instead of the screen
+- [ ] Verify desktop + mobile in both languages
