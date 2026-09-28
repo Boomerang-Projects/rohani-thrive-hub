@@ -100,10 +100,6 @@ const clinicalEntries: Entry[] = [
       "My work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
       "This experience helped strengthen and shape my ability to adapt therapeutic approaches, communication and interventions to different developmental stages, individual needs and family constellations.",
     ],
-    link: {
-      label: "BUP Brommaplan",
-      href: "https://www.skhlm.se/service/bup-barn-och-ungdomspsykiatri/",
-    },
   },
   {
     period: "2018 — 2022",
