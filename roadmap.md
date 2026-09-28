@@ -1,5 +1,6 @@
 # Roadmap
 
+- [ ] Rebalance new palette toward beige and deep burgundy-brown; reserve yellow/orange for highlights and accents only, without changing content or layout.
 - [x] Media: Psykologtidningen image same size/shape as Sveriges Radio and Podd columns
 - [x] Experience: convert Professional/Community/Wellbeing lists into space-saving tabs (hash anchors still select the right tab) — SV + EN
 
