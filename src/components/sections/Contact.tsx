@@ -10,50 +10,50 @@ export function Contact() {
     // Presentational only — wire to backend later
     setTimeout(() => {
       setSubmitting(false);
-      toast.success("Thank you. We'll be in touch shortly.");
+      toast.success("Tack. Vi hör av oss inom kort.");
       (e.currentTarget as HTMLFormElement).reset();
     }, 600);
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-6 md:px-10 max-w-3xl mx-auto">
+    <section id="contact" className="pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-10 max-w-3xl mx-auto">
       <div>
         <form
           onSubmit={handleSubmit}
           className="bg-secondary rounded-3xl p-8 md:p-10 space-y-6"
         >
           <div className="grid sm:grid-cols-2 gap-5">
-            <Field label="Full Name" name="name" required />
-            <Field label="Email" name="email" type="email" required />
+            <Field label="Namn" name="name" required />
+            <Field label="E-post" name="email" type="email" required />
           </div>
-          <Field label="Organization" name="organization" />
-          <Field label="Role" name="role" />
+          <Field label="Organisation" name="organization" />
+          <Field label="Roll" name="role" />
           <div className="space-y-2">
             <label className="text-[10px] uppercase tracking-[0.25em] text-foreground/55 block">
-              Inquiry
+              Ärende
             </label>
             <select
               name="inquiry"
               className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-accent transition-colors"
               defaultValue="corporate"
             >
-              <option value="corporate">Corporate wellbeing program</option>
-              <option value="leadership">Leadership development</option>
-              <option value="retreat">Retreat or off-site</option>
-              <option value="speaking">Speaking engagement</option>
-              <option value="individual">Individual coaching</option>
+              <option value="corporate">Välbefinnandeprogram för företag</option>
+              <option value="leadership">Ledarskapsutveckling</option>
+              <option value="retreat">Retreat eller kickoff</option>
+              <option value="speaking">Föreläsning</option>
+              <option value="individual">Individuell coaching</option>
             </select>
           </div>
           <div className="space-y-2">
             <label className="text-[10px] uppercase tracking-[0.25em] text-foreground/55 block">
-              Message
+              Meddelande
             </label>
             <textarea
               name="message"
               rows={4}
               required
               className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-accent transition-colors resize-none"
-              placeholder="Tell us a little about your team or what you're exploring."
+              placeholder="Berätta kort om ditt team eller vad du söker."
             />
           </div>
           <button
@@ -61,7 +61,7 @@ export function Contact() {
             disabled={submitting}
             className="w-full py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-primary/90 transition-all disabled:opacity-60"
           >
-            {submitting ? "Sending…" : "Send Message"}
+            {submitting ? "Skickar…" : "Skicka meddelande"}
           </button>
         </form>
       </div>

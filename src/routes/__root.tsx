@@ -17,16 +17,16 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-6">404</p>
-        <h1 className="font-serif text-5xl md:text-6xl">Page not found</h1>
+        <h1 className="font-serif text-5xl md:text-6xl">Sidan hittades inte</h1>
         <p className="mt-5 text-base text-foreground/65 leading-relaxed">
-          The page you're looking for doesn't exist, or has gently moved.
+          Sidan du söker finns inte, eller har finessigt flyttat sig.
         </p>
         <div className="mt-8">
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Return home
+            Till startsidan
           </a>
         </div>
       </div>
@@ -44,9 +44,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-serif text-3xl">This page didn't load</h1>
+        <h1 className="font-serif text-3xl">Den här sidan kunde inte laddas</h1>
         <p className="mt-3 text-base text-foreground/65">
-          Something went wrong on our end. You can try again, or head home.
+          Något gick fel hos oss. Du kan försöka igen, eller gå till
+          startsidan.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
@@ -56,13 +57,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs uppercase tracking-[0.22em] text-primary-foreground hover:bg-primary/90"
           >
-            Try again
+            Försök igen
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-full border border-foreground/20 bg-background px-6 py-3 text-xs uppercase tracking-[0.22em] hover:bg-secondary"
           >
-            Go home
+            Till startsidan
           </a>
         </div>
       </div>
@@ -75,11 +76,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Rohani — Peace of Mind | Psychology, Wellbeing & Leadership" },
+      { title: "Rohani — Peace of Mind | Psykologi, välbefinnande & ledarskap" },
       {
         name: "description",
         content:
-          "Rohani is a psychology-based wellbeing and human development company helping organizations, leaders and individuals thrive through evidence-based psychology, mindfulness and leadership development.",
+          "Rohani är ett psykologibaserat välbefinnande- och utvecklingsföretag som hjälper organisationer, ledare och individer att frodas genom evidensbaserad psykologi, mindfulness och ledarskapsutveckling.",
       },
       { name: "author", content: "Rohani" },
       { property: "og:site_name", content: "Rohani" },
@@ -103,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "Rohani",
           description:
-            "Psychology-based wellbeing and human development company offering leadership development, corporate wellness, coaching and retreats.",
+            "Psykologibaserat välbefinnande- och utvecklingsföretag som erbjuder ledarskapsutveckling, företagshälsa, coaching och retreats.",
           slogan: "Peace of Mind",
           areaServed: "Worldwide",
         }),
@@ -118,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sv">
       <head>
         <HeadContent />
       </head>

@@ -13,18 +13,18 @@ export const Route = createFileRoute("/services")({
     meta: [
       {
         title:
-          "Services — Psychology, Wellbeing & Sustainable Performance | Rohani",
+          "Tjänster — Psykologi, välbefinnande & hållbar prestation | Rohani",
       },
       {
         name: "description",
         content:
-          "ROHANI services for individuals, teams and communities: psychology, mindfulness, breathwork, movement, workshops, talks, retreats and wellbeing programs grounded in modern psychology and human connection.",
+          "ROHANIs tjänster för individer, team och samhällen: psykologi, mindfulness, andningsarbete, rörelse, workshops, föreläsningar, retreats och välbefinnandeprogram förankrade i modern psykologi och mänsklig gemenskap.",
       },
-      { property: "og:title", content: "Rohani Services" },
+      { property: "og:title", content: "Rohanis tjänster" },
       {
         property: "og:description",
         content:
-          "Human-first psychology, mindfulness and wellbeing programs for individuals, organizations and communities. Grounded in science. Guided by humanity. Designed for lasting impact.",
+          "Människonära psykologi, mindfulness och välbefinnandeprogram för individer, organisationer och samhällen. Förankrat i vetenskap. Lett av medmänsklighet. Format för varaktig effekt.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -39,80 +39,80 @@ export const Route = createFileRoute("/services")({
 
 const individualServices = [
   {
-    title: "Psychology & Personal Development",
+    title: "Psykologi & personlig utveckling",
     body: [
-      "Whether you are navigating stress, life transitions, burnout, anxiety, or simply seeking greater clarity and direction, ROHANI offers psychology-informed support that meets you where you are.",
-      "Sessions integrate evidence-based psychological principles with practical tools that strengthen resilience, emotional awareness, and long-term wellbeing.",
-      "Together, we work toward sustainable change — not by fixing who you are, but by helping you understand yourself more deeply and create lasting patterns that support the life you want to live.",
+      "Vare sig du navigerar stress, livsförändringar, utmattning eller ångest — eller helt enkelt söker större klarhet och riktning — erbjuder ROHANI psykologiskt förankrat stöd som möter dig där du är.",
+      "Sessionerna förenar evidensbaserade psykologiska principer med praktiska verktyg som stärker motståndskraft, emotionell medvetenhet och långsiktigt välbefinnande.",
+      "Tillsammans arbetar vi mot hållbar förändring — inte genom att laga den du är, utan genom att hjälpa dig förstå dig själv mer djupt och skapa varaktiga mönster som stödjer livet du vill leva.",
     ],
-    listLabel: "Areas of focus include:",
+    listLabel: "Fokusområden inkluderar:",
     items: [
-      "Stress & burnout",
-      "Anxiety & emotional wellbeing",
-      "Self-esteem & confidence",
-      "Personal growth",
-      "Life transitions",
-      "Relationships & boundaries",
-      "Emotional regulation",
-      "Values & purpose",
-      "Sustainable habits & lifestyle change",
+      "Stress & utmattning",
+      "Ångest & emotionellt välbefinnande",
+      "Självkänsla & självförtroende",
+      "Personlig utveckling",
+      "Livsförändringar",
+      "Relationer & gränser",
+      "Emotionsreglering",
+      "Värderingar & mening",
+      "Hållbara vanor & livsstilsförändring",
     ],
   },
   {
-    title: "Mindfulness, Breathwork & Nervous System Regulation",
+    title: "Mindfulness, andning & reglering av nervsystemet",
     body: [
-      "Modern life keeps many of us in a constant state of activation.",
-      "Through guided mindfulness, breathwork, and nervous system regulation techniques, you'll learn practical ways to slow down, recover, and reconnect with yourself.",
-      "These sessions are suitable both as stand-alone experiences and as a complement to psychological work.",
+      "Det moderna livet håller många av oss i ett ständigt tillstånd av aktivering.",
+      "Genom guidad mindfulness, andningsarbete och tekniker för nervsystemreglering lär du dig praktiska sätt att sakta ner, återhämta dig och återkoppla till dig själv.",
+      "Dessa sessioner passar både som fristående upplevelser och som komplement till psykologiskt arbete.",
     ],
-    listLabel: "Benefits may include:",
+    listLabel: "Fördelar kan inkludera:",
     items: [
-      "Reduced stress",
-      "Improved focus",
-      "Better sleep",
-      "Increased emotional resilience",
-      "Greater self-awareness",
-      "Enhanced recovery and energy",
+      "Minskad stress",
+      "Bättre fokus",
+      "Bättre sömn",
+      "Större emotionell motståndskraft",
+      "Ökad självkännedom",
+      "Förbättrad återhämtning och energi",
     ],
   },
   {
-    title: "Movement, Yoga & Embodied Wellbeing",
+    title: "Rörelse, yoga & kroppsnära välbefinnande",
     body: [
-      "Wellbeing isn't only about the way we think — it is something we experience through the body.",
-      "ROHANI offers movement experiences that combine psychology, mindfulness, and intentional movement to cultivate presence, confidence, and vitality.",
-      "Sessions may include yoga, mindful movement, mobility practices, or dance-based experiences depending on your goals.",
+      "Välbefinnande handlar inte bara om hur vi tänker — det är något vi upplever genom kroppen.",
+      "ROHANI erbjuder rörelseupplevelser som förenar psykologi, mindfulness och medveten rörelse för att odla närvaro, trygghet och vitalitet.",
+      "Sessionerna kan innehålla yoga, mindful rörelse, mobilitet eller dansbaserade upplevelser beroende på dina mål.",
     ],
   },
 ];
 
 const workshopCategories = [
   {
-    category: "Performance & Leadership",
+    category: "Prestation & ledarskap",
     topics: [
-      "The Psychology of Sustainable Performance",
-      "Self-Leadership",
+      "Psykologin bakom hållbar prestation",
+      "Självledarskap",
       "IQ vs. EQ",
-      "Confidence Without Perfectionism",
-      "Attention in the Age of Distraction",
+      "Självförtroende utan perfektionism",
+      "Uppmärksamhet i distraktionens tid",
     ],
   },
   {
-    category: "Wellbeing & Resilience",
+    category: "Välbefinnande & motståndskraft",
     topics: [
-      "The Science of Stress",
-      "Stress Management & Burnout Prevention",
-      "Nervous System Regulation",
-      "Mindfulness at Work",
-      "Work-Life Balance",
-      "The Psychology of Wellbeing at Work",
+      "Vetenskapen om stress",
+      "Stresshantering & förebyggande av utmattning",
+      "Reglering av nervsystemet",
+      "Mindfulness på arbetet",
+      "Balans i arbetslivet",
+      "Psykologin bakom välbefinnande på arbetet",
     ],
   },
   {
-    category: "Culture & Connection",
+    category: "Kultur & gemenskap",
     topics: [
-      "Communication, Relationships & Healthy Team Dynamics",
-      "Belonging, Connection & Workplace Culture",
-      "Resilience During Change",
+      "Kommunikation, relationer & hälsosam teamdynamik",
+      "Tillhörighet, gemenskap & arbetskultur",
+      "Motståndskraft i förändring",
     ],
   },
 ];
@@ -121,69 +121,69 @@ const teamServices = [
   {
     title: "Workshops",
     description:
-      "Interactive workshops combining psychological science with practical tools employees can immediately apply.",
+      "Interaktiva workshops som förenar psykologisk vetenskap med praktiska verktyg som medarbetarna direkt kan tillämpa.",
     hasCategories: true,
   },
   {
-    title: "Talks & Keynotes",
+    title: "Föreläsningar & keynotes",
     description:
-      "Evidence-based presentations that inspire while remaining practical and actionable.",
+      "Evidensbaserade föreläsningar som inspirerar och samtidigt förblir praktiska och handlingsbara.",
     body: [
-      "Designed for conferences, leadership events, educational institutes, and organizations seeking meaningful conversations around mental health, wellbeing, and human performance.",
-      "Topics can be fully customized.",
+      "Anpassade för konferenser, ledarskapsevenemang, utbildningsinstitutioner och organisationer som söker meningsfulla samtal om psykisk hälsa, välbefinnande och mänsklig prestation.",
+      "Innehållet kan anpassas helt efter era önskemål.",
     ],
   },
   {
-    title: "Team Development & Retreats",
+    title: "Teamutveckling & retreats",
     description:
-      "Create experiences that strengthen connection, trust, and collaboration.",
+      "Skapa upplevelser som stärker gemenskap, tillit och samarbete.",
     body: [
-      "ROHANI designs and facilitates tailored team days, retreats, and wellbeing experiences that may combine:",
+      "ROHANI formger och leder skräddarsydda teamdagar, retreats och välbefinnandeupplevelser som kan kombinera:",
     ],
     combine: [
-      "Psychology",
-      "Team-building",
-      "Reflection",
+      "Psykologi",
+      "Teambuilding",
+      "Reflektion",
       "Mindfulness",
-      "Breathwork",
-      "Movement",
-      "Outdoor experiences",
-      "Creative exercises",
+      "Andningsarbete",
+      "Rörelse",
+      "Utomhusupplevelser",
+      "Kreativa övningar",
     ],
-    idealLabel: "Ideal for:",
+    idealLabel: "Perfekt för:",
     ideal: [
-      "Leadership teams",
-      "Company retreats",
-      "Strategy days",
-      "Away Days",
-      "Health & Wellbeing Days",
-      "Off-sites",
-      "Team celebrations",
+      "Ledningsgrupper",
+      "Företagsretreater",
+      "Strategidagar",
+      "Kickoffar",
+      "Hälsodagar",
+      "Offsite",
+      "Teamfirande",
     ],
   },
   {
-    title: "Wellbeing Programs",
+    title: "Välbefinnandeprogram",
     description:
-      "Longer-term partnerships supporting healthier workplace cultures through recurring workshops, wellbeing sessions, and psychological education.",
+      "Längre samarbeten som stödjer friskare arbetskulturer genom återkommande workshops, välbefinnandesessioner och psykologisk utbildning.",
     body: [
-      "Programs are designed around your organization's goals and can include monthly sessions, leadership support, and employee wellbeing initiatives.",
+      "Programmen utformas kring er organisations mål och kan innehålla månadsvisa sessioner, stöd till ledning samt initiativ för medarbetarnas välbefinnande.",
     ],
   },
 ];
 
 const communityExamples = [
-  "Youth empowerment programs",
-  "Mental health initiatives",
-  "Parent education",
-  "Community wellbeing events",
-  "Mindfulness and movement programs",
-  "Preventive mental health interventions",
+  "Program för ungdomars egenmakt",
+  "Initiativ för psykisk hälsa",
+  "Föräldrautbildning",
+  "Välbefinnandeevenemang i samhället",
+  "Mindfulness- och rörelseprogram",
+  "Förebyggande insatser för psykisk hälsa",
 ];
 
 const sections = [
-  { id: "individuals", index: "01", label: "For Individuals" },
-  { id: "teams", index: "02", label: "For Teams & Organizations" },
-  { id: "communities", index: "03", label: "For Communities" },
+  { id: "individuals", index: "01", label: "För individer" },
+  { id: "teams", index: "02", label: "För team & organisationer" },
+  { id: "communities", index: "03", label: "För samhällen" },
 ];
 
 /* ---------- Helpers ---------- */
@@ -239,7 +239,7 @@ function TeamDetail({ svc }: { svc: (typeof teamServices)[number] }) {
       {svc.hasCategories && (
         <div className="space-y-5">
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-            Popular topics include:
+            Populära ämnen:
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {workshopCategories.map((cat) => (
@@ -346,7 +346,7 @@ function TeamsPanel() {
                 aria-expanded={isOpen}
                 className="mt-4 pt-3 border-t border-foreground/10 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-foreground/60 hover:text-accent transition-colors"
               >
-                <span>{isOpen ? "Read less" : "Read more"}</span>
+                <span>{isOpen ? "Visa mindre" : "Läs mer"}</span>
                 <span
                   aria-hidden
                   className="text-sm leading-none transition-transform duration-500 group-hover:translate-x-1"
@@ -363,9 +363,6 @@ function TeamsPanel() {
   );
 }
 
-
-
-
 /* ---------- Page ---------- */
 
 function ServicesPage() {
@@ -378,28 +375,28 @@ function ServicesPage() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-end">
             <div className="md:col-span-7 space-y-8">
               <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                ROHANI Approach
+                ROHANIs förhållningssätt
               </p>
               <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance">
-                Human First.
+                Människan först.
               </h1>
               <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-xl">
-                ROHANI is a psychology-based wellbeing and human development
-                practice serving individuals, teams, organizations and
-                communities.
+                ROHANI är en psykologibaserad verksamhet för välbefinnande och
+                mänsklig utveckling som arbetar med individer, team,
+                organisationer och samhällen.
               </p>
             </div>
 
             <div className="md:col-span-5 space-y-6">
               <p className="text-base leading-[1.75] text-foreground/70">
-                We believe sustainable change happens when people feel safe,
-                understood, and equipped with practical tools they can carry
-                into everyday life.
+                Vi tror att hållbar förändring sker när människor känner sig
+                trygga, förstådda och utrustade med praktiska verktyg de kan
+                bära med sig i vardagen.
               </p>
               <p className="text-base leading-[1.75] text-foreground/70">
-                Our work combines modern psychology with mindfulness, nervous
-                system regulation, and experiential learning to create
-                meaningful change that lasts.
+                Vårt arbete förenar modern psykologi med mindfulness,
+                reglering av nervsystemet och upplevelsebaserat lärande för att
+                skapa meningsfull förändring som varar.
               </p>
             </div>
           </div>
@@ -408,18 +405,18 @@ function ServicesPage() {
           <div className="max-w-7xl mx-auto mt-16 md:mt-20 pt-10 md:pt-14 border-t border-border/60 grid md:grid-cols-12 gap-10 md:gap-16">
             <div className="md:col-span-7 space-y-3">
               <p className="font-serif text-2xl md:text-3xl leading-snug">
-                Grounded in science.
+                Förankrat i vetenskap.
               </p>
               <p className="font-serif text-2xl md:text-3xl leading-snug">
-                Guided by humanity.
+                Lett av medmänsklighet.
               </p>
               <p className="font-serif text-2xl md:text-3xl leading-snug">
-                Designed for lasting impact.
+                Format för varaktig effekt.
               </p>
             </div>
             <nav className="md:col-span-5 flex flex-col gap-4 md:pt-2">
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                Explore
+                Utforska
               </p>
               {sections.map((s) => (
                 <a
@@ -444,7 +441,7 @@ function ServicesPage() {
           <div className="max-w-7xl mx-auto overflow-hidden rounded-4xl">
             <img
               src={servicesHero}
-              alt="Calm, sunlit Scandinavian interior"
+              alt="Lugnt, solbelyst skandinavisk interiör"
               width={1920}
               height={912}
               className="w-full h-[16rem] md:h-[26rem] object-cover"
@@ -460,14 +457,14 @@ function ServicesPage() {
                 <SectionHeader
                   id="individuals"
                   index="01"
-                  title="For Individuals"
-                  intro="Psychology-informed support, mindfulness and embodied practice — tailored to where you are right now."
+                  title="För individer"
+                  intro="Psykologiskt förankrat stöd, mindfulness och kroppsnära praktik — anpassat efter var du befinner dig just nu."
                 />
               </div>
               <div className="md:col-span-5">
                 <img
                   src={servicesIndividuals}
-                  alt="Quiet, textured corner with linen and warm daylight"
+                  alt="Lugnt, texturerat hörn med linne och varmt dagsljus"
                   width={1200}
                   height={1504}
                   loading="lazy"
@@ -504,36 +501,37 @@ function ServicesPage() {
             >
               <div className="space-y-6">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  02 · For Teams &amp; Organizations
+                  02 · För team & organisationer
                 </p>
                 <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-balance">
-                  Sustainable Performance Starts with People
+                  Hållbar prestation börjar med människor
                 </h2>
                 <p className="text-base md:text-lg leading-[1.8] text-foreground/75">
-                  Healthy organizations are built by people who have the
-                  psychological resources and regulated nervous systems to
-                  thrive.
+                  Friska organisationer byggs av människor som har de
+                  psykologiska resurserna och ett reglerat nervsystem som krävs
+                  för att trivas och utvecklas.
                 </p>
               </div>
               <div className="space-y-6">
                 <p className="text-base leading-[1.8] text-foreground/75">
-                  ROHANI partners with companies, educational institutes, and
-                  organizations to strengthen wellbeing, resilience, and
-                  sustainable performance through evidence-based psychology and
-                  engaging, practical experiences.
+                  ROHANI samarbetar med företag, utbildningsinstitutioner och
+                  organisationer för att stärka välbefinnande, motståndskraft
+                  och hållbar prestation genom evidensbaserad psykologi och
+                  engagerande, praktiska upplevelser.
                 </p>
                 <div className="pt-6 border-t border-border/60 space-y-6">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-                    How we collaborate
+                    Så samarbetar vi
                   </p>
                   <p className="text-base leading-[1.8] text-foreground/75">
-                    Every collaboration is tailored to the needs, culture, and
-                    objectives of your organization.
+                    Varje samarbete anpassas efter er organisations behov,
+                    kultur och mål.
                   </p>
                   <p className="text-base leading-[1.8] text-foreground/75">
-                    Whether you're planning a leadership workshop, wellbeing
-                    initiative, conference, or team development day, the content
-                    is designed to create meaningful and lasting impact.
+                    Vare sig ni planerar en ledarskapsworkshop, ett
+                    välbefinnandeinitiativ, en konferens eller en
+                    teamutvecklingsdag är innehållet format för att skapa
+                    meningsfull och varaktig effekt.
                   </p>
                 </div>
               </div>
@@ -543,7 +541,7 @@ function ServicesPage() {
             <div className="mt-12 md:mt-16 overflow-hidden rounded-4xl">
               <img
                 src={servicesTeams}
-                alt="Sunlit meeting space set for a workshop"
+                alt="Solbelyst möteslokal förberedd för en workshop"
                 width={1600}
                 height={1008}
                 loading="lazy"
@@ -566,33 +564,33 @@ function ServicesPage() {
             >
               <div className="space-y-6">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  03 · For Communities
+                  03 · För samhällen
                 </p>
                 <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] text-balance">
-                  Programs that Create Meaningful Change
+                  Program som skapar meningsfull förändring
                 </h2>
                 <p className="text-base md:text-lg leading-[1.8] text-foreground/75">
-                  ROHANI collaborates with municipalities, schools, NGOs, and
-                  community organizations to design accessible programs that
-                  strengthen wellbeing, resilience, and belonging.
+                  ROHANI samarbetar med kommuner, skolor, idéorganisationer och
+                  samhällsorganisationer för att forma tillgängliga program som
+                  stärker välbefinnande, motståndskraft och tillhörighet.
                 </p>
               </div>
               <div className="space-y-6 md:pt-14">
                 <p className="text-base leading-[1.8] text-foreground/75">
-                  Accessible programs that strengthen wellbeing, resilience, and
-                  belonging.
+                  Tillgängliga program som stärker välbefinnande, motståndskraft
+                  och tillhörighet.
                 </p>
                 <p className="text-base leading-[1.8] text-foreground/75">
-                  Projects are tailored to each community and may include
-                  workshops, group programs, retreats, or educational
-                  initiatives for children, adolescents, adults, or families.
+                  Projekten anpassas efter varje samhälle och kan innehålla
+                  workshops, gruppprogram, retreats eller utbildningsinitiativ
+                  för barn, unga, vuxna eller familjer.
                 </p>
               </div>
             </div>
 
             <div className="mt-12 md:mt-16">
               <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-6">
-                Examples include:
+                Exempel:
               </p>
               <div className="grid gap-4 md:gap-5 sm:grid-cols-2 max-w-4xl">
                 {communityExamples.map((item) => (
@@ -627,17 +625,17 @@ function ServicesPage() {
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
-              Begin where you are.
+              Börja där du är.
             </h2>
             <p className="text-primary-foreground/70 text-lg">
-              Meaningful change rarely starts with having all the answers.
-              Sometimes, it simply starts with a conversation.
+              Meningsfull förändring börjar sällan med att ha alla svar.
+              Ibland börjar den helt enkelt med ett samtal.
             </p>
             <Link
               to="/contact"
               className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
             >
-              Book a Discovery Call
+              Boka ett introducerande samtal
             </Link>
           </div>
         </section>

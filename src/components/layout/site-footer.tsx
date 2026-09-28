@@ -7,26 +7,26 @@ export function SiteFooter() {
         <div className="md:col-span-5 space-y-4">
           <div className="font-serif text-2xl tracking-[0.2em]">ROHANI</div>
           <p className="text-sm text-foreground/60 max-w-xs leading-relaxed">
-            Psychology, mindfulness and human development for organizations and
-            people who care about how they live and lead.
+            Psykologi, mindfulness och mänsklig utveckling för organisationer
+            och människor som bryr sig om hur de lever och leder.
           </p>
         </div>
 
         <div className="md:col-span-3 space-y-4">
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-            Explore
+            Utforska
           </p>
           <ul className="space-y-2.5 text-sm">
-            <li><Link to="/" className="hover:text-accent">About</Link></li>
-            <li><Link to="/services" className="hover:text-accent">Services</Link></li>
-            <li><Link to="/experience" className="hover:text-accent">Experience</Link></li>
-            <li><Link to="/contact" className="hover:text-accent">Contact</Link></li>
+            <li><Link to="/" className="hover:text-accent">Om oss</Link></li>
+            <li><Link to="/services" className="hover:text-accent">Tjänster</Link></li>
+            <li><Link to="/experience" className="hover:text-accent">Erfarenhet</Link></li>
+            <li><Link to="/contact" className="hover:text-accent">Kontakt</Link></li>
           </ul>
         </div>
 
         <div className="md:col-span-4 space-y-4">
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">
-            Contact
+            Kontakt
           </p>
           <ul className="space-y-2.5 text-sm">
             <li>
@@ -55,7 +55,7 @@ export function SiteFooter() {
                 Madeeha Rani Qazi
               </a>
             </li>
-            <li className="text-foreground/60">Based in: Scandinavia - Online - Working Globally</li>
+            <li className="text-foreground/60">Baserad i: Skandinavien – Online – Arbetar globalt</li>
           </ul>
         </div>
       </div>
@@ -64,7 +64,7 @@ export function SiteFooter() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
           <p>© {new Date().getFullYear()} Rohani. Peace of Mind.</p>
           <p className="font-serif italic tracking-normal normal-case text-sm text-foreground/60">
-            Psychology meets human potential.
+            Psykologi möter mänsklig potential.
           </p>
         </div>
       </div>

@@ -72,7 +72,7 @@ export function ServiceCard({
             aria-expanded={open}
             className="mt-auto pt-8 self-start text-[10px] uppercase tracking-[0.25em] border-b border-foreground/40 pb-1 hover:text-accent hover:border-accent transition-colors"
           >
-            {open ? "Read less" : "Read more"}
+            {open ? "Visa mindre" : "Läs mer"}
           </button>
         </>
       )}
