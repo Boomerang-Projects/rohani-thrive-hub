@@ -419,7 +419,6 @@ export function ExperienceEn() {
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="clinical"
-              index="01"
               dark
               title="Psychology & Clinical Practice"
             />
