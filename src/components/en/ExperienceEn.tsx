@@ -413,7 +413,7 @@ export function ExperienceEn() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "50% 60%" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-foreground/25" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7">
             <p className="text-[10px] uppercase tracking-[0.3em] text-background/80">
               Experience
