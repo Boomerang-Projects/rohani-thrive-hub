@@ -128,10 +128,6 @@ const clinicalEntries: Entry[] = [
       "Mitt arbete omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering och samverkan med familjer och tvärprofessionella team.",
       "Den erfarenheten har stärkt och format min förmåga att anpassa terapeutiska förhållningssätt, kommunikation och interventioner efter olika utvecklingsskeden, individuella behov och familjekonstellationer.",
     ],
-    link: {
-      label: "BUP Brommaplan",
-      href: "https://www.skhlm.se/service/bup-barn-och-ungdomspsykiatri/",
-    },
   },
   {
     period: "2018 — 2022",
