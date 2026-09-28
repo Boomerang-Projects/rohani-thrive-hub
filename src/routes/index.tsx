@@ -55,13 +55,13 @@ function AboutPage() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero — full-bleed portrait with overlay copy */}
-        <section className="relative flex items-end min-h-[85vh] overflow-hidden">
+        <section className="relative flex items-end min-h-[110vh] md:min-h-[95vh] xl:min-h-[85vh] overflow-hidden">
           <img
             src={aboutImage.url}
             alt="Rohani — psychology-based wellbeing and human development"
             width={1920}
             height={1382}
-            className="absolute inset-0 w-full h-full object-cover scale-[1.3] -translate-y-[14%] md:-translate-y-[15%] lg:-translate-y-[12%] xl:-translate-y-[8%]"
+            className="absolute inset-0 w-full h-full object-cover scale-[1.35] -translate-y-[17%] md:-translate-y-[15%] lg:-translate-y-[14%] xl:-translate-y-[8%]"
             style={{ objectPosition: "50% 32%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />
@@ -72,7 +72,7 @@ function AboutPage() {
                 <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
                   ABOUT ROHANI
                 </p>
-                <h1 className="text-4xl md:text-6xl font-serif leading-[1.08] text-background max-w-3xl mt-8 md:mt-10">
+                <h1 className="text-4xl lg:text-6xl font-serif leading-[1.08] text-background max-w-3xl mt-8 md:mt-10">
                   Elevating wellbeing, sustainability and quality of life through
                   modern psychology.
                 </h1>
