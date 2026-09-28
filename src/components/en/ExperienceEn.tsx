@@ -415,7 +415,7 @@ export function ExperienceEn() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-foreground/25" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-background/80">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-background">
               Experience
             </p>
             <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance max-w-4xl text-background">
