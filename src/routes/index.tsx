@@ -83,8 +83,8 @@ function AboutPage() {
               alt=""
               width={2880}
               height={2100}
-              className="absolute inset-0 w-full h-full object-cover md:scale-[1.35] md:-translate-y-[15%] lg:-translate-y-[14%] xl:-translate-y-[8%]"
-              style={{ objectPosition: "50% 32%" }}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "50% 18%" }}
             />
           </picture>
           <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />

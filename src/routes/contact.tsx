@@ -44,13 +44,13 @@ function ContactPage() {
             style={{ objectPosition: "50% 35%" }}
           />
           <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 pt-44 md:pt-56 pb-16 md:pb-24 text-center space-y-6">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/80">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
               {t("Kontakt", "Contact")}
             </p>
-            <h1 className="text-5xl md:text-7xl font-serif leading-[1.05] text-balance text-foreground">
+            <h1 className="text-5xl md:text-7xl font-serif leading-[1.05] text-balance">
               {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
             </h1>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-xl mx-auto">
+            <p className="text-base md:text-lg leading-relaxed text-foreground/70 max-w-xl mx-auto">
               {t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.")}
             </p>
           </div>
