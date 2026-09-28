@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PageHero } from "@/components/sections/PageHero";
+import contactHero from "@/assets/contact-hero.jpg.asset.json";
 import { Contact } from "@/components/sections/Contact";
 import { useLang } from "@/lib/i18n";
 
@@ -35,12 +36,25 @@ function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <PageHero
-          centered
-          eyebrow={t("Kontakt", "Contact") as string}
-          title={t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
-          intro={t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.") as string}
-        />
+        <section className="relative overflow-hidden">
+          <img
+            src={contactHero.url}
+            alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "50% 35%" }}
+          />
+          <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 pt-44 md:pt-56 pb-16 md:pb-24 text-center space-y-6">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/80">
+              {t("Kontakt", "Contact")}
+            </p>
+            <h1 className="text-5xl md:text-7xl font-serif leading-[1.05] text-balance text-foreground">
+              {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
+            </h1>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-xl mx-auto">
+              {t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.")}
+            </p>
+          </div>
+        </section>
         <Contact />
         <section id="cta" className="scroll-mt-24 bg-foreground text-background py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
