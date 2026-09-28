@@ -173,7 +173,7 @@ function SectionHeader({
 }) {
   return (
     <div id={id} className="scroll-mt-28 text-center">
-      <p className="text-4xl md:text-5xl font-semibold uppercase tracking-[0.15em] leading-snug text-balance text-accent">
+      <p className="text-4xl md:text-5xl font-medium uppercase tracking-[0.15em] leading-snug text-balance text-accent">
         {index} · {title}
       </p>
     </div>
