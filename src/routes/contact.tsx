@@ -43,7 +43,7 @@ function ContactPage() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "50% 35%" }}
           />
-          <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 pt-44 md:pt-56 pb-16 md:pb-24 text-center space-y-6">
+          <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 pt-44 md:pt-56 pb-16 md:pb-24 text-center space-y-6 [text-shadow:0_1px_16px_rgba(247,243,236,0.55)]">
             <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
               {t("Kontakt", "Contact")}
             </p>
