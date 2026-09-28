@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { ExperienceEn } from "@/components/en/ExperienceEn";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
