@@ -4,6 +4,10 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
+import mediaRadio from "@/assets/media-radio.jpg";
+import mediaMagazine from "@/assets/media-magazine.jpg";
+import mediaPodcast from "@/assets/media-podcast.jpg";
+import personalPlaceholder from "@/assets/personal-placeholder.jpg";
 
 /* ---------- Data ---------- */
 
@@ -518,7 +522,18 @@ export function ExperienceEn() {
 
         {/* ===== Personal block ===== */}
         <section className="bg-secondary/60 border-y border-border/60 py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 md:gap-16">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+            <div className="md:col-span-4">
+              <img
+                src={personalPlaceholder}
+                alt="Placeholder image — calm reading corner in morning light"
+                loading="lazy"
+                width={1024}
+                height={1280}
+                draggable={false}
+                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+              />
+            </div>
             <div className="md:col-span-8 md:col-start-5 space-y-6">
               <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
                 At the heart of this work is a curiosity about who we are, what
@@ -571,48 +586,69 @@ export function ExperienceEn() {
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="In the Media" />
-            <div className="mt-12 md:mt-16 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <div className="lg:col-span-7 divide-y divide-border/70 border-t border-border/70">
-                {[
-                  {
-                    name: "Sveriges Radio",
-                    text: "Interviewed on youth wellbeing, psychology and community-based folkbildning.",
-                  },
-                  {
-                    name: "Psykologtidningen",
-                    text: "Featured in connection with G-Flow and the intersection of psychology, culture and youth development.",
-                  },
-                ].map((m) => (
-                  <div
-                    key={m.name}
-                    className="py-6 grid md:grid-cols-12 gap-2 md:gap-6 items-baseline"
-                  >
-                    <p className="md:col-span-5 font-serif text-xl md:text-2xl">
-                      {m.name}
-                    </p>
-                    <p className="md:col-span-7 text-base leading-[1.75] text-foreground/70">
-                      {m.text}
-                    </p>
-                  </div>
-                ))}
+            <div className="mt-12 md:mt-16 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
+              {/* Sveriges Radio */}
+              <div>
+                <img
+                  src={mediaRadio}
+                  alt="Studio microphone in warm light"
+                  loading="lazy"
+                  width={1200}
+                  height={900}
+                  draggable={false}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                />
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                  Sveriges Radio
+                </h3>
+                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                  Interviewed on youth wellbeing, psychology and community-based folkbildning.
+                </p>
               </div>
-              <div className="lg:col-span-4 lg:col-start-9 max-w-sm mx-auto w-full">
-                <div className="relative rounded-[2rem] bg-terracotta/30">
+
+              {/* Psykologtidningen */}
+              <div>
+                <div className="flex aspect-[4/3] w-full items-center">
                   <button
                     type="button"
                     onClick={() => setLightboxOpen(true)}
                     aria-label="Open the article full size"
-                    className="relative block w-full cursor-zoom-in p-3 md:p-4"
+                    className="block cursor-zoom-in"
                   >
                     <img
                       src={mediaArticle.url}
                       alt="Article in Psykologtidningen about G-Flow"
                       loading="lazy"
                       draggable={false}
-                      className="w-full h-auto rounded-2xl shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.01]"
+                      className="w-40 md:w-48 aspect-[4/3] rounded-2xl object-cover object-top ring-1 ring-border shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                     />
                   </button>
                 </div>
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                  Psykologtidningen
+                </h3>
+                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                  Featured in connection with G-Flow and the intersection of psychology, culture and youth development.
+                </p>
+              </div>
+
+              {/* Podcast */}
+              <div>
+                <img
+                  src={mediaPodcast}
+                  alt="Podcast microphones in a recording studio"
+                  loading="lazy"
+                  width={1200}
+                  height={900}
+                  draggable={false}
+                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                />
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                  Podcast
+                </h3>
+                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                  A guest in conversation about psychology, culture and wellbeing.
+                </p>
               </div>
             </div>
 

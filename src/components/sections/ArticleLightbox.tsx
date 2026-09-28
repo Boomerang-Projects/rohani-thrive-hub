@@ -199,26 +199,26 @@ export function ArticleLightbox({ src, alt, open, onClose }: Props) {
             transition: "transform 180ms ease-out",
           }}
         />
-      </div>
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label={alt === "" ? "Close" : "Stäng"}
-        className="absolute top-4 right-4 md:top-6 md:right-6 flex h-9 w-9 items-center justify-center rounded-md bg-background text-foreground shadow-[0_8px_24px_-8px_rgba(58,41,34,0.4)] transition-colors duration-200 hover:bg-background/90"
-      >
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          aria-hidden
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label={alt === "" ? "Close" : "Stäng"}
+          className="absolute -top-3 -right-3 z-10 flex h-9 w-9 items-center justify-center rounded-md bg-background text-foreground shadow-[0_8px_24px_-8px_rgba(58,41,34,0.4)] transition-colors duration-200 hover:bg-background/90"
         >
-          <path d="M1 1l12 12M13 1L1 13" />
-        </svg>
-      </button>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            aria-hidden
+          >
+            <path d="M1 1l12 12M13 1L1 13" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
