@@ -156,9 +156,4 @@
   }
 }
 
-@utility hero-text-halo {
-  text-shadow:
-    3px 3px 0 #f7f3ec, -3px 3px 0 #f7f3ec, 3px -3px 0 #f7f3ec, -3px -3px 0 #f7f3ec,
-    3px 0 0 #f7f3ec, -3px 0 0 #f7f3ec, 0 3px 0 #f7f3ec, 0 -3px 0 #f7f3ec,
-    0 0 26px rgba(247, 243, 236, 0.85);
 }
