@@ -439,6 +439,19 @@ function ServicesPage() {
           </div>
         </section>
 
+        {/* ===== Atmospheric band ===== */}
+        <section className="px-6 md:px-10 pb-4 md:pb-8">
+          <div className="max-w-7xl mx-auto overflow-hidden rounded-4xl">
+            <img
+              src={servicesHero}
+              alt="Calm, sunlit Scandinavian interior"
+              width={1920}
+              height={912}
+              className="w-full h-[16rem] md:h-[26rem] object-cover"
+            />
+          </div>
+        </section>
+
         {/* ===== For Individuals ===== */}
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
