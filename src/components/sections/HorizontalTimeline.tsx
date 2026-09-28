@@ -47,7 +47,7 @@ export function HorizontalTimeline({
                   className={`relative z-10 mt-px size-4 shrink-0 rounded-full border-2 transition-all duration-200 motion-reduce:transition-none ${selected === index ? "border-accent bg-accent ring-4 ring-background outline outline-1 outline-accent" : "border-sage bg-background group-hover:border-accent group-hover:bg-accent group-focus-visible:border-accent"}`}
                 />
                 <span
-                  className={`mt-2 max-w-full text-center text-[10px] uppercase tracking-[0.14em] leading-tight text-accent sm:hidden`}
+                  className={`mt-2 max-w-full px-0.5 text-center text-[9px] uppercase tracking-[0.08em] leading-tight whitespace-normal break-words text-accent sm:hidden`}
                 >
                   {entry.period}
                 </span>
