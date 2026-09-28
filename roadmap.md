@@ -27,3 +27,4 @@
 - [x] Timeline: fix title text clipping at intermediate widths
 - [x] Verify desktop + mobile in both languages
 - [x] Timeline logos: small placeholder logo next to each organization title in the Experience timeline detail panel (SV + EN)
+- [x] Section headers: bold, centered, no big serif title; removed "01" prefix on clinical section (SV+EN)
