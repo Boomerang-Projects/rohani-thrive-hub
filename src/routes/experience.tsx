@@ -687,7 +687,7 @@ function ExperiencePageSv() {
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="I media" />
-            <div className="mt-12 md:mt-16 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="mt-12 md:mt-16 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-7 divide-y divide-border/70 border-t border-border/70">
                 {[
                   {
@@ -712,23 +712,20 @@ function ExperiencePageSv() {
                   </div>
                 ))}
               </div>
-              <div className="lg:col-span-5">
-                <div className="relative">
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl bg-terracotta/30"
-                  />
+              <div className="lg:col-span-4 lg:col-start-9 max-w-sm mx-auto w-full">
+                <div className="relative rounded-[2rem] bg-terracotta/30">
                   <button
                     type="button"
                     onClick={() => setLightboxOpen(true)}
                     aria-label="Öppna artikeln i full storlek"
-                    className="relative block w-full cursor-zoom-in overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.01]"
+                    className="relative block w-full cursor-zoom-in p-3 md:p-4"
                   >
                     <img
                       src={mediaArticle.url}
                       alt="Artikel i Psykologtidningen om G-Flow"
                       loading="lazy"
-                      className="w-full h-auto"
+                      draggable={false}
+                      className="w-full h-auto rounded-2xl shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.01]"
                     />
                   </button>
                 </div>
