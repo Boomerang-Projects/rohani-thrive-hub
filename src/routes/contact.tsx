@@ -36,14 +36,14 @@ function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden h-[800px] flex items-center justify-center">
           <img
             src={contactHero.url}
             alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "45% 0%" }}
+            style={{ objectPosition: "45% 20%" }}
           />
-          <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 py-28 md:py-36 text-center space-y-6 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
+          <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 text-center space-y-6 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
             <p className="text-[10px] uppercase tracking-[0.3em] text-background/80">
               {t("Kontakt", "Contact")}
             </p>
