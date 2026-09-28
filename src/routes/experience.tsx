@@ -119,7 +119,7 @@ const clinicalEntries: Entry[] = [
   },
   {
     period: "2018 — 2022",
-    title: "Barns & ungas psykiska hälsa",
+    title: "Barns & Ungas Psykiska Hälsa",
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: [
       "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
@@ -129,7 +129,7 @@ const clinicalEntries: Entry[] = [
   },
   {
     period: "2018 — 2022",
-    title: "Sjukhuspsykiatri & akutsjukvård",
+    title: "Sjukhuspsykiatri & Akutsjukvård",
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
     body: [
       "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
