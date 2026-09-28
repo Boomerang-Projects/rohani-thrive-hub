@@ -119,7 +119,7 @@ const clinicalEntries: Entry[] = [
   },
   {
     period: "2018 — 2022",
-    title: "Barns & ungas psykiska hälsa",
+    title: "Barns & Ungas Psykiska Hälsa",
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: [
       "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
@@ -129,7 +129,7 @@ const clinicalEntries: Entry[] = [
   },
   {
     period: "2018 — 2022",
-    title: "Sjukhuspsykiatri & akutsjukvård",
+    title: "Sjukhuspsykiatri & Akutsjukvård",
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
     body: [
       "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
@@ -287,7 +287,7 @@ function SectionHeader({
   return (
     <div id={id} className="scroll-mt-28 text-center">
       <p
-        className={`text-4xl md:text-5xl font-bold uppercase tracking-[0.15em] leading-snug text-balance ${
+        className={`text-4xl md:text-5xl font-semibold uppercase tracking-[0.15em] leading-snug text-balance ${
           dark ? "text-gold" : "text-accent"
         }`}
       >
@@ -389,17 +389,17 @@ function ExperiencePageSv() {
   const beyondTabs: { id: BeyondTabId; label: string; entries: Entry[] }[] = [
     {
       id: "organisational",
-      label: "Professionellt & organisatoriskt arbete",
+      label: "Professionellt & Organisatoriskt Arbete",
       entries: organisationalEntries,
     },
     {
       id: "community",
-      label: "Samhälle & social påverkan",
+      label: "Samhälle & Social Påverkan",
       entries: communityEntries,
     },
     {
       id: "wellbeing",
-      label: "Välbefinnande, retreats & upplevelsebaserat arbete",
+      label: "Välbefinnande, Retreats & Upplevelsebaserat Arbete",
       entries: wellbeingEntries,
     },
   ];
@@ -492,7 +492,7 @@ function ExperiencePageSv() {
               <div
                 role="tablist"
                 aria-label="Bortom kliniken"
-                className="flex flex-wrap gap-2 md:gap-3"
+                className="flex flex-wrap justify-center gap-2 md:gap-3"
               >
                 {beyondTabs.map((tab) => (
                   <button
