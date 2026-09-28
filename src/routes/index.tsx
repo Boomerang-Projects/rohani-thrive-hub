@@ -54,45 +54,40 @@ function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        {/* About ROHANI — 50/50 text + image */}
-        <section className="pt-14 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
-            <div className="flex flex-col py-1 md:pr-8">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                ABOUT ROHANI
-              </p>
-              <h1 className="text-4xl md:text-5xl font-serif leading-[1.1] mt-8 md:mt-10">
-                Elevating wellbeing, sustainability and quality of life through
-                modern psychology.
-              </h1>
-              <p className="text-lg md:text-xl leading-relaxed text-foreground/75 max-w-xl mt-8 md:mt-10">
-                Rohani was founded to bridge psychology, mindfulness and human
-                development - for the people, teams and organizations who shape
-                our world.
-              </p>
-            </div>
+        {/* Hero — full-bleed portrait with overlay copy */}
+        <section className="relative flex items-end min-h-[85vh] overflow-hidden">
+          <img
+            src={aboutImage.url}
+            alt="Rohani — psychology-based wellbeing and human development"
+            width={1920}
+            height={1382}
+            className="absolute inset-0 w-full h-full object-cover scale-125"
+            style={{ objectPosition: "50% 32%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />
 
-            {/* Right: portrait with anchored quote bubble */}
-            <div className="relative pb-16 md:pb-0 md:h-full">
-              <div className="relative min-h-[20rem] md:h-full overflow-hidden rounded-3xl">
-                <img
-                  src={aboutImage.url}
-                  alt="Rohani — psychology-based wellbeing and human development"
-                  width={1920}
-                  height={1382}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover scale-125"
-                  style={{ objectPosition: "50% 32%" }}
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 md:-bottom-5 md:-left-10 right-0 md:right-auto bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.25)] md:max-w-[17rem] border border-taupe/40">
-                <p className="font-serif italic text-base md:text-lg leading-snug">
-                  "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
-                </p>
-                <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
-                  — The Rohani Philosophy
-                </p>
-              </div>
+          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
+              ABOUT ROHANI
+            </p>
+            <h1 className="text-4xl md:text-6xl font-serif leading-[1.08] text-background max-w-3xl mt-8 md:mt-10">
+              Elevating wellbeing, sustainability and quality of life through
+              modern psychology.
+            </h1>
+            <p className="text-lg md:text-xl leading-relaxed text-background/85 max-w-xl mt-8 md:mt-10">
+              Rohani was founded to bridge psychology, mindfulness and human
+              development - for the people, teams and organizations who shape
+              our world.
+            </p>
+
+            {/* Quote card */}
+            <div className="mt-8 md:mt-0 md:absolute md:bottom-0 md:right-0 max-w-[17rem] bg-background p-5 md:p-6 rounded-xl shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] border border-taupe/40">
+              <p className="font-serif italic text-base md:text-lg leading-snug">
+                "True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence."
+              </p>
+              <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-foreground/50">
+                — The Rohani Philosophy
+              </p>
             </div>
           </div>
         </section>

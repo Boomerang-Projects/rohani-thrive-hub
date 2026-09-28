@@ -4,11 +4,31 @@ export function PageHero({
   eyebrow,
   title,
   intro,
+  centered = false,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro?: string;
+  centered?: boolean;
 }) {
+  if (centered) {
+    return (
+      <section className="px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-20 max-w-3xl mx-auto text-center">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+          {eyebrow}
+        </p>
+        <h1 className="text-5xl md:text-7xl font-serif leading-[1.05] text-balance mt-6">
+          {title}
+        </h1>
+        {intro && (
+          <p className="text-base leading-relaxed text-foreground/70 mt-8">
+            {intro}
+          </p>
+        )}
+      </section>
+    );
+  }
+
   return (
     <section className="px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-20 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-12 gap-10 items-end">
