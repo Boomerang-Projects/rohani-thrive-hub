@@ -434,16 +434,23 @@ function ExperiencePageSv() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1 scroll-smooth">
-        {/* ===== Hero band ===== */}
-        <section className="bg-secondary/60 border-b border-border/60 px-6 md:px-10 pt-24 md:pt-32 pb-20 md:pb-28">
-          <div className="max-w-7xl mx-auto space-y-7">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
+        {/* ===== Hero ===== */}
+        <section className="relative overflow-hidden">
+          <img
+            src={experienceHero.url}
+            alt="Uppräckta händer mot en öppen blå himmel"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "50% 22%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/15" />
+          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-background/80">
               Erfarenhet
             </p>
-            <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance max-w-4xl text-background">
               Psykologi, välbefinnande & mänsklig utveckling
             </h1>
-            <p className="text-lg md:text-xl leading-[1.7] text-foreground/75 max-w-2xl">
+            <p className="text-lg md:text-xl leading-[1.7] text-background/85 max-w-2xl">
               Mitt arbete förenar psykologisk expertis, mänsklig utveckling
               och kroppsnära vägar till välbefinnande — inom klinisk
               verksamhet, organisationer och samhälle.
