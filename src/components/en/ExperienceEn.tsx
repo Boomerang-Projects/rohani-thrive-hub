@@ -258,7 +258,7 @@ function SectionHeader({
   return (
     <div id={id} className="scroll-mt-28 text-center">
       <p
-        className={`text-4xl md:text-5xl font-bold uppercase tracking-[0.15em] leading-snug text-balance ${
+        className={`text-4xl md:text-5xl font-semibold uppercase tracking-[0.15em] leading-snug text-balance ${
           dark ? "text-gold" : "text-accent"
         }`}
       >
@@ -464,7 +464,7 @@ export function ExperienceEn() {
               <div
                 role="tablist"
                 aria-label="Beyond the clinic"
-                className="flex flex-wrap gap-2 md:gap-3"
+                className="flex flex-wrap justify-center gap-2 md:gap-3"
               >
                 {beyondTabs.map((tab) => (
                   <button
