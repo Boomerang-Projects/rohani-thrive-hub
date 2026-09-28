@@ -1,0 +1,1 @@
+- Keep the bilingual Experience timeline in `src/components/sections/HorizontalTimeline.tsx`, with translated entries passed from each page, so layout and interaction stay consistent across languages.
