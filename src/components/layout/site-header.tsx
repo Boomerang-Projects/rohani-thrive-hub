@@ -104,7 +104,8 @@ export function SiteHeader() {
             <div key={link.to} className="relative group">
               <Link
                 to={link.to}
-                className="hover:text-foreground transition-colors"
+                className="transition-colors hover:text-foreground"
+                inactiveProps={{ className: "text-foreground/60" }}
                 activeProps={{ className: "text-foreground" }}
               >
                 {link.label}
