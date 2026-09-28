@@ -36,7 +36,7 @@ function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section className="relative overflow-hidden h-[800px] flex items-center justify-center">
+        <section className="relative overflow-hidden aspect-[1920/800] flex items-center justify-center">
           <img
             src={contactHero.url}
             alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
