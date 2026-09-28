@@ -10,6 +10,7 @@ export type TimelineItem = {
   feature?: boolean;
   to?: string;
   cta?: string;
+  logo?: string;
   detail: string[];
 };
 
