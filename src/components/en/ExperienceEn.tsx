@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
+import mediaArticle from "@/assets/media-article.jpg.asset.json";
 
 /* ---------- Data ---------- */
 
@@ -436,6 +439,7 @@ function EntryRow({ entry }: { entry: Entry }) {
 /* ---------- Page ---------- */
 
 export function ExperienceEn() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -654,29 +658,52 @@ export function ExperienceEn() {
         <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="In the Media" />
-            <div className="mt-12 md:mt-16 max-w-4xl divide-y divide-border/70 border-t border-border/70">
-              {[
-                {
-                  name: "Sveriges Radio",
-                  text: "Interviewed on youth wellbeing, psychology and community-based folkbildning.",
-                },
-                {
-                  name: "Psykologtidningen",
-                  text: "Featured in connection with G-Flow and the intersection of psychology, culture and youth development.",
-                },
-              ].map((m) => (
-                <div
-                  key={m.name}
-                  className="py-6 grid md:grid-cols-12 gap-2 md:gap-8 items-baseline"
-                >
-                  <p className="md:col-span-4 font-serif text-xl md:text-2xl">
-                    {m.name}
-                  </p>
-                  <p className="md:col-span-8 text-base leading-[1.75] text-foreground/70">
-                    {m.text}
-                  </p>
+            <div className="mt-12 md:mt-16 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              <div className="lg:col-span-7 divide-y divide-border/70 border-t border-border/70">
+                {[
+                  {
+                    name: "Sveriges Radio",
+                    text: "Interviewed on youth wellbeing, psychology and community-based folkbildning.",
+                  },
+                  {
+                    name: "Psykologtidningen",
+                    text: "Featured in connection with G-Flow and the intersection of psychology, culture and youth development.",
+                  },
+                ].map((m) => (
+                  <div
+                    key={m.name}
+                    className="py-6 grid md:grid-cols-12 gap-2 md:gap-6 items-baseline"
+                  >
+                    <p className="md:col-span-5 font-serif text-xl md:text-2xl">
+                      {m.name}
+                    </p>
+                    <p className="md:col-span-7 text-base leading-[1.75] text-foreground/70">
+                      {m.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div className="lg:col-span-5">
+                <div className="relative">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl bg-terracotta/30"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setLightboxOpen(true)}
+                    aria-label="Open the article full size"
+                    className="relative block w-full cursor-zoom-in overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.01]"
+                  >
+                    <img
+                      src={mediaArticle.url}
+                      alt="Article in Psykologtidningen about G-Flow"
+                      loading="lazy"
+                      className="w-full h-auto"
+                    />
+                  </button>
                 </div>
-              ))}
+              </div>
             </div>
 
             {/* Selected organisations */}
@@ -697,6 +724,12 @@ export function ExperienceEn() {
             </div>
           </div>
         </section>
+        <ArticleLightbox
+          src={mediaArticle.url}
+          alt="Article in Psykologtidningen about G-Flow"
+          open={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+        />
       </main>
       <SiteFooter />
     </div>
