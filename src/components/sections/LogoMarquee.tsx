@@ -4,6 +4,14 @@ import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
 import psykologtidningen from "@/assets/logos/psykologtidningen.png";
+import abfSodertorn from "@/assets/logos/partners/abf-sodertorn.jpg.asset.json";
+import betteryou from "@/assets/logos/partners/betteryou.webp.asset.json";
+import somaya from "@/assets/logos/partners/somaya-kvinnostodjour.jpg.asset.json";
+import hocs from "@/assets/logos/partners/house-of-creatives-solna.jpg.asset.json";
+import fryshuset from "@/assets/logos/partners/fryshuset.png.asset.json";
+import lululemon from "@/assets/logos/partners/lululemon.jpg.asset.json";
+import sats from "@/assets/logos/partners/sats.jpg.asset.json";
+import myHappyHead from "@/assets/logos/partners/my-happy-head.jpg.asset.json";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const logos: { src: string; alt: string; color?: boolean }[] = [
@@ -13,6 +21,14 @@ const logos: { src: string; alt: string; color?: boolean }[] = [
   { src: sverigesRadio, alt: "Sveriges Radio" },
   { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm" },
   { src: psykologtidningen, alt: "Psykologtidningen" },
+  { src: abfSodertorn.url, alt: "ABF Södertörn" },
+  { src: betteryou.url, alt: "Better You" },
+  { src: somaya.url, alt: "Somaya kvinnostödjour" },
+  { src: hocs.url, alt: "House of Creatives Solna" },
+  { src: fryshuset.url, alt: "Fryshuset" },
+  { src: lululemon.url, alt: "lululemon" },
+  { src: sats.url, alt: "SATS" },
+  { src: myHappyHead.url, alt: "My Happy Head" },
 ];
 
 /**
@@ -41,6 +57,7 @@ export function LogoMarquee() {
       <DialogTrigger asChild>
         <button
           type="button"
+          id="samarbeten"
           aria-label="Visa alla loggor"
           className="mt-10 md:mt-16 block w-full cursor-pointer bg-mocha py-8 md:py-12 text-left"
         >
