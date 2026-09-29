@@ -61,7 +61,7 @@ const workWaysSv = [
 
 const workWaysEn = [
   { title: "Psychology & Psychoeducation", body: "Evidence-informed knowledge and conversations that create greater self-awareness, understanding and lasting change.", img: imgPsychology, imgClass: "object-[50%_32%]" },
-  { title: "Mind & Nervous System", body: "Breathwork, meditation and practical tools to support regulation, clarity and emotional wellbeing.", img: imgBreath, imgClass: "object-[50%_32%]" },
+  { title: "Mind & Nervous System", body: "Breathwork, meditation and practical tools to support regulation, clarity and emotional wellbeing.", img: imgBreath, imgClass: "scale-[1.18] object-[50%_45%]" },
   { title: "Movement & Embodiment", body: "Yoga, somatic movement and dance to reconnect with the body, release tension and cultivate presence.", img: imgMovement, imgClass: "object-[50%_72%]" },
   { title: "Practical Integration", body: "Tools and practices that make results tangible and easier to bring into everyday life.", img: imgIntegration, imgClass: "scale-[1.18] object-[50%_68%]" },
 ];
