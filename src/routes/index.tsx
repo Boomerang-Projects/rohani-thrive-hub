@@ -185,7 +185,11 @@ function AboutPage() {
                 />
                 <div className="flex flex-1 flex-col items-center justify-center text-center px-6 md:px-8 py-6">
                   <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
-                    {w.title}
+                    {w.title.split(" & ").map((part, i, arr) => (
+                      <span key={i} className="block">
+                        {i < arr.length - 1 ? `${part} &` : part}
+                      </span>
+                    ))}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
                 </div>
