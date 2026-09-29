@@ -7,12 +7,12 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
+import clinicalRetreatPhoto from "@/assets/photos/clinical-retreat-room.jpeg.asset.json";
+import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
 import mediaPodcast from "@/assets/media-podcast.jpg";
-import personalPlaceholder from "@/assets/personal-placeholder.jpg";
 import photoGroupCircle from "@/assets/photos/group-circle.jpg";
 import photoHandsSky from "@/assets/photos/hands-sky.jpg";
 import photoFireEvening from "@/assets/photos/fire-evening.jpg";
@@ -45,62 +45,6 @@ export const Route = createFileRoute("/experience")({
 
 /* ---------- Data ---------- */
 
-const timeline: TimelineItem[] = [
-  {
-    org: "ROHANI",
-    role: "Grundare · Psykologi · Välbefinnande · Mänsklig utveckling",
-    context: "Sverige / Internationellt",
-    period: "2025 — Nu",
-    feature: true,
-    to: "/",
-    cta: "Se ROHANIs förhållningssätt",
-    detail: [
-      "ROHANI är en psykologibaserad verksamhet för välbefinnande och mänsklig utveckling som arbetar med individer, team, organisationer och samhällen.",
-      "Arbetet förenar psykologisk vetenskap med mindfulness, reglering av nervsystemet, rörelse och upplevelsebaserat lärande — översatt till tillgängliga, praktiska och människocentrerade format.",
-    ],
-  },
-  {
-    org: "Vuxenpsykiatrin",
-    role: "Legitimerad psykolog",
-    context: "Offentlig vård · Psykisk hälsa · Kliniskt arbete",
-    period: "2025 — Nu",
-    detail: [
-      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
-      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
-    ],
-  },
-  {
-    org: "Haninge kommun: G-Flow",
-    role: "Grundare & facilitator",
-    context: "Ungdomars välbefinnande · Kultur · Gemenskap",
-    period: "2023 — 2025",
-    detail: [
-      "Ett ungdomsorienterat initiativ som förenar psykologi, rörelse, självuttryck och gemenskap för att stödja välbefinnande och personlig utveckling hos unga flickor i utsatta områden i Sverige.",
-      "Genomförs i samarbete med Haninge kommun och ABF Södertörn och skapar tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
-    ],
-  },
-  {
-    org: "BUP: Barn- och Ungdomspsykiatrin",
-    role: "Legitimerad psykolog",
-    context: "Barns & ungas psykiska hälsa · Psykologi",
-    period: "2018 — 2022",
-    detail: [
-      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
-      "Arbetet omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering samt samverkan med familjer och tvärprofessionella team.",
-    ],
-  },
-  {
-    org: "Karolinska Sjukhuset: Vuxenpsykiatrin",
-    role: "Kliniskt arbete · Krisintervention · Psykisk hälsa",
-    context: "Offentlig vård · Sjukhusmiljö",
-    period: "2018 — 2022",
-    detail: [
-      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
-      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
-    ],
-  },
-];
-
 type Entry = {
   period?: string;
   title: string;
@@ -115,32 +59,19 @@ const clinicalEntries: Entry[] = [
     period: "2025 — Nu",
     title: "Vuxenpsykiatrin",
     meta: "Offentlig vård · Legitimerad psykolog",
-    body: [
-      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
-      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
-      "Att arbeta över olika tillstånd och individuella behov har ytterligare utvecklat min förmåga att anpassa psykologiska förhållningssätt, kommunikation och interventioner efter personen, kontexten och livsskeden.",
-    ],
+    body: ["Som legitimerad psykolog utreder och behandlar jag vuxna inom psykiatrin. Jag anpassar behandlingen efter varje människas behov och livssituation."],
   },
   {
     period: "2018 — 2022",
     title: "Barns & Ungas Psykiska Hälsa",
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
-    body: [
-      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
-      "Mitt arbete omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering och samverkan med familjer och tvärprofessionella team.",
-      "Den erfarenheten har stärkt och format min förmåga att anpassa terapeutiska förhållningssätt, kommunikation och interventioner efter olika utvecklingsskeden, individuella behov och familjekonstellationer.",
-    ],
+    body: ["På BUP utredde och behandlade jag barn och unga, i nära samarbete med familjer och vårdteam. Arbetet lärde mig att möta varje ung person utifrån deras förutsättningar."],
   },
   {
     period: "2018 — 2022",
     title: "Sjukhuspsykiatri & Akutsjukvård",
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
-    body: [
-      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
-      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
-      "Särskilda erfarenhetsområden är personlighetssyndrom, psykos, krishantering och suicidprevention.",
-      "Att arbeta i krävande kliniska miljöer stärkte min förmåga att förbli förankrad, närvarande och lösningsfokuserad i komplexitet och osäkerhet.",
-    ],
+    body: ["På Karolinska arbetade jag med svår psykisk ohälsa, krisintervention och suicidprevention. Det har gett mig trygghet att vara närvarande också i komplexa och pressade situationer."],
   },
 ];
 
@@ -148,10 +79,7 @@ const organisationalEntries: Entry[] = [
   {
     title: "Somaya Stödjour",
     meta: "Psykologiskt & välbefinnandearbete",
-    body: [
-      "Jag höll en rörelseworkshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
-      "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
-    ],
+    body: ["Jag ledde en rörelseworkshop för kvinnor och familjer som möter svåra livsvillkor. Ett arbete där trygghet, lyhördhet och kulturell förståelse stod i centrum."],
     link: {
       label: "Somaya Stödjour",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
@@ -160,10 +88,7 @@ const organisationalEntries: Entry[] = [
   {
     title: "Guidad meditation på arbetsplatsen",
     meta: "Region Stockholm · BUP Brommaplan",
-    body: [
-      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin.",
-      "Sessionerna skapade en strukturerad pausesmiljö för förankring och återhämtning i en krävande klinisk vardag, och introducerade praktiska mindfulnessbaserade verktyg för stressreglering och hållbart välbefinnande i arbetet.",
-    ],
+    body: ["Jag ledde återkommande meditationer för vårdpersonal på BUP, med konkreta verktyg för återhämtning och stressreglering i en krävande vardag."],
     tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
 ];
@@ -172,18 +97,12 @@ const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn",
     meta: "Folkbildning · Ungdomars välbefinnande · Kultur",
-    body: [
-      "Jag samarbetade med ABF Södertörn i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
-      "Samarbetet speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
-    ],
+    body: ["Tillsammans med ABF Södertörn gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
   },
   {
     title: "Haninge kommun",
     meta: "Ungdomars välbefinnande · Samhällsutveckling · Offentlig sektor",
-    body: [
-      "Jag samarbetade med Haninge kommun i ungdomsorienterade välbefinnandeinitiativ och skapade tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
-      "Arbetet har stärkt min erfarenhet av att översätta psykologiska perspektiv till samhällsbaserade format och att arbeta över professionella och offentliga kontexter.",
-    ],
+    body: ["I samarbete med Haninge kommun skapade jag inkluderande mötesplatser där unga fick utforska välbefinnande, rörelse och gemenskap."],
   },
 ];
 
@@ -412,13 +331,6 @@ function ExperiencePageSv() {
           </div>
         </section>
 
-        {/* ===== Timeline ===== */}
-        <section className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <HorizontalTimeline items={timeline} fallbackCta="Se erfarenheten" />
-          </div>
-        </section>
-
         {/* ===== Collaborations — dark band ===== */}
         <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
@@ -435,16 +347,18 @@ function ExperiencePageSv() {
           </div>
         </section>
 
+        <section className="relative min-h-[440px] md:min-h-[560px] flex items-end overflow-hidden">
+          <img src={clinicalRetreatPhoto.url} alt="Rum för samtal och gemenskap, förberett med sittplatser i cirkel" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" aria-hidden="true" />
+          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40">
+            <h2 className="font-serif text-4xl md:text-6xl text-background">Bortom kliniken</h2>
+          </div>
+        </section>
+
         {/* ===== Beyond the clinic ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
-              <div className="md:col-span-6 space-y-4">
-                <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance text-accent">
-                  Bortom kliniken
-                </h2>
-              </div>
-              <div className="md:col-span-6 space-y-5 md:pt-10">
+            <div className="max-w-3xl mx-auto space-y-5">
                 <p className="text-base leading-[1.75] text-foreground/75">
                   Bortom den kliniska psykologin har mitt arbete rört sig in i
                   organisationer, utbildning, samhällsutveckling och upplevelser
@@ -457,7 +371,6 @@ function ExperiencePageSv() {
                   och guidad meditation till ungdomsinitiativ, samhällsprogram
                   och upplevelsebaserade retreats.
                 </p>
-              </div>
             </div>
 
             <section id="organisational" className="scroll-mt-28">
@@ -477,61 +390,30 @@ function ExperiencePageSv() {
                 ))}
               </div>
 
-            {/* G-Flow highlight */}
-            <div className="rounded-3xl border border-forest/25 bg-secondary/50 p-8 md:p-12 grid md:grid-cols-12 gap-6 md:gap-12 items-center">
-              <div className="md:col-span-5 space-y-3">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  I fokus
-                </p>
-                <h3 className="text-4xl md:text-5xl font-serif leading-[1.03]">
-                  G-Flow
-                </h3>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
-                  Grundare & facilitator
-                </p>
-              </div>
-              <div className="md:col-span-7">
-                <p className="text-lg md:text-xl leading-[1.7] text-foreground/80">
-                  Ett ungdomsorienterat initiativ som förenar psykologi,
-                  rörelse, självuttryck och gemenskap för att stödja
-                  välbefinnande och personlig utveckling hos unga flickor i
-                  utsatta områden i Sverige.
-                </p>
-              </div>
-            </div>
             </section>
           </div>
         </section>
 
-        {/* ===== Personal block ===== */}
-        <section className="bg-secondary/60 border-y border-border/60 py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-4">
-              <img
-                src={personalPlaceholder}
-                alt="Platshållarbild — lugn läshörna i morgonljus"
-                loading="lazy"
-                width={1024}
-                height={1280}
-                draggable={false}
-                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
-              />
-            </div>
-            <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
+        {/* ===== Heart of the work ===== */}
+        <section className="relative overflow-hidden">
+          <img src={heartOfWorkPhoto.url} alt="Deltagare sitter tillsammans i en cirkel under en sammankomst" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
+            <div className="max-w-3xl space-y-6 text-background">
+              <h2 className="font-serif text-4xl md:text-6xl leading-tight">
                 I hjärtat av detta arbete ligger en nyfikenhet på vem vi är,
                 vad som format oss — och vem vi håller på att bli.
-              </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
+              </h2>
+              <p className="text-base leading-[1.75] text-background/90">
                 Hur kan vi röra oss genom livet med större medvetenhet,
                 handlingskraft och intention — istället för att bara reagera på
                 det som händer omkring oss?
               </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
+              <p className="text-base leading-[1.75] text-background/90">
                 Tänk om meningsfull förändring börjar med att bli mer medveten
                 om hur vi ser, upplever och möter världen?
               </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
+              <p className="text-base leading-[1.75] text-background/90">
                 Mitt arbete förenar psykologisk vetenskap med ett mänskligt,
                 kroppsnära och kulturellt anpassningsbart förhållningssätt till
                 välbefinnande och utveckling.
