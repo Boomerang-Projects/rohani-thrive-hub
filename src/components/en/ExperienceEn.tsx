@@ -481,12 +481,12 @@ export function ExperienceEn() {
         </section>
 
         <section className="px-6 md:px-10 pb-2">
-          <p className="text-[10px] uppercase tracking-[0.25em] text-accent pb-4 border-b border-border/70">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
             Experience Across
           </p>
         </section>
 
-        <LogoMarquee />
+        <LogoMarquee className="mt-4 md:mt-6" />
 
         <section className="px-6 md:px-10 py-20 md:py-28">
           <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">

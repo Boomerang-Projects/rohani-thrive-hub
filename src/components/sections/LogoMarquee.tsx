@@ -35,7 +35,7 @@ const logos: { src: string; alt: string; color?: boolean }[] = [
  * A rolling band of logos (row rendered twice for a seamless loop).
  * Clicking the band opens a dialog listing every logo one after another.
  */
-export function LogoMarquee() {
+export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: string }) {
   const row = (hidden: boolean) => (
     <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {logos.map((logo) => (
@@ -59,7 +59,7 @@ export function LogoMarquee() {
           type="button"
           id="samarbeten"
           aria-label="Visa alla loggor"
-          className="mt-10 md:mt-16 block w-full cursor-pointer bg-mocha py-8 md:py-12 text-left"
+          className={`${className} block w-full cursor-pointer bg-mocha py-8 md:py-12 text-left`}
         >
           <div className="logo-marquee overflow-hidden">
             <div className="logo-marquee-track flex w-max">
