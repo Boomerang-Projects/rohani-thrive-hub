@@ -356,6 +356,9 @@ export function ExperienceEn() {
       if (h === "organisational" || h === "community" || h === "wellbeing") {
         setActiveTab(h);
       }
+      if (h === "media") {
+        setLightboxOpen(true);
+      }
     };
     syncFromHash();
     window.addEventListener("hashchange", syncFromHash);

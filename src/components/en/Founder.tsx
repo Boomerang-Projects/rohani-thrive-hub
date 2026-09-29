@@ -21,17 +21,24 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
             />
           </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
-          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-14 md:-left-6 md:max-w-[20rem] bg-background rounded-full p-7 md:p-9 md:px-12">
-            <blockquote className="font-serif italic text-base md:text-lg leading-relaxed text-foreground">
-              "Madeeha Qazi moves softly between the floor cushion and the yoga mat as she talks. She believes psychology and culture go beautifully hand in hand."
-            </blockquote>
-            <figcaption className="mt-4 flex items-center gap-4">
-              <div className="h-px w-6 bg-accent" />
-              <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
-                Psykologtidningen · No. 4, 2026 (translated)
-              </span>
-            </figcaption>
-          </figure>
+          <Link
+            to="/experience"
+            hash="media"
+            aria-label="Read the article in Psykologtidningen"
+            className="group block"
+          >
+            <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-14 md:-left-6 md:max-w-[20rem] bg-background rounded-full p-7 md:p-9 md:px-12 cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
+              <blockquote className="font-serif italic text-base md:text-lg leading-relaxed text-foreground">
+                "Madeeha Qazi moves softly between the floor cushion and the yoga mat as she talks. She believes psychology and culture go beautifully hand in hand."
+              </blockquote>
+              <figcaption className="mt-4 flex items-center gap-4">
+                <div className="h-px w-6 bg-accent" />
+                <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
+                  Psykologtidningen · No. 4, 2026 (translated)
+                </span>
+              </figcaption>
+            </figure>
+          </Link>
         </div>
 
         {/* Right: original founder story */}
