@@ -448,7 +448,6 @@ export function ExperienceEn() {
                   <EntryRow key={e.title} entry={e} />
                 ))}
               </div>
-            </section>
 
             {/* G-Flow highlight */}
             <div className="rounded-3xl border border-forest/25 bg-secondary/50 p-8 md:p-12 grid md:grid-cols-12 gap-6 md:gap-12 items-center">
