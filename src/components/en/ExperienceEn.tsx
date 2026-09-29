@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/experience-hero.jpg.asset.json";
 import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
