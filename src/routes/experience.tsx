@@ -201,7 +201,7 @@ function SectionHeader({
     <div id={id} className="scroll-mt-28 text-center">
       <h2
         className={`text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance ${
-          dark ? "text-gold" : "text-accent"
+           dark ? "text-background" : "text-foreground"
         }`}
       >
         {title}
@@ -212,65 +212,65 @@ function SectionHeader({
 
 function ClinicalCard({ entry }: { entry: Entry }) {
   return (
-    <article className="flex flex-col rounded-3xl border border-background/15 bg-background/[0.04] p-7 md:p-8 transition-colors duration-500 hover:border-gold/40">
+    <article className="flex flex-col rounded-3xl border border-border bg-background p-7 md:p-8 text-foreground transition-colors duration-500 hover:border-accent/40">
       {entry.period && (
-        <p className="text-[10px] uppercase tracking-[0.25em] text-gold">
+        <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
           {entry.period}
         </p>
       )}
-      <h3 className="mt-3 font-serif font-bold text-lg md:text-xl leading-tight uppercase text-background text-balance">
+       <h3 className="mt-3 font-serif font-bold text-lg md:text-xl leading-tight uppercase text-foreground text-balance">
         {entry.title}
       </h3>
-      <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-background/55 leading-relaxed">
+       <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-foreground/55 leading-relaxed">
         {entry.meta}
       </p>
       <div className="mt-5 space-y-4">
         {entry.body.map((p) => (
-          <p key={p} className="text-base leading-[1.75] text-background/75">
+           <p key={p} className="text-base leading-[1.75] text-foreground/75">
             {p}
           </p>
         ))}
       </div>
       {entry.link && (
         <div className="mt-auto pt-6">
-          <ExternalLink {...entry.link} dark />
+           <ExternalLink {...entry.link} />
         </div>
       )}
     </article>
   );
 }
 
-function EntryRow({ entry }: { entry: Entry }) {
+function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
   return (
-    <article className="h-full rounded-3xl border border-border bg-background/60 p-6 md:p-8 transition-colors duration-500 hover:border-forest/40">
+    <article className={`h-full rounded-3xl border p-7 md:p-8 transition-colors duration-500 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}>
       <div className="space-y-5">
         <div className="space-y-2">
           {entry.period && (
-            <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
+             <p className={`text-[10px] uppercase tracking-[0.25em] ${light ? "text-accent" : "text-background/70"}`}>
               {entry.period}
             </p>
           )}
           <h3 className="font-serif font-bold text-lg md:text-xl leading-tight uppercase text-balance">
             {entry.title}
           </h3>
-          <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/50 leading-relaxed">
+           <p className={`text-[11px] uppercase tracking-[0.18em] leading-relaxed ${light ? "text-foreground/55" : "text-background/65"}`}>
             {entry.meta}
           </p>
         </div>
         <div className="space-y-3">
           {entry.body.map((p) => (
-            <p key={p} className="text-base leading-[1.75] text-foreground/75">
+             <p key={p} className={`text-base leading-[1.75] ${light ? "text-foreground/75" : "text-background/85"}`}>
               {p}
             </p>
           ))}
           {entry.tags && (
-            <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/45 pt-1">
+             <p className={`text-[11px] uppercase tracking-[0.18em] pt-1 ${light ? "text-foreground/55" : "text-background/70"}`}>
               {entry.tags}
             </p>
           )}
           {entry.link && (
             <div className="pt-2">
-              <ExternalLink {...entry.link} />
+               <ExternalLink {...entry.link} dark={!light} />
             </div>
           )}
         </div>
@@ -340,48 +340,36 @@ function ExperiencePageSv() {
         <section className="relative min-h-[440px] md:min-h-[560px] flex items-end overflow-hidden">
           <img src={clinicalRetreatPhoto.url} alt="Rum för samtal och gemenskap, förberett med sittplatser i cirkel" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" aria-hidden="true" />
-          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40">
+           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40 text-background">
             <h2 className="font-serif text-4xl md:text-6xl text-background">Bortom kliniken</h2>
+             <div className="mt-6 max-w-3xl space-y-4 text-base leading-[1.75] text-background/90">
+               <p>Bortom den kliniska psykologin har mitt arbete rört sig in i organisationer, utbildning, samhällsutveckling och upplevelser som stödjer långsiktigt välbefinnande.</p>
+               <p>I dessa miljöer har jag utforskat hur psykologisk kunskap kan översättas till tillgängliga, praktiska och människocentrerade format — från välbefinnande i arbetslivet och guidad meditation till ungdomsinitiativ, samhällsprogram och upplevelsebaserade retreats.</p>
+             </div>
           </div>
         </section>
 
-        {/* ===== Beyond the clinic ===== */}
+         {/* ===== Organisational work ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
-            <div className="max-w-3xl mx-auto space-y-5">
-                <p className="text-base leading-[1.75] text-foreground/75">
-                  Bortom den kliniska psykologin har mitt arbete rört sig in i
-                  organisationer, utbildning, samhällsutveckling och upplevelser
-                  som stödjer långsiktigt välbefinnande.
-                </p>
-                <p className="text-base leading-[1.75] text-foreground/70">
-                  I dessa miljöer har jag utforskat hur psykologisk kunskap kan
-                  översättas till tillgängliga, praktiska och
-                  människocentrerade format — från välbefinnande i arbetslivet
-                  och guidad meditation till ungdomsinitiativ, samhällsprogram
-                  och upplevelsebaserade retreats.
-                </p>
-            </div>
-
-            <section id="organisational" className="scroll-mt-28">
-              <SectionHeader title="Organisatoriskt arbete" />
-              <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-                {organisationalEntries.map((e) => (
-                  <EntryRow key={e.title} entry={e} />
-                ))}
-              </div>
-            </section>
-
-            <section id="community" className="scroll-mt-28">
-              <SectionHeader title="Social påverkan" />
-              <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-                {communityEntries.map((e) => (
-                  <EntryRow key={e.title} entry={e} />
-                ))}
-              </div>
-
-            </section>
+           <div id="organisational" className="max-w-7xl mx-auto scroll-mt-28">
+             <SectionHeader title="Organisatoriskt arbete" />
+             <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-2 md:gap-6">
+               {organisationalEntries.map((e) => (
+                 <EntryRow key={e.title} entry={e} />
+               ))}
           </div>
+           </div>
+         </section>
+
+         <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
+           <div id="community" className="max-w-7xl mx-auto scroll-mt-28">
+             <SectionHeader title="Social påverkan" dark />
+             <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-2 md:gap-6">
+               {communityEntries.map((e) => (
+                 <EntryRow key={e.title} entry={e} light />
+               ))}
+             </div>
+           </div>
         </section>
 
         {/* ===== Heart of the work ===== */}
