@@ -290,13 +290,13 @@ function SectionHeader({
 }) {
   return (
     <div id={id} className="scroll-mt-28 text-center">
-      <p
+      <h2
         className={`text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance ${
           dark ? "text-gold" : "text-accent"
         }`}
       >
         {index ? `${index} · ${title}` : title}
-      </p>
+      </h2>
     </div>
   );
 }
@@ -635,7 +635,7 @@ function ExperiencePageSv() {
                   draggable={false}
                   className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug uppercase text-center">
                   Sveriges Radio
                 </h3>
                 <p className="mt-2 text-base leading-[1.75] text-foreground/70">
@@ -659,7 +659,7 @@ function ExperiencePageSv() {
                     className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                   />
                 </button>
-                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug uppercase text-center">
                   Psykologtidningen
                 </h3>
                 <p className="mt-2 text-base leading-[1.75] text-foreground/70">
@@ -678,7 +678,7 @@ function ExperiencePageSv() {
                   draggable={false}
                   className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug">
+                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug uppercase text-center">
                   Podd
                 </h3>
                 <p className="mt-2 text-base leading-[1.75] text-foreground/70">
