@@ -30,10 +30,10 @@ export function LogoMarquee() {
           <img
             src={logo.src}
             alt={hidden ? "" : logo.alt}
-            className="h-8 md:h-11 w-auto max-w-none opacity-85 [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
+            className="h-7 md:h-11 w-auto max-w-none opacity-85 [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
             loading="lazy"
           />
-          <span className="mx-10 md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
+          <span className="mx-5 md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
         </li>
       ))}
     </ul>

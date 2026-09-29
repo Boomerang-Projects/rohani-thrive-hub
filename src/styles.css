@@ -196,7 +196,12 @@ html.lenis body {
 }
 @media (prefers-reduced-motion: no-preference) {
   .logo-marquee-track {
-    animation: logo-roll 64s linear infinite;
+    animation: logo-roll 44s linear infinite;
+  }
+  @media (min-width: 768px) {
+    .logo-marquee-track {
+      animation-duration: 64s;
+    }
   }
 }
 @keyframes logo-roll {
