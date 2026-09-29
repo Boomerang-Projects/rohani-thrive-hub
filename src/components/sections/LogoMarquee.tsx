@@ -26,14 +26,14 @@ export function LogoMarquee() {
   const row = (hidden: boolean) => (
     <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {logos.map((logo) => (
-        <li key={logo.alt} className="flex items-center">
+        <li key={logo.alt} className="flex w-[78vw] shrink-0 items-center justify-center md:w-auto">
           <img
             src={logo.src}
             alt={hidden ? "" : logo.alt}
-            className="h-7 md:h-11 w-auto max-w-none opacity-85 [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
+            className="h-10 max-h-full w-auto max-w-[68vw] object-contain opacity-100 md:h-11 md:max-w-none [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
             loading="lazy"
           />
-          <span className="mx-5 md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
+          <span className="hidden md:block md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
         </li>
       ))}
     </ul>
@@ -42,7 +42,7 @@ export function LogoMarquee() {
   return (
     // Outer div: the dark background. Inner div: the edge fade.
     // Keeping them apart means only the logos fade, not the background.
-    <div className="mt-10 md:mt-16 bg-mocha py-10 md:py-12">
+    <div className="mt-10 md:mt-16 bg-mocha py-8 md:py-12">
       <div className="logo-marquee overflow-hidden">
         <div className="logo-marquee-track flex w-max">
           {row(false)}

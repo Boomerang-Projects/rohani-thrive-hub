@@ -1,8 +1,8 @@
 # Roadmap
 
-- [x] Mobile tiles: show complete description within each 2×2 tile without opening, while retaining optional enlargement
+- [ ] Mobile tiles: show complete description within each 2×2 tile without opening, while retaining optional enlargement
 - [x] Mobile only: improve mission text contrast, show each set of four tiles in a 2×2 grid with tap-to-enlarge details, and place founder quote at photo's upper left (SV+EN)
-- [x] Mobile only: make rolling logo banner move at the same visual speed as desktop and keep logos fully visible
+- [ ] Mobile only: make rolling logo banner faster and keep each logo fully visible
 
 - [x] Homepage (SV+EN): swap rolling logo banner and "Börja där du är" section order at the bottom
 - [x] About/Experience: move logo band to About ending, move three photos to Experience ending, repeat Contact closing invitation on About, restore full founder story, and tighten matching subheadings in SV/EN.
