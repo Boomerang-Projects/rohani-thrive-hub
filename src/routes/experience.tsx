@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
-import experienceHero from "@/assets/experience-hero.jpg.asset.json";
+import experienceHero from "@/assets/photos/leading-session.jpg";
 import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
@@ -419,7 +419,7 @@ function ExperiencePageSv() {
         {/* ===== Hero ===== */}
         <section className="relative overflow-hidden">
           <img
-            src={experienceHero.url}
+            src={experienceHero}
             alt="Grupp på mattor utomhus i kvällsljus"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "50% 60%" }}
