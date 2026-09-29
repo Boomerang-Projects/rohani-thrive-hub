@@ -24,7 +24,7 @@ const timeline: TimelineItem[] = [
     context: "Sweden / International",
     period: "2025 — Present",
     feature: true,
-    to: "/services",
+    to: "/",
     cta: "View the ROHANI approach",
     detail: [
       "ROHANI is a psychology-based wellbeing and human development practice working with individuals, teams, organisations and communities.",

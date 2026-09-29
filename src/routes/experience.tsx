@@ -52,7 +52,7 @@ const timeline: TimelineItem[] = [
     context: "Sverige / Internationellt",
     period: "2025 — Nu",
     feature: true,
-    to: "/services",
+    to: "/",
     cta: "Se ROHANIs förhållningssätt",
     detail: [
       "ROHANI är en psykologibaserad verksamhet för välbefinnande och mänsklig utveckling som arbetar med individer, team, organisationer och samhällen.",
