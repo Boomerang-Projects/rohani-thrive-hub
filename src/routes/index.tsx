@@ -111,16 +111,20 @@ function AboutPage() {
         <section id="vagleder" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
           {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-16">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-16 gap-y-10 md:gap-y-12">
             {principles.map((p, i) => (
-              <div key={p.title} className="flex gap-6 border-t border-foreground/15 pt-6">
-                <p className="font-serif text-4xl leading-none text-foreground/30">
+              <div
+                key={p.title}
+                className="group flex gap-5 border-t border-foreground/15 pt-5 transition-colors duration-500 hover:border-accent/60"
+              >
+                <p className="font-serif text-lg leading-none text-foreground/25 pt-0.5">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <div>
-                  <h3 className="font-serif text-xl md:text-2xl leading-tight uppercase">{p.title}</h3>
-
-                  <p className="mt-3 text-foreground/70 leading-relaxed">{p.body}</p>
+                  <h3 className="font-serif text-lg md:text-xl italic leading-snug text-foreground transition-colors duration-500 group-hover:text-accent">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/70">{p.body}</p>
                 </div>
               </div>
             ))}
