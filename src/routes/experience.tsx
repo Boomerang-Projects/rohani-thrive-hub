@@ -506,11 +506,11 @@ function ExperiencePageSv() {
               </div>
             </div>
 
-            {/* Selected organisations */}
-            <div className="mt-16 md:mt-24 pt-10 md:pt-14 border-t border-border/70">
-              <SectionHeader title="Erfarenhet från" />
-            </div>
           </div>
+        </section>
+
+        <section className="px-6 md:px-10 pb-2">
+          <SectionHeader title="Erfarenhet från" />
         </section>
 
         <LogoMarquee />
