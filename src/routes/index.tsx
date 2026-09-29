@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/sections/SectionHeader";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
-import photoPhilosophy from "@/assets/photos/leading-session.jpg";
+import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
 import { useLang } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
 
@@ -139,7 +139,7 @@ function AboutPage() {
         {/* Our Mission: full-bleed photo like the hero */}
         <section id="mission" className="scroll-mt-24 relative overflow-hidden">
           <img
-            src={photoPhilosophy}
+            src={missionPhoto.url}
             alt={t("Rani leder ett samtal under en workshop", "Rani leading a conversation during a workshop")}
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover object-top"
