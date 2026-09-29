@@ -132,11 +132,11 @@ function AboutPage() {
             {principles.map((p) => (
               <Dialog key={p.title}>
                 <div className="relative flex flex-col items-center text-center">
-                  <div className="flex w-full h-36 md:h-56 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-3 md:px-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+                  <div className="flex w-full min-h-52 md:h-56 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-3 py-4 md:px-8 md:py-0 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
                     <h3 className="font-serif font-bold text-sm md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
                       {p.title}
                     </h3>
-                    <p className="hidden md:block mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
+                    <p className="mt-3 text-xs md:text-sm leading-snug md:leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
                   </div>
                   <DialogTrigger asChild>
                     <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${p.title}`} />
@@ -198,15 +198,15 @@ function AboutPage() {
                       className={`w-full h-full object-cover ${w.imgClass}`}
                     />
                   </div>
-                  <div className="flex flex-1 flex-col items-center justify-center text-center px-2 md:px-8 py-3 md:py-6 min-h-20">
-                    <h3 className="font-serif font-bold text-xs md:text-lg leading-tight uppercase underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                  <div className="flex flex-1 flex-col items-center justify-center text-center px-2 md:px-8 py-4 md:py-6 min-h-44 md:min-h-0">
+                    <h3 className="font-serif font-bold text-xs md:text-lg leading-tight uppercase md:tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
                       {w.title.split(" & ").map((part, i, arr) => (
                         <span key={i} className="block">
                           {i < arr.length - 1 ? `${part} &` : part}
                         </span>
                       ))}
                     </h3>
-                    <p className="hidden md:block mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
+                    <p className="mt-3 text-xs md:text-sm leading-snug md:leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
                   </div>
                   <DialogTrigger asChild>
                     <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${w.title}`} />
