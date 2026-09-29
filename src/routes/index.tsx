@@ -8,7 +8,7 @@ import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
 import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
 import imgPsychology from "@/assets/photos/work-psychology.jpg.asset.json";
-import imgBreath from "@/assets/photos/work-breath.jpg.asset.json";
+import imgBreath from "@/assets/photos/work-nervous.jpg.asset.json";
 import imgMovement from "@/assets/photos/work-movement.jpg.asset.json";
 import imgIntegration from "@/assets/photos/work-integration.jpg.asset.json";
 import { useLang } from "@/lib/i18n";
