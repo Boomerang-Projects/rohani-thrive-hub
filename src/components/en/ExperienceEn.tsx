@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import heartOfWorkPhoto from "@/assets/photos/heart-of-work-outdoors.jpeg.asset.json";
+import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
@@ -302,7 +302,7 @@ export function ExperienceEn() {
 
         {/* ===== Heart of the work ===== */}
         <section className="relative overflow-hidden">
-          <img src={heartOfWorkPhoto.url} alt="Participants moving together outdoors in evening light" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <img src={heartOfWorkPhoto.url} alt="Participants sitting together in a circle at a gathering" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
             <div className="max-w-3xl space-y-6 text-background">
