@@ -164,16 +164,18 @@ function SectionHeader({
   id,
   title,
   dark,
+  brown,
 }: {
   id?: string;
   title: string;
   dark?: boolean;
+  brown?: boolean;
 }) {
   return (
     <div id={id} className="scroll-mt-28 text-center">
       <h2
         className={`text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance ${
-           dark ? "text-background" : "text-foreground"
+           dark ? "text-background" : brown ? "text-foreground" : "text-accent"
         }`}
       >
         {title}
@@ -311,7 +313,7 @@ export function ExperienceEn() {
 
         <section className="relative min-h-[440px] md:min-h-[560px] flex items-end overflow-hidden">
           <img src={clinicalRetreatPhoto.url} alt="A welcoming room prepared with seats arranged in a circle" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" aria-hidden="true" />
+           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/35" aria-hidden="true" />
            <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40 text-background">
             <h2 className="font-serif text-4xl md:text-6xl text-background">Beyond the clinic</h2>
              <div className="mt-6 max-w-3xl space-y-4 text-base leading-[1.75] text-background/90">
@@ -324,7 +326,7 @@ export function ExperienceEn() {
          {/* ===== Organisational work ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
            <div id="organisational" className="max-w-7xl mx-auto scroll-mt-28">
-             <SectionHeader title="Organisational Work" />
+             <SectionHeader title="Organisational Work" brown />
              <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-2 md:gap-6">
                {organisationalEntries.map((e) => (
                  <EntryRow key={e.title} entry={e} />
