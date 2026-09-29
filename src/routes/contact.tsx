@@ -37,23 +37,27 @@ function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section className="relative overflow-hidden min-h-[95vh] xl:min-h-[85vh] flex items-center justify-center">
-          <img
-            src={contactHero.url}
-            alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 25%" }}
-          />
-          <div className="relative w-full max-w-3xl mx-auto px-6 md:px-10 text-center space-y-6 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-background/80">
-              {t("Kontakt", "Contact")}
-            </p>
-            <h1 className="text-5xl md:text-7xl font-serif leading-[1.05] text-balance text-background">
-              {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed text-background/85 max-w-xl mx-auto">
-              {t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.")}
-            </p>
+        <section className="px-6 md:px-10 pt-28 md:pt-36 pb-16 md:pb-24">
+          <div className="relative max-w-5xl mx-auto rounded-[2rem] overflow-hidden">
+            <img
+              src={contactHero.url}
+              alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
+              className="w-full h-[400px] md:h-[560px] object-cover"
+              style={{ objectPosition: "50% 5%" }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full max-w-3xl px-6 md:px-12 text-center space-y-6 [text-shadow:0_2px_18px_rgba(58,41,34,0.65)]">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-background/90">
+                  {t("Kontakt", "Contact")}
+                </p>
+                <h1 className="text-4xl md:text-6xl font-serif leading-[1.05] text-balance text-background">
+                  {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
+                </h1>
+                <p className="text-base md:text-lg leading-relaxed text-background/90 max-w-xl mx-auto">
+                  {t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.")}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
         <Contact />
