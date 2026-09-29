@@ -23,13 +23,13 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             />
           </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
-          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-14 md:-left-6 md:max-w-[20rem] bg-foreground rounded-[50%] p-7 md:p-9 md:px-12 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
-            <blockquote className="font-serif italic text-base md:text-lg leading-relaxed text-background">
+          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-14 md:-left-6 md:max-w-[20rem] bg-foreground/5 rounded-full p-7 md:p-9 md:px-12">
+            <blockquote className="font-serif italic text-base md:text-lg leading-relaxed text-foreground">
               "Madeeha Qazi rör sig mjukt mellan sittkudden och yogamattan medan hon pratar. Hon tycker att psykologi och kultur går fint hand i hand."
             </blockquote>
             <figcaption className="mt-4 flex items-center gap-4">
               <div className="h-px w-6 bg-accent" />
-              <span className="text-[10px] uppercase tracking-[0.22em] text-background/70 font-semibold">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
                 Psykologtidningen · Nr 4, 2026
               </span>
             </figcaption>
