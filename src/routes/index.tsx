@@ -177,11 +177,11 @@ function AboutPage() {
 
         <section id="cta" className="scroll-mt-24 bg-foreground text-background py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="font-serif text-4xl md:text-5xl text-balance">
+            <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance">
               {t("Börja där du är.", "Begin where you are.")}
             </h2>
             <p className="text-background/90 text-lg">
-              {t("Meningsfull förändring börjar sällan med att ha alla svar. Ibland börjar den helt enkelt med ett samtal.", "Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.")}
+              {t("Meningsfull förändring börjar sällan med att ha alla svar. Ibland börjar det helt enkelt med ett samtal.", "Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.")}
             </p>
             <Link
               to="/contact"
