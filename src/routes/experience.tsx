@@ -7,7 +7,6 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import clinicalRetreatPhoto from "@/assets/photos/clinical-retreat-room.jpeg.asset.json";
 import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
@@ -127,39 +126,6 @@ const wellbeingEntries: Entry[] = [
 ];
 */
 
-const trainingColumns = [
-  {
-    title: "Klinisk kvalifikation",
-    items: [
-      "Legitimerad psykolog",
-      "Psykologisk utredning & behandling",
-      "Behandlingsplanering",
-      "Terapeutiska interventioner",
-      "Krisintervention",
-    ],
-  },
-  {
-    title: "Kliniska områden",
-    items: [
-      "Vuxenpsykiatri",
-      "Barn- & ungdomspsykiatri",
-      "Sjukhuspsykiatri & akutsjukvård",
-      "Kris- & suicidprevention",
-      "Personlighetssyndrom & psykos",
-      "Tvärprofessionella team",
-    ],
-  },
-  {
-    title: "Välbefinnande & facilitation",
-    items: [
-      "Mindfulness & guidad meditation",
-      "Reglering av nervsystemet",
-      "Rörelse & kroppsnära praktiker",
-      "Retreatdesign",
-      "Ungdomsarbete — G-Flow",
-    ],
-  },
-];
 
 /* ---------- Helpers ---------- */
 
@@ -339,17 +305,6 @@ function ExperiencePageSv() {
           </div>
         </section>
 
-        <section className="relative min-h-[440px] md:min-h-[560px] flex items-end overflow-hidden">
-          <img src={clinicalRetreatPhoto.url} alt="Rum för samtal och gemenskap, förberett med sittplatser i cirkel" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
-           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/35" aria-hidden="true" />
-           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40 text-background">
-            <h2 className="font-serif text-4xl md:text-6xl text-background">Bortom kliniken</h2>
-             <div className="mt-6 max-w-3xl space-y-4 text-base leading-[1.75] text-background/90">
-               <p>Bortom den kliniska psykologin har mitt arbete rört sig in i organisationer, utbildning, samhällsutveckling och upplevelser som stödjer långsiktigt välbefinnande.</p>
-               <p>I dessa miljöer har jag utforskat hur psykologisk kunskap kan översättas till tillgängliga, praktiska och människocentrerade format — från välbefinnande i arbetslivet och guidad meditation till ungdomsinitiativ, samhällsprogram och upplevelsebaserade retreats.</p>
-             </div>
-          </div>
-        </section>
 
          {/* ===== Organisational work ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
@@ -402,31 +357,6 @@ function ExperiencePageSv() {
           </div>
         </section>
 
-        {/* ===== Training ===== */}
-        <section className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeader title="Utbildning & kompetens" />
-            <div className="mt-8 md:mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
-              {trainingColumns.map((col) => (
-                <div key={col.title}>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-accent pb-4 border-b border-border/70">
-                    {col.title}
-                  </p>
-                  <ul className="mt-5 space-y-3">
-                    {col.items.map((i) => (
-                      <li
-                        key={i}
-                        className="text-base leading-relaxed text-foreground/70"
-                      >
-                        {i}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ===== In the Media + organisations ===== */}
         <section className="bg-secondary/60 py-16 md:py-20 px-6 md:px-10">
