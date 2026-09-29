@@ -175,8 +175,6 @@ function AboutPage() {
           <Founder />
         </div>
 
-        <LogoMarquee />
-
         <section id="cta" className="scroll-mt-24 bg-foreground text-background py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <h2 className="font-serif text-4xl md:text-5xl text-balance">
@@ -194,6 +192,8 @@ function AboutPage() {
             </Link>
           </div>
         </section>
+
+        <LogoMarquee />
 
       </main>
       <SiteFooter />
