@@ -12,6 +12,9 @@ import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
 import mediaPodcast from "@/assets/media-podcast.jpg";
 import personalPlaceholder from "@/assets/personal-placeholder.jpg";
+import photoGroupCircle from "@/assets/photos/group-circle.jpg";
+import photoHandsSky from "@/assets/photos/hands-sky.jpg";
+import photoFireEvening from "@/assets/photos/fire-evening.jpg";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -287,7 +290,7 @@ function SectionHeader({
   return (
     <div id={id} className="scroll-mt-28 text-center">
       <p
-        className={`text-4xl md:text-5xl font-medium uppercase tracking-[0.15em] leading-snug text-balance ${
+        className={`text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance ${
           dark ? "text-gold" : "text-accent"
         }`}
       >
@@ -433,7 +436,7 @@ function ExperiencePageSv() {
         </section>
 
         {/* ===== Timeline ===== */}
-        <section className="py-20 md:py-28 px-6 md:px-10">
+        <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="selected-experience"
@@ -444,14 +447,14 @@ function ExperiencePageSv() {
         </section>
 
         {/* ===== Collaborations — dark band ===== */}
-        <section className="bg-forest py-20 md:py-28 px-6 md:px-10">
+        <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="clinical"
               dark
               title="Psykologi & kliniskt arbete"
             />
-            <div className="mt-12 md:mt-16 grid gap-5 md:gap-6 md:grid-cols-3">
+            <div className="mt-8 md:mt-10 grid gap-5 md:gap-6 md:grid-cols-3">
               {clinicalEntries.map((e) => (
                 <ClinicalCard key={e.title} entry={e} />
               ))}
@@ -460,7 +463,7 @@ function ExperiencePageSv() {
         </section>
 
         {/* ===== Beyond the clinic ===== */}
-        <section className="py-20 md:py-28 px-6 md:px-10">
+        <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
             <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
               <div className="md:col-span-6 space-y-4">
@@ -587,10 +590,10 @@ function ExperiencePageSv() {
         </section>
 
         {/* ===== Training ===== */}
-        <section className="py-20 md:py-28 px-6 md:px-10">
+        <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader title="Utbildning & kompetens" />
-            <div className="mt-12 md:mt-16 grid gap-10 md:grid-cols-3 md:gap-12">
+            <div className="mt-8 md:mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
               {trainingColumns.map((col) => (
                 <div key={col.title}>
                   <p className="text-[10px] uppercase tracking-[0.25em] text-accent pb-4 border-b border-border/70">
@@ -613,10 +616,10 @@ function ExperiencePageSv() {
         </section>
 
         {/* ===== In the Media + organisations ===== */}
-        <section className="bg-secondary/60 py-20 md:py-28 px-6 md:px-10">
+        <section className="bg-secondary/60 py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="I media" />
-            <div className="mt-12 md:mt-16 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
+            <div className="mt-8 md:mt-10 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
               {/* Sveriges Radio */}
               <div>
                 <img
@@ -696,6 +699,17 @@ function ExperiencePageSv() {
                 ))}
               </ul>
             </div>
+          </div>
+        </section>
+        <section className="px-6 md:px-10 py-20 md:py-28">
+          <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
+            {[
+              { src: photoGroupCircle, alt: "Deltagare i en cirkel under en workshop", pos: "50% 50%" },
+              { src: photoHandsSky, alt: "Händer som sträcks mot himlen", pos: "40% 50%" },
+              { src: photoFireEvening, alt: "Två deltagare vid en eld en kväll", pos: "40% 50%" },
+            ].map((img) => (
+              <img key={img.alt} src={img.src} alt={img.alt} loading="lazy" className="w-full aspect-[3/4] md:aspect-[4/5] object-cover" style={{ objectPosition: img.pos }} />
+            ))}
           </div>
         </section>
         <ArticleLightbox
