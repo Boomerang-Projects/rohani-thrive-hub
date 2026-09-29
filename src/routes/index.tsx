@@ -48,9 +48,24 @@ const principlesEn = [
   { title: "Globally fluent", body: "Experiences that honor every culture and build connection across borders." },
 ];
 
+const workWaysSv = [
+  { title: "Psykologi & psykoedukation", body: "Evidensbaserad kunskap och samtal som skapar större självkännedom, förståelse och varaktig förändring." },
+  { title: "Sinne & nervsystem", body: "Andning, meditation och praktiska verktyg som stöttar reglering, klarhet och emotionellt välbefinnande." },
+  { title: "Rörelse & kroppslig närvaro", body: "Yoga, somatisk rörelse och dans för att återknyta till kroppen, släppa spänningar och odla närvaro." },
+  { title: "Praktisk integration", body: "Verktyg och metoder som gör resultaten konkreta och lättare att föra in i vardagen." },
+];
+
+const workWaysEn = [
+  { title: "Psychology & Psychoeducation", body: "Evidence-informed knowledge and conversations that create greater self-awareness, understanding and lasting change." },
+  { title: "Mind & Nervous System", body: "Breathwork, meditation and practical tools to support regulation, clarity and emotional wellbeing." },
+  { title: "Movement & Embodiment", body: "Yoga, somatic movement and dance to reconnect with the body, release tension and cultivate presence." },
+  { title: "Practical Integration", body: "Tools and practices that make results tangible and easier to bring into everyday life." },
+];
+
 function AboutPage() {
   const { lang, t } = useLang();
   const principles = lang === "en" ? principlesEn : principlesSv;
+  const workWays = lang === "en" ? workWaysEn : workWaysSv;
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -121,8 +136,8 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Our Philosophy + Our Approach, merged: full-bleed photo like the hero */}
-        <section id="filosofi" className="scroll-mt-24 relative overflow-hidden">
+        {/* Our Mission: full-bleed photo like the hero */}
+        <section id="mission" className="scroll-mt-24 relative overflow-hidden">
           <img
             src={photoPhilosophy}
             alt={t("Rani leder ett samtal under en workshop", "Rani leading a conversation during a workshop")}
@@ -132,37 +147,37 @@ function AboutPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
 
-          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-16 md:pb-24">
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28">
             <div className="max-w-3xl">
               <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-                {t("Vår filosofi", "Our philosophy")}
+                {t("Vår mission", "Our Mission")}
               </p>
               <h2 className="mt-6 md:mt-8 font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
-                {t("Välbefinnande är ingen förmån. Det är grunden som allt gott arbete vilar på.", "Wellbeing is not a benefit. It is the foundation that all good work rests on.")}
+                {t("En mer sammankopplad, förenad och medveten värld börjar inom oss.", "A more connected, united and conscious world starts within.")}
               </h2>
               <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
-                {t("Varaktig prestation, friska kulturer och hållbart ledarskap börjar i samma sak: människor som känner sig trygga, sedda och kapabla att leda sig själva.", "Lasting performance, healthy cultures and sustainable leadership begin with the same thing: people who feel safe, seen and capable of leading themselves.")}
+                {t("Vi tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "We believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
+              </p>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-background/75">
+                {t("Vår mission är att stödja denna resa – från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "Our mission is to support this journey, from personal inner connection to collective wellbeing.")}
               </p>
             </div>
 
-            {/* Our Approach: how the philosophy is put into practice */}
-            <div id="metod" className="scroll-mt-24 mt-14 md:mt-20">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-                {t("Så arbetar vi", "How we work")}
-              </p>
-              <div className="mt-6 grid sm:grid-cols-3 gap-8 md:gap-12">
-                {[
-                  { title: t("Workshops & föreläsningar", "Workshops & talks"), body: t("För team och organisationer som vill bygga psykologisk trygghet.", "For teams and organizations building psychological safety.") },
-                  { title: t("Coaching", "Coaching"), body: t("För ledare och individer som vill växa med intention.", "For leaders and individuals ready to grow with intention.") },
-                  { title: t("Retreats", "Retreats"), body: t("Tid för återhämtning, reflektion och gemenskap.", "Time for rest, reflection and connection.") },
-                ].map((w) => (
-                  <div key={w.title} className="border-t border-background/30 pt-5">
-                    <p className="font-serif text-xl md:text-2xl text-background">{w.title}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-background/70">{w.body}</p>
-                  </div>
-                ))}
+          </div>
+        </section>
+
+        {/* How we work: same layout as "What guides us" */}
+        <section id="metod" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
+          <SectionHeader title={t("Så arbetar vi", "How we work")} />
+          <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+            {workWays.map((w) => (
+              <div key={w.title} className="flex w-full h-48 md:h-56 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-6 md:px-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-default">
+                <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                  {w.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
