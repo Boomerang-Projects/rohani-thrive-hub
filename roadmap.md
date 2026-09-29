@@ -37,6 +37,7 @@
 - [x] Grundarbilden: återställ originalfoto, beskurna bort den andra personen, gör bilden större
 - [x] Kontakt: lägg till ämnesalternativet "Annat"; flytta upp hero-bilden så den andra handen syns
 - [x] "Det som vägleder oss": minska endast textstorleken på kategorititlarna (inga andra designändringar)
+- [ ] Gör vita bubblor mindre (mindre vitt/dött utrymme) och alla rutor under "Det som vägleder oss" lika stora
 
 ## Pågående (nya)
 - [x] Hero-bubbla (Om): centrera texten i bubblan
