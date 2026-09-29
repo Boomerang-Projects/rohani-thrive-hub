@@ -489,10 +489,8 @@ export function ExperienceEn() {
 
             {/* Selected organisations */}
             <div className="mt-16 md:mt-24 pt-10 md:pt-14 border-t border-border/70">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/45 mb-6">
-                Experience Across
-              </p>
-              <ul className="flex flex-wrap gap-x-8 gap-y-3.5">
+              <SectionHeader title="Experience Across" />
+              <ul className="mt-8 md:mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3.5">
                 {organisations.map((o) => (
                   <li
                     key={o}
@@ -505,6 +503,9 @@ export function ExperienceEn() {
             </div>
           </div>
         </section>
+
+        <LogoMarquee />
+
         <section className="px-6 md:px-10 py-20 md:py-28">
           <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
             {[
@@ -535,7 +536,6 @@ export function ExperienceEn() {
           </div>
         </section>
 
-        <LogoMarquee />
 
         <ArticleLightbox
           src={mediaArticle.url}
