@@ -133,16 +133,6 @@ const trainingColumns = [
   },
 ];
 
-const organisations = [
-  "ROHANI",
-  "Region Stockholm",
-  "BUP Brommaplan",
-  "Karolinska University Hospital",
-  "Haninge Municipality",
-  "ABF Södertörn",
-  "Somaya Women's Support Centre",
-];
-
 /* ---------- Helpers ---------- */
 
 function ExternalLink({
@@ -490,16 +480,6 @@ export function ExperienceEn() {
             {/* Selected organisations */}
             <div className="mt-16 md:mt-24 pt-10 md:pt-14 border-t border-border/70">
               <SectionHeader title="Experience Across" />
-              <ul className="mt-8 md:mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3.5">
-                {organisations.map((o) => (
-                  <li
-                    key={o}
-                    className="text-[11px] md:text-xs uppercase tracking-[0.2em] text-foreground/55"
-                  >
-                    {o}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </section>
