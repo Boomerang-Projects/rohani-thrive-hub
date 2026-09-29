@@ -32,7 +32,7 @@
 - [x] Section headers: bold, centered, no big serif title; removed "01" prefix on clinical section (SV+EN)
 
 ## Pågående
-- [ ] CTA "Börja där du är" + logotypbanner längst ner på Erfarenhet (SV+EN); banner på Kontakt under CTA
-- [ ] CTA-rubrik i versaler enligt subrubrik-stilen; "Ibland börjar den" → "Ibland börjar det" (SV-copy)
-- [ ] Grundarbilden: återställ originalfoto, beskurna bort den andra personen, gör bilden större
-- [ ] Kontakt: lägg till ämnesalternativet "Annat"; flytta upp hero-bilden så den andra handen syns
+- [x] CTA "Börja där du är" + logotypbanner längst ner på Erfarenhet (SV+EN); banner på Kontakt under CTA
+- [x] CTA-rubrik i versaler enligt subrubrik-stilen; "Ibland börjar den" → "Ibland börjar det" (SV-copy)
+- [x] Grundarbilden: återställ originalfoto, beskurna bort den andra personen, gör bilden större
+- [x] Kontakt: lägg till ämnesalternativet "Annat"; flytta upp hero-bilden så den andra handen syns
