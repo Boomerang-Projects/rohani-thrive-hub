@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
@@ -303,7 +302,7 @@ export function ExperienceEn() {
 
         {/* ===== Heart of the work ===== */}
         <section className="relative overflow-hidden">
-          <img src={heartOfWorkPhoto.url} alt="Participants sitting together in a circle at a gathering" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <img src={heartOfWorkPhoto.url} alt="Participants moving together outdoors in evening light" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
             <div className="max-w-3xl space-y-6 text-background">
