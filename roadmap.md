@@ -43,4 +43,4 @@
 - [x] Hero-bubbla (Om): centrera texten i bubblan
 - [x] Grundare-bubblan: lite mindre, placerad högre upp mot kanten
 - [x] Kontakt-hero: kompakt, avrundad bildband (max-w-5xl, h-[560px]) så båda händerna syns
-- [ ] Fixa Haninge Kommun-loggan på den rullande bannern (endast text visades)
+- [x] Fixa Haninge Kommun-loggan på den rullande bannern (endast text visades)
