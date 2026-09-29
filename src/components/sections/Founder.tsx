@@ -27,7 +27,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             to="/experience"
             hash="media"
             aria-label="Läs artikeln i Psykologtidningen"
-            className="group absolute top-3 -left-3 w-[11.5rem] md:mx-0 md:top-auto md:w-auto md:-top-14 md:-left-6 md:max-w-[17rem]"
+            className="group absolute top-3 left-3 w-[11.5rem] md:mx-0 md:w-auto md:top-6 md:left-6 md:max-w-[17rem]"
           >
             <figure className="bg-background rounded-3xl p-4 md:p-7 md:px-9 cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
               <blockquote className="font-serif italic text-sm md:text-lg leading-relaxed text-foreground">
