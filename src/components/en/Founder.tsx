@@ -21,7 +21,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
             />
           </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
-          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-bottom-12 md:-right-10 md:max-w-sm bg-background p-7 md:p-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-bottom-12 md:-right-10 md:max-w-sm bg-background rounded-3xl p-7 md:p-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
             <div className="absolute top-0 left-0 w-16 h-[3px] bg-accent" />
             <blockquote className="font-serif italic text-lg md:text-xl leading-relaxed text-foreground">
               "Madeeha Qazi moves softly between the floor cushion and the yoga mat as she talks. She believes psychology and culture go beautifully hand in hand."
@@ -37,7 +37,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
 
         {/* Right: original founder story */}
         <div className="md:max-w-xl">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+          <p className="inline-flex rounded-full bg-foreground/10 px-5 py-2.5 text-[10px] uppercase tracking-[0.3em] text-foreground/60">
             Psychologist · Facilitator · Speaker
           </p>
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
