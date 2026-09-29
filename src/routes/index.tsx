@@ -110,17 +110,19 @@ function AboutPage() {
         <section id="vagleder" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
           {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-16">
+          <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {principles.map((p, i) => (
-              <div key={p.title} className="flex gap-6 border-t border-foreground/15 pt-6">
-                <p className="font-serif text-4xl leading-none text-foreground/30">
+              <div
+                key={p.title}
+                className="flex flex-col justify-center items-center text-center rounded-[3rem] bg-foreground text-background px-7 py-10 md:px-8 md:py-12 min-h-[16rem] md:min-h-[18rem] shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]"
+              >
+                <p className="font-serif text-lg leading-none text-background/50">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <div>
-                  <h3 className="font-serif text-lg md:text-xl leading-tight uppercase">{p.title}</h3>
-
-                  <p className="mt-3 text-foreground/70 leading-relaxed">{p.body}</p>
-                </div>
+                <h3 className="mt-4 font-serif text-base md:text-lg leading-tight uppercase tracking-wide">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-background/80">{p.body}</p>
               </div>
             ))}
           </div>
