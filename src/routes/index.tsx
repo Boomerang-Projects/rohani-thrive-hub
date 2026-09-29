@@ -137,8 +137,8 @@ function AboutPage() {
             src={photoPhilosophy}
             alt={t("Rani leder ett samtal under en workshop", "Rani leading a conversation during a workshop")}
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 35%" }}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            style={{ objectPosition: "50% 0%" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
 
