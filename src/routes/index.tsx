@@ -140,14 +140,13 @@ function AboutPage() {
         <section id="mission" className="scroll-mt-24 relative overflow-hidden">
           <img
             src={missionPhoto.url}
-            alt={t("Rani leder ett samtal under en workshop", "Rani leading a conversation during a workshop")}
+            alt={t("Grupp på mattor utomhus i kvällsljus", "A group resting on mats outdoors in the evening sun")}
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover object-top"
-            style={{ objectPosition: "50% 0%" }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "50% 60%" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
 
-          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28">
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
             <div className="max-w-3xl">
               <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
                 {t("Vår mission", "Our Mission")}

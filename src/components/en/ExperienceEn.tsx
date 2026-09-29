@@ -392,10 +392,11 @@ export function ExperienceEn() {
         <section className="relative overflow-hidden">
           <img
             src={experienceHero}
-            alt="A group resting on mats outdoors in the evening sun"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 60%" }}
+            alt="Rani leading a conversation during a workshop"
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            style={{ objectPosition: "50% 0%" }}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
             <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance max-w-4xl text-background">
               Psychology, Wellbeing & Human Development
