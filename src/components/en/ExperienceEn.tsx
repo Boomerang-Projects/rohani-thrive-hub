@@ -159,6 +159,7 @@ const communityEntries: Entry[] = [
   },
 ];
 
+/* Saved for future use — wellbeing/retreat experiences (not active on the page right now)
 const wellbeingEntries: Entry[] = [
   {
     title: "Joy in the Wild",
@@ -177,6 +178,7 @@ const wellbeingEntries: Entry[] = [
     ],
   },
 ];
+*/
 
 const trainingColumns = [
   {
@@ -344,7 +346,7 @@ function EntryRow({ entry }: { entry: Entry }) {
 
 /* ---------- Page ---------- */
 
-type BeyondTabId = "organisational" | "community" | "wellbeing";
+type BeyondTabId = "organisational" | "community";
 
 export function ExperienceEn() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -353,7 +355,7 @@ export function ExperienceEn() {
   useEffect(() => {
     const syncFromHash = () => {
       const h = window.location.hash.replace("#", "");
-      if (h === "organisational" || h === "community" || h === "wellbeing") {
+      if (h === "organisational" || h === "community") {
         setActiveTab(h);
       }
       if (h === "media") {
@@ -373,13 +375,8 @@ export function ExperienceEn() {
     },
     {
       id: "community",
-      label: "Community & Social Impact",
+      label: "Social Impact",
       entries: communityEntries,
-    },
-    {
-      id: "wellbeing",
-      label: "Wellbeing, Retreats & Experiential Work",
-      entries: wellbeingEntries,
     },
   ];
   const activeTabData =
@@ -412,10 +409,6 @@ export function ExperienceEn() {
         {/* ===== Timeline ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
-              id="selected-experience"
-              title="Selected Experience"
-            />
             <HorizontalTimeline items={timeline} fallbackCta="View experience" />
           </div>
         </section>
@@ -426,7 +419,7 @@ export function ExperienceEn() {
             <SectionHeader
               id="clinical"
               dark
-              title="Psychology & Clinical Practice"
+              title="Clinical Practice"
             />
             <div className="mt-8 md:mt-10 grid gap-5 md:gap-6 md:grid-cols-3">
               {clinicalEntries.map((e) => (
