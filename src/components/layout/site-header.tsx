@@ -17,14 +17,6 @@ const navLinksSv: NavItem[] = [
     ],
   },
   {
-    to: "/contact",
-    label: "Kontakt",
-    subs: [
-      { id: "contact", label: "Kontakta oss" },
-      { id: "cta", label: "Börja där du är" },
-    ],
-  },
-  {
     to: "/experience",
     label: "Erfarenhet",
     subs: [
@@ -35,6 +27,14 @@ const navLinksSv: NavItem[] = [
       { id: "media", label: "I media" },
     ],
   },
+  {
+    to: "/contact",
+    label: "Kontakt",
+    subs: [
+      { id: "contact", label: "Kontakta oss" },
+      { id: "cta", label: "Börja där du är" },
+    ],
+  },
 ];
 
 const navLinksEn: NavItem[] = [
@@ -43,16 +43,16 @@ const navLinksEn: NavItem[] = [
     { id: "filosofi", label: "Our Philosophy" },
     { id: "grundaren", label: "Meet the Founder" },
   ] },
-  { to: "/contact", label: "Contact", subs: [
-    { id: "contact", label: "Get in Touch" },
-    { id: "cta", label: "Begin Where You Are" },
-  ] },
   { to: "/experience", label: "Experience", subs: [
     { id: "selected-experience", label: "Selected Experience" },
     { id: "clinical", label: "Psychology & Clinical Practice" },
     { id: "organisational", label: "Professional & Organisational" },
     { id: "community", label: "Community & Social Impact" },
     { id: "media", label: "In the Media" },
+  ] },
+  { to: "/contact", label: "Contact", subs: [
+    { id: "contact", label: "Get in Touch" },
+    { id: "cta", label: "Begin Where You Are" },
   ] },
 ];
 
