@@ -29,7 +29,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
 export function useLang() {
   const { lang, setLang } = useContext(LangContext);
-  const t = (sv: ReactNode, en: ReactNode) => (lang === "en" ? en : sv);
+  // Generic, so t("text", "text") is typed as a string (usable for alt, key, title),
+  // while t(<b>..</b>, <b>..</b>) still works for JSX.
+  const t = <T extends ReactNode>(sv: T, en: T): T => (lang === "en" ? en : sv);
   return { lang, setLang, t };
 }
 

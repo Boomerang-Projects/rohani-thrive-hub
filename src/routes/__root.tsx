@@ -4,6 +4,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -12,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
+import { useScrollPolish } from "@/hooks/use-scroll-polish";
 
 function NotFoundComponent() {
   return (
@@ -134,6 +136,10 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  // resolvedLocation only changes once the new page has actually rendered,
+  // so the scroll effects measure the new page, not the old one.
+  const pathname = useRouterState({ select: (s) => s.resolvedLocation?.pathname ?? s.location.pathname });
+  useScrollPolish(pathname);
 
   return (
     <QueryClientProvider client={queryClient}>

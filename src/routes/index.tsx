@@ -2,14 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
+import { SectionHeader } from "@/components/sections/SectionHeader";
+import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
+import photoGroupCircle from "@/assets/photos/group-circle.jpg";
+import photoHandsSky from "@/assets/photos/hands-sky.jpg";
+import photoFireEvening from "@/assets/photos/fire-evening.jpg";
+import photoPhilosophy from "@/assets/photos/leading-session.jpg";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Om Rohani — Psykologi för välbefinnande och mänsklig utveckling" },
+      { title: "Om Rohani | Psykologi för välbefinnande och mänsklig utveckling" },
       {
         name: "description",
         content:
@@ -31,33 +37,17 @@ export const Route = createFileRoute("/")({
 });
 
 const principlesSv = [
-  {
-    title: "Vetenskapligt förankrat",
-    body:
-      "Varje workshop förankras i modern psykologi, beteendevetenskap och evidensbaserad mindfulness. Vi kombinerar vetenskaplig stringens med praktisk tillämpning för att skapa meningsfull och varaktig effekt.",
-  },
-  {
-    title: "Människan först",
-    body:
-      "Människor är aldrig problem att lösa eller prestationer att optimera. Vi möter individer och team med värme, respekt och genuin närvaro – och skapar förutsättningar för tillväxt, gemenskap och välbefinnande.",
-  },
-  {
-    title: "Globalt medvetna",
-    body:
-      "Den mänskliga upplevelsen är universell, men varje människa, kultur och kontext är unik. Vi formar och leder upplevelser som hedrar mångfald och samtidigt skapar meningsfull gemenskap över kulturer, samhällen och organisationer.",
-  },
-  {
-    title: "Kvalitet i det tysta",
-    body:
-      "Kvalitet bor i detaljerna. Varje upplevelse är noggrant formgiven, omsorgsfullt ledd och medvetet genomförd. Arbetet känns enkelt – tack vare djupet, noggrannheten och omsorgen bakom.",
-  },
+  { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
+  { title: "Människan först", body: "Vi möter människor med värme, respekt och genuin närvaro." },
+  { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
+  { title: "Kvalitet i det tysta", body: "Varje detalj är genomtänkt, så att arbetet känns enkelt." },
 ];
 
 const principlesEn = [
-  { title: "Evidence-based", body: "Every workshop is anchored in modern psychology, behavioral science and evidence-based mindfulness. We combine scientific rigor with practical application to create meaningful and lasting impact." },
-  { title: "Human first", body: "People are never treated as problems to solve or performances to optimize. We meet individuals and teams with warmth, respect and genuine presence, creating the conditions for growth, connection and wellbeing." },
-  { title: "Globally fluent", body: "Human experience is universal, yet every person, culture and context is unique. We design and facilitate experiences that honor diversity while creating meaningful connection across cultures, communities and organizational environments." },
-  { title: "Quietly premium", body: "Excellence lives in the details. Every experience is thoughtfully designed, carefully facilitated and intentionally delivered. The work feels effortless because of the depth, rigor and care behind it." },
+  { title: "Evidence-based", body: "Modern psychology and evidence-based mindfulness, put into practice." },
+  { title: "Human first", body: "We meet people with warmth, respect and genuine presence." },
+  { title: "Globally fluent", body: "Experiences that honor every culture and build connection across borders." },
+  { title: "Quietly premium", body: "Every detail is considered, so the work feels effortless." },
 ];
 
 function AboutPage() {
@@ -67,44 +57,37 @@ function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        {/* Hero — full-bleed portrait with overlay copy */}
-        <section className="relative flex flex-col md:flex-row md:items-end md:min-h-[95vh] xl:min-h-[85vh] overflow-hidden">
-          <div className="md:hidden px-6 pt-6">
-            <img
-              src={heroMobile}
-              alt="Madeeha Qazi, grundare av Rohani"
-              className="w-full aspect-[4/5] object-cover rounded-3xl"
-              style={{ objectPosition: "50% 25%" }}
-            />
-          </div>
-          <picture className="hidden md:block">
+        {/* Hero: full-bleed portrait with overlay copy, at every screen size */}
+        <section className="relative flex items-end min-h-[100svh] md:min-h-[95vh] xl:min-h-[85vh] overflow-hidden">
+          {/* Portrait crop on phones, wide crop from md up. Same layout either way. */}
+          <picture>
+            <source media="(max-width: 767px)" srcSet={heroMobile} />
             <img
               src={heroDesktop}
-              alt=""
+              alt="Madeeha Qazi, grundare av Rohani"
               width={2880}
               height={2100}
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "50% 18%" }}
+              className="absolute inset-0 w-full h-full object-cover object-[50%_25%] md:object-[50%_18%]"
             />
           </picture>
-          <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/35 to-foreground/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10 md:from-foreground/80 md:via-foreground/35" />
 
-          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-48 pb-16 md:pb-24">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-16">
-              <div className="max-w-3xl">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent md:text-background/70">
+          <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pt-32 md:pt-48 pb-8 sm:pb-12 md:pb-24">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-16">
+              <div className="max-w-3xl md:flex-1 md:min-w-0">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
                   {t("OM ROHANI", "ABOUT ROHANI")}
                 </p>
-                <h1 className="text-4xl lg:text-6xl font-serif leading-[1.08] text-foreground md:text-background max-w-3xl mt-6 md:mt-10">
+                <h1 className="text-[clamp(1.75rem,4.5vw+0.6rem,3.75rem)] font-serif leading-[1.08] text-background max-w-3xl mt-4 md:mt-10">
                   {t("Vi lyfter välbefinnande, hållbarhet och livskvalitet genom modern psykologi.", "Elevating wellbeing, sustainability and quality of life through modern psychology.")}
                 </h1>
-                <p className="text-lg md:text-xl leading-relaxed text-foreground/75 md:text-background/85 max-w-xl mt-6 md:mt-10">
-                  {t("Rohani grundades för att förena psykologi, mindfulness och mänsklig utveckling – för människor, team och organisationer som formar vår värld.", "Rohani was founded to bridge psychology, mindfulness and human development – for the people, teams and organizations who shape our world.")}
+                <p className="text-[clamp(0.95rem,0.8vw+0.8rem,1.25rem)] leading-relaxed text-background/85 max-w-xl mt-4 md:mt-10">
+                  {t("Rohani grundades för att förena psykologi, mindfulness och mänsklig utveckling, för människor, team och organisationer som formar vår värld.", "Rohani was founded to bridge psychology, mindfulness and human development, for the people, teams and organizations who shape our world.")}
                 </p>
               </div>
 
               {/* Quote card */}
-              <div className="relative max-w-md lg:max-w-[22rem] lg:flex-none bg-secondary md:bg-background p-7 md:p-9 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+              <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[22rem] md:flex-none bg-background p-5 sm:p-7 md:p-9 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
                 <div className="absolute top-0 left-0 w-16 h-1 bg-accent" />
                 <span
                   aria-hidden
@@ -112,10 +95,10 @@ function AboutPage() {
                 >
                   "
                 </span>
-                <blockquote className="relative font-serif italic text-lg md:text-xl leading-relaxed text-foreground">
+                <blockquote className="relative font-serif italic text-[clamp(0.95rem,0.6vw+0.85rem,1.25rem)] leading-relaxed text-foreground">
                   {t("\"Ett genuint välbefinnande är inte frånvaron av stress eller motgångar. Det är förmågan att möta livet med medvetenhet, motståndskraft, mening och närvaro.\"", "\"True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence.\"")}
                 </blockquote>
-                <div className="mt-6 flex items-center gap-4">
+                <div className="mt-4 sm:mt-6 flex items-center gap-4">
                   <div className="h-px w-6 bg-accent" />
                   <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
                     {t("Rohanis filosofi", "The Rohani Philosophy")}
@@ -126,80 +109,97 @@ function AboutPage() {
           </div>
         </section>
 
+        {/* Rolling logo band */}
+        <LogoMarquee />
+
         {/* What Guides Us */}
         <section id="vagleder" className="scroll-mt-24 pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
-          <div className="mb-14 max-w-2xl">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-accent mb-5">
-              {t("Det som vägleder oss", "What guides us")}
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-              {t("Fyra principer, i allt vi gör", "Four principles, in everything we do")}
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
+          {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-16">
             {principles.map((p, i) => (
-              <div
-                key={p.title}
-                className="p-8 md:p-10 border border-border rounded-3xl bg-secondary"
-              >
-                <p className="font-serif text-3xl text-accent mb-4">
+              <div key={p.title} className="flex gap-6 border-t border-foreground/15 pt-6">
+                <p className="font-serif text-4xl leading-none text-foreground/30">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="text-2xl font-serif mb-3">{p.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{p.body}</p>
+                <div>
+                  <h3 className="font-serif text-2xl leading-tight">{p.title}</h3>
+                  <p className="mt-3 text-foreground/70 leading-relaxed">{p.body}</p>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Our Philosophy */}
-        <section id="filosofi" className="scroll-mt-24 pb-24 md:pb-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
-            <div className="md:col-span-5 space-y-4">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                {t("Vår filosofi", "Our Philosophy")}
+        {/* Our Philosophy + Our Approach, merged: full-bleed photo like the hero */}
+        <section id="filosofi" className="scroll-mt-24 relative overflow-hidden">
+          <img
+            src={photoPhilosophy}
+            alt={t("Rani leder ett samtal under en workshop", "Rani leading a conversation during a workshop")}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "50% 35%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
+
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-16 md:pb-24">
+            <div className="max-w-3xl">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
+                {t("Vår filosofi", "Our philosophy")}
               </p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-                {t("Välbefinnande är ingen förmån. Det är grunden som allt gott arbete vilar på.", "Wellbeing is not a benefit. It is the foundation of everything good work rests on.")}
+              <h2 className="mt-6 md:mt-8 font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
+                {t("Välbefinnande är ingen förmån. Det är grunden som allt gott arbete vilar på.", "Wellbeing is not a benefit. It is the foundation that all good work rests on.")}
               </h2>
+              <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
+                {t("Varaktig prestation, friska kulturer och hållbart ledarskap börjar i samma sak: människor som känner sig trygga, sedda och kapabla att leda sig själva.", "Lasting performance, healthy cultures and sustainable leadership begin with the same thing: people who feel safe, seen and capable of leading themselves.")}
+              </p>
             </div>
-            <div className="md:col-span-7 space-y-6 md:self-center">
-              <p className="text-xl leading-relaxed text-foreground/75">
-                {t("Vi tror att varaktig prestation, friska kulturer och motståndskraftigt ledarskap börjar i samma sak – människor som känner sig trygga, sedda och kapabla att leda sig själva.", "We believe that lasting performance, healthy cultures and resilient leadership begin with the same thing — people who feel safe, seen and capable of leading themselves.")}
+
+            {/* Our Approach: how the philosophy is put into practice */}
+            <div id="metod" className="scroll-mt-24 mt-14 md:mt-20">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
+                {t("Så arbetar vi", "How we work")}
               </p>
-              <p className="text-base leading-relaxed text-foreground/60">
-                {t("Rohani finns för HR-chefer, ledare och internationella organisationer som vill investera på allvar i sina människor – och för individer som är redo att växa med intention.", "Rohani exists for HR leaders, executives and international organizations who want to invest in their people seriously, and for individuals ready to grow with intention.")}
-              </p>
+              <div className="mt-6 grid sm:grid-cols-3 gap-8 md:gap-12">
+                {[
+                  { title: t("Workshops & föreläsningar", "Workshops & talks"), body: t("För team och organisationer som vill bygga psykologisk trygghet.", "For teams and organizations building psychological safety.") },
+                  { title: t("Coaching", "Coaching"), body: t("För ledare och individer som vill växa med intention.", "For leaders and individuals ready to grow with intention.") },
+                  { title: t("Retreats", "Retreats"), body: t("Tid för återhämtning, reflektion och gemenskap.", "Time for rest, reflection and connection.") },
+                ].map((w) => (
+                  <div key={w.title} className="border-t border-background/30 pt-5">
+                    <p className="font-serif text-xl md:text-2xl text-background">{w.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-background/70">{w.body}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-
-        <div id="grundaren" className="scroll-mt-24 pb-10 md:pb-14">
-          <Founder showLink={false} />
+        <div id="grundaren" className="scroll-mt-24 bg-sand py-24 md:py-32">
+          <Founder />
         </div>
 
-        {/* Our Approach */}
-        <section id="metod" className="scroll-mt-24 bg-secondary py-24 md:py-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-start">
-            <div className="md:col-span-5 space-y-4">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                {t("Vår metod", "Our Approach")}
-              </p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-                {t("Där psykologi möter mänsklig potential", "Psychology Meets Human Potential")}
-              </h2>
-            </div>
-            <div className="md:col-span-7 space-y-6">
-              <p className="text-xl leading-relaxed text-foreground/75">
-                {t("Rohani grundades för att överbrygga modern psykologi, mindfulness och personlig utveckling. Genom workshops, föreläsningar, coaching och transformerande upplevelser stödjer vi individer och organisationer i att skapa hållbart välbefinnande och meningsfull utveckling.", "Rohani was founded to bridge modern psychology, mindfulness and personal growth. Through workshops, talks, coaching and transformational experiences, we support individuals and organizations in creating sustainable wellbeing and meaningful development.")}
-              </p>
-              <p className="text-base leading-relaxed text-foreground/60">
-                {t("Vi arbetar med HR-chefer, ledare och internationella team som förstår att varaktig prestation byggs på psykologisk trygghet, emotionell intelligens och den tysta konsten att leda sig själv väl.", "We work with HR leaders, executives and international teams who understand that lasting performance is built on psychological safety, emotional intelligence and the quiet skill of leading oneself well.")}
-              </p>
-            </div>
+        {/* Photo band: moments from workshops and retreats, closing the page */}
+        <section className="px-6 md:px-10 py-20 md:py-28">
+          <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
+            {[
+              { src: photoGroupCircle, alt: t("Deltagare i en cirkel under en workshop", "Participants in a circle during a workshop"), pos: "50% 50%" },
+              { src: photoHandsSky, alt: t("Händer som sträcks mot himlen", "Hands reaching towards the sky"), pos: "40% 50%" },
+              { src: photoFireEvening, alt: t("Två deltagare vid en eld en kväll", "Two participants by a fire in the evening"), pos: "40% 50%" },
+            ].map((img) => (
+              <img
+                key={img.alt}
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="w-full aspect-[3/4] md:aspect-[4/5] object-cover"
+                style={{ objectPosition: img.pos }}
+              />
+            ))}
           </div>
         </section>
+
       </main>
       <SiteFooter />
     </div>
