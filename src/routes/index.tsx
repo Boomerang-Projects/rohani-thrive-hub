@@ -118,7 +118,7 @@ function AboutPage() {
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <div>
-                  <h3 className="font-serif text-xl md:text-2xl leading-tight uppercase">{p.title}</h3>
+                  <h3 className="font-serif text-lg md:text-xl leading-tight uppercase">{p.title}</h3>
 
                   <p className="mt-3 text-foreground/70 leading-relaxed">{p.body}</p>
                 </div>

@@ -36,3 +36,4 @@
 - [x] CTA-rubrik i versaler enligt subrubrik-stilen; "Ibland börjar den" → "Ibland börjar det" (SV-copy)
 - [x] Grundarbilden: återställ originalfoto, beskurna bort den andra personen, gör bilden större
 - [x] Kontakt: lägg till ämnesalternativet "Annat"; flytta upp hero-bilden så den andra handen syns
+- [x] "Det som vägleder oss": minska endast textstorleken på kategorititlarna (inga andra designändringar)
