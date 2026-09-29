@@ -41,4 +41,4 @@
 ## Pågående (nya)
 - [x] Hero-bubbla (Om): centrera texten i bubblan
 - [x] Grundare-bubblan: lite mindre, placerad högre upp mot kanten
-- [ ] Kontakt-hero: gör bilden mer kompakt så båda händerna syns naturligt
+- [x] Kontakt-hero: kompakt, avrundad bildband (max-w-5xl, h-[560px]) så båda händerna syns
