@@ -39,14 +39,14 @@ export const Route = createFileRoute("/")({
 });
 
 const principlesSv = [
-  { title: "Människan först", body: "Vi möter människor med värme, respekt och genuin närvaro." },
+  { title: "Människan först", body: "Jag möter människor med värme, respekt och genuin närvaro." },
   { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
   { title: "Kvalitet i fokus", body: "Varje detalj är genomtänkt, så att arbetet känns skräddarsytt och berikande." },
   { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
 ];
 
 const principlesEn = [
-  { title: "Human first", body: "We meet people with warmth, respect and genuine presence." },
+  { title: "Human first", body: "I meet people with warmth, respect and genuine presence." },
   { title: "Evidence-based", body: "Modern psychology and evidence-based mindfulness, put into practice." },
   { title: "Quietly premium", body: "Every detail is considered, so the work feels effortless." },
   { title: "Globally fluent", body: "Experiences that honor every culture and build connection across borders." },
@@ -159,10 +159,10 @@ function AboutPage() {
                 {t("En mer sammankopplad, förenad och medveten värld börjar inom oss.", "A more connected, united and conscious world starts within.")}
               </h2>
               <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
-                {t("Vi tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "We believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
+                {t("Jag tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "I believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
               </p>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-background/75">
-                {t("Vår mission är att stödja denna resa – från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "Our mission is to support this journey, from personal inner connection to collective wellbeing.")}
+                {t("Min mission är att stödja denna resa – från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
               </p>
             </div>
 
