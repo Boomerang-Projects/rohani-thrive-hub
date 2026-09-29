@@ -38,7 +38,7 @@ const principlesSv = [
   { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
   { title: "Människan först", body: "Vi möter människor med värme, respekt och genuin närvaro." },
   { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
-  { title: "Kvalitet i fokus", body: "Varje detalj är genomtänkt, så att arbetet känns enkelt." },
+  { title: "Kvalitet i fokus", body: "Varje detalj är genomtänkt, så att arbetet känns skräddarsytt och berikande." },
 ];
 
 const principlesEn = [
