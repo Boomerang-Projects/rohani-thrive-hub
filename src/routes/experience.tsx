@@ -372,7 +372,7 @@ function EntryRow({ entry }: { entry: Entry }) {
 
 /* ---------- Page ---------- */
 
-type BeyondTabId = "organisational" | "community" | "wellbeing";
+type BeyondTabId = "organisational" | "community";
 
 function ExperiencePageSv() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -381,7 +381,7 @@ function ExperiencePageSv() {
   useEffect(() => {
     const syncFromHash = () => {
       const h = window.location.hash.replace("#", "");
-      if (h === "organisational" || h === "community" || h === "wellbeing") {
+      if (h === "organisational" || h === "community") {
         setActiveTab(h);
       }
       if (h === "media") {
@@ -401,13 +401,8 @@ function ExperiencePageSv() {
     },
     {
       id: "community",
-      label: "Samhälle & Social Påverkan",
+      label: "Social påverkan",
       entries: communityEntries,
-    },
-    {
-      id: "wellbeing",
-      label: "Välbefinnande, Retreats & Upplevelsebaserat Arbete",
-      entries: wellbeingEntries,
     },
   ];
   const activeTabData =
@@ -440,10 +435,6 @@ function ExperiencePageSv() {
         {/* ===== Timeline ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader
-              id="selected-experience"
-              title="Utvald erfarenhet"
-            />
             <HorizontalTimeline items={timeline} fallbackCta="Se erfarenheten" />
           </div>
         </section>
@@ -454,7 +445,7 @@ function ExperiencePageSv() {
             <SectionHeader
               id="clinical"
               dark
-              title="Psykologi & kliniskt arbete"
+              title="Kliniskt arbete"
             />
             <div className="mt-8 md:mt-10 grid gap-5 md:gap-6 md:grid-cols-3">
               {clinicalEntries.map((e) => (
