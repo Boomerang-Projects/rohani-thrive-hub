@@ -82,7 +82,7 @@ function AboutPage() {
               </div>
 
               {/* Quote card */}
-              <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[22rem] md:flex-none bg-background rounded-[50%] p-8 sm:p-9 md:p-10 md:px-14 text-center shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+              <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[22rem] md:flex-none bg-background rounded-3xl p-8 sm:p-9 md:p-10 md:px-14 text-center shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
                 <span
                   aria-hidden
                   className="absolute -top-5 left-1/2 -translate-x-1/2 font-serif italic text-7xl text-foreground/5 select-none"
@@ -110,7 +110,7 @@ function AboutPage() {
           <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {principles.map((p) => (
               <div key={p.title} className="flex flex-col items-center text-center">
-                <div className="flex w-full aspect-square flex-col items-center justify-center rounded-[50%] bg-foreground text-background px-8 md:px-10 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)] cursor-default">
+                <div className="flex w-full min-h-[13rem] py-12 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-8 md:px-10 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)] cursor-default">
                   <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide">
                     {p.title}
                   </h3>

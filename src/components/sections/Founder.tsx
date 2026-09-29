@@ -29,7 +29,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             aria-label="Läs artikeln i Psykologtidningen"
             className="group relative block -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-14 md:-left-6 md:max-w-[20rem]"
           >
-            <figure className="bg-background rounded-full p-7 md:p-9 md:px-12 cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
+            <figure className="bg-background rounded-3xl p-7 md:p-9 md:px-12 cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
               <blockquote className="font-serif italic text-base md:text-lg leading-relaxed text-foreground">
                 "Madeeha Qazi rör sig mjukt mellan sittkudden och yogamattan medan hon pratar. Hon tycker att psykologi och kultur går fint hand i hand."
               </blockquote>
