@@ -7,9 +7,9 @@ import psykologtidningen from "@/assets/logos/psykologtidningen.png";
 
 const logos: { src: string; alt: string; color?: boolean }[] = [
   { src: haninge.url, alt: "Haninge kommun", color: true },
+  { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm" },
   { src: karolinska, alt: "Karolinska Universitetssjukhuset" },
   { src: sverigesRadio, alt: "Sveriges Radio" },
-  { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm" },
   { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm" },
   { src: psykologtidningen, alt: "Psykologtidningen" },
 ];
