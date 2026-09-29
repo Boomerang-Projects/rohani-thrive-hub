@@ -1,1 +1,1 @@
-- Keep the bilingual Experience timeline in `src/components/sections/HorizontalTimeline.tsx`, with translated entries passed from each page, so layout and interaction stay consistent across languages.
+- Keep the reusable Experience timeline component available but do not render it on the Experience pages; the experience entries now appear directly under their sections so visitors can scan credentials without an extra interaction.
