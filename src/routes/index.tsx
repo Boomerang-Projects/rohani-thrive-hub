@@ -54,7 +54,7 @@ const principlesEn = [
 
 const workWaysSv = [
   { title: "Psykologi & psykoedukation", body: "Evidensbaserad kunskap och samtal som skapar större självkännedom, förståelse och varaktig förändring.", img: imgPsychology, imgClass: "object-[50%_32%]" },
-  { title: "Sinne & nervsystem", body: "Andning, meditation och praktiska verktyg som stöttar reglering, klarhet och emotionellt välbefinnande.", img: imgBreath, imgClass: "scale-[1.18] object-[50%_35%]" },
+  { title: "Sinne & nervsystem", body: "Andning, meditation och praktiska verktyg som stöttar reglering, klarhet och emotionellt välbefinnande.", img: imgBreath, imgClass: "scale-[1.18] object-[50%_45%]" },
   { title: "Rörelse & kroppslig närvaro", body: "Yoga, somatisk rörelse och dans för att återknyta till kroppen, släppa spänningar och odla närvaro.", img: imgMovement, imgClass: "object-[50%_72%]" },
   { title: "Praktisk integration", body: "Verktyg och metoder som gör resultaten konkreta och lättare att föra in i vardagen.", img: imgIntegration, imgClass: "scale-[1.18] object-[50%_68%]" },
 ];
