@@ -5,7 +5,7 @@ import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
 import psykologtidningen from "@/assets/logos/psykologtidningen.png";
 
-const logos = [
+const logos: { src: string; alt: string; color?: boolean }[] = [
   { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm" },
   { src: haninge.url, alt: "Haninge kommun", color: true },
   { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm" },
