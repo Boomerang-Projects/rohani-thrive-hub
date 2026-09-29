@@ -35,7 +35,7 @@ const logos: { src: string; alt: string; color?: boolean }[] = [
  * A rolling band of logos (row rendered twice for a seamless loop).
  * Clicking the band opens a dialog listing every logo one after another.
  */
-export function LogoMarquee() {
+export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: string }) {
   const row = (hidden: boolean) => (
     <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {logos.map((logo) => (
