@@ -35,17 +35,17 @@ export const Route = createFileRoute("/")({
 });
 
 const principlesSv = [
-  { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
   { title: "Människan först", body: "Vi möter människor med värme, respekt och genuin närvaro." },
-  { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
+  { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
   { title: "Kvalitet i fokus", body: "Varje detalj är genomtänkt, så att arbetet känns skräddarsytt och berikande." },
+  { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
 ];
 
 const principlesEn = [
-  { title: "Evidence-based", body: "Modern psychology and evidence-based mindfulness, put into practice." },
   { title: "Human first", body: "We meet people with warmth, respect and genuine presence." },
-  { title: "Globally fluent", body: "Experiences that honor every culture and build connection across borders." },
+  { title: "Evidence-based", body: "Modern psychology and evidence-based mindfulness, put into practice." },
   { title: "Quietly premium", body: "Every detail is considered, so the work feels effortless." },
+  { title: "Globally fluent", body: "Experiences that honor every culture and build connection across borders." },
 ];
 
 function AboutPage() {
