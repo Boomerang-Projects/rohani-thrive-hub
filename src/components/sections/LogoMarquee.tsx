@@ -23,7 +23,7 @@ export function LogoMarquee() {
   const row = (hidden: boolean) => (
     <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {logos.map((logo) => (
-        <li key={logo.alt} className="flex w-[78vw] shrink-0 items-center justify-center md:w-auto">
+        <li key={logo.alt} className="flex w-[46vw] shrink-0 items-center justify-center px-2 md:w-auto md:px-0">
           <img
             src={logo.src}
             alt={hidden ? "" : logo.alt}
