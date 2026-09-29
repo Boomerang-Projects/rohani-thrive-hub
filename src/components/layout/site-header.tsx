@@ -20,10 +20,9 @@ const navLinksSv: NavItem[] = [
     to: "/experience",
     label: "Erfarenhet",
     subs: [
-      { id: "selected-experience", label: "Utvald erfarenhet" },
-      { id: "clinical", label: "Psykologi & kliniskt arbete" },
+      { id: "clinical", label: "Kliniskt arbete" },
       { id: "organisational", label: "Professionellt & organisatoriskt" },
-      { id: "community", label: "Samhälle & social påverkan" },
+      { id: "community", label: "Social påverkan" },
       { id: "media", label: "I media" },
     ],
   },
@@ -44,10 +43,9 @@ const navLinksEn: NavItem[] = [
     { id: "grundaren", label: "Meet the Founder" },
   ] },
   { to: "/experience", label: "Experience", subs: [
-    { id: "selected-experience", label: "Selected Experience" },
-    { id: "clinical", label: "Psychology & Clinical Practice" },
+    { id: "clinical", label: "Clinical Practice" },
     { id: "organisational", label: "Professional & Organisational" },
-    { id: "community", label: "Community & Social Impact" },
+    { id: "community", label: "Social Impact" },
     { id: "media", label: "In the Media" },
   ] },
   { to: "/contact", label: "Contact", subs: [
