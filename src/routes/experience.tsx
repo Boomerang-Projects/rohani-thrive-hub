@@ -281,12 +281,10 @@ function ExternalLink({
 
 function SectionHeader({
   id,
-  index,
   title,
   dark,
 }: {
   id?: string;
-  index?: string;
   title: string;
   dark?: boolean;
 }) {
@@ -297,7 +295,7 @@ function SectionHeader({
           dark ? "text-gold" : "text-accent"
         }`}
       >
-        {index ? `${index} · ${title}` : title}
+        {title}
       </h2>
     </div>
   );
@@ -311,7 +309,7 @@ function ClinicalCard({ entry }: { entry: Entry }) {
           {entry.period}
         </p>
       )}
-      <h3 className="mt-3 text-xl md:text-2xl font-serif leading-tight text-background text-balance">
+      <h3 className="mt-3 font-serif font-bold text-lg md:text-xl leading-tight uppercase text-background text-balance">
         {entry.title}
       </h3>
       <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-background/55 leading-relaxed">
@@ -335,22 +333,22 @@ function ClinicalCard({ entry }: { entry: Entry }) {
 
 function EntryRow({ entry }: { entry: Entry }) {
   return (
-    <article className="rounded-2xl border border-border bg-background/60 p-6 md:p-8 transition-colors duration-500 hover:border-forest/40">
-      <div className="grid md:grid-cols-12 gap-4 md:gap-8">
-        <div className="md:col-span-4 space-y-2">
+    <article className="h-full rounded-3xl border border-border bg-background/60 p-6 md:p-8 transition-colors duration-500 hover:border-forest/40">
+      <div className="space-y-5">
+        <div className="space-y-2">
           {entry.period && (
             <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
               {entry.period}
             </p>
           )}
-          <h3 className="text-xl md:text-2xl font-serif leading-tight text-balance">
+          <h3 className="font-serif font-bold text-lg md:text-xl leading-tight uppercase text-balance">
             {entry.title}
           </h3>
           <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/50 leading-relaxed">
             {entry.meta}
           </p>
         </div>
-        <div className="md:col-span-8 space-y-3">
+        <div className="space-y-3">
           {entry.body.map((p) => (
             <p key={p} className="text-base leading-[1.75] text-foreground/75">
               {p}
@@ -374,18 +372,12 @@ function EntryRow({ entry }: { entry: Entry }) {
 
 /* ---------- Page ---------- */
 
-type BeyondTabId = "organisational" | "community";
-
 function ExperiencePageSv() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<BeyondTabId>("organisational");
 
   useEffect(() => {
     const syncFromHash = () => {
       const h = window.location.hash.replace("#", "");
-      if (h === "organisational" || h === "community") {
-        setActiveTab(h);
-      }
       if (h === "media") {
         setLightboxOpen(true);
       }
@@ -395,20 +387,6 @@ function ExperiencePageSv() {
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
-  const beyondTabs: { id: BeyondTabId; label: string; entries: Entry[] }[] = [
-    {
-      id: "organisational",
-      label: "Professionellt & Organisatoriskt Arbete",
-      entries: organisationalEntries,
-    },
-    {
-      id: "community",
-      label: "Social påverkan",
-      entries: communityEntries,
-    },
-  ];
-  const activeTabData =
-    beyondTabs.find((t) => t.id === activeTab) ?? beyondTabs[0];
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -462,10 +440,7 @@ function ExperiencePageSv() {
           <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
             <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
               <div className="md:col-span-6 space-y-4">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  Professionellt arbete & social påverkan
-                </p>
-                <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-balance">
+                <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance text-accent">
                   Bortom kliniken
                 </h2>
               </div>
@@ -485,42 +460,23 @@ function ExperiencePageSv() {
               </div>
             </div>
 
-            {/* Beyond-the-clinic tabs */}
-            <div>
-              <div
-                role="tablist"
-                aria-label="Bortom kliniken"
-                className="flex flex-wrap justify-center gap-2 md:gap-3"
-              >
-                {beyondTabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    id={tab.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={activeTab === tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={
-                      "scroll-mt-28 cursor-pointer rounded-full border px-5 py-2.5 text-xs uppercase tracking-[0.22em] font-medium transition-colors duration-200 " +
-                      (activeTab === tab.id
-                        ? "border-foreground bg-foreground text-background"
-                        : "border-border text-foreground/70 hover:border-accent hover:text-foreground")
-                    }
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-              <div
-                role="tabpanel"
-                aria-label={activeTabData.label}
-                className="mt-8 md:mt-10 grid gap-4 md:gap-5"
-              >
-                {activeTabData.entries.map((e) => (
+            <section id="organisational" className="scroll-mt-28">
+              <SectionHeader title="Organisatoriskt arbete" />
+              <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+                {organisationalEntries.map((e) => (
                   <EntryRow key={e.title} entry={e} />
                 ))}
               </div>
-            </div>
+            </section>
+
+            <section id="community" className="scroll-mt-28">
+              <SectionHeader title="Social påverkan" />
+              <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+                {communityEntries.map((e) => (
+                  <EntryRow key={e.title} entry={e} />
+                ))}
+              </div>
+            </section>
 
             {/* G-Flow highlight */}
             <div className="rounded-3xl border border-forest/25 bg-secondary/50 p-8 md:p-12 grid md:grid-cols-12 gap-6 md:gap-12 items-center">
@@ -544,6 +500,7 @@ function ExperiencePageSv() {
                 </p>
               </div>
             </div>
+            </section>
           </div>
         </section>
 
@@ -626,7 +583,7 @@ function ExperiencePageSv() {
                   draggable={false}
                   className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug uppercase text-center">
+                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
                   Sveriges Radio
                 </h3>
                 <p className="mt-2 text-base leading-[1.75] text-foreground/70">
@@ -650,7 +607,7 @@ function ExperiencePageSv() {
                     className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                   />
                 </button>
-                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug uppercase text-center">
+                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
                   Psykologtidningen
                 </h3>
                 <p className="mt-2 text-base leading-[1.75] text-foreground/70">
@@ -669,7 +626,7 @@ function ExperiencePageSv() {
                   draggable={false}
                   className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif text-xl md:text-2xl leading-snug uppercase text-center">
+                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
                   Podd
                 </h3>
                 <p className="mt-2 text-base leading-[1.75] text-foreground/70">

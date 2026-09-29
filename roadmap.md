@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Erfarenhet (SV+EN): matcha Om-sidans rubriker och typografi, visa separata projektkort under Kliniskt arbete, Organisatoriskt arbete, Social påverkan och I media.
+
 - [x] Mobile tiles: show complete description within each 2×2 tile without opening, while retaining optional enlargement
 - [x] Mobile only: improve mission text contrast, show each set of four tiles in a 2×2 grid with tap-to-enlarge details, and place founder quote at photo's upper left (SV+EN)
 - [x] Mobile only: make rolling logo banner faster and keep each logo fully visible
