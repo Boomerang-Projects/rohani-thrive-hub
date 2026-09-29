@@ -5,73 +5,17 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
+import clinicalRetreatPhoto from "@/assets/photos/clinical-retreat-room.jpeg.asset.json";
+import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
 import mediaPodcast from "@/assets/media-podcast.jpg";
-import personalPlaceholder from "@/assets/personal-placeholder.jpg";
 import photoGroupCircle from "@/assets/photos/group-circle.jpg";
 import photoHandsSky from "@/assets/photos/hands-sky.jpg";
 import photoFireEvening from "@/assets/photos/fire-evening.jpg";
 
 /* ---------- Data ---------- */
-
-const timeline: TimelineItem[] = [
-  {
-    org: "ROHANI",
-    role: "Founder · Psychology · Wellbeing · Human Development",
-    context: "Sweden / International",
-    period: "2025 — Present",
-    feature: true,
-    to: "/",
-    cta: "View the ROHANI approach",
-    detail: [
-      "ROHANI is a psychology-based wellbeing and human development practice working with individuals, teams, organisations and communities.",
-      "The work combines psychological science with mindfulness, nervous system regulation, movement and experiential learning — translated into accessible, practical and human-centred formats.",
-    ],
-  },
-  {
-    org: "Adult Psychiatry",
-    role: "Clinical Psychologist",
-    context: "Public Healthcare · Mental Health · Psychological Practice",
-    period: "2025 — Present",
-    detail: [
-      "Providing psychological assessment and treatment within adult psychiatric care, working with a broad range of mental health concerns including anxiety, depression, stress-related difficulties and complex psychological presentations.",
-      "The role involves independent clinical work, treatment planning and therapeutic interventions.",
-    ],
-  },
-  {
-    org: "Haninge Municipality: G-Flow",
-    role: "Founder & Facilitator",
-    context: "Youth Wellbeing · Culture · Community",
-    period: "2023 — 2025",
-    detail: [
-      "A youth-focused initiative integrating psychology, movement, self-expression and community to support wellbeing and personal development among young females in SE vulnerable areas.",
-      "Delivered in collaboration with Haninge Municipality and ABF Södertörn, creating accessible spaces for reflection, connection, movement and personal development.",
-    ],
-  },
-  {
-    org: "BUP: Barn- och Ungdomspsykiatrin",
-    role: "Clinical Psychologist",
-    context: "Child & Adolescent Mental Health · Psychology",
-    period: "2018 — 2022",
-    detail: [
-      "Worked within child and adolescent psychiatry, supporting young people with a broad range of psychological and mental health challenges.",
-      "The work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
-    ],
-  },
-  {
-    org: "Karolinska Sjukhuset: Vuxenpsykiatrin",
-    role: "Psychological Practice · Crisis Intervention · Mental Health",
-    context: "Public Healthcare · Hospital Setting",
-    period: "2018 — 2022",
-    detail: [
-      "Experience within adult psychiatric services, working with individuals experiencing a range of severe mental health challenges.",
-      "Developed a strong foundation in crisis intervention, psychological care and working within complex, high-pressure clinical environments.",
-    ],
-  },
-];
 
 type Entry = {
   period?: string;
@@ -87,32 +31,19 @@ const clinicalEntries: Entry[] = [
     period: "2025 — Present",
     title: "General Adult Psychiatry",
     meta: "Public Healthcare · Clinical Psychologist",
-    body: [
-      "Providing psychological assessment and treatment within adult psychiatric care, working with a broad range of mental health concerns including anxiety, depression, stress-related difficulties and complex psychological presentations.",
-      "The role involves independent clinical work, treatment planning and therapeutic interventions.",
-      "Working across different presentations and individual needs has further developed my ability to adapt psychological approaches, communication and interventions to the person, context and stage of life.",
-    ],
+    body: ["As a licensed psychologist in adult psychiatry, I provide assessment and treatment tailored to each person's needs and circumstances."],
   },
   {
     period: "2018 — 2022",
     title: "Child & Adolescent Mental Health",
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
-    body: [
-      "Worked within child and adolescent psychiatry, supporting young people with a broad range of psychological and mental health challenges.",
-      "My work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
-      "This experience helped strengthen and shape my ability to adapt therapeutic approaches, communication and interventions to different developmental stages, individual needs and family constellations.",
-    ],
+    body: ["At BUP, I assessed and treated children and young people alongside families and care teams. I learned to meet each young person on their own terms."],
   },
   {
     period: "2018 — 2022",
     title: "Psychiatric Hospital & Emergency Healthcare",
     meta: "Karolinska University Hospital · Crisis Intervention",
-    body: [
-      "Experience within adult psychiatric services, working with individuals experiencing a range of severe mental health challenges.",
-      "Developed a strong foundation in crisis intervention, psychological care and working within complex, high-pressure clinical environments.",
-      "Particular areas of experience include personality disorders, psychosis, crisis management and suicide prevention.",
-      "Working in high-pressure clinical environments strengthened my ability to remain grounded, attuned and solution-focused when working with complexity and uncertainty.",
-    ],
+    body: ["At Karolinska, I worked with severe mental illness, crisis intervention and suicide prevention. This taught me to stay grounded and present in complex, high-pressure situations."],
   },
 ];
 
@@ -120,10 +51,7 @@ const organisationalEntries: Entry[] = [
   {
     title: "Somaya Women's Support Centre",
     meta: "Psychological & Wellbeing Work",
-    body: [
-      "Held a movement workshop for an organisation supporting women and families experiencing complex domestic, social and psychological challenges.",
-      "This work deepened my understanding of the relationship between psychological wellbeing, safety, relationships, culture and wider social circumstances.",
-    ],
+    body: ["I led a movement workshop for women and families facing difficult circumstances, with safety, sensitivity and cultural understanding at its heart."],
     link: {
       label: "Somaya Women's Support Centre",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
@@ -132,10 +60,7 @@ const organisationalEntries: Entry[] = [
   {
     title: "Workplace Meditation & Wellbeing",
     meta: "Region Stockholm · BUP Brommaplan",
-    body: [
-      "Facilitated regular guided meditation sessions for healthcare professionals within child and adolescent psychiatry.",
-      "The sessions created a structured space for pausing, grounding and recovery within a demanding clinical environment, introducing practical mindfulness-based tools for stress regulation and sustainable wellbeing at work.",
-    ],
+    body: ["I led regular meditation sessions for BUP healthcare staff, offering practical tools for recovery and stress regulation in a demanding workday."],
     tags: "Workplace Wellbeing · Mindfulness · Stress Regulation · Healthcare",
   },
 ];
@@ -144,18 +69,12 @@ const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn",
     meta: "Community Education · Youth Wellbeing · Culture",
-    body: [
-      "Collaborated with ABF Södertörn on initiatives combining psychology, culture, movement and community-based learning.",
-      "The collaboration reflects my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
-    ],
+    body: ["With ABF Södertörn, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
   },
   {
     title: "Haninge Municipality",
     meta: "Youth Wellbeing · Community Development · Public Sector Collaboration",
-    body: [
-      "Collaborated with Haninge Municipality through youth-focused wellbeing initiatives, creating accessible spaces for reflection, connection, movement and personal development.",
-      "The work has strengthened my experience of translating psychological perspectives into community-based formats and working across professional and public-sector contexts.",
-    ],
+    body: ["Together with Haninge Municipality, I created welcoming spaces where young people could explore wellbeing, movement and connection."],
   },
 ];
 
@@ -384,13 +303,6 @@ export function ExperienceEn() {
           </div>
         </section>
 
-        {/* ===== Timeline ===== */}
-        <section className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <HorizontalTimeline items={timeline} fallbackCta="View experience" />
-          </div>
-        </section>
-
         {/* ===== Collaborations — dark band ===== */}
         <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
@@ -407,16 +319,18 @@ export function ExperienceEn() {
           </div>
         </section>
 
+        <section className="relative min-h-[440px] md:min-h-[560px] flex items-end overflow-hidden">
+          <img src={clinicalRetreatPhoto.url} alt="A welcoming room prepared with seats arranged in a circle" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" aria-hidden="true" />
+          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40">
+            <h2 className="font-serif text-4xl md:text-6xl text-background">Beyond the clinic</h2>
+          </div>
+        </section>
+
         {/* ===== Beyond the clinic ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start">
-              <div className="md:col-span-6 space-y-4">
-                <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance text-accent">
-                  Beyond the clinic
-                </h2>
-              </div>
-              <div className="md:col-span-6 space-y-5 md:pt-10">
+            <div className="max-w-3xl mx-auto space-y-5">
                 <p className="text-base leading-[1.75] text-foreground/75">
                   Beyond clinical psychology, my work has extended into
                   organisations, education, community development and
@@ -429,7 +343,6 @@ export function ExperienceEn() {
                   meditation to youth initiatives, community programmes and
                   experiential retreats.
                 </p>
-              </div>
             </div>
 
             <section id="organisational" className="scroll-mt-28">
@@ -449,61 +362,30 @@ export function ExperienceEn() {
                 ))}
               </div>
 
-            {/* G-Flow highlight */}
-            <div className="rounded-3xl border border-forest/25 bg-secondary/50 p-8 md:p-12 grid md:grid-cols-12 gap-6 md:gap-12 items-center">
-              <div className="md:col-span-5 space-y-3">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                  Feature
-                </p>
-                <h3 className="text-4xl md:text-5xl font-serif leading-[1.03]">
-                  G-Flow
-                </h3>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
-                  Founder & Facilitator
-                </p>
-              </div>
-              <div className="md:col-span-7">
-                <p className="text-lg md:text-xl leading-[1.7] text-foreground/80">
-                  A youth-focused initiative integrating psychology, movement,
-                  self-expression and community to support wellbeing and
-                  personal development among young females in SE vulnerable
-                  areas.
-                </p>
-              </div>
-            </div>
             </section>
           </div>
         </section>
 
-        {/* ===== Personal block ===== */}
-        <section className="bg-secondary/60 border-y border-border/60 py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-4">
-              <img
-                src={personalPlaceholder}
-                alt="Placeholder image — calm reading corner in morning light"
-                loading="lazy"
-                width={1024}
-                height={1280}
-                draggable={false}
-                className="aspect-[4/5] w-full rounded-3xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
-              />
-            </div>
-            <div className="md:col-span-8 md:col-start-5 space-y-6">
-              <p className="font-serif text-2xl md:text-3xl leading-snug text-foreground">
+        {/* ===== Heart of the work ===== */}
+        <section className="relative overflow-hidden">
+          <img src={heartOfWorkPhoto.url} alt="Participants sitting together in a circle at a gathering" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
+            <div className="max-w-3xl space-y-6 text-background">
+              <h2 className="font-serif text-4xl md:text-6xl leading-tight">
                 At the heart of this work is a curiosity about who we are, what
                 shapes us, and who we are becoming.
-              </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
+              </h2>
+              <p className="text-base leading-[1.75] text-background/90">
                 How can we move through life with greater awareness, agency and
                 intention– rather than simply reacting to what happens around
                 us?
               </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
+              <p className="text-base leading-[1.75] text-background/90">
                 What if meaningful change begins with becoming more conscious of
                 the way we see, experience and engage with the world?
               </p>
-              <p className="text-base leading-[1.75] text-foreground/70">
+              <p className="text-base leading-[1.75] text-background/90">
                 My work combines psychological science with a human, embodied
                 and culturally responsive approach to wellbeing and development.
               </p>
