@@ -59,7 +59,7 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
           type="button"
           id="samarbeten"
           aria-label="Visa alla loggor"
-          className="mt-10 md:mt-16 block w-full cursor-pointer bg-mocha py-8 md:py-12 text-left"
+          className={`${className} block w-full cursor-pointer bg-mocha py-8 md:py-12 text-left`}
         >
           <div className="logo-marquee overflow-hidden">
             <div className="logo-marquee-track flex w-max">
