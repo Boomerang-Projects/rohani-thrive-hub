@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import founderImage from "@/assets/photos/founder-final.png";
+import founderImage from "@/assets/photos/founder-final-mirrored.png";
 
 export function FounderEn({ showLink = true }: { showLink?: boolean }) {
   return (

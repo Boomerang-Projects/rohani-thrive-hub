@@ -2,7 +2,7 @@ import { useLang } from "@/lib/i18n";
 import { FounderEn } from "@/components/en/Founder";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import founderImage from "@/assets/photos/founder-final.png";
+import founderImage from "@/assets/photos/founder-final-mirrored.png";
 
 function FounderSv({ showLink = true }: { showLink?: boolean }) {
   return (
