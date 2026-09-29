@@ -359,9 +359,6 @@ function ServicesPageSv() {
         <section className="px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-end">
             <div className="md:col-span-7 space-y-8">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-accent">
-                ROHANIs förhållningssätt
-              </p>
               <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance">
                 Människan först.
               </h1>

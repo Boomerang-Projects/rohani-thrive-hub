@@ -73,9 +73,6 @@ function AboutPage() {
           <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pt-32 md:pt-48 pb-8 sm:pb-12 md:pb-24">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-16">
               <div className="max-w-3xl md:flex-1 md:min-w-0">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-                  {t("OM ROHANI", "ABOUT ROHANI")}
-                </p>
                 <h1 className="text-[clamp(1.75rem,4.5vw+0.6rem,3.75rem)] font-serif leading-[1.08] text-background max-w-3xl mt-4 md:mt-10">
                   {t("Vi lyfter välbefinnande, hållbarhet och livskvalitet genom modern psykologi.", "Elevating wellbeing, sustainability and quality of life through modern psychology.")}
                 </h1>

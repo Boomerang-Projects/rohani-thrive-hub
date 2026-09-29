@@ -42,13 +42,10 @@ function ContactPage() {
             src={contactHero.url}
             alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 32%" }}
+            style={{ objectPosition: "50% 28%" }}
           />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24">
             <div className="w-full max-w-3xl md:mx-auto text-center space-y-6 [text-shadow:0_2px_18px_rgba(58,41,34,0.65)]">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-background/90">
-                {t("Kontakt", "Contact")}
-              </p>
               <h1 className="text-4xl md:text-6xl font-serif leading-[1.05] text-balance text-background">
                 {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
               </h1>
