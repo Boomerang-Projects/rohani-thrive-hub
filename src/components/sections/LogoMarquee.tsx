@@ -1,5 +1,5 @@
 import bup from "@/assets/logos/bup-region-stockholm.png";
-import haninge from "@/assets/logos/haninge-kommun.png";
+import haninge from "@/assets/logos/haninge-kommun-crest.png.asset.json";
 import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
@@ -7,7 +7,7 @@ import psykologtidningen from "@/assets/logos/psykologtidningen.png";
 
 const logos = [
   { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm" },
-  { src: haninge, alt: "Haninge kommun" },
+  { src: haninge.url, alt: "Haninge kommun", color: true },
   { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm" },
   { src: karolinska, alt: "Karolinska Universitetssjukhuset" },
   { src: sverigesRadio, alt: "Sveriges Radio" },
@@ -30,7 +30,7 @@ export function LogoMarquee() {
           <img
             src={logo.src}
             alt={hidden ? "" : logo.alt}
-            className="h-8 md:h-11 w-auto max-w-none opacity-85 [filter:brightness(0)_invert(1)]"
+            className={`h-8 md:h-11 w-auto max-w-none opacity-85 ${logo.color ? "[filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]" : "[filter:brightness(0)_invert(1)]"}`}
             loading="lazy"
           />
           <span className="mx-10 md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
