@@ -5,7 +5,6 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import clinicalRetreatPhoto from "@/assets/photos/clinical-retreat-room.jpeg.asset.json";
 import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
@@ -99,39 +98,6 @@ const wellbeingEntries: Entry[] = [
 ];
 */
 
-const trainingColumns = [
-  {
-    title: "Clinical Qualification",
-    items: [
-      "Clinical Psychologist",
-      "Psychological assessment & treatment",
-      "Treatment planning",
-      "Therapeutic interventions",
-      "Crisis intervention",
-    ],
-  },
-  {
-    title: "Clinical Domains",
-    items: [
-      "Adult psychiatry",
-      "Child & adolescent mental health",
-      "Psychiatric hospital & emergency care",
-      "Crisis management & suicide prevention",
-      "Personality disorders & psychosis",
-      "Multidisciplinary teams",
-    ],
-  },
-  {
-    title: "Wellbeing & Facilitation",
-    items: [
-      "Mindfulness & guided meditation",
-      "Nervous system regulation",
-      "Movement & embodied practices",
-      "Retreat design",
-      "Youth work — G-Flow",
-    ],
-  },
-];
 
 /* ---------- Helpers ---------- */
 
@@ -311,17 +277,6 @@ export function ExperienceEn() {
           </div>
         </section>
 
-        <section className="relative min-h-[440px] md:min-h-[560px] flex items-end overflow-hidden">
-          <img src={clinicalRetreatPhoto.url} alt="A welcoming room prepared with seats arranged in a circle" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
-           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/35" aria-hidden="true" />
-           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pb-14 md:pb-20 pt-40 text-background">
-            <h2 className="font-serif text-4xl md:text-6xl text-background">Beyond the clinic</h2>
-             <div className="mt-6 max-w-3xl space-y-4 text-base leading-[1.75] text-background/90">
-               <p>Beyond clinical psychology, my work has extended into organisations, education, community development and experiences that support long-term wellbeing.</p>
-               <p>Across these settings, I have explored how psychological knowledge can be translated into accessible, practical and human-centred formats — from workplace wellbeing and guided meditation to youth initiatives, community programmes and experiential retreats.</p>
-             </div>
-          </div>
-        </section>
 
          {/* ===== Organisational work ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
@@ -373,31 +328,6 @@ export function ExperienceEn() {
           </div>
         </section>
 
-        {/* ===== Training ===== */}
-        <section className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <SectionHeader title="Training & Expertise" />
-            <div className="mt-8 md:mt-10 grid gap-10 md:grid-cols-3 md:gap-12">
-              {trainingColumns.map((col) => (
-                <div key={col.title}>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-accent pb-4 border-b border-border/70">
-                    {col.title}
-                  </p>
-                  <ul className="mt-5 space-y-3">
-                    {col.items.map((i) => (
-                      <li
-                        key={i}
-                        className="text-base leading-relaxed text-foreground/70"
-                      >
-                        {i}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ===== In the Media + organisations ===== */}
         <section className="bg-secondary/60 py-16 md:py-20 px-6 md:px-10">
