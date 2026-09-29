@@ -187,6 +187,7 @@ const communityEntries: Entry[] = [
   },
 ];
 
+/* Spara för senare upplägg — välbefinnande/retreat-erfarenheter (ej aktiva i sidan just nu)
 const wellbeingEntries: Entry[] = [
   {
     title: "Joy in the Wild",
