@@ -510,7 +510,7 @@ function ExperiencePageSv() {
                     aria-selected={activeTab === tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={
-                      "scroll-mt-28 cursor-pointer rounded-full border px-5 py-2.5 text-sm transition-colors duration-200 " +
+                      "scroll-mt-28 cursor-pointer rounded-full border px-5 py-2.5 text-xs uppercase tracking-[0.22em] font-medium transition-colors duration-200 " +
                       (activeTab === tab.id
                         ? "border-foreground bg-foreground text-background"
                         : "border-border text-foreground/70 hover:border-accent hover:text-foreground")
