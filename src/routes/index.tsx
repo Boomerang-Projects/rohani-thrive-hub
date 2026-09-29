@@ -7,6 +7,10 @@ import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
 import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
+import imgPsychology from "@/assets/photos/work-psychology.jpg";
+import imgBreath from "@/assets/photos/work-breath.jpg";
+import imgMovement from "@/assets/photos/work-movement.jpg";
+import imgIntegration from "@/assets/photos/work-integration.jpg";
 import { useLang } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
 
@@ -49,17 +53,17 @@ const principlesEn = [
 ];
 
 const workWaysSv = [
-  { title: "Psykologi & psykoedukation", body: "Evidensbaserad kunskap och samtal som skapar större självkännedom, förståelse och varaktig förändring." },
-  { title: "Sinne & nervsystem", body: "Andning, meditation och praktiska verktyg som stöttar reglering, klarhet och emotionellt välbefinnande." },
-  { title: "Rörelse & kroppslig närvaro", body: "Yoga, somatisk rörelse och dans för att återknyta till kroppen, släppa spänningar och odla närvaro." },
-  { title: "Praktisk integration", body: "Verktyg och metoder som gör resultaten konkreta och lättare att föra in i vardagen." },
+  { title: "Psykologi & psykoedukation", body: "Evidensbaserad kunskap och samtal som skapar större självkännedom, förståelse och varaktig förändring.", img: imgPsychology },
+  { title: "Sinne & nervsystem", body: "Andning, meditation och praktiska verktyg som stöttar reglering, klarhet och emotionellt välbefinnande.", img: imgBreath },
+  { title: "Rörelse & kroppslig närvaro", body: "Yoga, somatisk rörelse och dans för att återknyta till kroppen, släppa spänningar och odla närvaro.", img: imgMovement },
+  { title: "Praktisk integration", body: "Verktyg och metoder som gör resultaten konkreta och lättare att föra in i vardagen.", img: imgIntegration },
 ];
 
 const workWaysEn = [
-  { title: "Psychology & Psychoeducation", body: "Evidence-informed knowledge and conversations that create greater self-awareness, understanding and lasting change." },
-  { title: "Mind & Nervous System", body: "Breathwork, meditation and practical tools to support regulation, clarity and emotional wellbeing." },
-  { title: "Movement & Embodiment", body: "Yoga, somatic movement and dance to reconnect with the body, release tension and cultivate presence." },
-  { title: "Practical Integration", body: "Tools and practices that make results tangible and easier to bring into everyday life." },
+  { title: "Psychology & Psychoeducation", body: "Evidence-informed knowledge and conversations that create greater self-awareness, understanding and lasting change.", img: imgPsychology },
+  { title: "Mind & Nervous System", body: "Breathwork, meditation and practical tools to support regulation, clarity and emotional wellbeing.", img: imgBreath },
+  { title: "Movement & Embodiment", body: "Yoga, somatic movement and dance to reconnect with the body, release tension and cultivate presence.", img: imgMovement },
+  { title: "Practical Integration", body: "Tools and practices that make results tangible and easier to bring into everyday life.", img: imgIntegration },
 ];
 
 function AboutPage() {
@@ -170,11 +174,21 @@ function AboutPage() {
           <SectionHeader title={t("Så arbetar vi", "How we work")} />
           <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {workWays.map((w) => (
-              <div key={w.title} className="flex w-full h-48 md:h-56 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-6 md:px-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-default">
-                <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
-                  {w.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
+              <div key={w.title} className="flex w-full flex-col items-center rounded-3xl overflow-hidden bg-foreground text-background shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-default">
+                <img
+                  src={w.img}
+                  alt=""
+                  loading="lazy"
+                  width={816}
+                  height={816}
+                  className="w-full h-40 md:h-48 object-cover"
+                />
+                <div className="flex flex-1 flex-col items-center justify-center text-center px-6 md:px-8 py-6">
+                  <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                    {w.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
+                </div>
               </div>
             ))}
           </div>
