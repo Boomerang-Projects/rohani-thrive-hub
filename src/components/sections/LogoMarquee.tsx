@@ -4,6 +4,7 @@ import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
 import psykologtidningen from "@/assets/logos/psykologtidningen.png";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const logos: { src: string; alt: string; color?: boolean }[] = [
   { src: haninge.url, alt: "Haninge kommun", color: true },
@@ -15,12 +16,8 @@ const logos: { src: string; alt: string; color?: boolean }[] = [
 ];
 
 /**
- * A slowly rolling band of logos with a small white dot between each one.
- *
- * How the endless loop works: the row of logos is rendered twice, side by
- * side. The whole track slides left by exactly half its width (one full row),
- * then jumps back to the start. Because the second row looks identical to the
- * first, the jump is invisible and it seems to roll forever.
+ * A rolling band of logos (row rendered twice for a seamless loop).
+ * Clicking the band opens a dialog listing every logo one after another.
  */
 export function LogoMarquee() {
   const row = (hidden: boolean) => (
@@ -40,15 +37,40 @@ export function LogoMarquee() {
   );
 
   return (
-    // Outer div: the dark background. Inner div: the edge fade.
-    // Keeping them apart means only the logos fade, not the background.
-    <div className="mt-10 md:mt-16 bg-mocha py-8 md:py-12">
-      <div className="logo-marquee overflow-hidden">
-        <div className="logo-marquee-track flex w-max">
-          {row(false)}
-          {row(true)}
-        </div>
-      </div>
-    </div>
+    <Dialog>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          aria-label="Visa alla loggor"
+          className="mt-10 md:mt-16 block w-full cursor-pointer bg-mocha py-8 md:py-12 text-left"
+        >
+          <div className="logo-marquee overflow-hidden">
+            <div className="logo-marquee-track flex w-max">
+              {row(false)}
+              {row(true)}
+            </div>
+          </div>
+        </button>
+      </DialogTrigger>
+      <DialogContent className="max-h-[85vh] overflow-y-auto bg-mocha border-none sm:max-w-md">
+        <DialogTitle className="text-center text-xs uppercase tracking-[0.3em] text-background">
+          Samarbeten
+        </DialogTitle>
+        <ul className="mt-4 flex flex-col items-center gap-8 pb-4">
+          {logos.map((logo) => (
+            <li key={logo.alt} className="flex w-full flex-col items-center gap-3">
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="h-14 w-auto max-w-[80%] object-contain [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
+              />
+              <span className="text-center text-[11px] uppercase tracking-[0.2em] text-background/80">
+                {logo.alt}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </DialogContent>
+    </Dialog>
   );
 }
