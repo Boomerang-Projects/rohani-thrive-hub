@@ -1,5 +1,6 @@
 # Roadmap
 
+- [x] Homepage (SV+EN): swap rolling logo banner and "Börja där du är" section order at the bottom
 - [x] About/Experience: move logo band to About ending, move three photos to Experience ending, repeat Contact closing invitation on About, restore full founder story, and tighten matching subheadings in SV/EN.
 - [x] Media: Psykologtidningen image same size/shape as Sveriges Radio and Podd columns
 - [x] Experience: convert Professional/Community/Wellbeing lists into space-saving tabs (hash anchors still select the right tab) — SV + EN
