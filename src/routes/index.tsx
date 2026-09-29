@@ -38,7 +38,7 @@ const principlesSv = [
   { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
   { title: "Människan först", body: "Vi möter människor med värme, respekt och genuin närvaro." },
   { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
-  { title: "Kvalitet i det tysta", body: "Varje detalj är genomtänkt, så att arbetet känns enkelt." },
+  { title: "Kvalitet i fokus", body: "Varje detalj är genomtänkt, så att arbetet känns enkelt." },
 ];
 
 const principlesEn = [
@@ -118,7 +118,7 @@ function AboutPage() {
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <div>
-                  <h3 className="font-serif text-2xl leading-tight">{p.title}</h3>
+                  <h3 className="font-serif text-2xl leading-tight uppercase">{p.title}</h3>
                   <p className="mt-3 text-foreground/70 leading-relaxed">{p.body}</p>
                 </div>
               </div>

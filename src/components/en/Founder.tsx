@@ -7,7 +7,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
     <section className="px-6 md:px-10 max-w-7xl mx-auto">
       <SectionHeader title="Meet the Founder" />
       {/* Same rhythm as the hero: photo, quote card over its corner, one short text */}
-      <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-center">
+      <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
         {/* Left: portrait with the quote card */}
         <div className="relative md:mb-12">
           <img
@@ -38,12 +38,6 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
         <div className="md:max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
             Psychologist · Facilitator · Speaker
-          </p>
-          <h3 className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
-            A psychologist devoted to human potential
-          </h3>
-          <p className="mt-6 text-lg leading-relaxed text-foreground/80 font-serif italic">
-            My journey has taken me across cultures, disciplines and perspectives, shaping a deep curiosity about what helps people thrive. I believe that wellbeing is not a luxury or a benefit. – It is the foundation upon which people, relationships and organizations thrive.
           </p>
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
             My name is Madeeha Qazi, and I am a licensed psychologist, facilitator and the founder of ROHANI.

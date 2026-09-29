@@ -9,7 +9,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
     <section className="px-6 md:px-10 max-w-7xl mx-auto">
       <SectionHeader title="Möt grundaren" />
       {/* Same rhythm as the hero: photo, quote card over its corner, one short text */}
-      <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-center">
+      <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
         {/* Left: portrait with the quote card */}
         <div className="relative md:mb-12">
           <img
@@ -40,12 +40,6 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
         <div className="md:max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
             Psykolog · Facilitator · Föreläsare
-          </p>
-          <h3 className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
-            En psykolog med hjärtat i mänsklig potential
-          </h3>
-          <p className="mt-6 text-lg leading-relaxed text-foreground/80 font-serif italic">
-            Min resa har fört mig över kulturer, discipliner och perspektiv – och format en djup nyfikenhet på det som får människor att frodas. Jag tror att välbefinnande varken är en lyx eller en förmån. – Det är grunden som människor, relationer och organisationer frodas på.
           </p>
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
             Jag heter Madeeha Qazi och är legitimerad psykolog, facilitator och grundaren av ROHANI.
