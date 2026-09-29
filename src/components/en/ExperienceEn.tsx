@@ -481,7 +481,9 @@ export function ExperienceEn() {
         </section>
 
         <section className="px-6 md:px-10 pb-2">
-          <SectionHeader title="Experience Across" />
+          <p className="text-[10px] uppercase tracking-[0.25em] text-accent pb-4 border-b border-border/70">
+            Experience Across
+          </p>
         </section>
 
         <LogoMarquee />
