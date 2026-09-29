@@ -30,3 +30,9 @@
 - [x] Verify desktop + mobile in both languages
 - [x] Timeline logos: small placeholder logo next to each organization title in the Experience timeline detail panel (SV + EN)
 - [x] Section headers: bold, centered, no big serif title; removed "01" prefix on clinical section (SV+EN)
+
+## Pågående
+- [ ] CTA "Börja där du är" + logotypbanner längst ner på Erfarenhet (SV+EN); banner på Kontakt under CTA
+- [ ] CTA-rubrik i versaler enligt subrubrik-stilen; "Ibland börjar den" → "Ibland börjar det" (SV-copy)
+- [ ] Grundarbilden: återställ originalfoto, beskurna bort den andra personen, gör bilden större
+- [ ] Kontakt: lägg till ämnesalternativet "Annat"; flytta upp hero-bilden så den andra handen syns
