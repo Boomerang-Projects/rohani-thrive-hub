@@ -19,10 +19,9 @@ function SiteFooterSv() {
             Utforska
           </p>
           <ul className="space-y-2.5 text-sm">
-            <li><Link to="/" className="hover:text-accent">Om oss</Link></li>
-            <li><Link to="/services" className="hover:text-accent">Tjänster</Link></li>
-            <li><Link to="/experience" className="hover:text-accent">Erfarenhet</Link></li>
+            <li><Link to="/" className="hover:text-accent">Om</Link></li>
             <li><Link to="/contact" className="hover:text-accent">Kontakt</Link></li>
+            <li><Link to="/experience" className="hover:text-accent">Erfarenhet</Link></li>
           </ul>
         </div>
 
