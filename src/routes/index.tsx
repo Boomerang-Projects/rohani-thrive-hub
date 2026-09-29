@@ -113,7 +113,7 @@ function AboutPage() {
           <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {principles.map((p) => (
               <div key={p.title} className="flex flex-col items-center text-center">
-                <div className="flex w-full flex-col items-center justify-center rounded-[50%] bg-foreground text-background px-10 py-12 min-h-[13rem] shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+                <div className="flex w-full aspect-square flex-col items-center justify-center rounded-[50%] bg-foreground text-background px-8 md:px-10 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
                   <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide">
                     {p.title}
                   </h3>
