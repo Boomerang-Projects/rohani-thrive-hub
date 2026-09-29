@@ -12,7 +12,7 @@ const navLinksSv: NavItem[] = [
     label: "OM",
     subs: [
       { id: "vagleder", label: "Det som vägleder oss" },
-      { id: "filosofi", label: "Vår filosofi" },
+      { id: "mission", label: "Vår mission" },
       { id: "grundaren", label: "Möt grundaren" },
     ],
   },
@@ -40,7 +40,7 @@ const navLinksSv: NavItem[] = [
 const navLinksEn: NavItem[] = [
   { to: "/", label: "About", subs: [
     { id: "vagleder", label: "What Guides Us" },
-    { id: "filosofi", label: "Our Philosophy" },
+    { id: "mission", label: "Our Mission" },
     { id: "grundaren", label: "Meet the Founder" },
   ] },
   { to: "/experience", label: "Experience", subs: [
