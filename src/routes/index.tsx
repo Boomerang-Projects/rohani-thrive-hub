@@ -85,17 +85,17 @@ function AboutPage() {
               </div>
 
               {/* Quote card */}
-              <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[22rem] md:flex-none bg-background rounded-[50%] p-8 sm:p-9 md:p-10 md:px-14 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+              <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[22rem] md:flex-none bg-background rounded-[50%] p-8 sm:p-9 md:p-10 md:px-14 text-center shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
                 <span
                   aria-hidden
-                  className="absolute -top-5 -left-2 font-serif italic text-7xl text-foreground/5 select-none"
+                  className="absolute -top-5 left-1/2 -translate-x-1/2 font-serif italic text-7xl text-foreground/5 select-none"
                 >
                   "
                 </span>
                 <blockquote className="relative font-serif italic text-[clamp(0.95rem,0.6vw+0.85rem,1.25rem)] leading-relaxed text-foreground">
                   {t("\"Ett genuint välbefinnande är inte frånvaron av stress eller motgångar. Det är förmågan att möta livet med medvetenhet, motståndskraft, mening och närvaro.\"", "\"True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence.\"")}
                 </blockquote>
-                <div className="mt-4 sm:mt-6 flex items-center gap-4">
+                <div className="mt-4 sm:mt-6 flex items-center justify-center gap-4">
                   <div className="h-px w-6 bg-accent" />
                   <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
                     {t("Rohanis filosofi", "The Rohani Philosophy")}
