@@ -14,7 +14,6 @@ const navLinksSv: NavItem[] = [
       { id: "vagleder", label: "Det som vägleder oss" },
       { id: "filosofi", label: "Vår filosofi" },
       { id: "grundaren", label: "Möt grundaren" },
-      { id: "metod", label: "Vår metod" },
     ],
   },
   {
@@ -43,7 +42,6 @@ const navLinksEn: NavItem[] = [
     { id: "vagleder", label: "What Guides Us" },
     { id: "filosofi", label: "Our Philosophy" },
     { id: "grundaren", label: "Meet the Founder" },
-    { id: "metod", label: "Our Approach" },
   ] },
   { to: "/contact", label: "Contact", subs: [
     { id: "contact", label: "Get in Touch" },
