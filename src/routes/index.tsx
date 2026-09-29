@@ -86,7 +86,6 @@ function AboutPage() {
 
               {/* Quote card */}
               <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[22rem] md:flex-none bg-background rounded-[50%] p-8 sm:p-9 md:p-10 md:px-14 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
-                <div className="absolute top-0 left-0 w-16 h-1 bg-accent" />
                 <span
                   aria-hidden
                   className="absolute -top-5 -left-2 font-serif italic text-7xl text-foreground/5 select-none"
