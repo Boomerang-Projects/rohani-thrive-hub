@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Mobile only: improve mission text contrast, show each set of four tiles in a 2×2 grid with tap-to-enlarge details, and place founder quote at photo's upper left (SV+EN)
+
 - [x] Homepage (SV+EN): swap rolling logo banner and "Börja där du är" section order at the bottom
 - [x] About/Experience: move logo band to About ending, move three photos to Experience ending, repeat Contact closing invitation on About, restore full founder story, and tighten matching subheadings in SV/EN.
 - [x] Media: Psykologtidningen image same size/shape as Sveriges Radio and Podd columns
