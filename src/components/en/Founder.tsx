@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import founderImage from "@/assets/photos/outdoor-session.jpg";
+import founderImage from "@/assets/photos/founder-cutout.png";
 
 export function FounderEn({ showLink = true }: { showLink?: boolean }) {
   return (
@@ -10,15 +10,16 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
       <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
         {/* Left: portrait with the quote card */}
         <div className="relative md:mb-12">
-          <img
-            src={founderImage}
-            alt="Madeeha Rani Qazi, founder of Rohani"
-            width={1800}
-            height={1200}
-            loading="lazy"
-            className="w-full h-[30rem] md:h-[38rem] object-cover"
-            style={{ objectPosition: "52% 30%" }}
-          />
+          <div className="bg-secondary/40">
+            <img
+              src={founderImage}
+              alt="Madeeha Rani Qazi, founder of Rohani"
+              width={1512}
+              height={1552}
+              loading="lazy"
+              className="w-full h-[30rem] md:h-[38rem] object-contain"
+            />
+          </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
           <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-bottom-12 md:-right-10 md:max-w-sm bg-background p-7 md:p-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
             <div className="absolute top-0 left-0 w-16 h-[3px] bg-accent" />
@@ -42,7 +43,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
             My name is Madeeha Qazi, and I am a licensed psychologist, facilitator and the founder of ROHANI.
           </p>
-          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/70">
+          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/90">
             <p>My work is rooted in modern psychology and enriched by a lifelong curiosity about human potential, wellbeing and what allows people to live, lead and relate more fully. Over the years, I have worked with individuals, groups and organizations, supporting growth, resilience and meaningful change through evidence-based approaches and real human connection.</p>
             <p>Having lived, studied and worked across different countries and cultures, I have come to appreciate both the universality of human experience and the uniqueness of every individual story. These experiences continue to shape the way I work - with openness, cultural sensitivity and a deep respect for the complexity of being human.</p>
             <p>ROHANI was created as a bridge between psychological science and human experience. A space where evidence-based knowledge meets presence, reflection and personal growth. Whether working with individuals, teams or organizations, my intention is always the same: to create the conditions for people to flourish.</p>

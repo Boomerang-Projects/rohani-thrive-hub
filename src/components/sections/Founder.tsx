@@ -2,7 +2,7 @@ import { useLang } from "@/lib/i18n";
 import { FounderEn } from "@/components/en/Founder";
 import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import founderImage from "@/assets/photos/outdoor-session.jpg";
+import founderImage from "@/assets/photos/founder-cutout.png";
 
 function FounderSv({ showLink = true }: { showLink?: boolean }) {
   return (
@@ -12,15 +12,16 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
       <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
         {/* Left: portrait with the quote card */}
         <div className="relative md:mb-12">
-          <img
-            src={founderImage}
-            alt="Madeeha Rani Qazi, grundare av Rohani"
-            width={1800}
-            height={1200}
-            loading="lazy"
-            className="w-full h-[30rem] md:h-[38rem] object-cover"
-            style={{ objectPosition: "52% 30%" }}
-          />
+          <div className="bg-secondary/40">
+            <img
+              src={founderImage}
+              alt="Madeeha Rani Qazi, grundare av Rohani"
+              width={1512}
+              height={1552}
+              loading="lazy"
+              className="w-full h-[30rem] md:h-[38rem] object-contain"
+            />
+          </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
           <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-bottom-12 md:-right-10 md:max-w-sm bg-background p-7 md:p-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
             <div className="absolute top-0 left-0 w-16 h-[3px] bg-accent" />
@@ -44,7 +45,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
             Jag heter Madeeha Qazi och är legitimerad psykolog, facilitator och grundaren av ROHANI.
           </p>
-          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/70">
+          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/90">
             <p>Mitt arbete är förankrat i modern psykologi och berikat av en livslång nyfikenhet på mänsklig potential, välbefinnande och det som gör att människor kan leva, leda och relatera mer fullt ut. Genom åren har jag arbetat med individer, grupper och organisationer och stöttat tillväxt, motståndskraft och meningsfull förändring genom evidensbaserade metoder och äkta mänsklig gemenskap.</p>
             <p>Efter att ha bott, studerat och arbetat i olika länder och kulturer har jag lärt mig uppskatta både det universella i mänsklig upplevelse och det unika i varje människas berättelse. Dessa erfarenheter fortsätter att forma mitt sätt att arbeta – med öppenhet, kulturell känslighet och djup respekt för komplexiteten i att vara människa.</p>
             <p>ROHANI skapades som en bro mellan psykologisk vetenskap och mänsklig upplevelse. En plats där evidensbaserad kunskap möter närvaro, reflektion och personlig utveckling. Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att frodas.</p>
