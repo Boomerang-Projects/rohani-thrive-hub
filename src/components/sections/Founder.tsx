@@ -23,7 +23,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             />
           </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
-          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-bottom-12 md:-right-10 md:max-w-sm bg-background rounded-full p-7 md:p-8 md:px-12 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+          <figure className="relative -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-10 md:-left-10 md:max-w-sm bg-background rounded-[50%] p-8 md:p-10 md:px-14 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
             <div className="absolute top-0 left-0 w-16 h-[3px] bg-accent" />
             <blockquote className="font-serif italic text-lg md:text-xl leading-relaxed text-foreground">
               "Madeeha Qazi rör sig mjukt mellan sittkudden och yogamattan medan hon pratar. Hon tycker att psykologi och kultur går fint hand i hand."
