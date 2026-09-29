@@ -34,17 +34,26 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
           </figure>
         </div>
 
-        {/* Right: role, intro and one short paragraph */}
-        <div className="md:max-w-md">
+        {/* Right: original founder story */}
+        <div className="md:max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
             Psychologist · Facilitator · Speaker
           </p>
+          <h3 className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
+            A psychologist devoted to human potential
+          </h3>
+          <p className="mt-6 text-lg leading-relaxed text-foreground/80 font-serif italic">
+            My journey has taken me across cultures, disciplines and perspectives, shaping a deep curiosity about what helps people thrive. I believe that wellbeing is not a luxury or a benefit. – It is the foundation upon which people, relationships and organizations thrive.
+          </p>
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
-            My name is Madeeha Qazi. I am a licensed psychologist, facilitator and the founder of ROHANI.
+            My name is Madeeha Qazi, and I am a licensed psychologist, facilitator and the founder of ROHANI.
           </p>
-          <p className="mt-6 text-lg leading-relaxed text-foreground/70">
-            After years of working with individuals, groups and organizations across countries and cultures, I created ROHANI as a bridge between psychological science and human experience. My intention is always the same: to create the conditions for people to flourish.
-          </p>
+          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/70">
+            <p>My work is rooted in modern psychology and enriched by a lifelong curiosity about human potential, wellbeing and what allows people to live, lead and relate more fully. Over the years, I have worked with individuals, groups and organizations, supporting growth, resilience and meaningful change through evidence-based approaches and real human connection.</p>
+            <p>Having lived, studied and worked across different countries and cultures, I have come to appreciate both the universality of human experience and the uniqueness of every individual story. These experiences continue to shape the way I work - with openness, cultural sensitivity and a deep respect for the complexity of being human.</p>
+            <p>ROHANI was created as a bridge between psychological science and human experience. A space where evidence-based knowledge meets presence, reflection and personal growth. Whether working with individuals, teams or organizations, my intention is always the same: to create the conditions for people to flourish.</p>
+            <p>Because when people are supported to thrive, everything else grows from there.</p>
+          </div>
           {showLink && (
             <div className="pt-8">
               <Link

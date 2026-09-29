@@ -36,17 +36,26 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
           </figure>
         </div>
 
-        {/* Right: role, intro and one short paragraph */}
-        <div className="md:max-w-md">
+        {/* Right: original founder story */}
+        <div className="md:max-w-xl">
           <p className="text-[10px] uppercase tracking-[0.3em] text-foreground/50">
             Psykolog · Facilitator · Föreläsare
           </p>
+          <h3 className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
+            En psykolog med hjärtat i mänsklig potential
+          </h3>
+          <p className="mt-6 text-lg leading-relaxed text-foreground/80 font-serif italic">
+            Min resa har fört mig över kulturer, discipliner och perspektiv – och format en djup nyfikenhet på det som får människor att frodas. Jag tror att välbefinnande varken är en lyx eller en förmån. – Det är grunden som människor, relationer och organisationer frodas på.
+          </p>
           <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
-            Jag heter Madeeha Qazi och är legitimerad psykolog, facilitator och grundare av ROHANI.
+            Jag heter Madeeha Qazi och är legitimerad psykolog, facilitator och grundaren av ROHANI.
           </p>
-          <p className="mt-6 text-lg leading-relaxed text-foreground/70">
-            Efter år av arbete med individer, grupper och organisationer, i flera länder och kulturer, skapade jag ROHANI som en bro mellan psykologisk vetenskap och mänsklig upplevelse. Min intention är alltid densamma: att skapa förutsättningar för människor att frodas.
-          </p>
+          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/70">
+            <p>Mitt arbete är förankrat i modern psykologi och berikat av en livslång nyfikenhet på mänsklig potential, välbefinnande och det som gör att människor kan leva, leda och relatera mer fullt ut. Genom åren har jag arbetat med individer, grupper och organisationer och stöttat tillväxt, motståndskraft och meningsfull förändring genom evidensbaserade metoder och äkta mänsklig gemenskap.</p>
+            <p>Efter att ha bott, studerat och arbetat i olika länder och kulturer har jag lärt mig uppskatta både det universella i mänsklig upplevelse och det unika i varje människas berättelse. Dessa erfarenheter fortsätter att forma mitt sätt att arbeta – med öppenhet, kulturell känslighet och djup respekt för komplexiteten i att vara människa.</p>
+            <p>ROHANI skapades som en bro mellan psykologisk vetenskap och mänsklig upplevelse. En plats där evidensbaserad kunskap möter närvaro, reflektion och personlig utveckling. Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att frodas.</p>
+            <p>För när människor får stöd att frodas växer allt annat därifrån.</p>
+          </div>
           {showLink && (
             <div className="pt-8">
               <Link

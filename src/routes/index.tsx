@@ -6,11 +6,9 @@ import { SectionHeader } from "@/components/sections/SectionHeader";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
-import photoGroupCircle from "@/assets/photos/group-circle.jpg";
-import photoHandsSky from "@/assets/photos/hands-sky.jpg";
-import photoFireEvening from "@/assets/photos/fire-evening.jpg";
 import photoPhilosophy from "@/assets/photos/leading-session.jpg";
 import { useLang } from "@/lib/i18n";
+import { Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,11 +107,8 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Rolling logo band */}
-        <LogoMarquee />
-
         {/* What Guides Us */}
-        <section id="vagleder" className="scroll-mt-24 pt-20 md:pt-28 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
+        <section id="vagleder" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
           {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-16 gap-y-12 md:gap-y-16">
@@ -176,27 +171,27 @@ function AboutPage() {
           </div>
         </section>
 
-        <div id="grundaren" className="scroll-mt-24 bg-sand py-24 md:py-32">
+        <div id="grundaren" className="scroll-mt-24 bg-sand py-16 md:py-20">
           <Founder />
         </div>
 
-        {/* Photo band: moments from workshops and retreats, closing the page */}
-        <section className="px-6 md:px-10 py-20 md:py-28">
-          <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
-            {[
-              { src: photoGroupCircle, alt: t("Deltagare i en cirkel under en workshop", "Participants in a circle during a workshop"), pos: "50% 50%" },
-              { src: photoHandsSky, alt: t("Händer som sträcks mot himlen", "Hands reaching towards the sky"), pos: "40% 50%" },
-              { src: photoFireEvening, alt: t("Två deltagare vid en eld en kväll", "Two participants by a fire in the evening"), pos: "40% 50%" },
-            ].map((img) => (
-              <img
-                key={img.alt}
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="w-full aspect-[3/4] md:aspect-[4/5] object-cover"
-                style={{ objectPosition: img.pos }}
-              />
-            ))}
+        <LogoMarquee />
+
+        <section id="cta" className="scroll-mt-24 bg-foreground text-background py-24 px-6 md:px-10">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            <h2 className="font-serif text-4xl md:text-5xl text-balance">
+              {t("Börja där du är.", "Begin where you are.")}
+            </h2>
+            <p className="text-background/90 text-lg">
+              {t("Meningsfull förändring börjar sällan med att ha alla svar. Ibland börjar den helt enkelt med ett samtal.", "Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.")}
+            </p>
+            <Link
+              to="/contact"
+              hash="contact"
+              className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
+            >
+              {t("Boka ett introducerande samtal", "Book a Discovery Call")}
+            </Link>
           </div>
         </section>
 
