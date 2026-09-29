@@ -14,10 +14,10 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
             <img
               src={founderImage}
               alt="Madeeha Rani Qazi, founder of Rohani"
-              width={1512}
-              height={1552}
+              width={820}
+              height={1200}
               loading="lazy"
-              className="w-full h-[30rem] md:h-[38rem] object-contain"
+              className="w-full h-[34rem] md:h-[44rem] object-cover object-top"
             />
           </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
