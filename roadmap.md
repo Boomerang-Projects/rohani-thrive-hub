@@ -44,3 +44,4 @@
 - [x] Grundare-bubblan: lite mindre, placerad högre upp mot kanten
 - [x] Kontakt-hero: kompakt, avrundad bildband (max-w-5xl, h-[560px]) så båda händerna syns
 - [x] Fixa Haninge Kommun-loggan på den rullande bannern (endast text visades)
+- [ ] Erfarenhet: ta bort "Utvald erfarenhet"-rubrik, "psykologi" ur kategorirubriker (Kliniskt arbete; Social påverkan), ta bort välbefinnande-fliken — men spara tidslinje- och välbefinnande-infon för senare upplägg (pågående)
