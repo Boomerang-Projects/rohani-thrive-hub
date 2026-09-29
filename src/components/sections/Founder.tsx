@@ -27,13 +27,13 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             to="/experience"
             hash="media"
             aria-label="Läs artikeln i Psykologtidningen"
-            className="group relative block -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-top-14 md:-left-6 md:max-w-[17rem]"
+            className="group absolute top-3 -left-3 w-[11.5rem] md:mx-0 md:top-auto md:w-auto md:-top-14 md:-left-6 md:max-w-[17rem]"
           >
-            <figure className="bg-background rounded-3xl p-6 md:p-7 md:px-9 cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
-              <blockquote className="font-serif italic text-base md:text-lg leading-relaxed text-foreground">
+            <figure className="bg-background rounded-3xl p-4 md:p-7 md:px-9 cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
+              <blockquote className="font-serif italic text-sm md:text-lg leading-relaxed text-foreground">
                 "Madeeha Qazi rör sig mjukt mellan sittkudden och yogamattan medan hon pratar. Hon tycker att psykologi och kultur går fint hand i hand."
               </blockquote>
-              <figcaption className="mt-4 flex items-center gap-4">
+              <figcaption className="mt-3 md:mt-4 flex items-center gap-2 md:gap-4">
                 <div className="h-px w-6 bg-accent" />
                 <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
                   Psykologtidningen · Nr 4, 2026

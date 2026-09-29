@@ -13,6 +13,8 @@ import imgMovement from "@/assets/photos/work-movement.jpg.asset.json";
 import imgIntegration from "@/assets/photos/work-integration.jpg.asset.json";
 import { useLang } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,16 +128,25 @@ function AboutPage() {
         <section id="vagleder" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
           {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
-          <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
             {principles.map((p) => (
-              <div key={p.title} className="flex flex-col items-center text-center">
-                <div className="flex w-full h-48 md:h-56 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-6 md:px-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-default">
-                  <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
+              <Dialog key={p.title}>
+                <div className="relative flex flex-col items-center text-center">
+                  <div className="flex w-full min-h-52 md:h-56 flex-col items-center justify-center rounded-3xl bg-foreground text-background px-3 py-4 md:px-8 md:py-0 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+                    <h3 className="font-serif font-bold text-sm md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                      {p.title}
+                    </h3>
+                    <p className="mt-3 text-xs md:text-sm leading-snug md:leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
+                  </div>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${p.title}`} />
+                  </DialogTrigger>
                 </div>
-              </div>
+                <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-3xl border-0 bg-foreground text-background p-8 text-center [&_button]:text-background">
+                  <DialogTitle className="font-serif text-xl uppercase leading-tight underline underline-offset-[6px]">{p.title}</DialogTitle>
+                  <p className="text-base leading-relaxed text-background/85">{p.body}</p>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </section>
@@ -149,6 +160,7 @@ function AboutPage() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "50% 60%" }}
           />
+          <div className="absolute inset-0 bg-foreground/65 md:hidden" aria-hidden="true" />
 
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
             <div className="max-w-3xl">
@@ -172,28 +184,42 @@ function AboutPage() {
         {/* How we work: same layout as "What guides us" */}
         <section id="metod" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Så arbetar vi", "How we work")} />
-          <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
             {workWays.map((w) => (
-              <div key={w.title} className="flex w-full flex-col items-center rounded-3xl overflow-hidden bg-foreground text-background shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-default">
-                <img
-                  src={w.img.url}
-                  alt=""
-                  loading="lazy"
-                  width={816}
-                  height={816}
-                  className={`w-full h-40 md:h-48 object-cover ${"imgClass" in w ? w.imgClass : ""}`}
-                />
-                <div className="flex flex-1 flex-col items-center justify-center text-center px-6 md:px-8 py-6">
-                  <h3 className="font-serif font-bold text-base md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
-                    {w.title.split(" & ").map((part, i, arr) => (
-                      <span key={i} className="block">
-                        {i < arr.length - 1 ? `${part} &` : part}
-                      </span>
-                    ))}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
+              <Dialog key={w.title}>
+                <div className="relative flex w-full flex-col rounded-3xl overflow-hidden bg-foreground text-background shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+                  <div className="w-full h-28 md:h-48 overflow-hidden">
+                    <img
+                      src={w.img.url}
+                      alt=""
+                      loading="lazy"
+                      width={816}
+                      height={816}
+                      className={`w-full h-full object-cover ${w.imgClass}`}
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col items-center justify-center text-center px-2 md:px-8 py-4 md:py-6 min-h-44 md:min-h-0">
+                    <h3 className="font-serif font-bold text-xs md:text-lg leading-tight uppercase md:tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                      {w.title.split(" & ").map((part, i, arr) => (
+                        <span key={i} className="block">
+                          {i < arr.length - 1 ? `${part} &` : part}
+                        </span>
+                      ))}
+                    </h3>
+                    <p className="mt-3 text-xs md:text-sm leading-snug md:leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
+                  </div>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${w.title}`} />
+                  </DialogTrigger>
                 </div>
-              </div>
+                <DialogContent className="w-[calc(100%-2rem)] max-w-sm overflow-hidden rounded-3xl border-0 bg-foreground text-background p-0 text-center [&_button]:text-background">
+                  <img src={w.img.url} alt="" className={`h-52 w-full object-cover ${w.imgClass}`} />
+                  <div className="px-7 pb-8">
+                    <DialogTitle className="font-serif text-xl uppercase leading-tight underline underline-offset-[6px]">{w.title}</DialogTitle>
+                    <p className="mt-4 text-base leading-relaxed text-background/85">{w.body}</p>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </section>

@@ -192,11 +192,21 @@ html.lenis body {
 /* Logo band: endless slow roll (see src/components/sections/LogoMarquee.tsx) */
 .logo-marquee {
   /* soft fade at both edges so logos glide in and out */
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+@media (min-width: 768px) {
+  .logo-marquee {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
   .logo-marquee-track {
-    animation: logo-roll 64s linear infinite;
+    animation: logo-roll 34s linear infinite;
+  }
+  @media (min-width: 768px) {
+    .logo-marquee-track {
+      animation-duration: 64s;
+    }
   }
 }
 @keyframes logo-roll {
