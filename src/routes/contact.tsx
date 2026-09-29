@@ -43,7 +43,7 @@ function ContactPage() {
               src={contactHero.url}
               alt={t("Uppräckta händer mot en öppen blå himmel", "Raised hands reaching toward an open blue sky") as string}
               className="w-full h-[400px] md:h-[560px] object-cover"
-              style={{ objectPosition: "50% 12%" }}
+              style={{ objectPosition: "50% 5%" }}
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-full max-w-3xl px-6 md:px-12 text-center space-y-6 [text-shadow:0_2px_18px_rgba(58,41,34,0.65)]">
