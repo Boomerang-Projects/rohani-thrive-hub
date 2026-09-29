@@ -608,12 +608,12 @@ function ServicesPageSv() {
         {/* Closing CTA */}
         <section className="bg-primary text-primary-foreground py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="font-serif text-4xl md:text-5xl text-balance">
+            <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance">
               Börja där du är.
             </h2>
             <p className="text-primary-foreground/70 text-lg">
               Meningsfull förändring börjar sällan med att ha alla svar.
-              Ibland börjar den helt enkelt med ett samtal.
+              Ibland börjar det helt enkelt med ett samtal.
             </p>
             <Link
               to="/contact"

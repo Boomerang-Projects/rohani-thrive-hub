@@ -44,6 +44,7 @@ function ContactSv() {
               <option value="retreat">Retreat eller kickoff</option>
               <option value="speaking">Föreläsning</option>
               <option value="individual">Individuell coaching</option>
+              <option value="other">Annat</option>
             </select>
           </div>
           <div className="space-y-2">

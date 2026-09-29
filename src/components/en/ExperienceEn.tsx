@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/experience-hero.jpg.asset.json";
 import { HorizontalTimeline, type TimelineItem } from "@/components/sections/HorizontalTimeline";
@@ -683,6 +685,27 @@ export function ExperienceEn() {
             ))}
           </div>
         </section>
+
+        <section className="bg-foreground text-background py-24 px-6 md:px-10">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance">
+              Begin where you are.
+            </h2>
+            <p className="text-background/90 text-lg">
+              Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.
+            </p>
+            <Link
+              to="/contact"
+              hash="contact"
+              className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
+            >
+              Book a Discovery Call
+            </Link>
+          </div>
+        </section>
+
+        <LogoMarquee />
+
         <ArticleLightbox
           src={mediaArticle.url}
           alt="Article in Psykologtidningen about G-Flow"
