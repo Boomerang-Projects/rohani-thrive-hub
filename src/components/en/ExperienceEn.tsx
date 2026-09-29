@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
+import heartOfWorkPhoto from "@/assets/photos/heart-of-work-outdoors.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
@@ -419,25 +419,6 @@ export function ExperienceEn() {
             ))}
           </div>
         </section>
-
-        <section className="bg-foreground text-background py-24 px-6 md:px-10">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance">
-              Begin where you are.
-            </h2>
-            <p className="text-background/90 text-lg">
-              Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.
-            </p>
-            <Link
-              to="/contact"
-              hash="contact"
-              className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
-            >
-              Book a Discovery Call
-            </Link>
-          </div>
-        </section>
-
 
         <ArticleLightbox
           src={mediaArticle.url}
