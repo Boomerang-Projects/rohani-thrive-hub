@@ -206,6 +206,7 @@ const wellbeingEntries: Entry[] = [
     ],
   },
 ];
+*/
 
 const trainingColumns = [
   {
