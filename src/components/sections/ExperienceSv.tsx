@@ -8,7 +8,6 @@ import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
@@ -380,37 +379,6 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
              </div>
            </div>
         </section>
-
-</>)}
-{section === "clinical" && (<>
-        {/* ===== Heart of the work ===== */}
-        <section className="relative overflow-hidden">
-          <img src={heartOfWorkPhoto.url} alt="Deltagare sitter tillsammans i en cirkel under en sammankomst" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
-          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
-            <div className="max-w-3xl space-y-6 text-background">
-              <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-                I hjärtat av detta arbete ligger en nyfikenhet på vem vi är,
-                vad som format oss — och vem vi håller på att bli.
-              </h2>
-              <p className="text-base leading-[1.75] text-background/90">
-                Hur kan vi röra oss genom livet med större medvetenhet,
-                handlingskraft och intention — istället för att bara reagera på
-                det som händer omkring oss?
-              </p>
-              <p className="text-base leading-[1.75] text-background/90">
-                Tänk om meningsfull förändring börjar med att bli mer medveten
-                om hur vi ser, upplever och möter världen?
-              </p>
-              <p className="text-base leading-[1.75] text-background/90">
-                Mitt arbete förenar psykologisk vetenskap med ett mänskligt,
-                kroppsnära och kulturellt anpassningsbart förhållningssätt till
-                välbefinnande och utveckling.
-              </p>
-            </div>
-          </div>
-        </section>
-
 
 </>)}
 {section === "media" && (<>
