@@ -20,7 +20,7 @@ export function ExperienceTabs({ lang, active }: { lang: "sv" | "en"; active: Ex
               key={t.key}
               to={t.to}
               aria-current={isActive ? "page" : undefined}
-              className={`shrink-0 py-5 text-xs uppercase tracking-[0.22em] font-medium border-b-2 -mb-px transition-colors whitespace-nowrap ${
+              className={`shrink-0 py-5 text-xs font-serif uppercase tracking-[0.22em] font-medium border-b-2 -mb-px transition-colors whitespace-nowrap ${
                 isActive ? "border-accent text-foreground" : "border-transparent text-foreground/55 hover:text-foreground"
               }`}
             >
