@@ -99,13 +99,13 @@ export function SiteHeader() {
           ROHANI
         </Link>
 
-        <div className="hidden md:flex items-center gap-10 text-xs font-serif uppercase tracking-[0.22em] font-medium">
+        <div className="hidden md:flex items-center gap-10 text-xs font-serif uppercase tracking-[0.22em] font-bold">
           {navLinks.map((link) => (
             <div key={link.to} className="relative group">
               <Link
                 to={link.to}
-                className="transition-colors hover:text-foreground"
-                inactiveProps={{ className: "text-foreground/60" }}
+                className="transition-colors hover:text-foreground text-foreground"
+                inactiveProps={{ className: "text-foreground" }}
                 activeProps={{ className: "text-foreground" }}
               >
                 {link.label}
@@ -126,7 +126,7 @@ export function SiteHeader() {
                             scrollToSection(sub.id);
                           }
                         }}
-                        className="block px-4 py-2.5 text-[10px] font-serif uppercase tracking-[0.2em] text-foreground/65 rounded-xl hover:text-foreground hover:bg-secondary/70 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 text-[10px] font-serif font-bold uppercase tracking-[0.2em] text-foreground rounded-xl hover:text-foreground hover:bg-secondary/70 transition-colors whitespace-nowrap"
                       >
                         {sub.label}
                       </a>
@@ -152,7 +152,7 @@ export function SiteHeader() {
       </nav>
 
       {open && (
-        <div className="md:hidden border-t border-border/50 px-6 py-6 flex flex-col gap-5 text-sm font-serif uppercase tracking-[0.18em]">
+        <div className="md:hidden border-t border-border/50 px-6 py-6 flex flex-col gap-5 text-sm font-serif font-bold uppercase tracking-[0.18em] text-foreground">
           {navLinks.map((link) => (
             <div key={link.to} className="flex flex-col gap-3">
               <Link
@@ -163,7 +163,7 @@ export function SiteHeader() {
                 {link.label}
               </Link>
               {link.subs && (
-                <div className="flex flex-col gap-2 pl-4 normal-case tracking-normal text-[13px] font-serif text-foreground/60">
+                <div className="flex flex-col gap-2 pl-4 normal-case tracking-normal text-[13px] font-serif font-bold text-foreground">
                   {link.subs.map((sub) => (
                     <a
                       key={sub.id}
