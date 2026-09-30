@@ -116,6 +116,9 @@ export function ArticleLightbox({ src, alt, open, onClose }: Props) {
   }, [mounted, zoomAround]);
 
   const onPointerDown = (e: React.PointerEvent) => {
+    // Let the close button receive its own click. Capturing the pointer here
+    // would redirect the click to the frame, and the X would do nothing.
+    if ((e.target as Element).closest("button")) return;
     (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.current.size === 2) {

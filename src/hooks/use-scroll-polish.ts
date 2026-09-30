@@ -44,6 +44,8 @@ export function useScrollPolish(pathname: string) {
     const lenis = new Lenis({
       lerp: GLIDE,
       wheelMultiplier: 0.9,
+    // Let horizontal scrollers (the Experience swipe panels) scroll on their own.
+    allowNestedScroll: true,
       anchors: { offset: -headerOffset(), duration: LOCK_DURATION, easing: easeInOutCubic },
     });
     let rafId = requestAnimationFrame(function loop(time) {

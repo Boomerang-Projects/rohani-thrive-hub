@@ -197,7 +197,7 @@ html.lenis body {
     will-change: transform;
     backface-visibility: hidden;
     /* Time for one full row to pass. Lower = faster. */
-    animation: logo-roll 76s linear infinite;
+    animation: logo-roll 81s linear infinite;
   }
 }
 @keyframes logo-roll {
@@ -206,5 +206,22 @@ html.lenis body {
   }
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Experience page: the little arrow in the mobile swipe hint nudges right */
+@media (prefers-reduced-motion: no-preference) {
+  .swipe-hint-arrow {
+    display: inline-block;
+    animation: swipe-hint 1.6s ease-in-out infinite;
+  }
+}
+@keyframes swipe-hint {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
   }
 }

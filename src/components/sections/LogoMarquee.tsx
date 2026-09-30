@@ -1,13 +1,14 @@
 import bup from "@/assets/logos/bup-region-stockholm.png";
 import haninge from "@/assets/logos/haninge-kommun.png";
 import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
+import regionStockholm from "@/assets/logos/region-stockholm.png";
 import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
 import psykologtidningen from "@/assets/logos/psykologtidningen.png";
 import dinPsykolog from "@/assets/logos/din-psykolog.png";
 import somaya from "@/assets/logos/somaya.png";
 import fryshuset from "@/assets/logos/fryshuset.png";
-import hocs from "@/assets/logos/hocs.png";
+import hocs from "@/assets/logos/house-of-creative.png";
 import betteryou from "@/assets/logos/betteryou.png";
 import myHappyHead from "@/assets/logos/my-happy-head.png";
 import sats from "@/assets/logos/sats.png";
@@ -19,13 +20,14 @@ const logos = [
   { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm", w: 755, h: 100 },
   { src: haninge, alt: "Haninge kommun", w: 755, h: 100 },
   { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm", w: 500, h: 100 },
+  { src: regionStockholm, alt: "Region Stockholm", w: 299, h: 85 },
   { src: karolinska, alt: "Karolinska Universitetssjukhuset", w: 500, h: 100 },
   { src: sverigesRadio, alt: "Sveriges Radio", w: 438, h: 80 },
   { src: psykologtidningen, alt: "Psykologtidningen", w: 341, h: 91 },
   { src: dinPsykolog, alt: "Din psykolog", w: 500, h: 100 },
   { src: somaya, alt: "Somaya kvinnostödjour", w: 500, h: 100 },
   { src: fryshuset, alt: "Fryshuset", w: 500, h: 100 },
-  { src: hocs, alt: "House of Creatives Solna", w: 500, h: 100 },
+  { src: hocs, alt: "House of Creatives Solna", w: 431, h: 399 },
   { src: betteryou, alt: "Better You", w: 500, h: 100 },
   { src: myHappyHead, alt: "My Happy Head", w: 500, h: 100 },
   { src: sats, alt: "SATS", w: 500, h: 100 },

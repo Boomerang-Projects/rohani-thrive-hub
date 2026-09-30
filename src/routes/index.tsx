@@ -4,7 +4,6 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
-import { AboutTabs } from "@/components/sections/AboutTabs";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
 import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
@@ -126,7 +125,6 @@ function AboutPage() {
           </div>
         </section>
 
-        <AboutTabs lang={lang} />
 
         {/* What Guides Us */}
         <section id="vagleder" className="scroll-mt-32 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">

@@ -9,16 +9,22 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
-import somayaLogo from "@/assets/logos/partners/somaya-kvinnostodjour.png";
+import somayaLogo from "@/assets/logos/somaya.png";
+import regionStockholmLogo from "@/assets/logos/region-stockholm-dark.png";
+import haningeLogo from "@/assets/logos/haninge-kommun-dark.png";
+import houseOfCreativeLogo from "@/assets/logos/house-of-creative-dark.png";
+import fryshusetLogo from "@/assets/logos/fryshuset.png";
+import srLogo from "@/assets/logos/sveriges-radio.png";
+import ptLogo from "@/assets/logos/psykologtidningen.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import mediaArticle from "@/assets/media-article.jpg.asset.json";
-import mediaRadio from "@/assets/media-radio.jpg";
+// Page 7 of Psykologtidningen #4 2026 ("Finns en rädsla för kulturen"), rendered from the magazine PDF.
+import mediaArticle from "@/assets/psykologtidningen-nr4-2026-s7.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
-import mediaPodcast from "@/assets/media-podcast.jpg";
 import photoGroupCircle from "@/assets/photos/group-circle.jpg";
 import photoHandsSky from "@/assets/photos/hands-sky.jpg";
 import photoFireEvening from "@/assets/photos/fire-evening.jpg";
-import { ExperienceTabs, type ExperienceSection } from "@/components/sections/ExperienceTabs";
+import { type ExperienceSection } from "@/components/sections/ExperienceTabs";
+import { ExperienceSwipe } from "@/components/sections/ExperienceSwipe";
 
 /* ---------- Data ---------- */
 
@@ -80,7 +86,6 @@ const organisationalEntries: Entry[] = [
   {
     title: "Somaya Women's Support Centre",
     image: somayaLogo,
-    logoBig: true,
     meta: "Psychological & Wellbeing Work",
     body: ["Mental health and movement – workshop for an organisation supporting women and families facing difficult circumstances."],
     longBody: [
@@ -94,6 +99,7 @@ const organisationalEntries: Entry[] = [
   },
   {
     title: "Workplace Meditation & Wellbeing",
+    image: regionStockholmLogo,
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["I led regular meditation sessions for BUP healthcare staff, offering practical tools for recovery and stress regulation in a demanding workday."],
     longBody: [
@@ -107,6 +113,7 @@ const organisationalEntries: Entry[] = [
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn & Haninge Municipality",
+    image: haningeLogo,
     meta: "Community Education · Youth Wellbeing · Community Development",
 
     body: ["With ABF Södertörn and Haninge Municipality, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
@@ -141,6 +148,7 @@ const communityEntries: Entry[] = [
   },
   {
     title: "House of Creatives Solna",
+    image: houseOfCreativeLogo,
     meta: "Movement & Meditation · Community",
     body: ["Movement and meditation at House of Creatives — a supportive space for presence, recovery and connection."],
     longBody: [
@@ -150,6 +158,7 @@ const communityEntries: Entry[] = [
   },
   {
     title: "Fryshuset · Jakten på mening",
+    image: fryshusetLogo,
     meta: "Podcast · Conversations on Meaning & Wellbeing",
     body: ["Guest on Fryshuset's podcast Jakten på mening — a conversation about psychological health and what gives life meaning."],
     longBody: [
@@ -250,7 +259,7 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-40 md:w-64 shrink-0 self-stretch object-contain"
+          className="w-40 md:w-64 shrink-0 self-center max-h-24 md:max-h-28 object-contain"
         />
       )}
       <div className="min-w-0 flex-1">
@@ -301,7 +310,7 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-40 md:w-64 shrink-0 self-stretch object-contain"
+          className="w-40 md:w-64 shrink-0 self-center max-h-24 md:max-h-28 object-contain"
         />
       )}
       <div className="min-w-0 flex-1 space-y-5">
@@ -383,11 +392,19 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
           </div>
         </section>
 
-        <ExperienceTabs lang="en" active={section} />
-
-{section === "clinical" && (<>
+        {/* The four categories as swipeable panels (replaces the old sub-menu) */}
+        <ExperienceSwipe
+          key={section}
+          lang="en"
+          initial={["clinical", "organisational", "community", "media"].indexOf(section)}
+          panels={[
+            {
+              key: "clinical",
+              label: "Clinical Practice",
+              content: (
+                <>
         {/* ===== Collaborations — dark band ===== */}
-        <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
+        <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               id="clinical"
@@ -403,10 +420,16 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
         </section>
 
 
-</>)}
-{section === "organisational" && (<>
+                </>
+              ),
+            },
+            {
+              key: "organisational",
+              label: "Organisational Work",
+              content: (
+                <>
          {/* ===== Organisational work ===== */}
-        <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
+        <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
            <div id="organisational" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Organisational Work" dark />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
@@ -417,9 +440,15 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
            </div>
          </section>
 
-</>)}
-{section === "community" && (<>
-         <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
+                </>
+              ),
+            },
+            {
+              key: "community",
+              label: "Social Impact",
+              content: (
+                <>
+         <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
            <div id="community" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Social Impact" dark />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
@@ -430,25 +459,33 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
            </div>
         </section>
 
-</>)}
-{section === "media" && (<>
+                </>
+              ),
+            },
+            {
+              key: "media",
+              label: "In the Media",
+              content: (
+                <>
         {/* ===== In the Media + organisations ===== */}
-        <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
+        <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="In the Media" dark />
             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
+              {/* Each media card leads to its source: external articles open in a new tab,
+                  Psykologtidningen (no URL) opens the article image in the lightbox. */}
+
               {/* Sveriges Radio */}
-              <div className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100">
-                <img
-                  src={mediaRadio}
-                  alt="Studio microphone in warm light"
-                  loading="lazy"
-                  width={1200}
-                  height={900}
-                  draggable={false}
-                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
-                />
-                <div className="min-w-0 flex-1">
+              <a
+                href="https://www.sverigesradio.se/artikel/david-nzinga-leder-projekt-om-psykisk-ohalsa-och-kultur"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Sveriges Radio: Read the article (opens in a new tab)"
+                className="relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+              >
+                <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Read the article ↗</span>
+                <img src={srLogo} alt="Sveriges Radio" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-start md:self-center h-auto max-h-12 md:max-h-16 object-contain" />
+                <div className="min-w-0 flex-1 md:pr-32">
                   <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     Sveriges Radio
                   </h3>
@@ -456,25 +493,18 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                     Interviewed on youth wellbeing, psychology and community-based folkbildning.
                   </p>
                 </div>
-              </div>
+              </a>
 
               {/* Psykologtidningen */}
-              <div className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100">
-                <button
-                  type="button"
-                  onClick={() => setLightboxOpen(true)}
-                  aria-label="Open the article full size"
-                  className="shrink-0 w-32 md:w-52 cursor-zoom-in"
-                >
-                  <img
-                    src={mediaArticle.url}
-                    alt="Article in Psykologtidningen about G-Flow"
-                    loading="lazy"
-                    draggable={false}
-                    className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
-                  />
-                </button>
-                <div className="min-w-0 flex-1">
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(true)}
+                aria-label="Psykologtidningen: Open the article"
+                className="relative w-full text-left cursor-zoom-in flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+              >
+                <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Read the article</span>
+                <img src={ptLogo} alt="Psykologtidningen" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-start md:self-center h-auto max-h-12 md:max-h-16 object-contain" />
+                <div className="min-w-0 flex-1 md:pr-32">
                   <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     Psykologtidningen
                   </h3>
@@ -482,43 +512,39 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                     Featured in connection with G-Flow and the intersection of psychology, culture and youth development.
                   </p>
                 </div>
-              </div>
+              </button>
 
-              {/* Podcast */}
-              <div className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100">
-                <img
-                  src={mediaPodcast}
-                  alt="Podcast microphones in a recording studio"
-                  loading="lazy"
-                  width={1200}
-                  height={900}
-                  draggable={false}
-                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
-                />
-                <div className="min-w-0 flex-1">
+              {/* ABF Södertörn */}
+              <a
+                href="https://www.abf.se/sodertorn/nyheter/g-flow-ger-unga-tjejer/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="ABF Södertörn: Read the article (opens in a new tab)"
+                className="relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+              >
+                <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Read the article ↗</span>
+                <div className="min-w-0 flex-1 md:pr-32">
                   <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
-                    Podcast
+                    ABF Södertörn
                   </h3>
                   <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                    A guest in conversation about psychology, culture and wellbeing.
+                    On G-Flow: a meeting place in Jordbro where young girls build self-esteem and mental health through conversation, movement and meditation.
                   </p>
                 </div>
-              </div>
+              </a>
             </div>
 
           </div>
         </section>
 
-</>)}
-{section === "clinical" && (<>
-        <section className="px-6 md:px-10 pb-2">
-          <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
-            Experience Across
-          </p>
-        </section>
+                </>
+              ),
+            }
+          ]}
+        />
 
-        <LogoMarquee className="mt-4 md:mt-6" />
-
+{/* Shown below the panels */}
+<>
         <section className="px-6 md:px-10 py-20 md:py-28">
           <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
             {[
@@ -531,9 +557,11 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
           </div>
         </section>
 
-</>)}
+        {/* Logo band last, right above the footer (same as on Kontakt) */}
+        <LogoMarquee className="" />
+</>
         <ArticleLightbox
-          src={mediaArticle.url}
+          src={mediaArticle}
           alt="Article in Psykologtidningen about G-Flow"
           open={lightboxOpen}
           onClose={() => setLightboxOpen(false)}
