@@ -44,7 +44,7 @@ const clinicalEntries: Entry[] = [
     ],
   },
   {
-    period: "2018 — 2022",
+    period: "2022 — 2025",
     title: "Child & Adolescent Mental Health",
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
@@ -198,8 +198,11 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
       tabIndex={0}
       onClick={() => onOpen(entry)}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
-      className="flex cursor-pointer gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
+      className="relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
     >
+      <span className="absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent">
+        Read more <span aria-hidden>→</span>
+      </span>
       {entry.image && (
         <img
           src={entry.image}
@@ -221,14 +224,9 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
           {entry.meta}
         </p>
         <div className="mt-5 space-y-4">
-          {entry.body.map((p, i) => (
+          {entry.body.map((p) => (
             <p key={p} className="text-base leading-[1.75] text-foreground/75">
               {p}
-              {i === entry.body.length - 1 && (
-                <span className="ml-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent">
-                  Read more <span aria-hidden>→</span>
-                </span>
-              )}
             </p>
           ))}
         </div>
@@ -249,8 +247,11 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
       tabIndex={0}
       onClick={() => onOpen(entry)}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
-      className={`flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
+      className={`relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
     >
+      <span className={`absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] ${light ? "text-accent" : "text-background/80"}`}>
+        Read more <span aria-hidden>→</span>
+      </span>
       {entry.image && (
         <img
           src={entry.image}
@@ -274,14 +275,9 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
           </p>
         </div>
         <div className="space-y-3">
-          {entry.body.map((p, i) => (
+          {entry.body.map((p) => (
              <p key={p} className={`text-base leading-[1.75] ${light ? "text-foreground/75" : "text-background/85"}`}>
               {p}
-              {i === entry.body.length - 1 && (
-                <span className={`ml-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] ${light ? "text-accent" : "text-background/80"}`}>
-                  Read more <span aria-hidden>→</span>
-                </span>
-              )}
             </p>
           ))}
           {entry.tags && (
