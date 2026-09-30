@@ -102,21 +102,48 @@ const organisationalEntries: Entry[] = [
 
 const communityEntries: Entry[] = [
   {
-    title: "G-Flow · ABF Södertörn",
-    meta: "Community Education · Youth Wellbeing · Culture",
-    body: ["With ABF Södertörn, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
+    title: "G-Flow · ABF Södertörn & Haninge Municipality",
+    meta: "Community Education · Youth Wellbeing · Community Development",
+    body: ["With ABF Södertörn and Haninge Municipality, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
     longBody: [
-      "Collaborated with ABF Södertörn on initiatives combining psychology, culture, movement and community-based learning.",
-      "The collaboration reflects my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
+      "I collaborated with ABF Södertörn and Haninge Municipality on initiatives combining psychology, culture, movement and community-based learning.",
+      "These collaborations reflect my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
     ],
   },
   {
-    title: "Haninge Municipality",
-    meta: "Youth Wellbeing · Community Development · Public Sector Collaboration",
-    body: ["Together with Haninge Municipality, I created welcoming spaces where young people could explore wellbeing, movement and connection."],
+    title: "Hero idrottsförening",
+    meta: "Non-profit Association · Physical Health · Self-Esteem & Mental Health",
+    body: ["A non-profit association for young girls focused on physical health — where I regularly lead dance classes centred on strengthening self-esteem and mental health."],
     longBody: [
-      "Collaborated with Haninge Municipality through youth-focused wellbeing initiatives, creating accessible spaces for reflection, connection, movement and personal development.",
-      "The work has strengthened my experience of translating psychological perspectives into community-based formats and working across professional and public-sector contexts.",
+      "Hero is a non-profit association for young girls with a focus on physical health and community.",
+      "There, I regularly lead dance classes where movement is combined with psychological perspectives — with the goal of strengthening participants' self-esteem and mental wellbeing.",
+    ],
+  },
+  {
+    title: "Joy in the Wild",
+    meta: "Founder & Facilitator",
+    body: ["A women-centred nature and wellbeing experience exploring connection, presence, movement and self-reflection."],
+    longBody: [
+      "A women-centred nature and wellbeing experience exploring connection, presence, movement and self-reflection.",
+      "The initiative brings together psychological perspectives with embodied practices and nature-based experiences, creating space for participants to slow down, reconnect and explore wellbeing beyond the demands of everyday life.",
+    ],
+  },
+  {
+    title: "House of Creatives Solna",
+    meta: "Movement & Meditation · Community",
+    body: ["Movement and meditation at House of Creatives — a supportive space for presence, recovery and connection."],
+    longBody: [
+      "I lead movement and meditation sessions at House of Creatives in Solna.",
+      "The sessions combine embodied practice with psychological perspectives, creating a safe space where participants can ground themselves, breathe and recover together.",
+    ],
+  },
+  {
+    title: "Fryshuset · Jakten på mening",
+    meta: "Podcast · Conversations on Meaning & Wellbeing",
+    body: ["Guest on Fryshuset's podcast Jakten på mening — a conversation about psychological health and what gives life meaning."],
+    longBody: [
+      "I took part in Fryshuset's podcast Jakten på mening.",
+      "In the episode we talk about psychological health — what creates meaning, how we can strengthen our wellbeing, and what happens when we listen to ourselves.",
     ],
   },
 ];

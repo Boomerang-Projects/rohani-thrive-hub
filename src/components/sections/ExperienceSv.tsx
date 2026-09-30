@@ -102,21 +102,48 @@ const organisationalEntries: Entry[] = [
 
 const communityEntries: Entry[] = [
   {
-    title: "G-Flow · ABF Södertörn",
-    meta: "Folkbildning · Ungdomars välbefinnande · Kultur",
-    body: ["Tillsammans med ABF Södertörn gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
+    title: "G-Flow · ABF Södertörn & Haninge kommun",
+    meta: "Folkbildning · Ungdomars välbefinnande · Samhällsutveckling",
+    body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
     longBody: [
-      "Jag samarbetade med ABF Södertörn i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
-      "Samarbetet speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
+      "Jag samarbetade med ABF Södertörn och Haninge kommun i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
+      "Samarbetena speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
     ],
   },
   {
-    title: "Haninge kommun",
-    meta: "Ungdomars välbefinnande · Samhällsutveckling · Offentlig sektor",
-    body: ["I samarbete med Haninge kommun skapade jag inkluderande mötesplatser där unga fick utforska välbefinnande, rörelse och gemenskap."],
+    title: "Hero idrottsförening",
+    meta: "Ideell förening · Fysisk hälsa · Självkänsla & mental hälsa",
+    body: ["En ideell förening för unga tjejer med fokus på fysisk hälsa — där jag regelbundet håller dansklasser med fokus på att stärka självkänsla och mental hälsa."],
     longBody: [
-      "Jag samarbetade med Haninge kommun i ungdomsorienterade välbefinnandeinitiativ och skapade tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
-      "Arbetet har stärkt min erfarenhet av att översätta psykologiska perspektiv till samhällsbaserade format och att arbeta över professionella och offentliga kontexter.",
+      "Hero är en ideell förening för unga tjejer med fokus på fysisk hälsa och gemenskap.",
+      "Där håller jag regelbundet dansklasser där rörelse kombineras med psykologiska perspektiv — med målet att stärka deltagarnas självkänsla och mentala hälsa.",
+    ],
+  },
+  {
+    title: "Joy in the Wild",
+    meta: "Grundare & facilitator",
+    body: ["En natur- och välbefinnandeupplevelse för kvinnor, med fokus på gemenskap, närvaro, rörelse och självreflektion."],
+    longBody: [
+      "En natur- och välbefinnandeupplevelse för kvinnor, med fokus på gemenskap, närvaro, rörelse och självreflektion.",
+      "Initiativet förenar psykologiska perspektiv med kroppsnära praktiker och naturupplevelser, och skapar utrymme för deltagarna att sakta ner, återkoppla till sig själva och utforska välbefinnande bortom vardagens krav.",
+    ],
+  },
+  {
+    title: "House of Creatives Solna",
+    meta: "Rörelse & Meditation · Gemenskap",
+    body: ["Rörelse och meditation hos House of Creatives — ett stöttande rum för närvaro, återhämtning och gemenskap."],
+    longBody: [
+      "Jag leder rörelse- och meditationstillfällen hos House of Creatives i Solna.",
+      "Passen kombinerar kroppsnära praktik med psykologiska perspektiv och skapar ett tryggt rum där deltagarna kan landa, andas och återhämta sig tillsammans.",
+    ],
+  },
+  {
+    title: "Fryshuset · Jakten på mening",
+    meta: "Podcast · Samtal om mening & välbefinnande",
+    body: ["Gäst i Fryshusets podcast Jakten på mening — ett samtal om psykologisk hälsa och det som ger livet mening."],
+    longBody: [
+      "Jag deltog i Fryshusets podcast Jakten på mening.",
+      "I avsnittet samtalar vi om psykologisk hälsa — om vad som skapar mening, hur vi kan stärka vårt välbefinnande och vad som händer när vi lyssnar in oss själva.",
     ],
   },
 ];
