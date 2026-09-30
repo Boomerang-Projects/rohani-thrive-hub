@@ -21,6 +21,7 @@ import { ExperienceTabs, type ExperienceSection } from "@/components/sections/Ex
 /* ---------- Data ---------- */
 
 type Entry = {
+
   period?: string;
   title: string;
   image?: string;
