@@ -119,8 +119,10 @@ export function PhotoEntryCard({
         </h3>
         <p className="mt-3 text-[10px] uppercase tracking-[0.18em] leading-relaxed text-foreground/55">{meta}</p>
         <p className="mt-4 text-sm leading-relaxed text-foreground/75">{text}</p>
-        <span className="mt-auto pt-6 font-bold text-[11px] uppercase tracking-[0.22em] text-accent underline underline-offset-4">
-          {readMore}
+        <span className="mt-auto pt-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-accent/60 px-4 py-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.2em] text-accent transition-colors duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-background">
+            {readMore} <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </span>
         </span>
       </div>
     </article>

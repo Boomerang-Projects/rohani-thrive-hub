@@ -20,7 +20,6 @@ const navLinksSv: NavItem[] = [
       { id: "metod", label: "Så arbetar vi" },
       { id: "grundaren", label: "Möt grundaren" },
       { id: "heart", label: "Hjärtat av ROHANI" },
-      { id: "samarbeten", label: "Samarbeten & sponsorer" },
     ],
   },
   {
@@ -50,7 +49,6 @@ const navLinksEn: NavItem[] = [
     { id: "metod", label: "How we work" },
     { id: "grundaren", label: "Meet the Founder" },
     { id: "heart", label: "The Heart of ROHANI" },
-    { id: "samarbeten", label: "Partners & Sponsors" },
   ] },
   { to: "/experience", label: "Experience", subs: [
     { id: "clinical", href: "/experience", label: "Clinical Practice" },

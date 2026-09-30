@@ -38,6 +38,7 @@ import mediaMagazine from "@/assets/media-magazine.jpg";
 
 import { type ExperienceSection } from "@/components/sections/ExperienceTabs";
 import { ExperienceSwipe } from "@/components/sections/ExperienceSwipe";
+import { orgQuote } from "@/lib/testimonials";
 /* ---------- Data ---------- */
 
 type Entry = {
@@ -46,6 +47,8 @@ type Entry = {
   image?: string;
   /** Photo shown on the card. When set, the logo (image) only shows in the popup. */
   photo?: string;
+  /** Keys of organisation testimonials (lib/testimonials.ts) shown in the popup. */
+  testimonials?: string[];
   /** A second logo shown next to the first one in the popup (e.g. Tillsammans för Sverige). */
   extraLogo?: string;
   /** Folder name in src/assets/photos/gallery/ with extra photos for the popup. */
@@ -76,6 +79,7 @@ const clinicalEntries: Entry[] = [
   {
     period: "2022 - 2025",
     title: "Barns & Ungas Psykiska Hälsa",
+    testimonials: ["bup-1", "bup-2"],
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: ["På BUP utredde och behandlade jag barn och unga, i nära samarbete med familjer och vårdteam. Arbetet lärde mig att möta varje ung person utifrån deras förutsättningar."],
@@ -103,6 +107,7 @@ const clinicalEntries: Entry[] = [
 const organisationalEntries: Entry[] = [
   {
     title: "Somaya Stödjour",
+    testimonials: ["somaya"],
     image: somayaLogo,
     meta: "Psykologiskt & välbefinnandearbete",
     body: ["Mental hälsa och rörelse - workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
@@ -121,28 +126,39 @@ const organisationalEntries: Entry[] = [
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["Jag ledde återkommande meditationer för vårdpersonal på BUP, med konkreta verktyg för återhämtning och stressreglering i en krävande vardag."],
     longBody: [
-      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin.",
-      "Sessionerna skapade en strukturerad pausesmiljö för förankring och återhämtning i en krävande klinisk vardag, och introducerade praktiska mindfulnessbaserade verktyg för stressreglering och hållbart välbefinnande i arbetet.",
+      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin, med fokus på att skapa en strukturerad paus för förankring, närvaro och återhämtning i en krävande klinisk vardag.",
+      "Genom praktiska mindfulnessbaserade verktyg fick deltagarna möjlighet att utveckla strategier för stressreglering, ökad närvaro och ett mer hållbart välbefinnande i arbetet.",
     ],
     tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
   {
     title: "SATS · Yogainstruktör",
+    gallery: "sats",
+    testimonials: ["sats"],
     image: satsLogo,
     meta: "Yoga · Hot yoga · Avslappning & rörelse",
     body: ["Som yogainstruktör på SATS guidar jag deltagare genom rörelse och avslappning, bland annat i hot yoga i 38 grader."],
     longBody: [
-      "Jag arbetar som yogainstruktör på SATS, där jag guidar deltagare genom rörelse, andning och avslappning.",
-      "Jag leder bland annat hot yoga i 38 grader. Värmen hjälper kroppen att mjukna och ger utrymme för närvaro, fokus och återhämtning.",
+      "Som utbildad yogainstruktör på SATS leder jag regelbundet yoga- och återhämtningsklasser på olika anläggningar runt om i Stockholm. Jag är utbildad för att undervisa även i hotsalar och håller framför allt klasser inom Yin Yoga, Aroma Relax, Meditation och Breathwork med fokus på närvaro, kroppskännedom och återhämtning.",
+      "Aroma Relax är en guidad avslappningsklass där olika essentiella oljor kombineras med andning, närvaro och djup avslappning. Breathwork och meditation fokuserar främst på andningstekniker och mindfulness. Klasserna skapar en möjlighet att stanna upp, landa i kroppen och ge nervsystemet utrymme för återhämtning.",
+      "Klasserna är mellan 60-90 minuter och anpassas efter klassens format och deltagarnas behov. Genom att kombinera yoga, andning och avslappning vill jag skapa en upplevelse där deltagarna får möjlighet att släppa prestation, lyssna inåt och återknyta till kroppen.",
+      "Arbetet på SATS speglar en central del av mitt förhållningssätt: att välbefinnande inte bara handlar om hur vi tänker, utan också om hur vi förhåller oss till kroppen, återhämtning och vår egen närvaro.",
     ],
   },
-  // Placeholder text: the real text for g:ro studio is coming later.
   {
     title: "g:ro studio",
+    gallery: "gro",
     image: groLogo,
-    meta: "Kommer snart",
-    body: ["Text kommer snart."],
+    meta: "Yogastudio · Mariatorget, Stockholm · Facilitator",
+    body: ["Som facilitator på GRO, en yogastudio vid Mariatorget, höll jag yoga- och meditationsklasser med fokus på närvaro, återhämtning och mental balans."],
+    longBody: [
+      "GRO var en yogastudio vid Mariatorget i Stockholm, grundad av legitimerad psykolog Sabina Landehag efter över 15 års kliniskt arbete. Visionen var att samla väletablerade facilitatorer med en gemensam övertygelse om vikten av ett mer holistiskt perspektiv på hälsa och välbefinnande.",
+      "Som facilitator på GRO höll jag yoga- och meditationsklasser med fokus på närvaro, återhämtning, kroppskännedom och mental balans. Jag var en del av ett lärarteam med olika professionella bakgrunder inom människans psykiska hälsa, där bland annat terapeuter, socionomer och andra hälsoinriktade yrkespersoner möttes kring en gemensam syn på människan som en helhet.",
+      "Utöver de regelbundna klasserna var GRO en plats för community och möten. Studion arrangerade olika events, workshops och sammankomster där människor fick möjlighet att utforska välbefinnande ur olika perspektiv och samtidigt mötas och skapa gemenskap.",
+      "Min tid på GRO speglar mycket av det som också präglar mitt arbete idag - mötet mellan psykologi, kropp, närvaro och gemenskap, och övertygelsen om att välbefinnande kan stärkas när vi får möjlighet att se och möta hela människan.",
+    ],
   },
+
 ];
 
 const communityEntries: Entry[] = [
@@ -216,8 +232,10 @@ const communityEntries: Entry[] = [
     meta: "Podcast · Samtal om mening & välbefinnande",
     body: ["Gäst i Fryshusets podcast Jakten på Tro & Mening - ett samtal om psykologisk hälsa och det som ger livet mening."],
     longBody: [
-      "Jag deltog i Fryshusets podcast Jakten på Tro & Mening.",
-      "I avsnittet samtalar vi om psykologisk hälsa - om vad som skapar mening, hur vi kan stärka vårt välbefinnande och vad som händer när vi lyssnar in oss själva.",
+      "Jakten på tro och mening är ett initiativ av Tillsammans för Sverige och Fryshuset som utforskar människans behov av mening, sammanhang och existentiell förankring.",
+      "I poddavsnittet blir jag intervjuad om mina perspektiv på människans tillvaro ur ett existentiellt och psykologiskt perspektiv, samt hur min personliga resa har format mitt professionella förhållningssätt och sätt att se på människor i olika sammanhang.",
+      "I samtalet berörde jag också hur samhället länge har tenderat att separera kropp, själ och sinne, och hur ett växande behov av mer integrerade perspektiv på människans välbefinnande kan öppna för en mer holistisk syn på hälsa och vård.",
+      "För mig handlar ett sådant perspektiv om att se människan som en helhet - där psykologi, kropp, relationer, livserfarenheter, mening och sammanhang alla kan vara delar av det som formar vårt välbefinnande och tillfredsställelse.",
     ],
     link: { label: "Se avsnittet på YouTube", href: "https://www.youtube.com/watch?v=nLSdBQndF0E&t=1285s" },
   },
@@ -228,9 +246,11 @@ const communityEntries: Entry[] = [
     meta: "Retreat · 3 dagar · Uppsala",
     body: ["Ett tre dagars retreat för kvinnor i skogen utanför Uppsala, med yoga, meditation, breathwork och reflektion i naturen."],
     longBody: [
-      "Vägen tillbaka var ett tre dagars retreat för kvinnor, ute i skogen utanför Uppsala.",
-      "Dagarna fylldes av yoga, meditation, breathwork och reflektion. Allt kretsade kring välbefinnande och hälsa, med gott om tid att äta god mat tillsammans och vara ute i naturen.",
-      "Retreatet höll jag tillsammans med en shaman från Peru, som förde in traditioner och perspektiv från Peru i arbetet.",
+      "Vägen tillbaka var ett tre dagars retreat för kvinnor, omgivet av natur och skog utanför Uppsala. Retreatet skapades som en möjlighet att stanna upp från vardagens tempo och återknyta till sig själv, kroppen och det som skapar välbefinnande.",
+      "Jag initierade, planerade och faciliterade retreatet, med ansvar för retreatets övergripande upplägg, innehåll och deltagarupplevelse. Jag utformade och höll i delar av programmet med fokus på psykologiskt välbefinnande, självreflektion, återhämtning och kroppslig närvaro, genom bland annat yoga, meditation, breathwork, reflektion och samtal.",
+      "Dagarna gav deltagarna möjlighet att landa i kroppen, lyssna inåt och utforska sina behov, samtidigt som det fanns gott om utrymme för vila, natur och gemenskap. En viktig del var också tiden mellan aktiviteterna - att äta god mat tillsammans, samtala, skratta och helt enkelt få vara.",
+      "Retreatet höll jag tillsammans med en shaman från Peru, som bidrog med traditioner, perspektiv och kunskap från sin kulturella och andliga tradition.",
+      "Tillsammans skapade vi ett möte mellan olika perspektiv på människan, välbefinnande och vår relation till oss själva och naturen - det många idag längtar efter.",
     ],
   },
   {
@@ -240,10 +260,11 @@ const communityEntries: Entry[] = [
     meta: "Event · Mammor 40+ · Flera generationer",
     body: ["Ett event för mammor 40+, om hur moderskapet har förändrats över åren och vad det har inneburit för dem som individer."],
     longBody: [
-      "Motheroots var ett event för mammor som är 40 år och äldre.",
-      "Deltagarna fick reflektera över moderskapet: hur det har förändrats för dem och vad det har inneburit för dem som individer genom åren.",
-      "Vi mediterade, gjorde visualiseringar och andningsövningar, dansade och stretchade.",
-      "Eventet avslutades med en reflektionscirkel där alla delade öppet. Deltagarna kom från olika generationer, och flera mammor kom tillsammans med sina egna mammor.",
+      "Motheroots var ett event för mammor över 40 år, skapat som ett utrymme för reflektion, återhämtning och gemenskap kring moderskapets många dimensioner.",
+      "Deltagarna fick utforska hur moderskapet hade förändrats genom livet och vilken betydelse det haft för dem som individer - bortom rollen som mamma. Genom reflektion, samtal och olika kroppsnära praktiker fick de möjlighet att stanna upp och uppmärksamma sig själva, sina behov och sin egen resa.",
+      "Under eventet kombinerade vi meditation, visualisering, andningsövningar, dans och stretch för att skapa en helhet där både kropp och sinne fick ta plats. Dagen avslutades med en öppen reflektionscirkel där deltagarna fick dela sina erfarenheter och perspektiv om moderskap med varandra.",
+      "En särskild dimension var mötet mellan generationer. Flera deltagare kom tillsammans med sina egna mammor, vilket skapade ett fint utrymme för gemenskap, igenkänning och samtal över generationsgränser.",
+      "Motheroots handlade om att få möta kvinnan bakom rollen som mamma - och att ge utrymme åt den egna berättelsen, kroppen och identiteten.",
     ],
   },
 ];
@@ -329,10 +350,11 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
       tabIndex={0}
       onClick={() => onOpen(entry)}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
-      className="relative flex flex-col md:flex-row cursor-pointer gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
+      className="group relative flex flex-col md:flex-row cursor-pointer gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
     >
-      <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent underline underline-offset-4">
-        Läs mer
+      {/* A clear button shape so it's obvious the card opens; fills in when you hover the card */}
+      <span className="order-last self-start md:order-none md:absolute md:top-6 md:right-6 inline-flex items-center gap-2 rounded-full border border-accent/60 px-4 py-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.2em] text-accent transition-colors duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-background">
+        Läs mer <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
       </span>
       {entry.image && (
         <img
@@ -342,7 +364,7 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
           className="w-36 md:w-64 shrink-0 self-center max-h-14 md:max-h-28 object-contain object-center"
         />
       )}
-      <div className="min-w-0 flex-1 md:pr-28">
+      <div className="min-w-0 flex-1 md:pr-40">
         {entry.period && (
           <p className="text-center md:text-left text-[10px] uppercase tracking-[0.25em] text-accent">
             {entry.period}
@@ -380,10 +402,10 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
 
 
-      className={`relative flex flex-col md:flex-row cursor-pointer gap-4 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
+      className={`group relative flex flex-col md:flex-row cursor-pointer gap-4 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
     >
-      <span className={`order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 ${light ? "text-accent" : "text-background/80"}`}>
-        Läs mer
+      <span className="order-last self-start md:order-none md:absolute md:top-6 md:right-6 inline-flex items-center gap-2 rounded-full border border-accent/60 px-4 py-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.2em] text-accent transition-colors duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-background">
+        Läs mer <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
       </span>
       {entry.image && (
         <img
@@ -393,7 +415,7 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
           className="w-36 md:w-64 shrink-0 self-center max-h-14 md:max-h-28 object-contain object-center"
         />
       )}
-      <div className="min-w-0 flex-1 space-y-5 md:pr-28">
+      <div className="min-w-0 flex-1 space-y-5 md:pr-40">
         <div className="space-y-2 text-center md:text-left">
           {entry.period && (
              <p className={`text-[10px] uppercase tracking-[0.25em] ${light ? "text-accent" : "text-background/70"}`}>
@@ -570,11 +592,11 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Sveriges Radio: Läs artikeln (öppnas i ny flik)"
-                className="relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                className="group relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
-                <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Läs artikeln ↗</span>
+                <span className="order-last self-start md:order-none md:absolute md:top-6 md:right-6 inline-flex items-center gap-2 rounded-full border border-accent/60 px-4 py-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.2em] text-accent transition-colors duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-background">Läs artikeln <span aria-hidden className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span></span>
                 <img src={srLogo} alt="Sveriges Radio" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-center h-auto max-h-12 md:max-h-16 object-contain" />
-                <div className="min-w-0 flex-1 md:pr-32">
+                <div className="min-w-0 flex-1 md:pr-44">
                   <h3 className="text-center md:text-left font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     Sveriges Radio
                   </h3>
@@ -589,11 +611,11 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                 type="button"
                 onClick={() => setLightboxOpen(true)}
                 aria-label="Psykologtidningen: Öppna artikeln"
-                className="relative w-full text-left cursor-zoom-in flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                className="group relative w-full text-left cursor-zoom-in flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
-                <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Läs artikeln</span>
+                <span className="order-last self-start md:order-none md:absolute md:top-6 md:right-6 inline-flex items-center gap-2 rounded-full border border-accent/60 px-4 py-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.2em] text-accent transition-colors duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-background">Läs artikeln <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span></span>
                 <img src={ptLogo} alt="Psykologtidningen" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-center h-auto max-h-12 md:max-h-16 object-contain" />
-                <div className="min-w-0 flex-1 md:pr-32">
+                <div className="min-w-0 flex-1 md:pr-44">
                   <h3 className="text-center md:text-left font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     Psykologtidningen
                   </h3>
@@ -609,11 +631,11 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="ABF Södertörn Folkbildning: Läs artikeln (öppnas i ny flik)"
-                className="relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
+                className="group relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
-                <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Läs artikeln ↗</span>
+                <span className="order-last self-start md:order-none md:absolute md:top-6 md:right-6 inline-flex items-center gap-2 rounded-full border border-accent/60 px-4 py-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.2em] text-accent transition-colors duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-background">Läs artikeln <span aria-hidden className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span></span>
                 <img src={abfLogo} alt="ABF" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-center h-10 md:h-20 object-contain" />
-                <div className="min-w-0 flex-1 md:pr-32">
+                <div className="min-w-0 flex-1 md:pr-44">
                   <h3 className="text-center md:text-left font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     ABF Södertörn Folkbildning
                   </h3>
@@ -678,9 +700,34 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                     <p key={p} className="text-base leading-[1.75] text-foreground/75">{p}</p>
                   ))}
                 </div>
+                {/* Photos first, right after her own text, then what others say */}
                 {selected.gallery && (
                   <ModalGallery photos={galleryFor(selected.gallery)} label={selected.title} lang="sv" />
                 )}
+                {/* What the organisation says: its own labelled section with white boxes,
+                    so it reads clearly as someone else's voice, separate from her own text */}
+                {selected.testimonials && selected.testimonials.length > 0 && (
+                  <section className="pt-4 border-t border-border">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">Vad de säger</p>
+                    <div className="mt-4 space-y-3">
+                      {selected.testimonials.map((k) => {
+                        const q = orgQuote(k);
+                        if (!q) return null;
+                        return (
+                          <figure key={k} className="relative rounded-2xl bg-white border border-foreground/10 shadow-[0_10px_30px_-18px_rgba(27,43,36,0.35)] p-6 md:p-7">
+                            <span aria-hidden className="absolute top-3 left-5 font-serif text-5xl leading-none text-accent/50">"</span>
+                            <blockquote className="relative pt-5 font-sans text-[15px] md:text-base font-light leading-[1.8] text-foreground/80">{q.quote}</blockquote>
+                            <figcaption className="mt-4 flex items-center gap-3">
+                              <span className="h-px w-6 bg-accent" />
+                              <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">{q.who.sv}</span>
+                            </figcaption>
+                          </figure>
+                        );
+                      })}
+                    </div>
+                  </section>
+                )}
+
                 {selected.tags && (
                   <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.tags}</p>
                 )}
