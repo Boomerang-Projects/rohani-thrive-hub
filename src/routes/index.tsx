@@ -230,6 +230,9 @@ function AboutPage() {
         </div>
 
         {/* Heart of the work */}
+        <div className="px-6 md:px-10 pt-16 md:pt-20 max-w-7xl mx-auto">
+          <SectionHeader title={t("Hjärtat av ROHANI", "The Heart of ROHANI")} />
+        </div>
         <section id="heart" className="relative overflow-hidden scroll-mt-24">
           <img src={heartOfWorkPhoto.url} alt={t("Deltagare sitter tillsammans i en cirkel under en sammankomst", "Participants sitting together in a circle at a gathering")} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
