@@ -11,7 +11,7 @@ const tabs = [
 
 export function ExperienceTabs({ lang, active }: { lang: "sv" | "en"; active: ExperienceSection }) {
   return (
-    <nav aria-label={lang === "en" ? "Experience categories" : "Erfarenhetskategorier"} className="border-b border-border/60 bg-background">
+    <nav aria-label={lang === "en" ? "Experience categories" : "Erfarenhetskategorier"} className="sticky top-[4.5rem] z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex gap-6 md:gap-12 md:justify-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {tabs.map((t) => {
           const isActive = t.key === active;
