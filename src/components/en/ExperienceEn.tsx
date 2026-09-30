@@ -44,7 +44,7 @@ const clinicalEntries: Entry[] = [
     ],
   },
   {
-    period: "2018 — 2022",
+    period: "2022 — 2025",
     title: "Child & Adolescent Mental Health",
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",

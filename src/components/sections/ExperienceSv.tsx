@@ -44,7 +44,7 @@ const clinicalEntries: Entry[] = [
     ],
   },
   {
-    period: "2018 — 2022",
+    period: "2022 — 2025",
     title: "Barns & Ungas Psykiska Hälsa",
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
