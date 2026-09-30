@@ -236,7 +236,8 @@ function AboutPage() {
         </div>
 
         {/* Heart of the work */}
-        <div className="px-6 md:px-10 pt-16 md:pt-20 max-w-7xl mx-auto">
+        {/* Equal space above and below the title: 56px top, 16px + the heading's 40px margin below */}
+        <div className="px-6 md:px-10 pt-12 md:pt-14 pb-4 max-w-7xl mx-auto">
           <SectionHeader title={t("Hjärtat av ROHANI", "The Heart of ROHANI")} />
         </div>
         <section id="heart" className="relative overflow-hidden scroll-mt-32">

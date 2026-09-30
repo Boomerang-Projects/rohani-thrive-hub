@@ -190,27 +190,21 @@ html.lenis body {
 }
 
 /* Logo band: endless slow roll (see src/components/sections/LogoMarquee.tsx) */
-.logo-marquee {
-  /* soft fade at both edges so logos glide in and out */
-  mask-image: none;
-}
-@media (min-width: 768px) {
-  .logo-marquee {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
-}
 @media (prefers-reduced-motion: no-preference) {
   .logo-marquee-track {
-    animation: logo-roll 20s linear infinite;
-  }
-  @media (min-width: 768px) {
-    .logo-marquee-track {
-      animation-duration: 64s;
-    }
+    /* Own compositor layer: the browser slides the band on the GPU
+       instead of repainting it while the page scrolls. */
+    will-change: transform;
+    backface-visibility: hidden;
+    /* Time for one full row to pass. Lower = faster. */
+    animation: logo-roll 76s linear infinite;
   }
 }
 @keyframes logo-roll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }

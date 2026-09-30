@@ -1,35 +1,37 @@
 import bup from "@/assets/logos/bup-region-stockholm.png";
-import haninge from "@/assets/logos/haninge-kommun-crest.png.asset.json";
+import haninge from "@/assets/logos/haninge-kommun.png";
 import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
 import psykologtidningen from "@/assets/logos/psykologtidningen.png";
-import abfSodertorn from "@/assets/logos/partners/abf-sodertorn.jpg.asset.json";
-import betteryou from "@/assets/logos/partners/betteryou.webp.asset.json";
-import somaya from "@/assets/logos/partners/somaya-kvinnostodjour.jpg.asset.json";
-import hocs from "@/assets/logos/partners/house-of-creatives-solna.jpg.asset.json";
-import fryshuset from "@/assets/logos/partners/fryshuset.png.asset.json";
-import lululemon from "@/assets/logos/partners/lululemon.jpg.asset.json";
-import sats from "@/assets/logos/partners/sats.jpg.asset.json";
-import myHappyHead from "@/assets/logos/partners/my-happy-head.jpg.asset.json";
+import dinPsykolog from "@/assets/logos/din-psykolog.png";
+import somaya from "@/assets/logos/somaya.png";
+import fryshuset from "@/assets/logos/fryshuset.png";
+import hocs from "@/assets/logos/hocs.png";
+import betteryou from "@/assets/logos/betteryou.png";
+import myHappyHead from "@/assets/logos/my-happy-head.png";
+import sats from "@/assets/logos/sats.png";
+import lululemon from "@/assets/logos/lululemon.png";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
-const logos: { src: string; alt: string; color?: boolean }[] = [
-  { src: haninge.url, alt: "Haninge kommun", color: true },
-  { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm" },
-  { src: karolinska, alt: "Karolinska Universitetssjukhuset" },
-  { src: sverigesRadio, alt: "Sveriges Radio" },
-  { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm" },
-  { src: psykologtidningen, alt: "Psykologtidningen" },
-  { src: abfSodertorn.url, alt: "ABF Södertörn" },
-  { src: betteryou.url, alt: "Better You" },
-  { src: somaya.url, alt: "Somaya kvinnostödjour" },
-  { src: hocs.url, alt: "House of Creatives Solna" },
-  { src: fryshuset.url, alt: "Fryshuset" },
-  { src: lululemon.url, alt: "lululemon" },
-  { src: sats.url, alt: "SATS" },
-  { src: myHappyHead.url, alt: "My Happy Head" },
+// Logos in their original colours, exactly as supplied. Transparent PNGs only.
+const logos = [
+  { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm", w: 755, h: 100 },
+  { src: haninge, alt: "Haninge kommun", w: 755, h: 100 },
+  { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm", w: 500, h: 100 },
+  { src: karolinska, alt: "Karolinska Universitetssjukhuset", w: 500, h: 100 },
+  { src: sverigesRadio, alt: "Sveriges Radio", w: 438, h: 80 },
+  { src: psykologtidningen, alt: "Psykologtidningen", w: 341, h: 91 },
+  { src: dinPsykolog, alt: "Din psykolog", w: 500, h: 100 },
+  { src: somaya, alt: "Somaya kvinnostödjour", w: 500, h: 100 },
+  { src: fryshuset, alt: "Fryshuset", w: 500, h: 100 },
+  { src: hocs, alt: "House of Creatives Solna", w: 500, h: 100 },
+  { src: betteryou, alt: "Better You", w: 500, h: 100 },
+  { src: myHappyHead, alt: "My Happy Head", w: 500, h: 100 },
+  { src: sats, alt: "SATS", w: 500, h: 100 },
+  { src: lululemon, alt: "lululemon", w: 500, h: 100 },
 ];
+
 
 /**
  * A rolling band of logos (row rendered twice for a seamless loop).
@@ -39,14 +41,19 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
   const row = (hidden: boolean) => (
     <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {logos.map((logo) => (
-        <li key={logo.alt} className="flex w-[46vw] shrink-0 items-center justify-center px-2 md:w-auto md:px-0">
+        <li key={logo.alt} className="flex items-center">
           <img
             src={logo.src}
             alt={hidden ? "" : logo.alt}
-            className="h-10 max-h-full w-auto max-w-[42vw] object-contain opacity-100 md:h-11 md:max-w-none [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
-            loading="lazy"
+            className="h-8 md:h-11 w-auto max-w-none"
+            // Load right away, and reserve each logo's real size up front,
+            // so the row never changes width mid-roll. A width change is what makes it jump.
+            width={logo.w}
+            height={logo.h}
+            decoding="async"
+            draggable={false}
           />
-          <span className="hidden md:block md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
+          <span className="mx-10 md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
         </li>
       ))}
     </ul>
@@ -59,7 +66,7 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
           type="button"
           id="samarbeten"
           aria-label="Visa alla loggor"
-          className={`${className} block w-full cursor-pointer scroll-mt-32 bg-mocha py-8 md:py-12 text-left`}
+          className={`${className} block w-full cursor-pointer scroll-mt-32 bg-mocha py-10 md:py-12 text-left`}
         >
           <div className="logo-marquee overflow-hidden">
             <div className="logo-marquee-track flex w-max">
@@ -79,7 +86,7 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="h-14 w-auto max-w-[80%] object-contain [filter:drop-shadow(0_0_1px_rgba(0,0,0,0.2))]"
+                className="h-12 w-auto max-w-[80%] object-contain"
               />
               <span className="text-center text-[11px] uppercase tracking-[0.2em] text-background/80">
                 {logo.alt}
