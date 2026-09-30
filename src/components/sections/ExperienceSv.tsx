@@ -76,6 +76,7 @@ const organisationalEntries: Entry[] = [
   {
     title: "Somaya Stödjour",
     image: somayaLogo,
+    logoBig: true,
     meta: "Psykologiskt & välbefinnandearbete",
     body: ["Mental hälsa och rörelse – workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
     longBody: [

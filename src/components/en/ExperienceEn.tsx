@@ -76,6 +76,7 @@ const organisationalEntries: Entry[] = [
   {
     title: "Somaya Women's Support Centre",
     image: somayaLogo,
+    logoBig: true,
     meta: "Psychological & Wellbeing Work",
     body: ["Mental health and movement – workshop for an organisation supporting women and families facing difficult circumstances."],
     longBody: [
