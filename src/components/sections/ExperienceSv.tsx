@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
-import somayaLogo from "@/assets/logos/partners/somaya-kvinnostodjour.jpg.asset.json";
+import somayaLogo from "@/assets/logos/partners/somaya-kvinnostodjour.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
