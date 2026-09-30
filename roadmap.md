@@ -4,3 +4,5 @@
 - [x] Social påverkan: lägg till rutor för House of Creatives (rörelse & meditation) och Fryshuset (podcast Jakten på mening) (SV+EN)
 
 - Menyrad: bubbel runt varje ord/kategori + hover-popp (väntar på användarens val av stil)
+
+- Klarläggande: bubblorna gäller menyn uppe (huvudmenyn) — varje ord/kategori med popp vid hover
