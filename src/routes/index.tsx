@@ -185,8 +185,8 @@ function AboutPage() {
               </div>
 
             </div>
-          </div>
         </section>
+
 
         {/* How we work: same layout as "What guides us" */}
         <section id="metod" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
