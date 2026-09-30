@@ -24,6 +24,7 @@ type Entry = {
   period?: string;
   title: string;
   image?: string;
+  logoBig?: boolean;
   meta: string;
   body: string[];
   longBody?: string[];
