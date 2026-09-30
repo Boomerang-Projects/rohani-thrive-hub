@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
-import somayaLogo from "@/assets/logos/partners/somaya-kvinnostodjour.jpg.asset.json";
+import somayaLogo from "@/assets/logos/partners/somaya-kvinnostodjour.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
@@ -24,6 +24,7 @@ type Entry = {
   period?: string;
   title: string;
   image?: string;
+  logoBig?: boolean;
   meta: string;
   body: string[];
   longBody?: string[];
@@ -74,7 +75,8 @@ const clinicalEntries: Entry[] = [
 const organisationalEntries: Entry[] = [
   {
     title: "Somaya Women's Support Centre",
-    image: somayaLogo.url,
+    image: somayaLogo,
+    logoBig: true,
     meta: "Psychological & Wellbeing Work",
     body: ["Mental health and movement – workshop for an organisation supporting women and families facing difficult circumstances."],
     longBody: [
@@ -510,7 +512,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                       <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
                     </div>
                     {selected.image && (
-                      <img src={selected.image} alt={selected.title} className="mt-1 hidden h-16 w-56 shrink-0 object-contain object-right sm:block" />
+                      <img src={selected.image} alt={selected.title} className={`mt-1 hidden shrink-0 object-contain object-right sm:block ${selected.logoBig ? "h-36 w-36" : "h-16 w-56"}`} />
                     )}
                   </div>
                 </DialogHeader>
