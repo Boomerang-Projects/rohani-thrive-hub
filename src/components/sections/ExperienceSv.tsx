@@ -221,15 +221,17 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
           {entry.meta}
         </p>
         <div className="mt-5 space-y-4">
-          {entry.body.map((p) => (
+          {entry.body.map((p, i) => (
             <p key={p} className="text-base leading-[1.75] text-foreground/75">
               {p}
+              {i === entry.body.length - 1 && (
+                <span className="ml-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent">
+                  Läs mer <span aria-hidden>→</span>
+                </span>
+              )}
             </p>
           ))}
         </div>
-        <p className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-accent pb-1 text-accent">
-          Läs mer <span aria-hidden>→</span>
-        </p>
         {entry.link && (
           <div className="pt-6">
             <ExternalLink {...entry.link} />
@@ -272,9 +274,14 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
           </p>
         </div>
         <div className="space-y-3">
-          {entry.body.map((p) => (
+          {entry.body.map((p, i) => (
              <p key={p} className={`text-base leading-[1.75] ${light ? "text-foreground/75" : "text-background/85"}`}>
               {p}
+              {i === entry.body.length - 1 && (
+                <span className={`ml-2 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] ${light ? "text-accent" : "text-background/80"}`}>
+                  Läs mer <span aria-hidden>→</span>
+                </span>
+              )}
             </p>
           ))}
           {entry.tags && (
@@ -282,9 +289,6 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
               {entry.tags}
             </p>
           )}
-          <p className={`mt-3 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b pb-1 ${light ? "border-accent text-accent" : "border-background/30 text-background/80"}`}>
-            Läs mer <span aria-hidden>→</span>
-          </p>
           {entry.link && (
             <div className="pt-4">
                <ExternalLink {...entry.link} dark={!light} />
