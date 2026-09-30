@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
+import { AboutTabs } from "@/components/sections/AboutTabs";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
 import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
@@ -125,8 +126,10 @@ function AboutPage() {
           </div>
         </section>
 
+        <AboutTabs lang={lang} />
+
         {/* What Guides Us */}
-        <section id="vagleder" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
+        <section id="vagleder" className="scroll-mt-32 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
           {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
           <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
@@ -153,7 +156,7 @@ function AboutPage() {
         </section>
 
         {/* Our Mission: full-bleed photo like the hero */}
-        <section id="mission" className="scroll-mt-24 relative overflow-hidden">
+        <section id="mission" className="scroll-mt-32 relative overflow-hidden">
           <img
             src={missionPhoto.url}
             alt={t("Grupp på mattor utomhus i kvällsljus", "A group resting on mats outdoors in the evening sun")}
@@ -225,7 +228,7 @@ function AboutPage() {
           </div>
         </section>
 
-        <div id="grundaren" className="scroll-mt-24 bg-sand py-16 md:py-20">
+        <div id="grundaren" className="scroll-mt-32 bg-sand py-16 md:py-20">
           <Founder />
         </div>
 
@@ -233,7 +236,7 @@ function AboutPage() {
         <div className="px-6 md:px-10 pt-16 md:pt-20 max-w-7xl mx-auto">
           <SectionHeader title={t("Hjärtat av ROHANI", "The Heart of ROHANI")} />
         </div>
-        <section id="heart" className="relative overflow-hidden scroll-mt-24">
+        <section id="heart" className="relative overflow-hidden scroll-mt-32">
           <img src={heartOfWorkPhoto.url} alt={t("Deltagare sitter tillsammans i en cirkel under en sammankomst", "Participants sitting together in a circle at a gathering")} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
