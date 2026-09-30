@@ -221,7 +221,7 @@ function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
 
 /* ---------- Page ---------- */
 
-export export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSection }) {
+export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSection }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
