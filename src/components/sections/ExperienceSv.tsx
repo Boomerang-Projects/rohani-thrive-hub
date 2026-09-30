@@ -525,11 +525,18 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
             {selected && (
               <>
                 <DialogHeader>
-                  {selected.period && (
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
-                  )}
-                  <DialogTitle className="font-serif text-2xl md:text-3xl uppercase leading-tight">{selected.title}</DialogTitle>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
+                  <div className="flex items-start justify-between gap-6">
+                    <div>
+                      {selected.period && (
+                        <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
+                      )}
+                      <DialogTitle className="font-serif text-2xl md:text-3xl uppercase leading-tight">{selected.title}</DialogTitle>
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
+                    </div>
+                    {selected.image && (
+                      <img src={selected.image} alt={selected.title} className="mt-1 hidden h-12 w-40 shrink-0 object-contain object-right sm:block" />
+                    )}
+                  </div>
                 </DialogHeader>
                 <div className="space-y-4">
                   {(selected.longBody ?? selected.body).map((p) => (
