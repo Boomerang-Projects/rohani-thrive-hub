@@ -12,6 +12,7 @@ import mediaPodcast from "@/assets/media-podcast.jpg";
 import photoGroupCircle from "@/assets/photos/group-circle.jpg";
 import photoHandsSky from "@/assets/photos/hands-sky.jpg";
 import photoFireEvening from "@/assets/photos/fire-evening.jpg";
+import { ExperienceTabs, type ExperienceSection } from "@/components/sections/ExperienceTabs";
 
 /* ---------- Data ---------- */
 
@@ -220,7 +221,7 @@ function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
 
 /* ---------- Page ---------- */
 
-export function ExperienceEn() {
+export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSection }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   useEffect(() => {
@@ -260,6 +261,9 @@ export function ExperienceEn() {
           </div>
         </section>
 
+        <ExperienceTabs lang="en" active={section} />
+
+{section === "clinical" && (<>
         {/* ===== Collaborations — dark band ===== */}
         <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
@@ -277,6 +281,8 @@ export function ExperienceEn() {
         </section>
 
 
+</>)}
+{section === "organisational" && (<>
          {/* ===== Organisational work ===== */}
         <section className="py-16 md:py-20 px-6 md:px-10">
            <div id="organisational" className="max-w-7xl mx-auto scroll-mt-28">
@@ -289,6 +295,8 @@ export function ExperienceEn() {
            </div>
          </section>
 
+</>)}
+{section === "community" && (<>
          <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
            <div id="community" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Social Impact" dark />
@@ -300,6 +308,8 @@ export function ExperienceEn() {
            </div>
         </section>
 
+</>)}
+{section === "clinical" && (<>
         {/* ===== Heart of the work ===== */}
         <section className="relative overflow-hidden">
           <img src={heartOfWorkPhoto.url} alt="Participants sitting together in a circle at a gathering" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
@@ -328,6 +338,8 @@ export function ExperienceEn() {
         </section>
 
 
+</>)}
+{section === "media" && (<>
         {/* ===== In the Media + organisations ===== */}
         <section className="bg-secondary/60 py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
@@ -399,6 +411,8 @@ export function ExperienceEn() {
           </div>
         </section>
 
+</>)}
+{section === "clinical" && (<>
         <section className="px-6 md:px-10 pb-2">
           <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
             Experience Across
@@ -419,6 +433,7 @@ export function ExperienceEn() {
           </div>
         </section>
 
+</>)}
         <ArticleLightbox
           src={mediaArticle.url}
           alt="Article in Psykologtidningen about G-Flow"

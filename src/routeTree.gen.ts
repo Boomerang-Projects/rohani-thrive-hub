@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExperienceSocialRouteImport } from './routes/experience_.social'
+import { Route as ExperienceOrganisationalRouteImport } from './routes/experience_.organisational'
+import { Route as ExperienceMediaRouteImport } from './routes/experience_.media'
 
 const ExperienceRoute = ExperienceRouteImport.update({
   id: '/experience',
@@ -28,35 +31,82 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienceSocialRoute = ExperienceSocialRouteImport.update({
+  id: '/experience_/social',
+  path: '/experience/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperienceOrganisationalRoute =
+  ExperienceOrganisationalRouteImport.update({
+    id: '/experience_/organisational',
+    path: '/experience/organisational',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ExperienceMediaRoute = ExperienceMediaRouteImport.update({
+  id: '/experience_/media',
+  path: '/experience/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/experience/media': typeof ExperienceMediaRoute
+  '/experience/organisational': typeof ExperienceOrganisationalRoute
+  '/experience/social': typeof ExperienceSocialRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/experience/media': typeof ExperienceMediaRoute
+  '/experience/organisational': typeof ExperienceOrganisationalRoute
+  '/experience/social': typeof ExperienceSocialRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/experience_/media': typeof ExperienceMediaRoute
+  '/experience_/organisational': typeof ExperienceOrganisationalRoute
+  '/experience_/social': typeof ExperienceSocialRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/experience'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/experience'
+    | '/experience/media'
+    | '/experience/organisational'
+    | '/experience/social'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/experience'
-  id: '__root__' | '/' | '/contact' | '/experience'
+  to:
+    | '/'
+    | '/contact'
+    | '/experience'
+    | '/experience/media'
+    | '/experience/organisational'
+    | '/experience/social'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/experience'
+    | '/experience_/media'
+    | '/experience_/organisational'
+    | '/experience_/social'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   ExperienceRoute: typeof ExperienceRoute
+  ExperienceMediaRoute: typeof ExperienceMediaRoute
+  ExperienceOrganisationalRoute: typeof ExperienceOrganisationalRoute
+  ExperienceSocialRoute: typeof ExperienceSocialRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +132,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience_/social': {
+      id: '/experience_/social'
+      path: '/experience/social'
+      fullPath: '/experience/social'
+      preLoaderRoute: typeof ExperienceSocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experience_/organisational': {
+      id: '/experience_/organisational'
+      path: '/experience/organisational'
+      fullPath: '/experience/organisational'
+      preLoaderRoute: typeof ExperienceOrganisationalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experience_/media': {
+      id: '/experience_/media'
+      path: '/experience/media'
+      fullPath: '/experience/media'
+      preLoaderRoute: typeof ExperienceMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +160,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   ExperienceRoute: ExperienceRoute,
+  ExperienceMediaRoute: ExperienceMediaRoute,
+  ExperienceOrganisationalRoute: ExperienceOrganisationalRoute,
+  ExperienceSocialRoute: ExperienceSocialRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

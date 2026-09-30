@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
 
-type SubLink = { id: string; label: string };
+type SubLink = { id: string; label: string; href?: string };
 type NavItem = { to: string; label: string; subs?: SubLink[] };
 
 const navLinksSv: NavItem[] = [
@@ -21,10 +21,10 @@ const navLinksSv: NavItem[] = [
     to: "/experience",
     label: "Erfarenhet",
     subs: [
-      { id: "clinical", label: "Kliniskt arbete" },
-      { id: "organisational", label: "Organisatoriskt arbete" },
-      { id: "community", label: "Social påverkan" },
-      { id: "media", label: "I media" },
+      { id: "clinical", href: "/experience", label: "Kliniskt arbete" },
+      { id: "organisational", href: "/experience/organisational", label: "Organisatoriskt arbete" },
+      { id: "community", href: "/experience/social", label: "Social påverkan" },
+      { id: "media", href: "/experience/media", label: "I media" },
     ],
   },
   {
@@ -45,10 +45,10 @@ const navLinksEn: NavItem[] = [
     { id: "samarbeten", label: "Partners & Sponsors" },
   ] },
   { to: "/experience", label: "Experience", subs: [
-    { id: "clinical", label: "Clinical Practice" },
-    { id: "organisational", label: "Organisational Work" },
-    { id: "community", label: "Social Impact" },
-    { id: "media", label: "In the Media" },
+    { id: "clinical", href: "/experience", label: "Clinical Practice" },
+    { id: "organisational", href: "/experience/organisational", label: "Organisational Work" },
+    { id: "community", href: "/experience/social", label: "Social Impact" },
+    { id: "media", href: "/experience/media", label: "In the Media" },
   ] },
   { to: "/contact", label: "Contact", subs: [
     { id: "contact", label: "Get in Touch" },
@@ -117,9 +117,9 @@ export function SiteHeader() {
                     {link.subs.map((sub) => (
                       <a
                         key={sub.id}
-                        href={`${link.to}#${sub.id}`}
+                        href={sub.href ?? `${link.to}#${sub.id}`}
                         onClick={(e) => {
-                          if (pathname === link.to) {
+                          if (!sub.href && pathname === link.to) {
                             e.preventDefault();
                             scrollToSection(sub.id);
                           }
@@ -165,9 +165,9 @@ export function SiteHeader() {
                   {link.subs.map((sub) => (
                     <a
                       key={sub.id}
-                      href={`${link.to}#${sub.id}`}
+                      href={sub.href ?? `${link.to}#${sub.id}`}
                       onClick={(e) => {
-                        if (pathname === link.to) {
+                        if (!sub.href && pathname === link.to) {
                           e.preventDefault();
                           scrollToSection(sub.id);
                         } else {
