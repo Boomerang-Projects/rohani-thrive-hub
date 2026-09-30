@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
@@ -25,6 +26,7 @@ type Entry = {
   image?: string;
   meta: string;
   body: string[];
+  longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
 };
@@ -36,6 +38,11 @@ const clinicalEntries: Entry[] = [
     image: logoVuxen,
     meta: "Public Healthcare · Clinical Psychologist",
     body: ["As a licensed psychologist in adult psychiatry, I provide assessment and treatment tailored to each person's needs and circumstances."],
+    longBody: [
+      "Providing psychological assessment and treatment within adult psychiatric care, working with a broad range of mental health concerns including anxiety, depression, stress-related difficulties and complex psychological presentations.",
+      "The role involves independent clinical work, treatment planning and therapeutic interventions.",
+      "Working across different presentations and individual needs has further developed my ability to adapt psychological approaches, communication and interventions to the person, context and stage of life.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -43,6 +50,11 @@ const clinicalEntries: Entry[] = [
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
     body: ["At BUP, I assessed and treated children and young people alongside families and care teams. I learned to meet each young person on their own terms."],
+    longBody: [
+      "Worked within child and adolescent psychiatry, supporting young people with a broad range of psychological and mental health challenges.",
+      "My work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
+      "This experience helped strengthen and shape my ability to adapt therapeutic approaches, communication and interventions to different developmental stages, individual needs and family constellations.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -50,6 +62,12 @@ const clinicalEntries: Entry[] = [
     image: logoKarolinska,
     meta: "Karolinska University Hospital · Crisis Intervention",
     body: ["At Karolinska, I worked with severe mental illness, crisis intervention and suicide prevention. This taught me to stay grounded and present in complex, high-pressure situations."],
+    longBody: [
+      "Experience within adult psychiatric services, working with individuals experiencing a range of severe mental health challenges.",
+      "Developed a strong foundation in crisis intervention, psychological care and working within complex, high-pressure clinical environments.",
+      "Particular areas of experience include personality disorders, psychosis, crisis management and suicide prevention.",
+      "Working in high-pressure clinical environments strengthened my ability to remain grounded, attuned and solution-focused when working with complexity and uncertainty.",
+    ],
   },
 ];
 
@@ -58,6 +76,10 @@ const organisationalEntries: Entry[] = [
     title: "Somaya Women's Support Centre",
     meta: "Psychological & Wellbeing Work",
     body: ["I led a movement workshop for women and families facing difficult circumstances, with safety, sensitivity and cultural understanding at its heart."],
+    longBody: [
+      "Held a movement workshop for an organisation supporting women and families experiencing complex domestic, social and psychological challenges.",
+      "This work deepened my understanding of the relationship between psychological wellbeing, safety, relationships, culture and wider social circumstances.",
+    ],
     link: {
       label: "Somaya Women's Support Centre",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
@@ -67,6 +89,10 @@ const organisationalEntries: Entry[] = [
     title: "Workplace Meditation & Wellbeing",
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["I led regular meditation sessions for BUP healthcare staff, offering practical tools for recovery and stress regulation in a demanding workday."],
+    longBody: [
+      "Facilitated regular guided meditation sessions for healthcare professionals within child and adolescent psychiatry.",
+      "The sessions created a structured space for pausing, grounding and recovery within a demanding clinical environment, introducing practical mindfulness-based tools for stress regulation and sustainable wellbeing at work.",
+    ],
     tags: "Workplace Wellbeing · Mindfulness · Stress Regulation · Healthcare",
   },
 ];
@@ -76,11 +102,19 @@ const communityEntries: Entry[] = [
     title: "G-Flow · ABF Södertörn",
     meta: "Community Education · Youth Wellbeing · Culture",
     body: ["With ABF Södertörn, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
+    longBody: [
+      "Collaborated with ABF Södertörn on initiatives combining psychology, culture, movement and community-based learning.",
+      "The collaboration reflects my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
+    ],
   },
   {
     title: "Haninge Municipality",
     meta: "Youth Wellbeing · Community Development · Public Sector Collaboration",
     body: ["Together with Haninge Municipality, I created welcoming spaces where young people could explore wellbeing, movement and connection."],
+    longBody: [
+      "Collaborated with Haninge Municipality through youth-focused wellbeing initiatives, creating accessible spaces for reflection, connection, movement and personal development.",
+      "The work has strengthened my experience of translating psychological perspectives into community-based formats and working across professional and public-sector contexts.",
+    ],
   },
 ];
 
@@ -122,6 +156,7 @@ function ExternalLink({
       href={href}
       target="_blank"
       rel="noreferrer noopener"
+      onClick={(e) => e.stopPropagation()}
       className={`inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b pb-1 transition-colors ${
         dark
           ? "border-background/30 text-background/80 hover:text-gold hover:border-gold"
@@ -157,20 +192,21 @@ function SectionHeader({
   );
 }
 
-function ClinicalCard({ entry }: { entry: Entry }) {
+function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => void }) {
   return (
-    <article className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-colors duration-500 hover:border-accent/40">
-      {entry.image ? (
+    <article
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpen(entry)}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
+      className="flex cursor-pointer gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
+    >
+      {entry.image && (
         <img
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-40 md:w-64 shrink-0 self-stretch rounded-2xl bg-secondary/60 object-contain"
-        />
-      ) : (
-        <div
-          aria-hidden
-          className="w-28 md:w-44 shrink-0 aspect-square rounded-2xl border border-border bg-secondary/60"
+          className="w-40 md:w-64 shrink-0 self-stretch object-contain"
         />
       )}
       <div className="min-w-0 flex-1">
@@ -202,20 +238,21 @@ function ClinicalCard({ entry }: { entry: Entry }) {
   );
 }
 
-function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
+function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: boolean; onOpen: (e: Entry) => void }) {
   return (
-    <article className={`flex gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-colors duration-500 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}>
-      {entry.image ? (
+    <article
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpen(entry)}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
+      className={`flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
+    >
+      {entry.image && (
         <img
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className={`w-40 md:w-64 shrink-0 self-stretch rounded-2xl object-contain ${light ? "bg-secondary/60" : "bg-background/10"}`}
-        />
-      ) : (
-        <div
-          aria-hidden
-          className={`w-28 md:w-44 shrink-0 aspect-square rounded-2xl ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
+          className="w-40 md:w-64 shrink-0 self-stretch object-contain"
         />
       )}
       <div className="min-w-0 flex-1 space-y-5">
@@ -258,6 +295,7 @@ function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
 
 export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSection }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selected, setSelected] = useState<Entry | null>(null);
 
   useEffect(() => {
     const syncFromHash = () => {
@@ -309,7 +347,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
             />
             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
               {clinicalEntries.map((e) => (
-                <ClinicalCard key={e.title} entry={e} />
+                <ClinicalCard key={e.title} entry={e} onOpen={setSelected} />
               ))}
             </div>
           </div>
@@ -324,7 +362,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
              <SectionHeader title="Organisational Work" brown />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {organisationalEntries.map((e) => (
-                 <EntryRow key={e.title} entry={e} />
+                 <EntryRow key={e.title} entry={e} onOpen={setSelected} />
                ))}
              </div>
            </div>
@@ -337,7 +375,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
              <SectionHeader title="Social Impact" dark />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {communityEntries.map((e) => (
-                 <EntryRow key={e.title} entry={e} light />
+                 <EntryRow key={e.title} entry={e} light onOpen={setSelected} />
                ))}
           </div>
            </div>
@@ -481,6 +519,34 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
           open={lightboxOpen}
           onClose={() => setLightboxOpen(false)}
         />
+        <Dialog open={selected !== null} onOpenChange={(o) => { if (!o) setSelected(null); }}>
+          <DialogContent className="max-w-2xl">
+            {selected && (
+              <>
+                <DialogHeader>
+                  {selected.period && (
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
+                  )}
+                  <DialogTitle className="font-serif text-2xl md:text-3xl uppercase leading-tight">{selected.title}</DialogTitle>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
+                </DialogHeader>
+                <div className="space-y-4">
+                  {(selected.longBody ?? selected.body).map((p) => (
+                    <p key={p} className="text-base leading-[1.75] text-foreground/75">{p}</p>
+                  ))}
+                </div>
+                {selected.tags && (
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.tags}</p>
+                )}
+                {selected.link && (
+                  <div className="pt-2">
+                    <ExternalLink {...selected.link} />
+                  </div>
+                )}
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </main>
       <SiteFooter />
     </div>

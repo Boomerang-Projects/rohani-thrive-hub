@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
@@ -25,6 +26,7 @@ type Entry = {
   image?: string;
   meta: string;
   body: string[];
+  longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
 };
@@ -36,6 +38,11 @@ const clinicalEntries: Entry[] = [
     image: logoVuxen,
     meta: "Offentlig vård · Legitimerad psykolog",
     body: ["Som legitimerad psykolog utreder och behandlar jag vuxna inom psykiatrin. Jag anpassar behandlingen efter varje människas behov och livssituation."],
+    longBody: [
+      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
+      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
+      "Att arbeta över olika tillstånd och individuella behov har ytterligare utvecklat min förmåga att anpassa psykologiska förhållningssätt, kommunikation och interventioner efter personen, kontexten och livsskeden.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -43,6 +50,11 @@ const clinicalEntries: Entry[] = [
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: ["På BUP utredde och behandlade jag barn och unga, i nära samarbete med familjer och vårdteam. Arbetet lärde mig att möta varje ung person utifrån deras förutsättningar."],
+    longBody: [
+      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
+      "Mitt arbete omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering och samverkan med familjer och tvärprofessionella team.",
+      "Den erfarenheten har stärkt och format min förmåga att anpassa terapeutiska förhållningssätt, kommunikation och interventioner efter olika utvecklingsskeden, individuella behov och familjekonstellationer.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -50,6 +62,12 @@ const clinicalEntries: Entry[] = [
     image: logoKarolinska,
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
     body: ["På Karolinska arbetade jag med svår psykisk ohälsa, krisintervention och suicidprevention. Det har gett mig trygghet att vara närvarande också i komplexa och pressade situationer."],
+    longBody: [
+      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
+      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
+      "Särskilda erfarenhetsområden är personlighetssyndrom, psykos, krishantering och suicidprevention.",
+      "Att arbeta i krävande kliniska miljöer stärkte min förmåga att förbli förankrad, närvarande och lösningsfokuserad i komplexitet och osäkerhet.",
+    ],
   },
 ];
 
@@ -58,6 +76,10 @@ const organisationalEntries: Entry[] = [
     title: "Somaya Stödjour",
     meta: "Psykologiskt & välbefinnandearbete",
     body: ["Jag ledde en rörelseworkshop för kvinnor och familjer som möter svåra livsvillkor. Ett arbete där trygghet, lyhördhet och kulturell förståelse stod i centrum."],
+    longBody: [
+      "Jag höll en rörelseworkshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
+      "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
+    ],
     link: {
       label: "Somaya Stödjour",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
@@ -67,6 +89,10 @@ const organisationalEntries: Entry[] = [
     title: "Guidad meditation på arbetsplatsen",
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["Jag ledde återkommande meditationer för vårdpersonal på BUP, med konkreta verktyg för återhämtning och stressreglering i en krävande vardag."],
+    longBody: [
+      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin.",
+      "Sessionerna skapade en strukturerad pausesmiljö för förankring och återhämtning i en krävande klinisk vardag, och introducerade praktiska mindfulnessbaserade verktyg för stressreglering och hållbart välbefinnande i arbetet.",
+    ],
     tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
 ];
@@ -76,11 +102,19 @@ const communityEntries: Entry[] = [
     title: "G-Flow · ABF Södertörn",
     meta: "Folkbildning · Ungdomars välbefinnande · Kultur",
     body: ["Tillsammans med ABF Södertörn gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
+    longBody: [
+      "Jag samarbetade med ABF Södertörn i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
+      "Samarbetet speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
+    ],
   },
   {
     title: "Haninge kommun",
     meta: "Ungdomars välbefinnande · Samhällsutveckling · Offentlig sektor",
     body: ["I samarbete med Haninge kommun skapade jag inkluderande mötesplatser där unga fick utforska välbefinnande, rörelse och gemenskap."],
+    longBody: [
+      "Jag samarbetade med Haninge kommun i ungdomsorienterade välbefinnandeinitiativ och skapade tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
+      "Arbetet har stärkt min erfarenhet av att översätta psykologiska perspektiv till samhällsbaserade format och att arbeta över professionella och offentliga kontexter.",
+    ],
   },
 ];
 
@@ -122,6 +156,7 @@ function ExternalLink({
       href={href}
       target="_blank"
       rel="noreferrer noopener"
+      onClick={(e) => e.stopPropagation()}
       className={`inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b pb-1 transition-colors ${
         dark
           ? "border-background/30 text-background/80 hover:text-gold hover:border-gold"
@@ -157,20 +192,21 @@ function SectionHeader({
   );
 }
 
-function ClinicalCard({ entry }: { entry: Entry }) {
+function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => void }) {
   return (
-    <article className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-colors duration-500 hover:border-accent/40">
-      {entry.image ? (
+    <article
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpen(entry)}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
+      className="flex cursor-pointer gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
+    >
+      {entry.image && (
         <img
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-40 md:w-64 shrink-0 self-stretch rounded-2xl bg-secondary/60 object-contain"
-        />
-      ) : (
-        <div
-          aria-hidden
-          className="w-28 md:w-44 shrink-0 aspect-square rounded-2xl border border-border bg-secondary/60"
+          className="w-40 md:w-64 shrink-0 self-stretch object-contain"
         />
       )}
       <div className="min-w-0 flex-1">
@@ -202,20 +238,21 @@ function ClinicalCard({ entry }: { entry: Entry }) {
   );
 }
 
-function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
+function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: boolean; onOpen: (e: Entry) => void }) {
   return (
-    <article className={`flex gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-colors duration-500 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}>
-      {entry.image ? (
+    <article
+      role="button"
+      tabIndex={0}
+      onClick={() => onOpen(entry)}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
+      className={`flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
+    >
+      {entry.image && (
         <img
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className={`w-40 md:w-64 shrink-0 self-stretch rounded-2xl object-contain ${light ? "bg-secondary/60" : "bg-background/10"}`}
-        />
-      ) : (
-        <div
-          aria-hidden
-          className={`w-28 md:w-44 shrink-0 aspect-square rounded-2xl ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
+          className="w-40 md:w-64 shrink-0 self-stretch object-contain"
         />
       )}
       <div className="min-w-0 flex-1 space-y-5">
@@ -258,6 +295,7 @@ function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
 
 export function ExperiencePageSv({ section = "clinical" }: { section?: ExperienceSection }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selected, setSelected] = useState<Entry | null>(null);
 
   useEffect(() => {
     const syncFromHash = () => {
@@ -309,7 +347,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
             />
             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
               {clinicalEntries.map((e) => (
-                <ClinicalCard key={e.title} entry={e} />
+                <ClinicalCard key={e.title} entry={e} onOpen={setSelected} />
               ))}
             </div>
           </div>
@@ -324,7 +362,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
              <SectionHeader title="Organisatoriskt arbete" brown />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {organisationalEntries.map((e) => (
-                 <EntryRow key={e.title} entry={e} />
+                 <EntryRow key={e.title} entry={e} onOpen={setSelected} />
                ))}
           </div>
            </div>
@@ -337,7 +375,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
              <SectionHeader title="Social påverkan" dark />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {communityEntries.map((e) => (
-                 <EntryRow key={e.title} entry={e} light />
+                 <EntryRow key={e.title} entry={e} light onOpen={setSelected} />
                ))}
              </div>
            </div>
@@ -482,6 +520,34 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
           open={lightboxOpen}
           onClose={() => setLightboxOpen(false)}
         />
+        <Dialog open={selected !== null} onOpenChange={(o) => { if (!o) setSelected(null); }}>
+          <DialogContent className="max-w-2xl">
+            {selected && (
+              <>
+                <DialogHeader>
+                  {selected.period && (
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
+                  )}
+                  <DialogTitle className="font-serif text-2xl md:text-3xl uppercase leading-tight">{selected.title}</DialogTitle>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
+                </DialogHeader>
+                <div className="space-y-4">
+                  {(selected.longBody ?? selected.body).map((p) => (
+                    <p key={p} className="text-base leading-[1.75] text-foreground/75">{p}</p>
+                  ))}
+                </div>
+                {selected.tags && (
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.tags}</p>
+                )}
+                {selected.link && (
+                  <div className="pt-2">
+                    <ExternalLink {...selected.link} />
+                  </div>
+                )}
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
       </main>
       <SiteFooter />
     </div>
