@@ -3,7 +3,7 @@ import { useLang } from "@/lib/i18n";
 import { ExperienceEn } from "@/components/en/ExperienceEn";
 import { ExperiencePageSv } from "@/components/sections/ExperienceSv";
 
-export const Route = createFileRoute("/experience_/media")({
+export const Route = createFileRoute("/media")({
   head: () => ({
     meta: [
       { title: "I media — ROHANI" },
@@ -14,10 +14,10 @@ export const Route = createFileRoute("/experience_/media")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: ExperienceMediaPage,
+  component: MediaPage,
 });
 
-function ExperienceMediaPage() {
+function MediaPage() {
   const { lang } = useLang();
   return lang === "en" ? <ExperienceEn section="media" /> : <ExperiencePageSv section="media" />;
 }
