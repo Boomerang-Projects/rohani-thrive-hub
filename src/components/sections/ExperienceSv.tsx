@@ -512,7 +512,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                       <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
                     </div>
                     {selected.image && (
-                      <img src={selected.image} alt={selected.title} className="mt-1 hidden h-16 w-56 shrink-0 object-contain object-right sm:block" />
+                      <img src={selected.image} alt={selected.title} className={`mt-1 hidden shrink-0 object-contain object-right sm:block ${selected.logoBig ? "h-36 w-36" : "h-16 w-56"}`} />
                     )}
                   </div>
                 </DialogHeader>
