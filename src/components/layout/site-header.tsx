@@ -13,6 +13,7 @@ const navLinksSv: NavItem[] = [
     subs: [
       { id: "vagleder", label: "Det som vägleder oss" },
       { id: "mission", label: "Vår mission" },
+      { id: "metod", label: "Så arbetar vi" },
       { id: "grundaren", label: "Möt grundaren" },
       { id: "heart", label: "Hjärtat av ROHANI" },
       { id: "samarbeten", label: "Samarbeten & sponsorer" },
@@ -42,6 +43,7 @@ const navLinksEn: NavItem[] = [
   { to: "/", label: "About", subs: [
     { id: "vagleder", label: "What Guides Us" },
     { id: "mission", label: "Our Mission" },
+    { id: "metod", label: "How we work" },
     { id: "grundaren", label: "Meet the Founder" },
     { id: "heart", label: "The Heart of ROHANI" },
     { id: "samarbeten", label: "Partners & Sponsors" },
