@@ -152,38 +152,48 @@ function SectionHeader({
 
 function ClinicalCard({ entry }: { entry: Entry }) {
   return (
-    <article className="flex flex-col rounded-3xl border border-border bg-background p-7 md:p-8 text-foreground transition-colors duration-500 hover:border-accent/40">
-      {entry.period && (
-        <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
-          {entry.period}
-        </p>
-      )}
-       <h3 className="mt-3 font-serif font-bold text-lg md:text-xl leading-tight uppercase text-foreground text-balance">
-        {entry.title}
-      </h3>
-       <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-foreground/55 leading-relaxed">
-        {entry.meta}
-      </p>
-      <div className="mt-5 space-y-4">
-        {entry.body.map((p) => (
-           <p key={p} className="text-base leading-[1.75] text-foreground/75">
-            {p}
+    <article className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-colors duration-500 hover:border-accent/40">
+      <div
+        aria-hidden
+        className="w-28 md:w-44 shrink-0 aspect-square rounded-2xl border border-border bg-secondary/60"
+      />
+      <div className="min-w-0 flex-1">
+        {entry.period && (
+          <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
+            {entry.period}
           </p>
-        ))}
-      </div>
-      {entry.link && (
-        <div className="mt-auto pt-6">
-           <ExternalLink {...entry.link} />
+        )}
+        <h3 className="mt-3 font-serif font-bold text-lg md:text-xl leading-tight uppercase text-foreground text-balance">
+          {entry.title}
+        </h3>
+        <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-foreground/55 leading-relaxed">
+          {entry.meta}
+        </p>
+        <div className="mt-5 space-y-4">
+          {entry.body.map((p) => (
+            <p key={p} className="text-base leading-[1.75] text-foreground/75">
+              {p}
+            </p>
+          ))}
         </div>
-      )}
+        {entry.link && (
+          <div className="pt-6">
+            <ExternalLink {...entry.link} />
+          </div>
+        )}
+      </div>
     </article>
   );
 }
 
 function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
   return (
-    <article className={`h-full rounded-3xl border p-7 md:p-8 transition-colors duration-500 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}>
-      <div className="space-y-5">
+    <article className={`flex gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-colors duration-500 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}>
+      <div
+        aria-hidden
+        className={`w-28 md:w-44 shrink-0 aspect-square rounded-2xl ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
+      />
+      <div className="min-w-0 flex-1 space-y-5">
         <div className="space-y-2">
           {entry.period && (
              <p className={`text-[10px] uppercase tracking-[0.25em] ${light ? "text-accent" : "text-background/70"}`}>
@@ -272,7 +282,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
               dark
               title="Clinical Practice"
             />
-            <div className="mt-8 md:mt-10 grid gap-5 md:gap-6 md:grid-cols-3">
+            <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
               {clinicalEntries.map((e) => (
                 <ClinicalCard key={e.title} entry={e} />
               ))}
@@ -287,7 +297,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
         <section className="py-16 md:py-20 px-6 md:px-10">
            <div id="organisational" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Organisational Work" brown />
-             <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-2 md:gap-6">
+             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {organisationalEntries.map((e) => (
                  <EntryRow key={e.title} entry={e} />
                ))}
@@ -300,7 +310,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
          <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
            <div id="community" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Social Impact" dark />
-             <div className="mt-8 md:mt-10 grid gap-5 md:grid-cols-2 md:gap-6">
+             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {communityEntries.map((e) => (
                  <EntryRow key={e.title} entry={e} light />
                ))}
@@ -344,9 +354,9 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
         <section className="bg-secondary/60 py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader id="media" title="In the Media" />
-            <div className="mt-8 md:mt-10 grid gap-12 md:grid-cols-3 md:gap-10 lg:gap-14">
+            <div className="mt-8 md:mt-10 space-y-10 md:space-y-12">
               {/* Sveriges Radio */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <img
                   src={mediaRadio}
                   alt="Studio microphone in warm light"
@@ -354,23 +364,25 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                   width={1200}
                   height={900}
                   draggable={false}
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Sveriges Radio
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Interviewed on youth wellbeing, psychology and community-based folkbildning.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Sveriges Radio
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Interviewed on youth wellbeing, psychology and community-based folkbildning.
+                  </p>
+                </div>
               </div>
 
               {/* Psykologtidningen */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
                   aria-label="Open the article full size"
-                  className="block w-full cursor-zoom-in"
+                  className="shrink-0 w-32 md:w-52 cursor-zoom-in"
                 >
                   <img
                     src={mediaArticle.url}
@@ -380,16 +392,18 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                     className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                   />
                 </button>
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Psykologtidningen
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Featured in connection with G-Flow and the intersection of psychology, culture and youth development.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Psykologtidningen
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Featured in connection with G-Flow and the intersection of psychology, culture and youth development.
+                  </p>
+                </div>
               </div>
 
               {/* Podcast */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <img
                   src={mediaPodcast}
                   alt="Podcast microphones in a recording studio"
@@ -397,14 +411,16 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                   width={1200}
                   height={900}
                   draggable={false}
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Podcast
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  A guest in conversation about psychology, culture and wellbeing.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Podcast
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    A guest in conversation about psychology, culture and wellbeing.
+                  </p>
+                </div>
               </div>
             </div>
 
