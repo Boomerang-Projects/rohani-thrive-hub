@@ -128,6 +128,24 @@ const communityEntries: Entry[] = [
       "The initiative brings together psychological perspectives with embodied practices and nature-based experiences, creating space for participants to slow down, reconnect and explore wellbeing beyond the demands of everyday life.",
     ],
   },
+  {
+    title: "House of Creatives Solna",
+    meta: "Movement & Meditation · Community",
+    body: ["Movement and meditation at House of Creatives — a supportive space for presence, recovery and connection."],
+    longBody: [
+      "I lead movement and meditation sessions at House of Creatives in Solna.",
+      "The sessions combine embodied practice with psychological perspectives, creating a safe space where participants can ground themselves, breathe and recover together.",
+    ],
+  },
+  {
+    title: "Fryshuset · Jakten på mening",
+    meta: "Podcast · Conversations on Meaning & Wellbeing",
+    body: ["Guest on Fryshuset's podcast Jakten på mening — a conversation about psychological health and what gives life meaning."],
+    longBody: [
+      "I took part in Fryshuset's podcast Jakten på mening.",
+      "In the episode we talk about psychological health — what creates meaning, how we can strengthen our wellbeing, and what happens when we listen to ourselves.",
+    ],
+  },
 ];
 
 /* Saved for future use — wellbeing/retreat experiences (not active on the page right now)

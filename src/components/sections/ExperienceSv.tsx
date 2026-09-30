@@ -128,6 +128,24 @@ const communityEntries: Entry[] = [
       "Initiativet förenar psykologiska perspektiv med kroppsnära praktiker och naturupplevelser, och skapar utrymme för deltagarna att sakta ner, återkoppla till sig själva och utforska välbefinnande bortom vardagens krav.",
     ],
   },
+  {
+    title: "House of Creatives Solna",
+    meta: "Rörelse & Meditation · Gemenskap",
+    body: ["Rörelse och meditation hos House of Creatives — ett stöttande rum för närvaro, återhämtning och gemenskap."],
+    longBody: [
+      "Jag leder rörelse- och meditationstillfällen hos House of Creatives i Solna.",
+      "Passen kombinerar kroppsnära praktik med psykologiska perspektiv och skapar ett tryggt rum där deltagarna kan landa, andas och återhämta sig tillsammans.",
+    ],
+  },
+  {
+    title: "Fryshuset · Jakten på mening",
+    meta: "Podcast · Samtal om mening & välbefinnande",
+    body: ["Gäst i Fryshusets podcast Jakten på mening — ett samtal om psykologisk hälsa och det som ger livet mening."],
+    longBody: [
+      "Jag deltog i Fryshusets podcast Jakten på mening.",
+      "I avsnittet samtalar vi om psykologisk hälsa — om vad som skapar mening, hur vi kan stärka vårt välbefinnande och vad som händer när vi lyssnar in oss själva.",
+    ],
+  },
 ];
 
 /* Spara för senare upplägg — välbefinnande/retreat-erfarenheter (ej aktiva i sidan just nu)
