@@ -58,7 +58,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
           {showLink && (
             <div className="pt-8">
               <Link
-                to="/experience/media"
+                to="/experience"
                 className="text-xs uppercase tracking-[0.22em] font-medium border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
               >
                 My experience →
