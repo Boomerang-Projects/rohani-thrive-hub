@@ -8,7 +8,6 @@ import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
-import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
@@ -380,36 +379,6 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
           </div>
            </div>
         </section>
-
-</>)}
-{section === "clinical" && (<>
-        {/* ===== Heart of the work ===== */}
-        <section className="relative overflow-hidden">
-          <img src={heartOfWorkPhoto.url} alt="Participants sitting together in a circle at a gathering" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
-          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
-            <div className="max-w-3xl space-y-6 text-background">
-              <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-                At the heart of this work is a curiosity about who we are, what
-                shapes us, and who we are becoming.
-              </h2>
-              <p className="text-base leading-[1.75] text-background/90">
-                How can we move through life with greater awareness, agency and
-                intention– rather than simply reacting to what happens around
-                us?
-              </p>
-              <p className="text-base leading-[1.75] text-background/90">
-                What if meaningful change begins with becoming more conscious of
-                the way we see, experience and engage with the world?
-              </p>
-              <p className="text-base leading-[1.75] text-background/90">
-                My work combines psychological science with a human, embodied
-                and culturally responsive approach to wellbeing and development.
-              </p>
-            </div>
-          </div>
-        </section>
-
 
 </>)}
 {section === "media" && (<>

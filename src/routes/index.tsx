@@ -11,6 +11,7 @@ import imgPsychology from "@/assets/photos/work-psychology.jpg.asset.json";
 import imgBreath from "@/assets/photos/work-nervous.jpg.asset.json";
 import imgMovement from "@/assets/photos/work-movement.jpg.asset.json";
 import imgIntegration from "@/assets/photos/work-integration.jpg.asset.json";
+import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import { useLang } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -227,6 +228,28 @@ function AboutPage() {
         <div id="grundaren" className="scroll-mt-24 bg-sand py-16 md:py-20">
           <Founder />
         </div>
+
+        {/* Heart of the work */}
+        <section className="relative overflow-hidden">
+          <img src={heartOfWorkPhoto.url} alt={t("Deltagare sitter tillsammans i en cirkel under en sammankomst", "Participants sitting together in a circle at a gathering")} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/65 to-foreground/35" aria-hidden="true" />
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
+            <div className="max-w-3xl space-y-6 text-background">
+              <h2 className="font-serif text-4xl md:text-6xl leading-tight">
+                {t("I hjärtat av detta arbete ligger en nyfikenhet på vem vi är, vad som format oss — och vem vi håller på att bli.", "At the heart of this work is a curiosity about who we are, what shapes us, and who we are becoming.")}
+              </h2>
+              <p className="text-base leading-[1.75] text-background/90">
+                {t("Hur kan vi röra oss genom livet med större medvetenhet, handlingskraft och intention — istället för att bara reagera på det som händer omkring oss?", "How can we move through life with greater awareness, agency and intention– rather than simply reacting to what happens around us?")}
+              </p>
+              <p className="text-base leading-[1.75] text-background/90">
+                {t("Tänk om meningsfull förändring börjar med att bli mer medveten om hur vi ser, upplever och möter världen?", "What if meaningful change begins with becoming more conscious of the way we see, experience and engage with the world?")}
+              </p>
+              <p className="text-base leading-[1.75] text-background/90">
+                {t("Mitt arbete förenar psykologisk vetenskap med ett mänskligt, kroppsnära och kulturellt anpassningsbart förhållningssätt till välbefinnande och utveckling.", "My work combines psychological science with a human, embodied and culturally responsive approach to wellbeing and development.")}
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section id="cta" className="scroll-mt-24 bg-foreground text-background py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
