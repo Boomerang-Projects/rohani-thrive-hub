@@ -165,7 +165,7 @@ function ClinicalCard({ entry }: { entry: Entry }) {
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-32 md:w-52 shrink-0 self-stretch rounded-2xl border border-border bg-secondary/60 object-contain p-3 md:p-5"
+          className="w-40 md:w-64 shrink-0 self-stretch rounded-2xl bg-secondary/60 object-contain"
         />
       ) : (
         <div
@@ -210,7 +210,7 @@ function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className={`w-32 md:w-52 shrink-0 self-stretch rounded-2xl object-contain p-3 md:p-5 ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
+          className={`w-40 md:w-64 shrink-0 self-stretch rounded-2xl object-contain ${light ? "bg-secondary/60" : "bg-background/10"}`}
         />
       ) : (
         <div
