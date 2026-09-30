@@ -26,11 +26,8 @@ const navLinksSv: NavItem[] = [
       { id: "clinical", href: "/experience", label: "Kliniskt arbete" },
       { id: "organisational", href: "/experience/organisational", label: "Organisatoriskt arbete" },
       { id: "community", href: "/experience/social", label: "Social påverkan" },
+      { id: "media", href: "/experience/media", label: "I media" },
     ],
-  },
-  {
-    to: "/media",
-    label: "I media",
   },
   {
     to: "/contact",
@@ -55,8 +52,8 @@ const navLinksEn: NavItem[] = [
     { id: "clinical", href: "/experience", label: "Clinical Practice" },
     { id: "organisational", href: "/experience/organisational", label: "Organisational Work" },
     { id: "community", href: "/experience/social", label: "Social Impact" },
+    { id: "media", href: "/experience/media", label: "In the Media" },
   ] },
-  { to: "/media", label: "In the Media" },
   { to: "/contact", label: "Contact", subs: [
     { id: "contact", label: "Get in Touch" },
     { id: "cta", label: "Begin Where You Are" },
