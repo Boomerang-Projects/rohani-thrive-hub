@@ -3,6 +3,9 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
+import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
+import logoBup from "@/assets/logos/bup-region-stockholm.png";
+import logoKarolinska from "@/assets/logos/karolinska.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
 import heartOfWorkPhoto from "@/assets/photos/heart-of-work-group.jpeg.asset.json";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
@@ -19,6 +22,7 @@ import { ExperienceTabs, type ExperienceSection } from "@/components/sections/Ex
 type Entry = {
   period?: string;
   title: string;
+  image?: string;
   meta: string;
   body: string[];
   tags?: string;
@@ -29,18 +33,21 @@ const clinicalEntries: Entry[] = [
   {
     period: "2025 — Present",
     title: "General Adult Psychiatry",
+    image: logoVuxen,
     meta: "Public Healthcare · Clinical Psychologist",
     body: ["As a licensed psychologist in adult psychiatry, I provide assessment and treatment tailored to each person's needs and circumstances."],
   },
   {
     period: "2018 — 2022",
     title: "Child & Adolescent Mental Health",
+    image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
     body: ["At BUP, I assessed and treated children and young people alongside families and care teams. I learned to meet each young person on their own terms."],
   },
   {
     period: "2018 — 2022",
     title: "Psychiatric Hospital & Emergency Healthcare",
+    image: logoKarolinska,
     meta: "Karolinska University Hospital · Crisis Intervention",
     body: ["At Karolinska, I worked with severe mental illness, crisis intervention and suicide prevention. This taught me to stay grounded and present in complex, high-pressure situations."],
   },
@@ -153,10 +160,19 @@ function SectionHeader({
 function ClinicalCard({ entry }: { entry: Entry }) {
   return (
     <article className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-colors duration-500 hover:border-accent/40">
-      <div
-        aria-hidden
-        className="w-28 md:w-44 shrink-0 aspect-square rounded-2xl border border-border bg-secondary/60"
-      />
+      {entry.image ? (
+        <img
+          src={entry.image}
+          alt={entry.title}
+          loading="lazy"
+          className="w-28 md:w-44 shrink-0 aspect-square rounded-2xl border border-border bg-secondary/60 object-contain p-2 md:p-3"
+        />
+      ) : (
+        <div
+          aria-hidden
+          className="w-28 md:w-44 shrink-0 aspect-square rounded-2xl border border-border bg-secondary/60"
+        />
+      )}
       <div className="min-w-0 flex-1">
         {entry.period && (
           <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
@@ -189,10 +205,19 @@ function ClinicalCard({ entry }: { entry: Entry }) {
 function EntryRow({ entry, light = false }: { entry: Entry; light?: boolean }) {
   return (
     <article className={`flex gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-colors duration-500 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}>
-      <div
-        aria-hidden
-        className={`w-28 md:w-44 shrink-0 aspect-square rounded-2xl ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
-      />
+      {entry.image ? (
+        <img
+          src={entry.image}
+          alt={entry.title}
+          loading="lazy"
+          className={`w-28 md:w-44 shrink-0 aspect-square rounded-2xl object-contain p-2 md:p-3 ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
+        />
+      ) : (
+        <div
+          aria-hidden
+          className={`w-28 md:w-44 shrink-0 aspect-square rounded-2xl ${light ? "border border-border bg-secondary/60" : "bg-background/10"}`}
+        />
+      )}
       <div className="min-w-0 flex-1 space-y-5">
         <div className="space-y-2">
           {entry.period && (
