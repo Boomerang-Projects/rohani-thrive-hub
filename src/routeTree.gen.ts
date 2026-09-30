@@ -15,6 +15,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExperienceSocialRouteImport } from './routes/experience_.social'
 import { Route as ExperienceOrganisationalRouteImport } from './routes/experience_.organisational'
 import { Route as ExperienceMediaRouteImport } from './routes/experience_.media'
+import { Route as ExperienceGFlowRouteImport } from './routes/experience_.g-flow'
 
 const ExperienceRoute = ExperienceRouteImport.update({
   id: '/experience',
@@ -47,11 +48,17 @@ const ExperienceMediaRoute = ExperienceMediaRouteImport.update({
   path: '/experience/media',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienceGFlowRoute = ExperienceGFlowRouteImport.update({
+  id: '/experience_/g-flow',
+  path: '/experience/g-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/experience/g-flow': typeof ExperienceGFlowRoute
   '/experience/media': typeof ExperienceMediaRoute
   '/experience/organisational': typeof ExperienceOrganisationalRoute
   '/experience/social': typeof ExperienceSocialRoute
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/experience/g-flow': typeof ExperienceGFlowRoute
   '/experience/media': typeof ExperienceMediaRoute
   '/experience/organisational': typeof ExperienceOrganisationalRoute
   '/experience/social': typeof ExperienceSocialRoute
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/experience_/g-flow': typeof ExperienceGFlowRoute
   '/experience_/media': typeof ExperienceMediaRoute
   '/experience_/organisational': typeof ExperienceOrganisationalRoute
   '/experience_/social': typeof ExperienceSocialRoute
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/experience'
+    | '/experience/g-flow'
     | '/experience/media'
     | '/experience/organisational'
     | '/experience/social'
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/experience'
+    | '/experience/g-flow'
     | '/experience/media'
     | '/experience/organisational'
     | '/experience/social'
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/experience'
+    | '/experience_/g-flow'
     | '/experience_/media'
     | '/experience_/organisational'
     | '/experience_/social'
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   ExperienceRoute: typeof ExperienceRoute
+  ExperienceGFlowRoute: typeof ExperienceGFlowRoute
   ExperienceMediaRoute: typeof ExperienceMediaRoute
   ExperienceOrganisationalRoute: typeof ExperienceOrganisationalRoute
   ExperienceSocialRoute: typeof ExperienceSocialRoute
@@ -153,6 +166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperienceMediaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience_/g-flow': {
+      id: '/experience_/g-flow'
+      path: '/experience/g-flow'
+      fullPath: '/experience/g-flow'
+      preLoaderRoute: typeof ExperienceGFlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   ExperienceRoute: ExperienceRoute,
+  ExperienceGFlowRoute: ExperienceGFlowRoute,
   ExperienceMediaRoute: ExperienceMediaRoute,
   ExperienceOrganisationalRoute: ExperienceOrganisationalRoute,
   ExperienceSocialRoute: ExperienceSocialRoute,

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
@@ -30,7 +32,9 @@ type Entry = {
   longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
+  pageLink?: string;
 };
+
 
 const clinicalEntries: Entry[] = [
   {
@@ -103,6 +107,8 @@ const organisationalEntries: Entry[] = [
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn & Haninge kommun",
+    pageLink: "/experience/g-flow",
+
     meta: "Folkbildning · Ungdomars välbefinnande · Samhällsutveckling",
     body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
     longBody: [
@@ -278,12 +284,14 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
 }
 
 function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: boolean; onOpen: (e: Entry) => void }) {
+  const navigate = useNavigate();
   return (
     <article
       role="button"
       tabIndex={0}
-      onClick={() => onOpen(entry)}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
+      onClick={() => (entry.pageLink ? navigate({ to: entry.pageLink }) : onOpen(entry))}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); entry.pageLink ? navigate({ to: entry.pageLink }) : onOpen(entry); } }}
+
       className={`relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
     >
       <span className={`absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 ${light ? "text-accent" : "text-background/80"}`}>
