@@ -17,6 +17,7 @@ import heroLogo from "@/assets/logos/hero-dark.png";
 import satsLogo from "@/assets/logos/sats-card.png";
 import fryshusetLogo from "@/assets/logos/fryshuset.png";
 import tfsLogo from "@/assets/logos/tillsammans-for-sverige.png";
+import groLogo from "@/assets/logos/gro-studio.png";
 // Main photos for the Social påverkan cards (from the "Sociala Påverkan Bilder" folder).
 import photoGflow from "@/assets/photos/social-gflow.jpg";
 import photoHero from "@/assets/photos/social-hero.jpg";
@@ -134,6 +135,13 @@ const organisationalEntries: Entry[] = [
       "I work as a yoga instructor at SATS, guiding participants through movement, breath and relaxation.",
       "Among other classes, I lead hot yoga at 38 degrees. The heat helps the body soften and creates space for presence, focus and recovery.",
     ],
+  },
+  // Placeholder text: the real text for g:ro studio is coming later.
+  {
+    title: "g:ro studio",
+    image: groLogo,
+    meta: "Coming soon",
+    body: ["Text coming soon."],
   },
 ];
 

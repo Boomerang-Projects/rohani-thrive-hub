@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
+import { OrgTestimonials, PersonTestimonials } from "@/components/sections/Testimonials";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
 import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
@@ -77,53 +78,56 @@ function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        {/* Hero: full-bleed portrait with overlay copy, at every screen size */}
-        <section className="relative flex items-end min-h-[100svh] md:min-h-[95vh] xl:min-h-[85vh] overflow-hidden">
-          {/* Portrait crop on phones, wide crop from md up. Same layout either way. */}
+        {/* Hero: full-bleed photo, like before, but arranged so the photo stays clean.
+            - Desktop: the dark shade comes from the LEFT and fades out before her face, so
+              the statement sits on the painting beside her instead of across her.
+            - Phones: the portrait crop, with the shade only at the bottom where the text is.
+            - Her whole head stays in frame (the photo is anchored near the top). */}
+        <section className="relative flex items-end min-h-[92svh] md:min-h-[calc(100vh-73px)] overflow-hidden">
           <picture>
             <source media="(max-width: 767px)" srcSet={heroMobile} />
             <img
               src={heroDesktop}
-              alt="Madeeha Qazi, grundare av Rohani"
+              alt={t("Madeeha Qazi, grundare av Rohani", "Madeeha Qazi, founder of Rohani")}
               width={2880}
-              height={2100}
-              className="absolute inset-0 w-full h-full object-cover object-[50%_25%] md:object-[50%_18%]"
+              height={1920}
+              className="absolute inset-0 w-full h-full object-cover object-[50%_0%] md:object-[50%_8%]"
             />
           </picture>
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/40 to-foreground/10 md:from-foreground/80 md:via-foreground/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 via-35% to-transparent to-65% md:bg-gradient-to-r md:from-foreground/80 md:via-foreground/35 md:via-40% md:to-transparent md:to-60%" />
 
-          <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pt-32 md:pt-48 pb-8 sm:pb-12 md:pb-24">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8 md:gap-10 lg:gap-16">
-              <div className="max-w-3xl md:flex-1 md:min-w-0">
-                <h1 className="text-[clamp(1.75rem,4.5vw+0.6rem,3.75rem)] font-serif leading-[1.08] text-background max-w-3xl mt-4 md:mt-10">
-                  {t("Vi lyfter välbefinnande, hållbarhet och livskvalitet genom modern psykologi.", "Elevating wellbeing, sustainability and quality of life through modern psychology.")}
-                </h1>
-                <p className="text-[clamp(0.95rem,0.8vw+0.8rem,1.25rem)] leading-relaxed text-background/85 max-w-xl mt-4 md:mt-10">
-                  {t("Rohani grundades för att förena psykologi, mindfulness och mänsklig utveckling, för människor, team och organisationer som formar vår värld.", "Rohani was founded to bridge psychology, mindfulness and human development, for the people, teams and organizations who shape our world.")}
+          <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pb-10 md:pb-16 lg:pb-20">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+              {/* Statement and next steps */}
+              <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem]">
+                <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
+                  {t("Psykologi · Mindfulness · Mänsklig utveckling", "Psychology · Mindfulness · Human Development")}
                 </p>
-              </div>
-
-              {/* Quote card */}
-              <div className="relative w-full max-w-md mx-auto md:mx-0 md:w-[17rem] lg:w-[20rem] md:flex-none bg-background rounded-3xl p-6 sm:p-7 md:p-8 md:px-10 text-center shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
-                <span
-                  aria-hidden
-                  className="absolute -top-5 left-1/2 -translate-x-1/2 font-serif italic text-7xl text-foreground/5 select-none"
-                >
-                  "
-                </span>
-                <blockquote className="relative font-serif italic text-[clamp(0.95rem,0.6vw+0.85rem,1.25rem)] leading-relaxed text-foreground">
-                  {t("\"Ett genuint välbefinnande är inte frånvaron av stress eller motgångar. Det är förmågan att möta livet med medvetenhet, motståndskraft, mening och närvaro.\"", "\"True wellbeing is not the absence of stress or struggle. It is the capacity to meet life with awareness, resilience, purpose and presence.\"")}
-                </blockquote>
-                <div className="mt-4 sm:mt-6 flex items-center justify-center gap-4">
-                  <div className="h-px w-6 bg-accent" />
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-foreground/50 font-semibold">
-                    {t("Rohanis filosofi", "The Rohani Philosophy")}
-                  </p>
+                <h1 className="mt-4 md:mt-6 font-serif text-[clamp(1.4rem,1.8vw+1rem,2.6rem)] leading-[1.15] text-background">
+                  {t("Rohani grundades för att förena ", "Rohani was founded to bridge ")}
+                  <em className="italic">{t("psykologi, mindfulness och mänsklig utveckling", "psychology, mindfulness and human development")}</em>
+                  {t(", för människor, team och organisationer som formar vår värld.", ", for the people, teams and organizations who shape our world.")}
+                </h1>
+                <div className="mt-7 md:mt-9 flex flex-wrap gap-3">
+                  <Link
+                    to="/contact"
+                    className="rounded-full bg-background text-foreground px-5 md:px-7 py-3.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors hover:bg-secondary"
+                  >
+                    {t("Samarbeta med oss", "Partner with us")}
+                  </Link>
+                  <Link
+                    to="/experience"
+                    className="rounded-full border border-background/60 px-5 md:px-7 py-3.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-semibold text-background transition-colors hover:border-background hover:bg-background/10"
+                  >
+                    {t("Se vårt arbete", "See our work")}
+                  </Link>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
+
 
 
         {/* What Guides Us */}
@@ -233,6 +237,9 @@ function AboutPage() {
           <Founder />
         </div>
 
+        {/* What participants say: right after meeting the founder */}
+        <PersonTestimonials />
+
         {/* Heart of the work */}
         {/* Equal space above and below the title: 56px top, 16px + the heading's 40px margin below */}
         <div className="px-6 md:px-10 pt-12 md:pt-14 pb-4 max-w-7xl mx-auto">
@@ -258,6 +265,9 @@ function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* What organisations say: speaks to partners, just before the call to action and the logo band */}
+        <OrgTestimonials />
 
         <section id="cta" className="scroll-mt-24 mt-10 md:mt-16 bg-foreground text-background py-24 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">

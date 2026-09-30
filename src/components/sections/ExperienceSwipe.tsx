@@ -136,7 +136,7 @@ export function ExperienceSwipe({
                 onClick={() => go(i)}
                 aria-label={p.label}
                 aria-current={i === index ? "true" : undefined}
-                className="group text-left py-2"
+                className="group flex flex-col justify-start text-left py-2"
               >
                 <span
                   className={`block h-[2px] transition-colors duration-300 ${
@@ -144,7 +144,7 @@ export function ExperienceSwipe({
                   }`}
                 />
                 <span
-                  className={`mt-3 hidden md:block text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${
+                  className={`mt-3 hidden md:block text-[11px] leading-snug uppercase tracking-[0.2em] transition-colors duration-300 ${
                     i === index ? "text-background" : "text-background/45 group-hover:text-background/70"
                   }`}
                 >
