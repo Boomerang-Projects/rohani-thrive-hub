@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
@@ -30,7 +32,9 @@ type Entry = {
   longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
+  pageLink?: string;
 };
+
 
 const clinicalEntries: Entry[] = [
   {
@@ -103,6 +107,8 @@ const organisationalEntries: Entry[] = [
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn & Haninge Municipality",
+    pageLink: "/experience/g-flow",
+
     meta: "Community Education · Youth Wellbeing · Community Development",
     body: ["With ABF Södertörn and Haninge Municipality, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
     longBody: [
