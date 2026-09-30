@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
+import somayaLogo from "@/assets/logos/partners/somaya-kvinnostodjour.jpg.asset.json";
 import experienceHero from "@/assets/photos/leading-session.jpg";
 import mediaArticle from "@/assets/media-article.jpg.asset.json";
 import mediaRadio from "@/assets/media-radio.jpg";
@@ -73,8 +74,9 @@ const clinicalEntries: Entry[] = [
 const organisationalEntries: Entry[] = [
   {
     title: "Somaya Stödjour",
+    image: somayaLogo.url,
     meta: "Psykologiskt & välbefinnandearbete",
-    body: ["Jag ledde en rörelseworkshop för kvinnor och familjer som möter svåra livsvillkor. Ett arbete där trygghet, lyhördhet och kulturell förståelse stod i centrum."],
+    body: ["Mental hälsa och rörelse – workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
     longBody: [
       "Jag höll en rörelseworkshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
       "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
@@ -200,8 +202,8 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
       className="relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
     >
-      <span className="absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent">
-        Läs mer <span aria-hidden>→</span>
+      <span className="absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent underline underline-offset-4">
+        Läs mer
       </span>
       {entry.image && (
         <img
@@ -249,8 +251,8 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
       className={`relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
     >
-      <span className={`absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] ${light ? "text-accent" : "text-background/80"}`}>
-        Läs mer <span aria-hidden>→</span>
+      <span className={`absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 ${light ? "text-accent" : "text-background/80"}`}>
+        Läs mer
       </span>
       {entry.image && (
         <img
