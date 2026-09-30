@@ -22,7 +22,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
           </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
           <Link
-            to="/experience"
+            to="/experience/media"
             hash="media"
             aria-label="Read the article in Psykologtidningen"
             className="group absolute top-3 left-3 w-[11.5rem] md:mx-0 md:w-auto md:top-6 md:left-6 md:max-w-[17rem]"
@@ -58,7 +58,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
           {showLink && (
             <div className="pt-8">
               <Link
-                to="/experience"
+                to="/experience/media"
                 className="text-xs uppercase tracking-[0.22em] font-medium border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
               >
                 My experience →
