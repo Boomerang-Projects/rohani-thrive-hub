@@ -78,7 +78,7 @@ const organisationalEntries: Entry[] = [
     meta: "Psychological & Wellbeing Work",
     body: ["Mental health and movement – workshop for an organisation supporting women and families facing difficult circumstances."],
     longBody: [
-      "Held a movement workshop for an organisation supporting women and families experiencing complex domestic, social and psychological challenges.",
+      "Mental health and movement – workshop for an organisation supporting women and families experiencing complex domestic, social and psychological challenges.",
       "This work deepened my understanding of the relationship between psychological wellbeing, safety, relationships, culture and wider social circumstances.",
     ],
     link: {

@@ -78,7 +78,7 @@ const organisationalEntries: Entry[] = [
     meta: "Psykologiskt & välbefinnandearbete",
     body: ["Mental hälsa och rörelse – workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
     longBody: [
-      "Jag höll en rörelseworkshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
+      "Mental hälsa och rörelse – workshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
       "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
     ],
     link: {
