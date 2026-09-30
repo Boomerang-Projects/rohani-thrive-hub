@@ -42,7 +42,7 @@ export function AboutTabs({ lang }: { lang: "sv" | "en" }) {
             type="button"
             onClick={() => scrollTo(s.id)}
             aria-current={active === s.id ? "true" : undefined}
-            className={`shrink-0 py-5 text-xs font-serif uppercase tracking-[0.22em] font-bold border-b-2 -mb-px transition-colors whitespace-nowrap ${
+            className={`shrink-0 py-5 text-sm font-serif uppercase tracking-[0.14em] font-semibold border-b-2 -mb-px transition-colors whitespace-nowrap ${
               active === s.id
                 ? "border-accent text-foreground"
                 : "border-transparent text-foreground hover:text-foreground"
