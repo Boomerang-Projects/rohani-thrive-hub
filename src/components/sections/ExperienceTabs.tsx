@@ -6,6 +6,7 @@ const tabs = [
   { key: "clinical", to: "/experience", sv: "Kliniskt arbete", en: "Clinical Practice" },
   { key: "organisational", to: "/experience/organisational", sv: "Organisatoriskt arbete", en: "Organisational Work" },
   { key: "community", to: "/experience/social", sv: "Social påverkan", en: "Social Impact" },
+  { key: "media", to: "/experience/media", sv: "I media", en: "In the Media" },
 ] as const;
 
 export function ExperienceTabs({ lang, active }: { lang: "sv" | "en"; active: ExperienceSection }) {

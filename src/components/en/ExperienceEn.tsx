@@ -370,7 +370,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
           </div>
         </section>
 
-        {section !== "media" && <ExperienceTabs lang="en" active={section} />}
+        <ExperienceTabs lang="en" active={section} />
 
 {section === "clinical" && (<>
         {/* ===== Collaborations — dark band ===== */}
