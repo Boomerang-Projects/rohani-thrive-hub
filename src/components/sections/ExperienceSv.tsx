@@ -25,6 +25,7 @@ type Entry = {
   image?: string;
   meta: string;
   body: string[];
+  longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
 };
@@ -36,6 +37,11 @@ const clinicalEntries: Entry[] = [
     image: logoVuxen,
     meta: "Offentlig vård · Legitimerad psykolog",
     body: ["Som legitimerad psykolog utreder och behandlar jag vuxna inom psykiatrin. Jag anpassar behandlingen efter varje människas behov och livssituation."],
+    longBody: [
+      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
+      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
+      "Att arbeta över olika tillstånd och individuella behov har ytterligare utvecklat min förmåga att anpassa psykologiska förhållningssätt, kommunikation och interventioner efter personen, kontexten och livsskeden.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -43,6 +49,11 @@ const clinicalEntries: Entry[] = [
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: ["På BUP utredde och behandlade jag barn och unga, i nära samarbete med familjer och vårdteam. Arbetet lärde mig att möta varje ung person utifrån deras förutsättningar."],
+    longBody: [
+      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
+      "Mitt arbete omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering och samverkan med familjer och tvärprofessionella team.",
+      "Den erfarenheten har stärkt och format min förmåga att anpassa terapeutiska förhållningssätt, kommunikation och interventioner efter olika utvecklingsskeden, individuella behov och familjekonstellationer.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -50,6 +61,12 @@ const clinicalEntries: Entry[] = [
     image: logoKarolinska,
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
     body: ["På Karolinska arbetade jag med svår psykisk ohälsa, krisintervention och suicidprevention. Det har gett mig trygghet att vara närvarande också i komplexa och pressade situationer."],
+    longBody: [
+      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
+      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
+      "Särskilda erfarenhetsområden är personlighetssyndrom, psykos, krishantering och suicidprevention.",
+      "Att arbeta i krävande kliniska miljöer stärkte min förmåga att förbli förankrad, närvarande och lösningsfokuserad i komplexitet och osäkerhet.",
+    ],
   },
 ];
 
@@ -58,6 +75,10 @@ const organisationalEntries: Entry[] = [
     title: "Somaya Stödjour",
     meta: "Psykologiskt & välbefinnandearbete",
     body: ["Jag ledde en rörelseworkshop för kvinnor och familjer som möter svåra livsvillkor. Ett arbete där trygghet, lyhördhet och kulturell förståelse stod i centrum."],
+    longBody: [
+      "Jag höll en rörelseworkshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
+      "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
+    ],
     link: {
       label: "Somaya Stödjour",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
@@ -67,6 +88,10 @@ const organisationalEntries: Entry[] = [
     title: "Guidad meditation på arbetsplatsen",
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["Jag ledde återkommande meditationer för vårdpersonal på BUP, med konkreta verktyg för återhämtning och stressreglering i en krävande vardag."],
+    longBody: [
+      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin.",
+      "Sessionerna skapade en strukturerad pausesmiljö för förankring och återhämtning i en krävande klinisk vardag, och introducerade praktiska mindfulnessbaserade verktyg för stressreglering och hållbart välbefinnande i arbetet.",
+    ],
     tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
 ];
@@ -76,11 +101,19 @@ const communityEntries: Entry[] = [
     title: "G-Flow · ABF Södertörn",
     meta: "Folkbildning · Ungdomars välbefinnande · Kultur",
     body: ["Tillsammans med ABF Södertörn gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
+    longBody: [
+      "Jag samarbetade med ABF Södertörn i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
+      "Samarbetet speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
+    ],
   },
   {
     title: "Haninge kommun",
     meta: "Ungdomars välbefinnande · Samhällsutveckling · Offentlig sektor",
     body: ["I samarbete med Haninge kommun skapade jag inkluderande mötesplatser där unga fick utforska välbefinnande, rörelse och gemenskap."],
+    longBody: [
+      "Jag samarbetade med Haninge kommun i ungdomsorienterade välbefinnandeinitiativ och skapade tillgängliga rum för reflektion, samhörighet, rörelse och personlig utveckling.",
+      "Arbetet har stärkt min erfarenhet av att översätta psykologiska perspektiv till samhällsbaserade format och att arbeta över professionella och offentliga kontexter.",
+    ],
   },
 ];
 
