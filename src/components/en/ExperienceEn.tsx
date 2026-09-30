@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ArticleLightbox } from "@/components/sections/ArticleLightbox";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import logoVuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
 import logoBup from "@/assets/logos/bup-region-stockholm.png";
 import logoKarolinska from "@/assets/logos/karolinska.png";
@@ -25,6 +26,7 @@ type Entry = {
   image?: string;
   meta: string;
   body: string[];
+  longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
 };
@@ -36,6 +38,11 @@ const clinicalEntries: Entry[] = [
     image: logoVuxen,
     meta: "Public Healthcare · Clinical Psychologist",
     body: ["As a licensed psychologist in adult psychiatry, I provide assessment and treatment tailored to each person's needs and circumstances."],
+    longBody: [
+      "Providing psychological assessment and treatment within adult psychiatric care, working with a broad range of mental health concerns including anxiety, depression, stress-related difficulties and complex psychological presentations.",
+      "The role involves independent clinical work, treatment planning and therapeutic interventions.",
+      "Working across different presentations and individual needs has further developed my ability to adapt psychological approaches, communication and interventions to the person, context and stage of life.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -43,6 +50,11 @@ const clinicalEntries: Entry[] = [
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
     body: ["At BUP, I assessed and treated children and young people alongside families and care teams. I learned to meet each young person on their own terms."],
+    longBody: [
+      "Worked within child and adolescent psychiatry, supporting young people with a broad range of psychological and mental health challenges.",
+      "My work included psychological assessment, therapeutic interventions, psychoeducation, crisis management and collaboration with families and multidisciplinary teams.",
+      "This experience helped strengthen and shape my ability to adapt therapeutic approaches, communication and interventions to different developmental stages, individual needs and family constellations.",
+    ],
   },
   {
     period: "2018 — 2022",
@@ -50,6 +62,12 @@ const clinicalEntries: Entry[] = [
     image: logoKarolinska,
     meta: "Karolinska University Hospital · Crisis Intervention",
     body: ["At Karolinska, I worked with severe mental illness, crisis intervention and suicide prevention. This taught me to stay grounded and present in complex, high-pressure situations."],
+    longBody: [
+      "Experience within adult psychiatric services, working with individuals experiencing a range of severe mental health challenges.",
+      "Developed a strong foundation in crisis intervention, psychological care and working within complex, high-pressure clinical environments.",
+      "Particular areas of experience include personality disorders, psychosis, crisis management and suicide prevention.",
+      "Working in high-pressure clinical environments strengthened my ability to remain grounded, attuned and solution-focused when working with complexity and uncertainty.",
+    ],
   },
 ];
 
@@ -58,6 +76,10 @@ const organisationalEntries: Entry[] = [
     title: "Somaya Women's Support Centre",
     meta: "Psychological & Wellbeing Work",
     body: ["I led a movement workshop for women and families facing difficult circumstances, with safety, sensitivity and cultural understanding at its heart."],
+    longBody: [
+      "Held a movement workshop for an organisation supporting women and families experiencing complex domestic, social and psychological challenges.",
+      "This work deepened my understanding of the relationship between psychological wellbeing, safety, relationships, culture and wider social circumstances.",
+    ],
     link: {
       label: "Somaya Women's Support Centre",
       href: "https://www.linkedin.com/company/somaya-stodjour/?viewAsMember=true",
@@ -67,6 +89,10 @@ const organisationalEntries: Entry[] = [
     title: "Workplace Meditation & Wellbeing",
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["I led regular meditation sessions for BUP healthcare staff, offering practical tools for recovery and stress regulation in a demanding workday."],
+    longBody: [
+      "Facilitated regular guided meditation sessions for healthcare professionals within child and adolescent psychiatry.",
+      "The sessions created a structured space for pausing, grounding and recovery within a demanding clinical environment, introducing practical mindfulness-based tools for stress regulation and sustainable wellbeing at work.",
+    ],
     tags: "Workplace Wellbeing · Mindfulness · Stress Regulation · Healthcare",
   },
 ];
@@ -76,11 +102,19 @@ const communityEntries: Entry[] = [
     title: "G-Flow · ABF Södertörn",
     meta: "Community Education · Youth Wellbeing · Culture",
     body: ["With ABF Södertörn, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
+    longBody: [
+      "Collaborated with ABF Södertörn on initiatives combining psychology, culture, movement and community-based learning.",
+      "The collaboration reflects my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
+    ],
   },
   {
     title: "Haninge Municipality",
     meta: "Youth Wellbeing · Community Development · Public Sector Collaboration",
     body: ["Together with Haninge Municipality, I created welcoming spaces where young people could explore wellbeing, movement and connection."],
+    longBody: [
+      "Collaborated with Haninge Municipality through youth-focused wellbeing initiatives, creating accessible spaces for reflection, connection, movement and personal development.",
+      "The work has strengthened my experience of translating psychological perspectives into community-based formats and working across professional and public-sector contexts.",
+    ],
   },
 ];
 
