@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Erfarenhet (SV+EN): matcha färger och kortformat för Organisatoriskt arbete och I media; ta bort synlig scrollpil i kategorimenyn.
+- [x] Erfarenhet (SV+EN): matcha färger och kortformat för Organisatoriskt arbete och I media; ta bort synlig scrollpil i kategorimenyn.
 
 - [x] Erfarenhet (SV+EN): ta bort tidslinjen och I fokus-rutan, korta projektbeskrivningarna, lägg egna bilder som band efter Kliniskt arbete och bakom I hjärtat av detta arbete.
 
