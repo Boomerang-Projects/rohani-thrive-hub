@@ -356,7 +356,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
             <SectionHeader id="media" title="In the Media" />
             <div className="mt-8 md:mt-10 space-y-10 md:space-y-12">
               {/* Sveriges Radio */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <img
                   src={mediaRadio}
                   alt="Studio microphone in warm light"
@@ -364,23 +364,25 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                   width={1200}
                   height={900}
                   draggable={false}
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Sveriges Radio
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Interviewed on youth wellbeing, psychology and community-based folkbildning.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Sveriges Radio
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Interviewed on youth wellbeing, psychology and community-based folkbildning.
+                  </p>
+                </div>
               </div>
 
               {/* Psykologtidningen */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
                   aria-label="Open the article full size"
-                  className="block w-full cursor-zoom-in"
+                  className="shrink-0 w-32 md:w-52 cursor-zoom-in"
                 >
                   <img
                     src={mediaArticle.url}
@@ -390,16 +392,18 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                     className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                   />
                 </button>
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Psykologtidningen
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Featured in connection with G-Flow and the intersection of psychology, culture and youth development.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Psykologtidningen
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Featured in connection with G-Flow and the intersection of psychology, culture and youth development.
+                  </p>
+                </div>
               </div>
 
               {/* Podcast */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <img
                   src={mediaPodcast}
                   alt="Podcast microphones in a recording studio"
@@ -407,14 +411,16 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                   width={1200}
                   height={900}
                   draggable={false}
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Podcast
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  A guest in conversation about psychology, culture and wellbeing.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Podcast
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    A guest in conversation about psychology, culture and wellbeing.
+                  </p>
+                </div>
               </div>
             </div>
 
