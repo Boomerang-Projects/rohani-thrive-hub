@@ -107,9 +107,8 @@ const organisationalEntries: Entry[] = [
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn & Haninge Municipality",
-    pageLink: "/experience/g-flow",
-
     meta: "Community Education · Youth Wellbeing · Community Development",
+
     body: ["With ABF Södertörn and Haninge Municipality, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
     longBody: [
       "I collaborated with ABF Södertörn and Haninge Municipality on initiatives combining psychology, culture, movement and community-based learning.",
