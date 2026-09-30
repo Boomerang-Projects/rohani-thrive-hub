@@ -107,11 +107,17 @@ const communityEntries: Entry[] = [
     body: ["With ABF Södertörn and Haninge Municipality, I made psychology, movement and connection accessible to young people through G-Flow — a safe space for expression and growth."],
     longBody: [
       "I collaborated with ABF Södertörn and Haninge Municipality on initiatives combining psychology, culture, movement and community-based learning.",
-      "These collaborations reflect my interest in making psychological knowledge accessible beyond traditional clinical settings and creating spaces where wellbeing, self-expression and connection can develop together.",
+      "G-Flow is a community-based initiative created to give girls in socio-economically vulnerable areas a safe, inclusive and pressure-free space to explore self-esteem, identity, emotions, body awareness, belonging and relationships.",
+      "Through free recurring sessions during the Christmas, Easter and summer holidays, I developed and facilitated self-development sessions combining psychological knowledge and psychoeducation with meditation, breathwork, movement, dance and reflective exercises.",
+      "The aim has been to make tools for mental wellbeing and self-development accessible in a setting where young people can feel seen, heard and supported in a safe, reliable environment.",
+      "Across several rounds during school holidays, G-Flow has brought girls together to build connection, strengthen self-awareness and create community. The project highlights the importance of accessible, preventive spaces where young people can develop emotional and social resources alongside others.",
+      "The initiative has also received wider attention, including being featured by Sveriges Radio and highlighted in Psykologtidningen, helping bring attention to the importance of accessible psychological wellbeing initiatives for young people.",
+      "G-Flow is rooted in a simple belief: when young people are given space to connect with themselves and with each other, we create stronger foundations for individual and collective wellbeing.",
     ],
   },
   {
     title: "Hero idrottsförening",
+
     meta: "Non-profit Association · Physical Health · Self-Esteem & Mental Health",
     body: ["A non-profit association for young girls focused on physical health — where I regularly lead dance classes centred on strengthening self-esteem and mental health."],
     longBody: [

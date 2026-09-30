@@ -107,11 +107,17 @@ const communityEntries: Entry[] = [
     body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
     longBody: [
       "Jag samarbetade med ABF Södertörn och Haninge kommun i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
-      "Samarbetena speglar mitt intresse för att göra psykologisk kunskap tillgänglig utanför traditionella kliniska miljöer och att skapa rum där välbefinnande, självuttryck och gemenskap kan växa tillsammans.",
+      "G-Flow är ett samhällsbaserat initiativ som ger tjejer i socioekonomiskt utsatta områden en trygg, inkluderande och prestationsfri miljö att utforska självkänsla, identitet, känslor, kroppsmedvetenhet, tillhörighet och relationer.",
+      "Genom återkommande gratispass under jul-, påsk- och sommarlov har jag utformat och lett självutvecklingssessioner som kombinerar psykologisk kunskap och psykoedukation med meditation, andningsövningar, rörelse, dans och reflekterande övningar.",
+      "Målet har varit att göra verktyg för psykiskt välbefinnande och självutveckling tillgängliga i en miljö där unga kan känna sig sedda, hörda och stöttade i en trygg och tillförlitlig kontext.",
+      "Under flera omgångar av skolloven har G-Flow samlat tjejer för att bygga gemenskap, stärka självkännedom och skapa relationer. Projektet lyfter betydelsen av tillgängliga, förebyggande rum där unga kan utveckla emotionella och sociala resurser tillsammans med andra.",
+      "Initiativet har också fått större uppmärksamhet, bland annat genom Sveriges Radio och Psykologtidningen, vilket hjälper till att synliggöra vikten av tillgängliga psykologiska välbefinnandeinsatser för unga.",
+      "G-Flow vilar på en enkel övertygelse: när unga får utrymme att möta sig själva och varandra lägger vi grunden för ett starkare individuellt och kollektivt välbefinnande.",
     ],
   },
   {
     title: "Hero idrottsförening",
+
     meta: "Ideell förening · Fysisk hälsa · Självkänsla & mental hälsa",
     body: ["En ideell förening för unga tjejer med fokus på fysisk hälsa — där jag regelbundet håller dansklasser med fokus på att stärka självkänsla och mental hälsa."],
     longBody: [
