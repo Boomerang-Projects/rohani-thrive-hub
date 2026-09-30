@@ -227,6 +227,9 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
             </p>
           ))}
         </div>
+        <p className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b border-accent pb-1 text-accent">
+          Read more <span aria-hidden>→</span>
+        </p>
         {entry.link && (
           <div className="pt-6">
             <ExternalLink {...entry.link} />
@@ -279,8 +282,11 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
               {entry.tags}
             </p>
           )}
+          <p className={`mt-3 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] border-b pb-1 ${light ? "border-accent text-accent" : "border-background/30 text-background/80"}`}>
+            Read more <span aria-hidden>→</span>
+          </p>
           {entry.link && (
-            <div className="pt-2">
+            <div className="pt-4">
                <ExternalLink {...entry.link} dark={!light} />
             </div>
           )}
