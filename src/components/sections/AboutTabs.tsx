@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const sections = [
   { id: "vagleder", sv: "Det som vägleder oss", en: "What Guides Us" },
   { id: "mission", sv: "Vår mission", en: "Our Mission" },
+  { id: "metod", sv: "Så arbetar vi", en: "How we work" },
   { id: "grundaren", sv: "Möt grundaren", en: "Meet the Founder" },
   { id: "heart", sv: "Hjärtat av ROHANI", en: "The Heart of ROHANI" },
   { id: "samarbeten", sv: "Samarbeten & sponsorer", en: "Partners & Sponsors" },

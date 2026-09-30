@@ -155,33 +155,35 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* Our Mission: full-bleed photo like the hero */}
-        <section id="mission" className="scroll-mt-32 relative overflow-hidden">
-          <img
-            src={missionPhoto.url}
-            alt={t("Grupp på mattor utomhus i kvällsljus", "A group resting on mats outdoors in the evening sun")}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "50% 60%" }}
-          />
-          <div className="absolute inset-0 bg-foreground/65 md:hidden" aria-hidden="true" />
+        {/* Our Mission: heading above a full-bleed photo like the hero */}
+        <section id="mission" className="scroll-mt-32">
+          <div className="pt-16 md:pt-20 pb-8 md:pb-10">
+            <SectionHeader title={t("Vår mission", "Our Mission")} />
+          </div>
+          <div className="relative overflow-hidden">
+            <img
+              src={missionPhoto.url}
+              alt={t("Grupp på mattor utomhus i kvällsljus", "A group resting on mats outdoors in the evening sun")}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "50% 60%" }}
+            />
+            <div className="absolute inset-0 bg-foreground/65 md:hidden" aria-hidden="true" />
 
-          <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
-            <div className="max-w-3xl">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-                {t("Vår mission", "Our Mission")}
-              </p>
-              <h2 className="mt-6 md:mt-8 font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
-                {t("En mer sammankopplad, förenad och medveten värld börjar inom oss.", "A more connected, united and conscious world starts within.")}
-              </h2>
-              <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
-                {t("Jag tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "I believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
-              </p>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-background/75">
-                {t("Min mission är att stödja denna resa – från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
-              </p>
+            <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-28 md:pt-44 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
+              <div className="max-w-3xl">
+                <h2 className="font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
+                  {t("En mer sammankopplad, förenad och medveten värld börjar inom oss.", "A more connected, united and conscious world starts within.")}
+                </h2>
+                <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
+                  {t("Jag tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "I believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
+                </p>
+                <p className="mt-6 max-w-xl text-base leading-relaxed text-background/75">
+                  {t("Min mission är att stödja denna resa – från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
+                </p>
+              </div>
+
             </div>
-
           </div>
         </section>
 
