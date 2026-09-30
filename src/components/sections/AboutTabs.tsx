@@ -13,7 +13,7 @@ export function AboutTabs({ lang }: { lang: "sv" | "en" }) {
 
   useEffect(() => {
     function onScroll() {
-      let current = sections[0].id;
+      let current: string = sections[0].id;
       for (const s of sections) {
         const el = document.getElementById(s.id);
         if (el && el.getBoundingClientRect().top <= 180) current = s.id;
