@@ -357,7 +357,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
             <SectionHeader id="media" title="I media" />
             <div className="mt-8 md:mt-10 space-y-10 md:space-y-12">
               {/* Sveriges Radio */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <img
                   src={mediaRadio}
                   alt="Studiomikrofon i varmt ljus"
@@ -365,23 +365,25 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                   width={1200}
                   height={900}
                   draggable={false}
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Sveriges Radio
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Intervjuad om ungdomars välbefinnande, psykologi och samhällsbaserad folkbildning.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Sveriges Radio
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Intervjuad om ungdomars välbefinnande, psykologi och samhällsbaserad folkbildning.
+                  </p>
+                </div>
               </div>
 
               {/* Psykologtidningen */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
                   aria-label="Öppna artikeln i full storlek"
-                  className="block w-full cursor-zoom-in"
+                  className="shrink-0 w-32 md:w-52 cursor-zoom-in"
                 >
                   <img
                     src={mediaArticle.url}
@@ -391,16 +393,18 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                     className="aspect-[4/3] w-full rounded-2xl object-cover object-top shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)] transition-transform duration-300 hover:scale-[1.03] motion-reduce:transition-none"
                   />
                 </button>
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Psykologtidningen
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Uppmärksammad i samband med G-Flow och skärningspunkten mellan psykologi, kultur och ungdomsutveckling.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Psykologtidningen
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Uppmärksammad i samband med G-Flow och skärningspunkten mellan psykologi, kultur och ungdomsutveckling.
+                  </p>
+                </div>
               </div>
 
               {/* Podd */}
-              <div>
+              <div className="flex gap-5 md:gap-8">
                 <img
                   src={mediaPodcast}
                   alt="Podcastmikrofoner i inspelningsstudio"
@@ -408,14 +412,16 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                   width={1200}
                   height={900}
                   draggable={false}
-                  className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
+                  className="w-32 md:w-52 shrink-0 aspect-[4/3] rounded-2xl object-cover shadow-[0_20px_60px_-25px_rgba(58,41,34,0.35)]"
                 />
-                <h3 className="mt-5 font-serif font-bold text-lg md:text-xl leading-snug uppercase text-center">
-                  Podd
-                </h3>
-                <p className="mt-2 text-base leading-[1.75] text-foreground/70">
-                  Gäst i samtal om psykologi, kultur och välbefinnande.
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    Podd
+                  </h3>
+                  <p className="mt-2 text-base leading-[1.75] text-foreground/70">
+                    Gäst i samtal om psykologi, kultur och välbefinnande.
+                  </p>
+                </div>
               </div>
             </div>
 
