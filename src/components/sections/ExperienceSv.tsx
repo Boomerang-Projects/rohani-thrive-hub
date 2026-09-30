@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+
 
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -32,8 +32,8 @@ type Entry = {
   longBody?: string[];
   tags?: string;
   link?: { label: string; href: string };
-  pageLink?: string;
 };
+
 
 
 const clinicalEntries: Entry[] = [
@@ -107,9 +107,8 @@ const organisationalEntries: Entry[] = [
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn & Haninge kommun",
-    pageLink: "/experience/g-flow",
-
     meta: "Folkbildning · Ungdomars välbefinnande · Samhällsutveckling",
+
     body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
     longBody: [
       "Jag samarbetade med ABF Södertörn och Haninge kommun i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
@@ -284,13 +283,13 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
 }
 
 function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: boolean; onOpen: (e: Entry) => void }) {
-  const navigate = useNavigate();
   return (
     <article
       role="button"
       tabIndex={0}
-      onClick={() => (entry.pageLink ? navigate({ to: entry.pageLink }) : onOpen(entry))}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); entry.pageLink ? navigate({ to: entry.pageLink }) : onOpen(entry); } }}
+      onClick={() => onOpen(entry)}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
+
 
       className={`relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
     >
