@@ -99,14 +99,14 @@ export function SiteHeader() {
           ROHANI
         </Link>
 
-        <div className="hidden md:flex items-center gap-10 text-sm font-serif uppercase tracking-[0.14em] font-semibold">
+        <div className="hidden md:flex items-center gap-3 text-sm font-serif uppercase tracking-[0.14em] font-semibold">
           {navLinks.map((link) => (
             <div key={link.to} className="relative group">
               <Link
                 to={link.to}
-                className="transition-colors hover:text-foreground text-foreground"
-                inactiveProps={{ className: "text-foreground" }}
-                activeProps={{ className: "text-foreground" }}
+                className="rounded-full px-5 py-2 transition-all duration-300 hover:scale-105 hover:bg-foreground/10 text-foreground"
+                inactiveProps={{ className: "bg-foreground/5" }}
+                activeProps={{ className: "bg-foreground/10" }}
               >
                 {link.label}
               </Link>
@@ -126,7 +126,7 @@ export function SiteHeader() {
                             scrollToSection(sub.id);
                           }
                         }}
-                        className="block px-4 py-2.5 text-xs font-serif font-semibold uppercase tracking-[0.14em] text-foreground rounded-xl hover:text-foreground hover:bg-secondary/70 transition-colors whitespace-nowrap"
+                        className="block px-4 py-2.5 text-xs font-serif font-semibold uppercase tracking-[0.14em] text-foreground rounded-xl hover:bg-secondary/70 transition-all duration-300 hover:scale-[1.03] whitespace-nowrap"
                       >
                         {sub.label}
                       </a>
@@ -158,7 +158,7 @@ export function SiteHeader() {
               <Link
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="hover:text-foreground"
+                className="-ml-4 self-start rounded-full px-4 py-2 bg-foreground/5 hover:bg-foreground/10 transition-all duration-300 hover:scale-[1.02]"
               >
                 {link.label}
               </Link>

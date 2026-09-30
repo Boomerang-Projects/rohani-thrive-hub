@@ -35,17 +35,17 @@ export function AboutTabs({ lang }: { lang: "sv" | "en" }) {
       aria-label={lang === "en" ? "About sections" : "Om-sektioner"}
       className="sticky top-[4.5rem] z-40 border-b border-border/60 bg-background/90 backdrop-blur-md"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex gap-6 md:gap-12 md:justify-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center gap-2 md:gap-3 md:justify-center overflow-x-auto py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {sections.map((s) => (
           <button
             key={s.id}
             type="button"
             onClick={() => scrollTo(s.id)}
             aria-current={active === s.id ? "true" : undefined}
-            className={`shrink-0 py-5 text-sm font-serif uppercase tracking-[0.14em] font-semibold border-b-2 -mb-px transition-colors whitespace-nowrap ${
+            className={`shrink-0 py-2.5 px-5 text-sm font-serif uppercase tracking-[0.14em] font-semibold rounded-full transition-all duration-300 hover:scale-105 whitespace-nowrap ${
               active === s.id
-                ? "border-accent text-foreground"
-                : "border-transparent text-foreground hover:text-foreground"
+                ? "bg-foreground/10 text-foreground"
+                : "bg-foreground/5 text-foreground hover:bg-foreground/10"
             }`}
           >
             {lang === "en" ? s.en : s.sv}
