@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { scrollBelowHeader, takeScrollRequest } from "@/lib/scroll-intent";
 
 export type SwipePanel = { key: string; label: string; content: ReactNode };
 
@@ -36,10 +37,35 @@ export function ExperienceSwipe({
   const next = panels[index + 1];
 
   // Jump to the starting panel without animation (deep links like /experience/media).
+  // Why set it more than once: when you switch category from the menu, the router's
+  // scroll restoration puts back the slider's OLD sideways position a moment after
+  // the page appears (it remembers scroll positions per element). So we set ours
+  // again once the router is done.
   useEffect(() => {
     const track = trackRef.current;
-    if (track) track.scrollLeft = initial * track.clientWidth;
+    if (!track) return;
+    const place = () => {
+      track.scrollLeft = initial * track.clientWidth;
+      setIndex(initial);
+    };
+    place();
+    const raf = requestAnimationFrame(() => requestAnimationFrame(place));
+    const t = window.setTimeout(place, 120);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t);
+    };
   }, [initial]);
+
+  // Opened from the menu? Then glide down to the slider once the page has settled.
+  const rootRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (takeScrollRequest() !== "erfarenhet-kategorier") return;
+    const t = window.setTimeout(() => {
+      if (rootRef.current) scrollBelowHeader(rootRef.current);
+    }, 150);
+    return () => window.clearTimeout(t);
+  }, []);
 
   // Which panel is in view? Rounded position of the scroller.
   const onScroll = useCallback(() => {
@@ -71,7 +97,7 @@ export function ExperienceSwipe({
   };
 
   return (
-    <div className="bg-forest text-background">
+    <div ref={rootRef} id="erfarenhet-kategorier" className="bg-forest text-background scroll-mt-24">
       {/* Navigation: counter, arrows, progress segments */}
       <div className="px-6 md:px-10 pt-10 md:pt-14">
         <div className="max-w-7xl mx-auto">

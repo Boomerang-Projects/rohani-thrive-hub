@@ -56,7 +56,7 @@ function SiteFooterSv() {
                 Madeeha Rani Qazi
               </a>
             </li>
-            <li className="text-foreground/60">Baserad i: Skandinavien – Online – Arbetar globalt</li>
+            <li className="text-foreground/60">Baserad i: Skandinavien - Online - Arbetar globalt</li>
           </ul>
         </div>
       </div>

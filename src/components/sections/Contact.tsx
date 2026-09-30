@@ -9,7 +9,7 @@ function ContactSv() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    // Presentational only — wire to backend later
+    // Presentational only - wire to backend later
     setTimeout(() => {
       setSubmitting(false);
       toast.success("Tack. Vi hör av oss inom kort.");

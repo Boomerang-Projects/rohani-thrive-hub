@@ -6,9 +6,9 @@ import { ExperiencePageSv } from "@/components/sections/ExperienceSv";
 export const Route = createFileRoute("/experience_/social")({
   head: () => ({
     meta: [
-      { title: "Social påverkan — ROHANI" },
+      { title: "Social påverkan - ROHANI" },
       { name: "description", content: "Samhällsinitiativ för ungas välbefinnande tillsammans med ABF Södertörn och Haninge kommun." },
-      { property: "og:title", content: "Social påverkan — ROHANI" },
+      { property: "og:title", content: "Social påverkan - ROHANI" },
       { property: "og:description", content: "Samhällsinitiativ för ungas välbefinnande tillsammans med ABF Södertörn och Haninge kommun." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

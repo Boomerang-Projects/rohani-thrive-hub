@@ -32,7 +32,7 @@ const testimonials = [
   },
   {
     quote:
-      "“I'm so grateful that I found you. As our sessions came to an end, I realized they would be something I'd genuinely miss—but that's also a sign of growth. You always reminded me that this was my journey, yet you did far more than simply walk beside me. With warmth, kindness, and genuine presence, you gave me the tools and confidence to move forward on my own. I'll always be grateful for the difference you've made in my life.”",
+      "“I'm so grateful that I found you. As our sessions came to an end, I realized they would be something I'd genuinely miss - but that's also a sign of growth. You always reminded me that this was my journey, yet you did far more than simply walk beside me. With warmth, kindness, and genuine presence, you gave me the tools and confidence to move forward on my own. I'll always be grateful for the difference you've made in my life.”",
     name: "Gunnar A., Age 65",
     org: "",
   },

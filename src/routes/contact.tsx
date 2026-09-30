@@ -10,7 +10,7 @@ import { useLang } from "@/lib/i18n";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Kontakta Rohani — Boka ett introducerande samtal" },
+      { title: "Kontakta Rohani - Boka ett introducerande samtal" },
       {
         name: "description",
         content:
@@ -51,7 +51,7 @@ function ContactPage() {
                   {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
                 </h1>
                 <p className="text-base md:text-lg leading-relaxed text-background/90 max-w-xl mx-auto">
-                  {t("Vi svarar personligen på varje förfrågan – oftast inom två arbetsdagar.", "We respond personally to every inquiry – usually within two business days.")}
+                  {t("Vi svarar personligen på varje förfrågan - oftast inom två arbetsdagar.", "We respond personally to every inquiry - usually within two business days.")}
                 </p>
               </div>
             </div>

@@ -2,6 +2,10 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
+import { requestScrollTo, scrollBelowHeader } from "@/lib/scroll-intent";
+
+// id of the category slider on Erfarenhet (set in ExperienceSwipe)
+const SLIDER_ID = "erfarenhet-kategorier";
 
 type SubLink = { id: string; label: string; href?: string };
 type NavItem = { to: string; label: string; subs?: SubLink[] };
@@ -87,6 +91,16 @@ export function SiteHeader() {
   const navLinks = lang === "en" ? navLinksEn : navLinksSv;
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  // Erfarenhet sub-links: switch category without reloading the page, then glide down to the slider.
+  // Same page already open: just glide. Other page: leave a note (requestScrollTo) that the
+  // slider reads once it has appeared.
+  function goToCategory(href: string) {
+    setOpen(false);
+    const slider = document.getElementById(SLIDER_ID);
+    if (pathname === href && slider) scrollBelowHeader(slider);
+    else requestScrollTo(SLIDER_ID);
+  }
+
   function scrollToSection(id: string) {
     setOpen(false);
     // cross-page anchors load the page, then jump
@@ -118,21 +132,28 @@ export function SiteHeader() {
                   className="absolute left-1/2 top-full pt-4 -translate-x-1/2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out"
                 >
                   <div className="min-w-[13rem] bg-background border border-border/70 rounded-2xl shadow-[0_24px_60px_-24px_rgba(27,43,36,0.35)] py-3 px-2">
-                    {link.subs.map((sub) => (
-                      <a
-                        key={sub.id}
-                        href={sub.href ?? `${link.to}#${sub.id}`}
-                        onClick={(e) => {
-                          if (!sub.href && pathname === link.to) {
-                            e.preventDefault();
-                            scrollToSection(sub.id);
-                          }
-                        }}
-                        className="block px-4 py-2.5 text-xs font-serif font-semibold uppercase tracking-[0.14em] text-foreground rounded-xl hover:bg-secondary/70 transition-all duration-300 hover:scale-[1.03] whitespace-nowrap"
-                      >
-                        {sub.label}
-                      </a>
-                    ))}
+                    {link.subs.map((sub) => {
+                      const cls = "block px-4 py-2.5 text-xs font-serif font-semibold uppercase tracking-[0.14em] text-foreground rounded-xl hover:bg-secondary/70 transition-all duration-300 hover:scale-[1.03] whitespace-nowrap";
+                      return sub.href ? (
+                        <Link key={sub.id} to={sub.href} onClick={() => goToCategory(sub.href!)} className={cls}>
+                          {sub.label}
+                        </Link>
+                      ) : (
+                        <a
+                          key={sub.id}
+                          href={`${link.to}#${sub.id}`}
+                          onClick={(e) => {
+                            if (pathname === link.to) {
+                              e.preventDefault();
+                              scrollToSection(sub.id);
+                            }
+                          }}
+                          className={cls}
+                        >
+                          {sub.label}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -166,23 +187,29 @@ export function SiteHeader() {
               </Link>
               {link.subs && (
                 <div className="flex flex-col gap-2 pl-4 normal-case tracking-normal text-sm font-serif font-semibold text-foreground">
-                  {link.subs.map((sub) => (
-                    <a
-                      key={sub.id}
-                      href={sub.href ?? `${link.to}#${sub.id}`}
-                      onClick={(e) => {
-                        if (!sub.href && pathname === link.to) {
-                          e.preventDefault();
-                          scrollToSection(sub.id);
-                        } else {
-                          setOpen(false);
-                        }
-                      }}
-                      className="hover:text-foreground transition-colors"
-                    >
-                      {sub.label}
-                    </a>
-                  ))}
+                  {link.subs.map((sub) =>
+                    sub.href ? (
+                      <Link key={sub.id} to={sub.href} onClick={() => goToCategory(sub.href!)} className="hover:text-foreground transition-colors">
+                        {sub.label}
+                      </Link>
+                    ) : (
+                      <a
+                        key={sub.id}
+                        href={`${link.to}#${sub.id}`}
+                        onClick={(e) => {
+                          if (pathname === link.to) {
+                            e.preventDefault();
+                            scrollToSection(sub.id);
+                          } else {
+                            setOpen(false);
+                          }
+                        }}
+                        className="hover:text-foreground transition-colors"
+                      >
+                        {sub.label}
+                      </a>
+                    ),
+                  )}
                 </div>
               )}
             </div>

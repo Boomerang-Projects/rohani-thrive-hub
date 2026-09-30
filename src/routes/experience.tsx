@@ -7,18 +7,18 @@ export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       {
-        title: "Erfarenhet — Psykologi, välbefinnande & mänsklig utveckling | Rohani",
+        title: "Erfarenhet - Psykologi, välbefinnande & mänsklig utveckling | Rohani",
       },
       {
         name: "description",
         content:
           "Resan bakom ROHANI: klinisk psykologi, organisatoriskt välbefinnande, samhällsinitiativ och upplevelsebaserade retreats i Sverige och internationellt.",
       },
-      { property: "og:title", content: "Erfarenhet — Rohani" },
+      { property: "og:title", content: "Erfarenhet - Rohani" },
       {
         property: "og:description",
         content:
-          "Klinisk psykologi, välbefinnande i arbetslivet, ungdomsinitiativ och retreats — miljöerna, organisationerna och initiativen ROHANI har bidragit till.",
+          "Klinisk psykologi, välbefinnande i arbetslivet, ungdomsinitiativ och retreats - miljöerna, organisationerna och initiativen ROHANI har bidragit till.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

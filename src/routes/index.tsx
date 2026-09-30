@@ -141,7 +141,7 @@ function AboutPage() {
                     <p className="block mt-3 text-[12px] md:text-sm leading-[1.4] md:leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
                   </div>
                   <DialogTrigger asChild>
-                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${p.title}`} />
+                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl hover:bg-transparent active:bg-transparent focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${p.title}`} />
                   </DialogTrigger>
                 </div>
                 <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-3xl border-0 bg-foreground text-background p-8 text-center [&_button]:text-background">
@@ -178,7 +178,7 @@ function AboutPage() {
                   {t("Jag tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "I believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
                 </p>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-background/75">
-                  {t("Min mission är att stödja denna resa – från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
+                  {t("Min mission är att stödja denna resa - från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
                 </p>
               </div>
 
@@ -214,7 +214,7 @@ function AboutPage() {
                     <p className="block mt-3 text-[12px] md:text-sm leading-[1.4] md:leading-relaxed text-background/80 max-w-[13rem]">{w.body}</p>
                   </div>
                   <DialogTrigger asChild>
-                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${w.title}`} />
+                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl hover:bg-transparent active:bg-transparent focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${w.title}`} />
                   </DialogTrigger>
                 </div>
                 <DialogContent className="w-[calc(100%-2rem)] max-w-sm overflow-hidden rounded-3xl border-0 bg-foreground text-background p-0 text-center [&_button]:text-background">
@@ -244,10 +244,10 @@ function AboutPage() {
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-52 pb-16 md:pb-24">
             <div className="max-w-3xl space-y-6 text-background">
               <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-                {t("I hjärtat av detta arbete ligger en nyfikenhet på vem vi är, vad som format oss — och vem vi håller på att bli.", "At the heart of this work is a curiosity about who we are, what shapes us, and who we are becoming.")}
+                {t("I hjärtat av detta arbete ligger en nyfikenhet på vem vi är, vad som format oss - och vem vi håller på att bli.", "At the heart of this work is a curiosity about who we are, what shapes us, and who we are becoming.")}
               </h2>
               <p className="text-base leading-[1.75] text-background/90">
-                {t("Hur kan vi röra oss genom livet med större medvetenhet, handlingskraft och intention — istället för att bara reagera på det som händer omkring oss?", "How can we move through life with greater awareness, agency and intention– rather than simply reacting to what happens around us?")}
+                {t("Hur kan vi röra oss genom livet med större medvetenhet, handlingskraft och intention - istället för att bara reagera på det som händer omkring oss?", "How can we move through life with greater awareness, agency and intention - rather than simply reacting to what happens around us?")}
               </p>
               <p className="text-base leading-[1.75] text-background/90">
                 {t("Tänk om meningsfull förändring börjar med att bli mer medveten om hur vi ser, upplever och möter världen?", "What if meaningful change begins with becoming more conscious of the way we see, experience and engage with the world?")}

@@ -7,7 +7,7 @@ export function ContactEn() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    // Presentational only — wire to backend later
+    // Presentational only - wire to backend later
     setTimeout(() => {
       setSubmitting(false);
       toast.success("Thank you. We'll be in touch shortly.");

@@ -53,7 +53,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
           </p>
           <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/90">
             <p>Mitt arbete är förankrat i modern psykologi och berikat av en livslång nyfikenhet på mänsklig potential, välbefinnande och det som gör att människor kan leva, leda och relatera mer fullt ut. Genom åren har jag arbetat med individer, grupper och organisationer och stöttat tillväxt, motståndskraft och meningsfull förändring genom evidensbaserade metoder och äkta mänsklig gemenskap.</p>
-            <p>Efter att ha bott, studerat och arbetat i olika länder och kulturer har jag lärt mig uppskatta både det universella i mänsklig upplevelse och det unika i varje människas berättelse. Dessa erfarenheter fortsätter att forma mitt sätt att arbeta – med öppenhet, kulturell känslighet och djup respekt för komplexiteten i att vara människa.</p>
+            <p>Efter att ha bott, studerat och arbetat i olika länder och kulturer har jag lärt mig uppskatta både det universella i mänsklig upplevelse och det unika i varje människas berättelse. Dessa erfarenheter fortsätter att forma mitt sätt att arbeta - med öppenhet, kulturell känslighet och djup respekt för komplexiteten i att vara människa.</p>
             <p>ROHANI skapades som en bro mellan psykologisk vetenskap och mänsklig upplevelse. En plats där evidensbaserad kunskap möter närvaro, reflektion och personlig utveckling. Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att frodas.</p>
             <p>För när människor får stöd att frodas växer allt annat därifrån.</p>
           </div>

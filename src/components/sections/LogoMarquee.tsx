@@ -8,7 +8,9 @@ import psykologtidningen from "@/assets/logos/psykologtidningen.png";
 import dinPsykolog from "@/assets/logos/din-psykolog.png";
 import somaya from "@/assets/logos/somaya.png";
 import fryshuset from "@/assets/logos/fryshuset.png";
-import hocs from "@/assets/logos/house-of-creative.png";
+import tillsammans from "@/assets/logos/tillsammans-for-sverige.png";
+import hocs from "@/assets/logos/hocs-white.png";
+import hero from "@/assets/logos/hero.png";
 import betteryou from "@/assets/logos/betteryou.png";
 import myHappyHead from "@/assets/logos/my-happy-head.png";
 import sats from "@/assets/logos/sats.png";
@@ -18,20 +20,22 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/
 // Logos in their original colours, exactly as supplied. Transparent PNGs only.
 const logos = [
   { src: bup, alt: "Barn- och ungdomspsykiatri, Region Stockholm", w: 755, h: 100 },
-  { src: haninge, alt: "Haninge kommun", w: 755, h: 100 },
+  { src: haninge, alt: "Haninge kommun", w: 607, h: 91 },
   { src: vuxen, alt: "Vuxenpsykiatrin, Region Stockholm", w: 500, h: 100 },
-  { src: regionStockholm, alt: "Region Stockholm", w: 299, h: 85 },
+  { src: regionStockholm, alt: "Region Stockholm", w: 279, h: 71 },
   { src: karolinska, alt: "Karolinska Universitetssjukhuset", w: 500, h: 100 },
   { src: sverigesRadio, alt: "Sveriges Radio", w: 438, h: 80 },
   { src: psykologtidningen, alt: "Psykologtidningen", w: 341, h: 91 },
-  { src: dinPsykolog, alt: "Din psykolog", w: 500, h: 100 },
+  { src: dinPsykolog, alt: "Din psykolog", w: 414, h: 71 },
   { src: somaya, alt: "Somaya kvinnostödjour", w: 500, h: 100 },
-  { src: fryshuset, alt: "Fryshuset", w: 500, h: 100 },
-  { src: hocs, alt: "House of Creatives Solna", w: 431, h: 399 },
-  { src: betteryou, alt: "Better You", w: 500, h: 100 },
-  { src: myHappyHead, alt: "My Happy Head", w: 500, h: 100 },
-  { src: sats, alt: "SATS", w: 500, h: 100 },
-  { src: lululemon, alt: "lululemon", w: 500, h: 100 },
+  { src: fryshuset, alt: "Fryshuset", w: 382, h: 66 },
+  { src: tillsammans, alt: "Tillsammans för Sverige", w: 273, h: 145 },
+  { src: hocs, alt: "HOCS, House of Creatives Solna", w: 204, h: 89 },
+  { src: hero, alt: "Hero idrottsförening", w: 242, h: 94 },
+  { src: betteryou, alt: "Better You", w: 270, h: 97 },
+  { src: myHappyHead, alt: "My Happy Head", w: 353, h: 69 },
+  { src: sats, alt: "SATS", w: 245, h: 80 },
+  { src: lululemon, alt: "lululemon", w: 395, h: 80 },
 ];
 
 
@@ -55,7 +59,7 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
             decoding="async"
             draggable={false}
           />
-          <span className="mx-10 md:mx-16 h-1.5 w-1.5 rounded-full bg-background/70" />
+          <span className="mx-7 md:mx-10 h-1.5 w-1.5 rounded-full bg-background/70" />
         </li>
       ))}
     </ul>

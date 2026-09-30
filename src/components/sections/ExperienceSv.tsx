@@ -12,17 +12,28 @@ import logoKarolinska from "@/assets/logos/karolinska.png";
 import somayaLogo from "@/assets/logos/somaya.png";
 import regionStockholmLogo from "@/assets/logos/region-stockholm-dark.png";
 import haningeLogo from "@/assets/logos/haninge-kommun-dark.png";
-import houseOfCreativeLogo from "@/assets/logos/house-of-creative-dark.png";
+import houseOfCreativeLogo from "@/assets/logos/hocs.png";
+import heroLogo from "@/assets/logos/hero-dark.png";
+import satsLogo from "@/assets/logos/sats-card.png";
 import fryshusetLogo from "@/assets/logos/fryshuset.png";
+import tfsLogo from "@/assets/logos/tillsammans-for-sverige.png";
+// Main photos for the Social påverkan cards (from the "Sociala Påverkan Bilder" folder).
+import photoGflow from "@/assets/photos/social-gflow.jpg";
+import photoHero from "@/assets/photos/social-hero.jpg";
+import photoJoy from "@/assets/photos/social-joy-in-the-wild.jpg";
+import photoHoc from "@/assets/photos/social-house-of-creatives.jpg";
+import photoFryshuset from "@/assets/photos/social-fryshuset.jpg";
+import photoVagen from "@/assets/photos/social-vagen-tillbaka.jpg";
+import photoMotherRoots from "@/assets/photos/social-mother-roots.jpg";
+import { PhotoEntryCard } from "@/components/sections/PhotoEntryCard";
+import { ModalGallery, galleryFor } from "@/components/sections/ModalGallery";
 import srLogo from "@/assets/logos/sveriges-radio.png";
 import ptLogo from "@/assets/logos/psykologtidningen.png";
+import abfLogo from "@/assets/logos/abf.png";
 import experienceHero from "@/assets/photos/leading-session.jpg";
 // Page 7 of Psykologtidningen #4 2026 ("Finns en rädsla för kulturen"), rendered from the magazine PDF.
 import mediaArticle from "@/assets/psykologtidningen-nr4-2026-s7.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
-import photoGroupCircle from "@/assets/photos/group-circle.jpg";
-import photoHandsSky from "@/assets/photos/hands-sky.jpg";
-import photoFireEvening from "@/assets/photos/fire-evening.jpg";
 
 import { type ExperienceSection } from "@/components/sections/ExperienceTabs";
 import { ExperienceSwipe } from "@/components/sections/ExperienceSwipe";
@@ -32,6 +43,12 @@ type Entry = {
   period?: string;
   title: string;
   image?: string;
+  /** Photo shown on the card. When set, the logo (image) only shows in the popup. */
+  photo?: string;
+  /** A second logo shown next to the first one in the popup (e.g. Tillsammans för Sverige). */
+  extraLogo?: string;
+  /** Folder name in src/assets/photos/gallery/ with extra photos for the popup. */
+  gallery?: string;
   logoBig?: boolean;
   meta: string;
   body: string[];
@@ -44,19 +61,19 @@ type Entry = {
 
 const clinicalEntries: Entry[] = [
   {
-    period: "2025 — Nu",
+    period: "2025 - Nu",
     title: "Vuxenpsykiatrin",
     image: logoVuxen,
     meta: "Offentlig vård · Legitimerad psykolog",
     body: ["Som legitimerad psykolog utreder och behandlar jag vuxna inom psykiatrin. Jag anpassar behandlingen efter varje människas behov och livssituation."],
     longBody: [
-      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa — bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
+      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa - bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
       "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
       "Att arbeta över olika tillstånd och individuella behov har ytterligare utvecklat min förmåga att anpassa psykologiska förhållningssätt, kommunikation och interventioner efter personen, kontexten och livsskeden.",
     ],
   },
   {
-    period: "2022 — 2025",
+    period: "2022 - 2025",
     title: "Barns & Ungas Psykiska Hälsa",
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
@@ -68,7 +85,7 @@ const clinicalEntries: Entry[] = [
     ],
   },
   {
-    period: "2018 — 2022",
+    period: "2018 - 2022",
     title: "Sjukhuspsykiatri & Akutsjukvård",
     image: logoKarolinska,
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
@@ -87,9 +104,9 @@ const organisationalEntries: Entry[] = [
     title: "Somaya Stödjour",
     image: somayaLogo,
     meta: "Psykologiskt & välbefinnandearbete",
-    body: ["Mental hälsa och rörelse – workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
+    body: ["Mental hälsa och rörelse - workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
     longBody: [
-      "Mental hälsa och rörelse – workshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
+      "Mental hälsa och rörelse - workshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
       "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
     ],
     link: {
@@ -108,67 +125,122 @@ const organisationalEntries: Entry[] = [
     ],
     tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
+  {
+    title: "SATS · Yogainstruktör",
+    image: satsLogo,
+    meta: "Yoga · Hot yoga · Avslappning & rörelse",
+    body: ["Som yogainstruktör på SATS guidar jag deltagare genom rörelse och avslappning, bland annat i hot yoga i 38 grader."],
+    longBody: [
+      "Jag arbetar som yogainstruktör på SATS, där jag guidar deltagare genom rörelse, andning och avslappning.",
+      "Jag leder bland annat hot yoga i 38 grader. Värmen hjälper kroppen att mjukna och ger utrymme för närvaro, fokus och återhämtning.",
+    ],
+  },
 ];
 
 const communityEntries: Entry[] = [
   {
     title: "G-Flow · ABF Södertörn & Haninge kommun",
+    photo: photoGflow,
+    gallery: "gflow",
     image: haningeLogo,
     meta: "Folkbildning · Ungdomars välbefinnande · Samhällsutveckling",
 
-    body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow — ett tryggt rum för självuttryck och utveckling."],
+    body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow - ett tryggt rum för självuttryck och utveckling."],
     longBody: [
-      "Jag samarbetade med ABF Södertörn och Haninge kommun i initiativ som förenar psykologi, kultur, rörelse och folkbildning.",
-      "G-Flow är ett samhällsbaserat initiativ som ger tjejer i socioekonomiskt utsatta områden en trygg, inkluderande och prestationsfri miljö att utforska självkänsla, identitet, känslor, kroppsmedvetenhet, tillhörighet och relationer.",
-      "Genom återkommande gratispass under jul-, påsk- och sommarlov har jag utformat och lett självutvecklingssessioner som kombinerar psykologisk kunskap och psykoedukation med meditation, andningsövningar, rörelse, dans och reflekterande övningar.",
-      "Målet har varit att göra verktyg för psykiskt välbefinnande och självutveckling tillgängliga i en miljö där unga kan känna sig sedda, hörda och stöttade i en trygg och tillförlitlig kontext.",
-      "Under flera omgångar av skolloven har G-Flow samlat tjejer för att bygga gemenskap, stärka självkännedom och skapa relationer. Projektet lyfter betydelsen av tillgängliga, förebyggande rum där unga kan utveckla emotionella och sociala resurser tillsammans med andra.",
-      "Initiativet har också fått större uppmärksamhet, bland annat genom Sveriges Radio och Psykologtidningen, vilket hjälper till att synliggöra vikten av tillgängliga psykologiska välbefinnandeinsatser för unga.",
-      "G-Flow vilar på en enkel övertygelse: när unga får utrymme att möta sig själva och varandra lägger vi grunden för ett starkare individuellt och kollektivt välbefinnande.",
+      "G-Flow är ett initiativ jag grundat för att skapats för att ge unga tjejer en trygg, inkluderande och prestationsfri plats att utforska självkänsla, identitet, känslor, kropp, tillhörighet och relationer.",
+      "Genom initiativet har jag, i samarbete med ABF Södertörn och lokala samhällsaktörer, utvecklat och lett kostnadsfria träffar där psykologisk kunskap och psykoedukation kombineras med meditation, andningsövningar, rörelse, dans och reflektion.",
+      "Syftet har varit att göra verktyg för mental hälsa och personlig utveckling mer tillgängliga, samtidigt som deltagarna får möjlighet att känna sig sedda, hörda och delaktiga i en trygg gemenskap.",
+      "G-Flow har genomförts i flera omgångar under skollov och har skapat ett rum där unga tjejer kan utforska sig själva, stärka sin självkänsla och bygga relationer med andra utan fokus på prestation.",
+      "Initiativet har även fått uppmärksamhet i Sveriges Radio och Psykologtidningen, vilket har bidragit till att lyfta betydelsen av förebyggande och lättillgängliga insatser för ungas psykiska och sociala välbefinnande.",
+      "G-Flow bygger på en enkel övertygelse: när unga får utrymme att möta sig själva och varandra, skapar vi starkare förutsättningar för både individuellt och kollektivt välbefinnande.",
     ],
   },
   {
     title: "Hero idrottsförening",
+    photo: photoHero,
+    gallery: "hero",
+    image: heroLogo,
 
     meta: "Ideell förening · Fysisk hälsa · Självkänsla & mental hälsa",
-    body: ["En ideell förening för unga tjejer med fokus på fysisk hälsa — där jag regelbundet håller dansklasser med fokus på att stärka självkänsla och mental hälsa."],
+    body: ["En ideell förening för unga tjejer med fokus på fysisk hälsa - där jag regelbundet håller dansklasser med fokus på att stärka självkänsla och mental hälsa."],
     longBody: [
-      "Hero är en ideell förening för unga tjejer med fokus på fysisk hälsa och gemenskap.",
-      "Där håller jag regelbundet dansklasser där rörelse kombineras med psykologiska perspektiv — med målet att stärka deltagarnas självkänsla och mentala hälsa.",
+      "Hero Idrottsförening är en ideell organisation som skapar möjligheter för unga tjejer i förorten att stärka sin hälsa, gemenskap och sitt välbefinnande genom träning och rörelse.",
+      "Genom mitt samarbete med Hero håller jag regelbundna dansklasser under terminen, där dans och rörelse kombineras med fokus på självkänsla, kroppsmedvetenhet och mental hälsa.",
+      "På Alla hjärtans dag höll jag även en integrativ workshop och föreläsning om självkärlek, självomsorg och självmedkänsla. Ungdomarna fick utforska vad det faktiskt innebär att ta hand om sig själva, hur de ser på och pratar med sig själva, och hur den egna självbilden kan påverka relationerna vi skapar med andra.",
+      "Arbetet fortsätter genom återkommande dansklasser, föreläsningar och workshops, och fortsätter att ha en stor efterfrågan bland ungdomarna.",
+      "Genom att kombinera rörelse, psykologi och gemenskap vill jag skapa utrymme för unga tjejer att inte bara må bättre - utan också utveckla en starkare, medveten och mer positiv relation till sig själva och varandra.",
     ],
   },
   {
     title: "Joy in the Wild",
+    photo: photoJoy,
+    gallery: "joy-in-the-wild",
     meta: "Grundare & facilitator",
     body: ["En natur- och välbefinnandeupplevelse för kvinnor, med fokus på gemenskap, närvaro, rörelse och självreflektion."],
     longBody: [
-      "En natur- och välbefinnandeupplevelse för kvinnor, med fokus på gemenskap, närvaro, rörelse och självreflektion.",
-      "Initiativet förenar psykologiska perspektiv med kroppsnära praktiker och naturupplevelser, och skapar utrymme för deltagarna att sakta ner, återkoppla till sig själva och utforska välbefinnande bortom vardagens krav.",
+      "Joy in the Wild skapades för kvinnor med olika kulturella bakgrunder, med en önskan att utforska vad lycka faktiskt betyder för oss bortom prestation, förväntningar och kulturella föreställningar.",
+      "Genom skrivövningar, reflektion och öppna samtal fick deltagarna utforska vilken plats lycka har haft i deras liv, hur de såg på lycka som barn och hur kulturella normer och erfarenheter kan påverka vår relation till glädje, frihet och oss själva.",
+      "Tillsammans med poeten och dansaren Melissa utforskade vi även dans och somatisk rörelse. Att få röra sig för att återknyta till känslan, uttrycket och glädjens skull.",
+      "Vi mediterade, andades, reflekterade och framför allt - hade kul.",
+      "Joy in the Wild skapades som en påminnelse om att lycka inte behöver vara något vi förtjänar eller presterar oss till. Ibland är det så simpelt som att sakta ner, och lägga märke till, och återknyta till det som redan får oss att känna oss levande.",
     ],
   },
   {
     title: "House of Creatives Solna",
+    photo: photoHoc,
+    gallery: "house-of-creatives",
     image: houseOfCreativeLogo,
     meta: "Rörelse & Meditation · Gemenskap",
-    body: ["Rörelse och meditation hos House of Creatives — ett stöttande rum för närvaro, återhämtning och gemenskap."],
+    body: ["Rörelse och meditation hos House of Creatives - ett stöttande rum för närvaro, återhämtning och gemenskap."],
     longBody: [
-      "Jag leder rörelse- och meditationstillfällen hos House of Creatives i Solna.",
-      "Passen kombinerar kroppsnära praktik med psykologiska perspektiv och skapar ett tryggt rum där deltagarna kan landa, andas och återhämta sig tillsammans.",
+      "Som en del av det ideella kreativa initiativet House of Creatives håller jag Meditation & Movement-klasser för människor med olika åldrar, kön och kulturella bakgrunder.",
+      "Klasserna kombinerar fri somatisk rörelse, musik, meditation och andning. Genom lätt guidning och olika teman får deltagarna möjlighet att släppa prestation och återknyta till mer lekfulla, fria och närvarande delar av sig själva.",
+      "Rörelsen blir ett sätt att landa i kroppen, släppa på stress och skapa mer utrymme innan vi växlar ner i stillhet. Klassen avslutas med meditation och andning, följt av gemensam delning och integration.",
+      "Genom att skapa ett inkluderande rum där människor med olika erfarenheter och bakgrunder möts, blir klassen också en plats för gemenskap, uttryck och mänsklig kontakt - något många idag längtar efter.",
     ],
   },
   {
-    title: "Fryshuset · Jakten på mening",
+    title: "Tillsammans för Sverige · Fryshuset · Jakten på Tro & Mening",
+    photo: photoFryshuset,
+    gallery: "fryshuset",
     image: fryshusetLogo,
+    extraLogo: tfsLogo,
     meta: "Podcast · Samtal om mening & välbefinnande",
-    body: ["Gäst i Fryshusets podcast Jakten på mening — ett samtal om psykologisk hälsa och det som ger livet mening."],
+    body: ["Gäst i Fryshusets podcast Jakten på Tro & Mening - ett samtal om psykologisk hälsa och det som ger livet mening."],
     longBody: [
-      "Jag deltog i Fryshusets podcast Jakten på mening.",
-      "I avsnittet samtalar vi om psykologisk hälsa — om vad som skapar mening, hur vi kan stärka vårt välbefinnande och vad som händer när vi lyssnar in oss själva.",
+      "Jag deltog i Fryshusets podcast Jakten på Tro & Mening.",
+      "I avsnittet samtalar vi om psykologisk hälsa - om vad som skapar mening, hur vi kan stärka vårt välbefinnande och vad som händer när vi lyssnar in oss själva.",
+    ],
+    link: { label: "Se avsnittet på YouTube", href: "https://www.youtube.com/watch?v=nLSdBQndF0E&t=1285s" },
+  },
+  {
+    title: "Vägen tillbaka",
+    photo: photoVagen,
+    gallery: "vagen-tillbaka",
+    meta: "Retreat · 3 dagar · Uppsala",
+    body: ["Ett tre dagars retreat för kvinnor i skogen utanför Uppsala, med yoga, meditation, breathwork och reflektion i naturen."],
+    longBody: [
+      "Vägen tillbaka var ett tre dagars retreat för kvinnor, ute i skogen utanför Uppsala.",
+      "Dagarna fylldes av yoga, meditation, breathwork och reflektion. Allt kretsade kring välbefinnande och hälsa, med gott om tid att äta god mat tillsammans och vara ute i naturen.",
+      "Retreatet höll jag tillsammans med en shaman från Peru, som förde in traditioner och perspektiv från Peru i arbetet.",
+    ],
+  },
+  {
+    title: "Motheroots",
+    photo: photoMotherRoots,
+    gallery: "mother-roots",
+    meta: "Event · Mammor 40+ · Flera generationer",
+    body: ["Ett event för mammor 40+, om hur moderskapet har förändrats över åren och vad det har inneburit för dem som individer."],
+    longBody: [
+      "Motheroots var ett event för mammor som är 40 år och äldre.",
+      "Deltagarna fick reflektera över moderskapet: hur det har förändrats för dem och vad det har inneburit för dem som individer genom åren.",
+      "Vi mediterade, gjorde visualiseringar och andningsövningar, dansade och stretchade.",
+      "Eventet avslutades med en reflektionscirkel där alla delade öppet. Deltagarna kom från olika generationer, och flera mammor kom tillsammans med sina egna mammor.",
     ],
   },
 ];
 
-/* Spara för senare upplägg — välbefinnande/retreat-erfarenheter (ej aktiva i sidan just nu)
+/* Spara för senare upplägg - välbefinnande/retreat-erfarenheter (ej aktiva i sidan just nu)
 const wellbeingEntries: Entry[] = [
   {
     title: "Joy in the Wild",
@@ -183,7 +255,7 @@ const wellbeingEntries: Entry[] = [
     meta: "Retreat · Psykologi · Självreflektion & kroppsnära välbefinnande",
     body: [
       "Ett retreatkoncept som handlar om att återknyta till sig själv genom reflektion, psykologisk insikt, mindfulness, rörelse och kroppsnära praktiker.",
-      "Retreatformatet speglar min övergripande syn på välbefinnande: att skapa upplevelser som engagerar hela människan — kognitivt, emotionellt, relationellt och fysiskt.",
+      "Retreatformatet speglar min övergripande syn på välbefinnande: att skapa upplevelser som engagerar hela människan - kognitivt, emotionellt, relationellt och fysiskt.",
     ],
   },
 ];
@@ -249,9 +321,9 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
       tabIndex={0}
       onClick={() => onOpen(entry)}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
-      className="relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
+      className="relative flex flex-col md:flex-row cursor-pointer gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-[transform,border-color] duration-300 hover:scale-[1.02] hover:border-accent/40 motion-reduce:transition-none motion-reduce:hover:scale-100"
     >
-      <span className="absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent underline underline-offset-4">
+      <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] text-accent underline underline-offset-4">
         Läs mer
       </span>
       {entry.image && (
@@ -259,19 +331,19 @@ function ClinicalCard({ entry, onOpen }: { entry: Entry; onOpen: (e: Entry) => v
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-40 md:w-64 shrink-0 self-center max-h-24 md:max-h-28 object-contain"
+          className="w-36 md:w-64 shrink-0 self-center max-h-14 md:max-h-28 object-contain object-center"
         />
       )}
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex-1 md:pr-28">
         {entry.period && (
-          <p className="text-[10px] uppercase tracking-[0.25em] text-accent">
+          <p className="text-center md:text-left text-[10px] uppercase tracking-[0.25em] text-accent">
             {entry.period}
           </p>
         )}
-        <h3 className="mt-3 font-serif font-bold text-lg md:text-xl leading-tight uppercase text-foreground text-balance">
+        <h3 className="mt-3 text-center md:text-left font-serif font-bold text-lg md:text-xl leading-tight uppercase text-foreground text-balance">
           {entry.title}
         </h3>
-        <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-foreground/55 leading-relaxed">
+        <p className="mt-2 text-center md:text-left text-[11px] uppercase tracking-[0.18em] text-foreground/55 leading-relaxed">
           {entry.meta}
         </p>
         <div className="mt-5 space-y-4">
@@ -300,9 +372,9 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(entry); } }}
 
 
-      className={`relative flex cursor-pointer gap-5 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
+      className={`relative flex flex-col md:flex-row cursor-pointer gap-4 md:gap-7 rounded-3xl border p-5 md:p-7 transition-[transform,border-color] duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100 ${light ? "border-border bg-background text-foreground hover:border-accent/40" : "border-background/15 bg-foreground text-background hover:border-background/40"}`}
     >
-      <span className={`absolute top-5 right-5 md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 ${light ? "text-accent" : "text-background/80"}`}>
+      <span className={`order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 ${light ? "text-accent" : "text-background/80"}`}>
         Läs mer
       </span>
       {entry.image && (
@@ -310,11 +382,11 @@ function EntryRow({ entry, light = false, onOpen }: { entry: Entry; light?: bool
           src={entry.image}
           alt={entry.title}
           loading="lazy"
-          className="w-40 md:w-64 shrink-0 self-center max-h-24 md:max-h-28 object-contain"
+          className="w-36 md:w-64 shrink-0 self-center max-h-14 md:max-h-28 object-contain object-center"
         />
       )}
-      <div className="min-w-0 flex-1 space-y-5">
-        <div className="space-y-2">
+      <div className="min-w-0 flex-1 space-y-5 md:pr-28">
+        <div className="space-y-2 text-center md:text-left">
           {entry.period && (
              <p className={`text-[10px] uppercase tracking-[0.25em] ${light ? "text-accent" : "text-background/70"}`}>
               {entry.period}
@@ -386,7 +458,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
             </h1>
             <p className="text-lg md:text-xl leading-[1.7] text-background/85 max-w-2xl">
               Mitt arbete förenar psykologisk expertis, mänsklig utveckling
-              och kroppsnära vägar till välbefinnande — inom klinisk
+              och kroppsnära vägar till välbefinnande - inom klinisk
               verksamhet, organisationer och samhälle.
             </p>
           </div>
@@ -403,7 +475,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
               label: "Kliniskt arbete",
               content: (
                 <>
-        {/* ===== Collaborations — dark band ===== */}
+        {/* ===== Collaborations - dark band ===== */}
         <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
@@ -451,9 +523,18 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
          <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
            <div id="community" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Social påverkan" dark />
-             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
+             <div className="mt-8 md:mt-10 flex flex-wrap justify-center gap-5 md:gap-6">
                {communityEntries.map((e) => (
-                 <EntryRow key={e.title} entry={e} light onOpen={setSelected} />
+                 <PhotoEntryCard
+                   key={e.title}
+                   photos={[e.photo!, ...(e.gallery ? galleryFor(e.gallery) : [])]}
+                   lang="sv"
+                   title={e.title}
+                   meta={e.meta}
+                   text={e.body[0]}
+                   readMore="Läs mer"
+                   onOpen={() => setSelected(e)}
+                 />
                ))}
              </div>
            </div>
@@ -484,9 +565,9 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                 className="relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
                 <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Läs artikeln ↗</span>
-                <img src={srLogo} alt="Sveriges Radio" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-start md:self-center h-auto max-h-12 md:max-h-16 object-contain" />
+                <img src={srLogo} alt="Sveriges Radio" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-center h-auto max-h-12 md:max-h-16 object-contain" />
                 <div className="min-w-0 flex-1 md:pr-32">
-                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                  <h3 className="text-center md:text-left font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     Sveriges Radio
                   </h3>
                   <p className="mt-2 text-base leading-[1.75] text-foreground/70">
@@ -503,9 +584,9 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                 className="relative w-full text-left cursor-zoom-in flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
                 <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Läs artikeln</span>
-                <img src={ptLogo} alt="Psykologtidningen" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-start md:self-center h-auto max-h-12 md:max-h-16 object-contain" />
+                <img src={ptLogo} alt="Psykologtidningen" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-center h-auto max-h-12 md:max-h-16 object-contain" />
                 <div className="min-w-0 flex-1 md:pr-32">
-                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                  <h3 className="text-center md:text-left font-serif font-bold text-lg md:text-xl leading-snug uppercase">
                     Psykologtidningen
                   </h3>
                   <p className="mt-2 text-base leading-[1.75] text-foreground/70">
@@ -519,13 +600,14 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                 href="https://www.abf.se/sodertorn/nyheter/g-flow-ger-unga-tjejer/"
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label="ABF Södertörn: Läs artikeln (öppnas i ny flik)"
+                aria-label="ABF Södertörn Folkbildning: Läs artikeln (öppnas i ny flik)"
                 className="relative flex flex-col md:flex-row gap-4 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
                 <span className="order-last self-start md:order-none md:absolute md:top-7 md:right-7 whitespace-nowrap font-bold text-[11px] uppercase tracking-[0.22em] underline underline-offset-4 text-accent">Läs artikeln ↗</span>
+                <img src={abfLogo} alt="ABF" loading="lazy" draggable={false} className="w-36 md:w-52 shrink-0 self-center h-10 md:h-20 object-contain" />
                 <div className="min-w-0 flex-1 md:pr-32">
-                  <h3 className="font-serif font-bold text-lg md:text-xl leading-snug uppercase">
-                    ABF Södertörn
+                  <h3 className="text-center md:text-left font-serif font-bold text-lg md:text-xl leading-snug uppercase">
+                    ABF Södertörn Folkbildning
                   </h3>
                   <p className="mt-2 text-base leading-[1.75] text-foreground/70">
                     Om G-Flow: en mötesplats i Jordbro där unga tjejer stärker självkänsla och psykisk hälsa genom samtal, rörelse och meditation.
@@ -545,17 +627,6 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
 
 {/* Shown below the panels */}
 <>
-        <section className="px-6 md:px-10 py-20 md:py-28">
-          <div className="max-w-7xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
-            {[
-              { src: photoGroupCircle, alt: "Deltagare i en cirkel under en workshop", pos: "50% 50%" },
-              { src: photoHandsSky, alt: "Händer som sträcks mot himlen", pos: "40% 50%" },
-              { src: photoFireEvening, alt: "Två deltagare vid en eld en kväll", pos: "40% 50%" },
-            ].map((img) => (
-              <img key={img.alt} src={img.src} alt={img.alt} loading="lazy" className="w-full aspect-[3/4] md:aspect-[4/5] object-cover" style={{ objectPosition: img.pos }} />
-            ))}
-          </div>
-        </section>
 
         {/* Logo band last, right above the footer (same as on Kontakt) */}
         <LogoMarquee className="" />
@@ -567,19 +638,29 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
           onClose={() => setLightboxOpen(false)}
         />
         <Dialog open={selected !== null} onOpenChange={(o) => { if (!o) setSelected(null); }}>
-          <DialogContent className="max-w-2xl">
+          {/* max-h + overflow: long popups (text + photos) scroll inside instead of running off the screen */}
+          <DialogContent data-lenis-prevent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             {selected && (
               <>
                 <DialogHeader>
+                  {/* Cards with a photo show their logo here, at the top of the popup */}
+                  {selected.photo && selected.image && (
+                    <div className="mx-auto sm:mx-0 mb-3 flex items-center gap-5">
+                      <img src={selected.image} alt="" className="h-14 md:h-16 w-auto max-w-[14rem] object-contain" />
+                      {selected.extraLogo && (
+                        <img src={selected.extraLogo} alt="" className="h-14 md:h-16 w-auto max-w-[10rem] object-contain" />
+                      )}
+                    </div>
+                  )}
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       {selected.period && (
-                        <p className="text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
+                        <p className="text-center md:text-left text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
                       )}
                       <DialogTitle className="font-serif text-2xl md:text-3xl uppercase leading-tight">{selected.title}</DialogTitle>
                       <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
                     </div>
-                    {selected.image && (
+                    {selected.image && !selected.photo && (
                       <img src={selected.image} alt={selected.title} className={`mt-1 hidden shrink-0 object-contain object-right sm:block ${selected.logoBig ? "h-36 w-36" : "h-16 w-56"}`} />
                     )}
                   </div>
@@ -589,6 +670,9 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                     <p key={p} className="text-base leading-[1.75] text-foreground/75">{p}</p>
                   ))}
                 </div>
+                {selected.gallery && (
+                  <ModalGallery photos={galleryFor(selected.gallery)} label={selected.title} lang="sv" />
+                )}
                 {selected.tags && (
                   <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.tags}</p>
                 )}
