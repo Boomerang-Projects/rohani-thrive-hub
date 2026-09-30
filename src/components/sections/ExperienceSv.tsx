@@ -357,12 +357,12 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
 </>)}
 {section === "organisational" && (<>
          {/* ===== Organisational work ===== */}
-        <section className="py-16 md:py-20 px-6 md:px-10">
+        <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
            <div id="organisational" className="max-w-7xl mx-auto scroll-mt-28">
-             <SectionHeader title="Organisatoriskt arbete" brown />
+             <SectionHeader title="Organisatoriskt arbete" dark />
              <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
                {organisationalEntries.map((e) => (
-                 <EntryRow key={e.title} entry={e} onOpen={setSelected} />
+                 <EntryRow key={e.title} entry={e} light onOpen={setSelected} />
                ))}
           </div>
            </div>
@@ -415,12 +415,12 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
 </>)}
 {section === "media" && (<>
         {/* ===== In the Media + organisations ===== */}
-        <section className="bg-secondary/60 py-16 md:py-20 px-6 md:px-10">
+        <section className="bg-forest py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader id="media" title="I media" />
-            <div className="mt-8 md:mt-10 space-y-10 md:space-y-12">
+            <SectionHeader id="media" title="I media" dark />
+            <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
               {/* Sveriges Radio */}
-              <div className="flex gap-5 md:gap-8">
+              <div className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100">
                 <img
                   src={mediaRadio}
                   alt="Studiomikrofon i varmt ljus"
@@ -441,7 +441,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
               </div>
 
               {/* Psykologtidningen */}
-              <div className="flex gap-5 md:gap-8">
+              <div className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
@@ -467,7 +467,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
               </div>
 
               {/* Podd */}
-              <div className="flex gap-5 md:gap-8">
+              <div className="flex gap-5 md:gap-7 rounded-3xl border border-border bg-background p-5 md:p-7 text-foreground transition-transform duration-300 hover:scale-[1.02] motion-reduce:transition-none motion-reduce:hover:scale-100">
                 <img
                   src={mediaPodcast}
                   alt="Podcastmikrofoner i inspelningsstudio"
