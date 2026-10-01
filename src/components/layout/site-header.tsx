@@ -32,7 +32,7 @@ const navLinksSv: NavItem[] = [
       { id: "organisational", href: "/experience/organisational", label: "Organisatoriskt arbete" },
       { id: "community", href: "/experience/social", label: "Social påverkan" },
       { id: "media", href: "/experience/media", label: "Publicitet" },
-      { id: "samarbeten", label: "Se vilka jag arbetat med", action: "logos" },
+      { id: "samarbeten", label: "Har arbetat med", action: "logos" },
     ],
   },
   {
@@ -58,7 +58,7 @@ const navLinksEn: NavItem[] = [
     { id: "organisational", href: "/experience/organisational", label: "Organisational Work" },
     { id: "community", href: "/experience/social", label: "Social Impact" },
     { id: "media", href: "/experience/media", label: "Publicity" },
-    { id: "samarbeten", label: "See who I've worked with", action: "logos" },
+    { id: "samarbeten", label: "Worked with", action: "logos" },
   ] },
   { to: "/contact", label: "Contact", subs: [
     { id: "contact", label: "Get in Touch" },

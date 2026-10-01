@@ -16,6 +16,7 @@ import betteryou from "@/assets/logos/betteryou.png";
 import myHappyHead from "@/assets/logos/my-happy-head.png";
 import sats from "@/assets/logos/sats.png";
 import lululemon from "@/assets/logos/lululemon.png";
+import huddinge from "@/assets/logos/huddinge-kommun-white.png";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useLang } from "@/lib/i18n";
 import { useEffect, useState } from "react";
@@ -24,7 +25,7 @@ import { useEffect, useState } from "react";
 export const OPEN_LOGOS_EVENT = "rohani:open-logos";
 
 // Logos in their original colours. Exception: logos with black text (the Region
-// Stockholm ones and lululemon) use white-text versions, so they show on the brown band.
+// Stockholm ones, Huddinge and lululemon) use white-text versions, so they show on the brown band.
 // Order: logos that look alike (the three Region Stockholm ones, and Fryshuset and
 // Tillsammans för Sverige) are spread out so they never sit next to each other.
 const logos = [
@@ -39,6 +40,7 @@ const logos = [
   { src: betteryou, alt: "Better You", w: 270, h: 97 },
   { src: karolinska, alt: "Karolinska Universitetssjukhuset", w: 500, h: 100 },
   { src: hero, alt: "Hero idrottsförening", w: 242, h: 94 },
+  { src: huddinge, alt: "Huddinge kommun", w: 319, h: 95 },
   { src: myHappyHead, alt: "My Happy Head", w: 353, h: 69 },
   { src: regionStockholm, alt: "Region Stockholm", w: 279, h: 71 },
   { src: tillsammans, alt: "Tillsammans för Sverige", w: 273, h: 145 },
@@ -53,7 +55,7 @@ const logos = [
  * A rolling band of logos (row rendered twice for a seamless loop).
  * Clicking the band opens a dialog listing every logo one after another.
  */
-export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: string }) {
+export function LogoMarquee({ className = "" }: { className?: string }) {
   const { t } = useLang();
   const [open, setOpen] = useState(false);
 
@@ -91,14 +93,14 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      {/* No strip of its own: the link floats just above the band, in the space that is already there */}
-      <div className={`${className} relative`}>
-        <div className="pointer-events-none absolute bottom-full inset-x-0">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 pb-3">
+      {/* Same on every page: a light strip with the link, then the band right under it */}
+      <div className={className}>
+        <div className="bg-background">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-3">
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="pointer-events-auto group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-accent underline underline-offset-4 decoration-accent/40 transition-colors duration-300 hover:decoration-accent"
+              className="group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-accent underline underline-offset-4 decoration-accent/40 transition-colors duration-300 hover:decoration-accent"
             >
               {t("Har arbetat med", "Worked with")}
               <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>

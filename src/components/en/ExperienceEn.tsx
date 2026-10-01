@@ -18,6 +18,7 @@ import satsLogo from "@/assets/logos/sats-card.png";
 import fryshusetLogo from "@/assets/logos/fryshuset.png";
 import tfsLogo from "@/assets/logos/tillsammans-for-sverige.png";
 import groLogo from "@/assets/logos/gro-studio.png";
+import huddingeLogo from "@/assets/logos/huddinge-kommun.png";
 // Main photos for the Social påverkan cards (from the "Sociala Påverkan Bilder" folder).
 import photoGflow from "@/assets/photos/social-gflow.jpg";
 import photoHero from "@/assets/photos/social-hero.jpg";
@@ -161,10 +162,11 @@ const organisationalEntries: Entry[] = [
     ],
   },  {
     title: "Edboskolan · Dance, Movement & Health",
+    image: huddingeLogo,
     meta: "Sports day · Primary school · Workshop",
-    body: ["During Edboskolan's sports day, I led a 1.5-hour workshop for primary school pupils focused on dance, movement and health."],
+    body: ["During Edboskolan's sports day, I led a 1.5-hour workshop for primary school pupils focused on movement and health."],
     longBody: [
-      "During Edboskolan's sports day, I led a 1.5-hour workshop for primary school pupils focused on dance, movement and health.",
+      "During Edboskolan's sports day, I led a 1.5-hour workshop for primary school pupils focused on movement and health.",
       "The workshop highlighted how movement can support both physical and mental health, while creating energy, joy and community. Through dance and playful exercises, the pupils got to move, explore their bodies and experience movement without a focus on performance.",
     ],
   },
@@ -671,7 +673,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
 <>
 
         {/* Logo band last, right above the footer (same as on Kontakt) */}
-        <LogoMarquee className="" />
+        <LogoMarquee />
 </>
         <ArticleLightbox
           src={mediaArticle}
