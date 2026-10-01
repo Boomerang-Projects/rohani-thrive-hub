@@ -9,16 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperienceRouteImport } from './routes/experience'
-import { Route as ExperienceMediaRouteImport } from './routes/experience_.media'
-import { Route as ExperienceOrganisationalRouteImport } from './routes/experience_.organisational'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExperienceSocialRouteImport } from './routes/experience_.social'
+import { Route as ExperienceOrganisationalRouteImport } from './routes/experience_.organisational'
+import { Route as ExperienceMediaRouteImport } from './routes/experience_.media'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ExperienceRoute = ExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -26,14 +26,14 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExperienceRoute = ExperienceRouteImport.update({
-  id: '/experience',
-  path: '/experience',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExperienceMediaRoute = ExperienceMediaRouteImport.update({
-  id: '/experience_/media',
-  path: '/experience/media',
+const ExperienceSocialRoute = ExperienceSocialRouteImport.update({
+  id: '/experience_/social',
+  path: '/experience/social',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceOrganisationalRoute =
@@ -42,9 +42,9 @@ const ExperienceOrganisationalRoute =
     path: '/experience/organisational',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ExperienceSocialRoute = ExperienceSocialRouteImport.update({
-  id: '/experience_/social',
-  path: '/experience/social',
+const ExperienceMediaRoute = ExperienceMediaRouteImport.update({
+  id: '/experience_/media',
+  path: '/experience/media',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -111,11 +111,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/experience': {
+      id: '/experience'
+      path: '/experience'
+      fullPath: '/experience'
+      preLoaderRoute: typeof ExperienceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -125,18 +125,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/experience': {
-      id: '/experience'
-      path: '/experience'
-      fullPath: '/experience'
-      preLoaderRoute: typeof ExperienceRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/experience_/media': {
-      id: '/experience_/media'
-      path: '/experience/media'
-      fullPath: '/experience/media'
-      preLoaderRoute: typeof ExperienceMediaRouteImport
+    '/experience_/social': {
+      id: '/experience_/social'
+      path: '/experience/social'
+      fullPath: '/experience/social'
+      preLoaderRoute: typeof ExperienceSocialRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience_/organisational': {
@@ -146,11 +146,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperienceOrganisationalRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/experience_/social': {
-      id: '/experience_/social'
-      path: '/experience/social'
-      fullPath: '/experience/social'
-      preLoaderRoute: typeof ExperienceSocialRouteImport
+    '/experience_/media': {
+      id: '/experience_/media'
+      path: '/experience/media'
+      fullPath: '/experience/media'
+      preLoaderRoute: typeof ExperienceMediaRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
