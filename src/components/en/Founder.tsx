@@ -7,6 +7,12 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
     <section className="px-6 md:px-10 max-w-7xl mx-auto">
       <SectionHeader title="Meet the Founder" />
       {/* Same rhythm as the hero: photo, quote card over its corner, one short text */}
+      {/* Phones: the role sits right under the title, above the photo (from md it's in the text column) */}
+      <div className="md:hidden -mt-2 mb-6 flex justify-center">
+        <p className="inline-flex whitespace-nowrap rounded-full bg-foreground/5 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-foreground/60">
+          Psychologist · Facilitator · Speaker
+        </p>
+      </div>
       <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-start">
         {/* Left: portrait with the quote card */}
         <div className="relative md:mb-12">
@@ -43,10 +49,10 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
 
         {/* Right: original founder story */}
         <div className="md:max-w-xl">
-          <p className="inline-flex rounded-full bg-foreground/5 px-5 py-2.5 text-[10px] uppercase tracking-[0.3em] text-foreground/60">
+          <p className="hidden md:inline-flex rounded-full bg-foreground/5 px-5 py-2.5 text-[10px] uppercase tracking-[0.3em] text-foreground/60">
             Psychologist · Facilitator · Speaker
           </p>
-          <p className="mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
+          <p className="md:mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
             My name is Madeeha Qazi, and I am a licensed psychologist, facilitator and the founder of ROHANI.
           </p>
           <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/90">

@@ -12,13 +12,13 @@ function ContactSv() {
     // Presentational only - wire to backend later
     setTimeout(() => {
       setSubmitting(false);
-      toast.success("Tack. Vi hör av oss inom kort.");
+      toast.success("Tack. Jag hör av mig inom kort.");
       (e.currentTarget as HTMLFormElement).reset();
     }, 600);
   }
 
   return (
-    <section id="contact" className="pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-10 max-w-3xl mx-auto">
+    <section id="contact" data-no-reveal className="pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-10 max-w-3xl mx-auto">
       <div>
         <form
           onSubmit={handleSubmit}

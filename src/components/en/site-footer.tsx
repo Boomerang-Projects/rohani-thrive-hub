@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 
 export function SiteFooterEn() {
   return (
@@ -33,26 +34,8 @@ export function SiteFooterEn() {
                 madeeha@rohani.se
               </a>
             </li>
-            <li className="flex items-baseline gap-2">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-accent"
-              >
-                ROHANI
-              </a>
-              <span aria-hidden="true" className="text-foreground/35 text-xs">
-                ·
-              </span>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-accent"
-              >
-                Madeeha Rani Qazi
-              </a>
+            <li className="pt-1">
+              <SocialLinks label={(n) => `${n} (opens in a new tab)`} />
             </li>
             <li className="text-foreground/60">Based in: Scandinavia - Online - Working Globally</li>
           </ul>

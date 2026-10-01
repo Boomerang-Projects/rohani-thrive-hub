@@ -1,4 +1,5 @@
 import { useLang } from "@/lib/i18n";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 import { SiteFooterEn } from "@/components/en/site-footer";
 import { Link } from "@tanstack/react-router";
 
@@ -35,26 +36,8 @@ function SiteFooterSv() {
                 madeeha@rohani.se
               </a>
             </li>
-            <li className="flex items-baseline gap-2">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-accent"
-              >
-                ROHANI
-              </a>
-              <span aria-hidden="true" className="text-foreground/35 text-xs">
-                ·
-              </span>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-accent"
-              >
-                Madeeha Rani Qazi
-              </a>
+            <li className="pt-1">
+              <SocialLinks label={(n) => `${n} (öppnas i ny flik)`} />
             </li>
             <li className="text-foreground/60">Baserad i: Skandinavien - Online - Arbetar globalt</li>
           </ul>

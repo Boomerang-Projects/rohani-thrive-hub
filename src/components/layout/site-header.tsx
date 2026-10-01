@@ -3,11 +3,13 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useLang, type Lang } from "@/lib/i18n";
 import { requestScrollTo, scrollBelowHeader } from "@/lib/scroll-intent";
+import { OPEN_LOGOS_EVENT } from "@/components/sections/LogoMarquee";
 
 // id of the category slider on Erfarenhet (set in ExperienceSwipe)
 const SLIDER_ID = "erfarenhet-kategorier";
 
-type SubLink = { id: string; label: string; href?: string };
+// action "logos": the band is on every page, so no page change. Scroll to it and open its list.
+type SubLink = { id: string; label: string; href?: string; action?: "logos" };
 type NavItem = { to: string; label: string; subs?: SubLink[] };
 
 const navLinksSv: NavItem[] = [
@@ -15,9 +17,9 @@ const navLinksSv: NavItem[] = [
     to: "/",
     label: "OM",
     subs: [
-      { id: "vagleder", label: "Det som vägleder oss" },
-      { id: "mission", label: "Vår mission" },
-      { id: "metod", label: "Så arbetar vi" },
+      { id: "vagleder", label: "Det som vägleder mig" },
+      { id: "mission", label: "Min mission" },
+      { id: "metod", label: "Så arbetar jag" },
       { id: "grundaren", label: "Möt grundaren" },
       { id: "heart", label: "Hjärtat av ROHANI" },
     ],
@@ -29,14 +31,15 @@ const navLinksSv: NavItem[] = [
       { id: "clinical", href: "/experience", label: "Kliniskt arbete" },
       { id: "organisational", href: "/experience/organisational", label: "Organisatoriskt arbete" },
       { id: "community", href: "/experience/social", label: "Social påverkan" },
-      { id: "media", href: "/experience/media", label: "I media" },
+      { id: "media", href: "/experience/media", label: "Publicitet" },
+      { id: "samarbeten", label: "Se vilka jag arbetat med", action: "logos" },
     ],
   },
   {
     to: "/contact",
     label: "Kontakt",
     subs: [
-      { id: "contact", label: "Kontakta oss" },
+      { id: "contact", label: "Kontakta mig" },
       { id: "cta", label: "Börja där du är" },
     ],
   },
@@ -44,9 +47,9 @@ const navLinksSv: NavItem[] = [
 
 const navLinksEn: NavItem[] = [
   { to: "/", label: "About", subs: [
-    { id: "vagleder", label: "What Guides Us" },
-    { id: "mission", label: "Our Mission" },
-    { id: "metod", label: "How we work" },
+    { id: "vagleder", label: "What Guides Me" },
+    { id: "mission", label: "My Mission" },
+    { id: "metod", label: "How I Work" },
     { id: "grundaren", label: "Meet the Founder" },
     { id: "heart", label: "The Heart of ROHANI" },
   ] },
@@ -54,7 +57,8 @@ const navLinksEn: NavItem[] = [
     { id: "clinical", href: "/experience", label: "Clinical Practice" },
     { id: "organisational", href: "/experience/organisational", label: "Organisational Work" },
     { id: "community", href: "/experience/social", label: "Social Impact" },
-    { id: "media", href: "/experience/media", label: "In the Media" },
+    { id: "media", href: "/experience/media", label: "Publicity" },
+    { id: "samarbeten", label: "See who I've worked with", action: "logos" },
   ] },
   { to: "/contact", label: "Contact", subs: [
     { id: "contact", label: "Get in Touch" },
@@ -99,6 +103,11 @@ export function SiteHeader() {
     else requestScrollTo(SLIDER_ID);
   }
 
+  function openLogos() {
+    setOpen(false);
+    window.dispatchEvent(new Event(OPEN_LOGOS_EVENT));
+  }
+
   function scrollToSection(id: string) {
     setOpen(false);
     // cross-page anchors load the page, then jump
@@ -132,6 +141,12 @@ export function SiteHeader() {
                   <div className="min-w-[13rem] bg-background border border-border/70 rounded-2xl shadow-[0_24px_60px_-24px_rgba(27,43,36,0.35)] py-3 px-2">
                     {link.subs.map((sub) => {
                       const cls = "block px-4 py-2.5 text-xs font-serif font-semibold uppercase tracking-[0.14em] text-foreground rounded-xl hover:bg-secondary/70 transition-all duration-300 hover:scale-[1.03] whitespace-nowrap";
+                      if (sub.action === "logos")
+                        return (
+                          <button key={sub.id} type="button" onClick={openLogos} className={`${cls} w-full text-left`}>
+                            {sub.label}
+                          </button>
+                        );
                       return sub.href ? (
                         <Link key={sub.id} to={sub.href} onClick={() => goToCategory(sub.href!)} className={cls}>
                           {sub.label}
@@ -186,7 +201,11 @@ export function SiteHeader() {
               {link.subs && (
                 <div className="flex flex-col gap-2 pl-4 normal-case tracking-normal text-sm font-serif font-semibold text-foreground">
                   {link.subs.map((sub) =>
-                    sub.href ? (
+                    sub.action === "logos" ? (
+                      <button key={sub.id} type="button" onClick={openLogos} className="text-left hover:text-foreground transition-colors">
+                        {sub.label}
+                      </button>
+                    ) : sub.href ? (
                       <Link key={sub.id} to={sub.href} onClick={() => goToCategory(sub.href!)} className="hover:text-foreground transition-colors">
                         {sub.label}
                       </Link>

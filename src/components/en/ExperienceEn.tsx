@@ -37,7 +37,7 @@ import mediaArticle from "@/assets/psykologtidningen-nr4-2026-s7.jpg";
 import mediaMagazine from "@/assets/media-magazine.jpg";
 import { type ExperienceSection } from "@/components/sections/ExperienceTabs";
 import { ExperienceSwipe } from "@/components/sections/ExperienceSwipe";
-import { orgQuote } from "@/lib/testimonials";
+import { findTestimonial } from "@/lib/testimonials";
 
 /* ---------- Data ---------- */
 
@@ -79,7 +79,7 @@ const clinicalEntries: Entry[] = [
   {
     period: "2022 - 2025",
     title: "Child & Adolescent Mental Health",
-    testimonials: ["bup-1", "bup-2"],
+    testimonials: ["bup-2"],
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Clinical Psychologist",
     body: ["At BUP, I assessed and treated children and young people alongside families and care teams. I learned to meet each young person on their own terms."],
@@ -122,6 +122,7 @@ const organisationalEntries: Entry[] = [
   },
   {
     title: "Workplace Meditation & Wellbeing",
+    testimonials: ["bup-1"],
     image: regionStockholmLogo,
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["I led regular meditation sessions for BUP healthcare staff, offering practical tools for recovery and stress regulation in a demanding workday."],
@@ -147,6 +148,7 @@ const organisationalEntries: Entry[] = [
   },
   {
     title: "g:ro studio",
+    testimonials: ["frida"],
     gallery: "gro",
     image: groLogo,
     meta: "Yoga Studio · Mariatorget, Stockholm · Facilitator",
@@ -157,7 +159,16 @@ const organisationalEntries: Entry[] = [
       "Beyond the regular classes, GRO was a place for community and connection. The studio hosted events, workshops and gatherings where people could explore wellbeing from different perspectives while meeting and building community.",
       "My time at GRO reflects much of what also shapes my work today - the meeting between psychology, the body, presence and community, and the conviction that wellbeing can be strengthened when we get to see and meet the whole person.",
     ],
+  },  {
+    title: "Edboskolan · Dance, Movement & Health",
+    meta: "Sports day · Primary school · Workshop",
+    body: ["During Edboskolan's sports day, I led a 1.5-hour workshop for primary school pupils focused on dance, movement and health."],
+    longBody: [
+      "During Edboskolan's sports day, I led a 1.5-hour workshop for primary school pupils focused on dance, movement and health.",
+      "The workshop highlighted how movement can support both physical and mental health, while creating energy, joy and community. Through dance and playful exercises, the pupils got to move, explore their bodies and experience movement without a focus on performance.",
+    ],
   },
+
 
 ];
 
@@ -240,7 +251,7 @@ const communityEntries: Entry[] = [
     link: { label: "Watch the episode on YouTube", href: "https://www.youtube.com/watch?v=nLSdBQndF0E&t=1285s" },
   },
   {
-    title: "The Way Back",
+    title: "The Way Back · Retreat",
     photo: photoVagen,
     gallery: "vagen-tillbaka",
     meta: "Retreat · 3 days · Uppsala",
@@ -255,6 +266,7 @@ const communityEntries: Entry[] = [
   },
   {
     title: "Motheroots",
+    testimonials: ["saida", "jamila", "aneesa"],
     photo: photoMotherRoots,
     gallery: "mother-roots",
     meta: "Event · Mothers 40+ · Several generations",
@@ -550,7 +562,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
               label: "Social Impact",
               content: (
                 <>
-         <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
+         <section data-no-reveal="mobile" className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
            <div id="community" className="max-w-7xl mx-auto scroll-mt-28">
              <SectionHeader title="Social Impact" dark />
              <div className="mt-8 md:mt-10 flex flex-wrap justify-center gap-5 md:gap-6">
@@ -575,13 +587,13 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
             },
             {
               key: "media",
-              label: "In the Media",
+              label: "Publicity",
               content: (
                 <>
         {/* ===== In the Media + organisations ===== */}
         <section className="bg-forest pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
-            <SectionHeader id="media" title="In the Media" dark />
+            <SectionHeader id="media" title="Publicity" dark />
             <div className="mt-8 md:mt-10 space-y-5 md:space-y-6">
               {/* Each media card leads to its source: external articles open in a new tab,
                   Psykologtidningen (no URL) opens the article image in the lightbox. */}
@@ -673,8 +685,8 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
             {selected && (
               <>
                 <DialogHeader>
-                  {/* Cards with a photo show their logo here, at the top of the popup */}
-                  {selected.photo && selected.image && (
+                  {/* Every card's logo sits at the top of the popup, above the title */}
+                  {selected.image && (
                     <div className="mx-auto sm:mx-0 mb-3 flex items-center gap-5">
                       <img src={selected.image} alt="" className="h-14 md:h-16 w-auto max-w-[14rem] object-contain" />
                       {selected.extraLogo && (
@@ -683,16 +695,13 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                     </div>
                   )}
                   <div className="flex items-start justify-between gap-6">
-                    <div>
+                    <div className="w-full">
                       {selected.period && (
                         <p className="text-center md:text-left text-[10px] uppercase tracking-[0.25em] text-accent">{selected.period}</p>
                       )}
                       <DialogTitle className="font-serif text-2xl md:text-3xl uppercase leading-tight">{selected.title}</DialogTitle>
                       <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.meta}</p>
                     </div>
-                    {selected.image && !selected.photo && (
-                      <img src={selected.image} alt={selected.title} className={`mt-1 hidden shrink-0 object-contain object-right sm:block ${selected.logoBig ? "h-36 w-36" : "h-16 w-56"}`} />
-                    )}
                   </div>
                 </DialogHeader>
                 <div className="space-y-4">
@@ -711,7 +720,7 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                     <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">What they say</p>
                     <div className="mt-4 space-y-3">
                       {selected.testimonials.map((k) => {
-                        const q = orgQuote(k);
+                        const q = findTestimonial(k, "en");
                         if (!q) return null;
                         return (
                           <figure key={k} className="relative rounded-2xl bg-white border border-foreground/10 shadow-[0_10px_30px_-18px_rgba(27,43,36,0.35)] p-6 md:p-7">

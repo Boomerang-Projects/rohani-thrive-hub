@@ -10,13 +10,13 @@ export function ContactEn() {
     // Presentational only - wire to backend later
     setTimeout(() => {
       setSubmitting(false);
-      toast.success("Thank you. We'll be in touch shortly.");
+      toast.success("Thank you. I'll be in touch shortly.");
       (e.currentTarget as HTMLFormElement).reset();
     }, 600);
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-6 md:px-10 max-w-3xl mx-auto">
+    <section id="contact" data-no-reveal className="py-16 md:py-24 px-6 md:px-10 max-w-3xl mx-auto">
       <div>
         <form
           onSubmit={handleSubmit}
@@ -53,7 +53,7 @@ export function ContactEn() {
               rows={4}
               required
               className="w-full bg-transparent border-b border-foreground/15 py-3 text-sm focus:outline-none focus:border-foreground transition-colors resize-none"
-              placeholder="Tell us a little about your team or what you're exploring."
+              placeholder="Tell me a little about your team or what you're exploring."
             />
           </div>
           <button

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import { orgQuotes } from "@/lib/testimonials";
+import { orgQuotes, personQuotes, quoteText, type PersonQuote } from "@/lib/testimonials";
 
 /*
  * Two kinds of testimonials, shown two different ways:
@@ -12,42 +12,7 @@ import { orgQuotes } from "@/lib/testimonials";
  * language versions of the site. Only the headings and labels are translated.
  */
 
-type PersonQuote = { quote: string; name: string; age: number };
 
-
-
-const personQuotes: PersonQuote[] = [
-  {
-    quote:
-      "You are truly in the right profession. The work you do is incredibly valuable and deeply needed in today's world. Anyone who has the opportunity to be part of your work is truly fortunate. Your work creates lasting positive change that extends far beyond the individual, strengthening relationships, communities, and society as a whole. It's needed now more than ever.",
-    name: "Saida C.",
-    age: 63,
-  },
-  {
-    quote: "I never thought I could feel such peace, your voice feels so calm and comforting to follow. You will help a lot of people.",
-    name: "Aneesa K.",
-    age: 60,
-  },
-  { quote: "My body was in pain before our session - it's not anymore.", name: "Jamila K.", age: 47 },
-  {
-    quote:
-      "You have the most beautiful way of spreading kindness and truly seeing the unique qualities in the people around you. You always find the perfect words to make others feel seen and appreciated. You're pure sunshine, Madeeha!",
-    name: "Esmeralda L.",
-    age: 30,
-  },
-  {
-    quote:
-      "Thank you for such a beautiful event. During our session, I experienced a deep sense of calm and release that allowed both my breath and emotions to flow more freely. It was a powerful experience, and I left feeling grounded, supported, and more connected to myself. I'm truly looking forward to continuing this journey with you.",
-    name: "Frida T.",
-    age: 32,
-  },
-  {
-    quote:
-      "I'm so grateful that I found you. As our sessions came to an end, I realized they would be something I'd genuinely miss - but that's also a sign of growth. You always reminded me that this was my journey, yet you did far more than simply walk beside me. With warmth, kindness, and genuine presence, you gave me the tools and confidence to move forward on my own. I'll always be grateful for the difference you've made in my life.",
-    name: "Gunnar A.",
-    age: 65,
-  },
-];
 
 /* ---------- Organisations ---------- */
 
@@ -63,7 +28,7 @@ export function OrgTestimonials() {
             className="flex flex-col rounded-3xl border border-border bg-background p-7 md:p-9 shadow-[0_20px_60px_-30px_rgba(27,43,36,0.35)]"
           >
             <img src={q.logo} alt="" loading="lazy" className={`h-10 md:h-12 w-auto max-w-[12rem] self-start object-contain ${q.logoClass ?? ""}`} />
-            <blockquote className="mt-6 font-serif italic text-lg leading-relaxed text-foreground">"{q.quote}"</blockquote>
+            <blockquote className="mt-6 font-serif italic text-lg leading-relaxed text-foreground">"{quoteText(q, lang)}"</blockquote>
             <figcaption className="mt-auto pt-6 flex items-center gap-4">
               <span className="h-px w-6 bg-accent" />
               <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">{lang === "en" ? q.who.en : q.who.sv}</span>
@@ -79,14 +44,14 @@ export function OrgTestimonials() {
 
 function PersonCard({ q, lang, hidden }: { q: PersonQuote; lang: "sv" | "en"; hidden?: boolean }) {
   const [open, setOpen] = useState(false);
-  const long = q.quote.length > 220;
+  const long = quoteText(q, lang).length > 220;
   return (
     <figure
       aria-hidden={hidden || undefined}
       className="w-[85%] sm:w-[46%] lg:w-[31%] shrink-0 snap-center flex flex-col rounded-3xl bg-background p-7 md:p-8 text-foreground"
     >
       <span aria-hidden className="font-serif text-5xl leading-none text-accent/60">"</span>
-      <blockquote className={`mt-1 font-serif italic text-lg leading-relaxed ${long && !open ? "line-clamp-6" : ""}`}>{q.quote}</blockquote>
+      <blockquote className={`mt-1 font-serif italic text-lg leading-relaxed ${long && !open ? "line-clamp-6" : ""}`}>{quoteText(q, lang)}</blockquote>
       {long && (
         <button
           type="button"

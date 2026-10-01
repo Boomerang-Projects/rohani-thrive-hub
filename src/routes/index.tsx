@@ -43,16 +43,16 @@ export const Route = createFileRoute("/")({
 });
 
 const principlesSv = [
-  { title: "Människan först", body: "Jag möter människor med värme, respekt och genuin närvaro." },
+  { title: "Människan först", body: "Människor är mer än de utmaningar de möter. Jag möter varje individ och sammanhang som en helhet." },
   { title: "Vetenskapligt förankrat", body: "Modern psykologi och evidensbaserad mindfulness, omsatt i praktiken." },
-  { title: "Kvalitet i fokus", body: "Varje detalj är genomtänkt, så att arbetet känns skräddarsytt och berikande." },
+  { title: "Kvalitet i fokus", body: "Omsorgsfullt anpassat efter dina behov, önskemål och sammanhang." },
   { title: "Globalt medvetna", body: "Upplevelser som hedrar varje kultur och skapar gemenskap över gränser." },
 ];
 
 const principlesEn = [
-  { title: "Human first", body: "I meet people with warmth, respect and genuine presence." },
+  { title: "Human first", body: "People are more than the challenges they face. I meet each individual and context as a whole." },
   { title: "Evidence-based", body: "Modern psychology and evidence-based mindfulness, put into practice." },
-  { title: "Quietly premium", body: "Every detail is considered, so the work feels effortless." },
+  { title: "Quietly premium", body: "Thoughtfully tailored to your needs, preferences and context." },
   { title: "Globally fluent", body: "Experiences that honor every culture and build connection across borders." },
 ];
 
@@ -101,25 +101,25 @@ function AboutPage() {
               {/* Statement and next steps */}
               <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem]">
                 <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
-                  {t("Psykologi · Mindfulness · Mänsklig utveckling", "Psychology · Mindfulness · Human Development")}
+                  {t("Legitimerad psykolog · Föreläsare · Workshopledare", "Licensed Psychologist · Speaker · Workshop Facilitator")}
                 </p>
                 <h1 className="mt-4 md:mt-6 font-serif text-[clamp(1.4rem,1.8vw+1rem,2.6rem)] leading-[1.15] text-background">
-                  {t("Rohani grundades för att förena ", "Rohani was founded to bridge ")}
+                  {t("ROHANI förenar ", "ROHANI brings together ")}
                   <em className="italic">{t("psykologi, mindfulness och mänsklig utveckling", "psychology, mindfulness and human development")}</em>
-                  {t(", för människor, team och organisationer som formar vår värld.", ", for the people, teams and organizations who shape our world.")}
+                  {t(" för att stödja människor, team och organisationer.", " to support people, teams and organisations.")}
                 </h1>
                 <div className="mt-7 md:mt-9 flex flex-wrap gap-3">
                   <Link
                     to="/contact"
                     className="rounded-full bg-background text-foreground px-5 md:px-7 py-3.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors hover:bg-secondary"
                   >
-                    {t("Samarbeta med oss", "Partner with us")}
+                    {t("Arbeta med mig", "Work with me")}
                   </Link>
                   <Link
                     to="/experience"
                     className="rounded-full border border-background/60 px-5 md:px-7 py-3.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-semibold text-background transition-colors hover:border-background hover:bg-background/10"
                   >
-                    {t("Se vårt arbete", "See our work")}
+                    {t("Se mitt arbete", "See my work")}
                   </Link>
                 </div>
               </div>
@@ -132,7 +132,7 @@ function AboutPage() {
 
         {/* What Guides Us */}
         <section id="vagleder" className="scroll-mt-32 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
-          <SectionHeader title={t("Det som vägleder oss", "What guides us")} />
+          <SectionHeader title={t("Det som vägleder mig", "What guides me")} />
           {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
           <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
             {principles.map((p) => (
@@ -172,7 +172,7 @@ function AboutPage() {
             <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
               <div className="max-w-3xl">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-                  {t("Vår mission", "Our Mission")}
+                  {t("Min mission", "My Mission")}
                 </p>
                 <h2 className="mt-6 md:mt-8 font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
 
@@ -192,7 +192,7 @@ function AboutPage() {
 
         {/* How we work: same layout as "What guides us" */}
         <section id="metod" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
-          <SectionHeader title={t("Så arbetar vi", "How we work")} />
+          <SectionHeader title={t("Så arbetar jag", "How I work")} />
           <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
             {workWays.map((w) => (
               <Dialog key={w.title}>

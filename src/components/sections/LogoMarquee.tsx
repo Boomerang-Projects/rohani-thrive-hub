@@ -1,7 +1,7 @@
-import bup from "@/assets/logos/bup-region-stockholm.png";
+import bup from "@/assets/logos/bup-region-stockholm-white.png";
 import haninge from "@/assets/logos/haninge-kommun.png";
-import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm.png";
-import regionStockholm from "@/assets/logos/region-stockholm-dark.png";
+import vuxen from "@/assets/logos/vuxenpsykiatrin-region-stockholm-white.png";
+import regionStockholm from "@/assets/logos/region-stockholm-white.png";
 import karolinska from "@/assets/logos/karolinska.png";
 import sverigesRadio from "@/assets/logos/sveriges-radio.png";
 import psykologtidningen from "@/assets/logos/psykologtidningen.png";
@@ -17,8 +17,14 @@ import myHappyHead from "@/assets/logos/my-happy-head.png";
 import sats from "@/assets/logos/sats.png";
 import lululemon from "@/assets/logos/lululemon.png";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useLang } from "@/lib/i18n";
+import { useEffect, useState } from "react";
 
-// Logos in their original colours, exactly as supplied. Transparent PNGs only.
+/** The menu link "Har arbetat med" fires this event: scroll to the band, then open the list. */
+export const OPEN_LOGOS_EVENT = "rohani:open-logos";
+
+// Logos in their original colours. Exception: logos with black text (the Region
+// Stockholm ones and lululemon) use white-text versions, so they show on the brown band.
 // Order: logos that look alike (the three Region Stockholm ones, and Fryshuset and
 // Tillsammans för Sverige) are spread out so they never sit next to each other.
 const logos = [
@@ -34,7 +40,7 @@ const logos = [
   { src: karolinska, alt: "Karolinska Universitetssjukhuset", w: 500, h: 100 },
   { src: hero, alt: "Hero idrottsförening", w: 242, h: 94 },
   { src: myHappyHead, alt: "My Happy Head", w: 353, h: 69 },
-  { src: regionStockholm, alt: "Region Stockholm", w: 299, h: 85 },
+  { src: regionStockholm, alt: "Region Stockholm", w: 279, h: 71 },
   { src: tillsammans, alt: "Tillsammans för Sverige", w: 273, h: 145 },
   { src: dinPsykolog, alt: "Din psykolog", w: 414, h: 71 },
   { src: gro, alt: "g:ro studio", w: 1200, h: 498 },
@@ -48,6 +54,20 @@ const logos = [
  * Clicking the band opens a dialog listing every logo one after another.
  */
 export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: string }) {
+  const { t } = useLang();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onOpen = () => {
+      const band = document.getElementById("samarbeten");
+      band?.scrollIntoView({ behavior: "smooth", block: "center" });
+      // Let the page glide to the band first, then open the list
+      window.setTimeout(() => setOpen(true), 700);
+    };
+    window.addEventListener(OPEN_LOGOS_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_LOGOS_EVENT, onOpen);
+  }, []);
+
   const row = (hidden: boolean) => (
     <ul className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {logos.map((logo) => (
@@ -70,13 +90,27 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
   );
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
+      {/* No strip of its own: the link floats just above the band, in the space that is already there */}
+      <div className={`${className} relative`}>
+        <div className="pointer-events-none absolute bottom-full inset-x-0">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 pb-3">
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="pointer-events-auto group inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-accent underline underline-offset-4 decoration-accent/40 transition-colors duration-300 hover:decoration-accent"
+            >
+              {t("Har arbetat med", "Worked with")}
+              <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </button>
+          </div>
+        </div>
       <DialogTrigger asChild>
         <button
           type="button"
           id="samarbeten"
-          aria-label="Visa alla loggor"
-          className={`${className} block w-full cursor-pointer scroll-mt-32 bg-mocha py-10 md:py-12 text-left`}
+          aria-label={t("Visa alla organisationer jag har arbetat med", "Show all organisations I have worked with")}
+          className="block w-full cursor-pointer scroll-mt-32 bg-mocha py-10 md:py-12 text-left"
         >
           <div className="logo-marquee overflow-hidden">
             <div className="logo-marquee-track flex w-max">
@@ -86,9 +120,11 @@ export function LogoMarquee({ className = "mt-10 md:mt-16" }: { className?: stri
           </div>
         </button>
       </DialogTrigger>
+      </div>
       <DialogContent className="max-h-[85vh] overflow-y-auto bg-mocha border-none sm:max-w-md">
         <DialogTitle className="text-center text-xs uppercase tracking-[0.3em] text-background">
-          Samarbeten
+          {/* "Worked with" is true for employers and partners alike */}
+          {t("Har arbetat med", "Worked with")}
         </DialogTitle>
         <ul className="mt-4 flex flex-col items-center gap-8 pb-4">
           {logos.map((logo) => (

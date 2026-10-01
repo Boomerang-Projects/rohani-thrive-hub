@@ -11,6 +11,10 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+// Favicon: the R from the ROHANI logo on the navbar colour (src/assets/favicon/)
+import faviconSvg from "../assets/favicon/favicon.svg?url";
+import faviconIco from "../assets/favicon/favicon.ico?url";
+import appleTouchIcon from "../assets/favicon/apple-touch-icon.png?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { useScrollPolish } from "@/hooks/use-scroll-polish";
@@ -92,6 +96,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      // Modern browsers use the sharp SVG; older ones fall back to the .ico; iPhones use the PNG
+      { rel: "icon", type: "image/svg+xml", href: faviconSvg },
+      { rel: "icon", href: faviconIco, sizes: "48x48" },
+      { rel: "apple-touch-icon", href: appleTouchIcon },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {

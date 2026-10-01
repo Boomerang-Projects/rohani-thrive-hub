@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contact")({
       {
         property: "og:description",
         content:
-          "Boka ett introducerande samtal eller skicka ett meddelande. Vi svarar personligen på varje förfrågan.",
+          "Boka ett introducerande samtal eller skicka ett meddelande. Jag svarar personligen på varje förfrågan.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -51,7 +51,7 @@ function ContactPage() {
                   {t("Låt oss skapa meningsfull förändring tillsammans", "Let's create meaningful change together")}
                 </h1>
                 <p className="text-base md:text-lg leading-relaxed text-background/90 max-w-xl mx-auto">
-                  {t("Vi svarar personligen på varje förfrågan - oftast inom två arbetsdagar.", "We respond personally to every inquiry - usually within two business days.")}
+                  {t("Jag svarar personligen på varje förfrågan - oftast inom två arbetsdagar.", "I respond personally to every inquiry - usually within two business days.")}
                 </p>
               </div>
             </div>

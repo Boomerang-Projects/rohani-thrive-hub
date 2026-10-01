@@ -134,7 +134,20 @@ export function useScrollPolish(pathname: string) {
     // (like the Claude preview panel) browsers ignore rootMargin, so the
     // "start later" setting silently did nothing. Measuring on scroll is
     // simple and behaves the same everywhere.
-    const items = sections.flatMap(revealPieces);
+    // A section can opt out of the fade-in:
+    //   data-no-reveal          -> never fades (e.g. the contact form: it should just be there)
+    //   data-no-reveal="mobile" -> no fade on phones only (e.g. the Social påverkan cards)
+    const isPhone = window.innerWidth < 768;
+    const skipReveal = (s: HTMLElement) => {
+      const v = s.getAttribute("data-no-reveal");
+      if (v === null) return false;
+      return v === "mobile" ? isPhone : true;
+    };
+    // The fade-in is switched OFF for the whole site: content is simply there when you
+    // scroll to it (new things popping in while scrolling felt like too much).
+    // To turn it back on, set REVEAL_ENABLED to true.
+    const REVEAL_ENABLED = false;
+    const items = REVEAL_ENABLED ? sections.filter((s) => !skipReveal(s)).flatMap(revealPieces) : [];
     const vhNow = window.innerHeight;
     const waiting = items.filter((el) => el.getBoundingClientRect().top > vhNow * 0.9);
     for (const el of waiting) el.classList.add("reveal-item");
