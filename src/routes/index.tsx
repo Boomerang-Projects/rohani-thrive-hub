@@ -139,7 +139,7 @@ function AboutPage() {
               <Dialog key={p.title}>
                 <div className="relative flex flex-col items-center text-center">
                   <div className="flex w-full min-h-52 md:h-56 flex-col items-center justify-center overflow-visible rounded-3xl bg-foreground text-background px-3 py-4 md:px-8 md:py-0 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
-                    <h3 className="font-serif font-bold text-sm md:text-lg leading-tight uppercase tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                    <h3 className="font-serif font-bold text-sm md:text-lg leading-snug uppercase tracking-wide underline decoration-[1.5px] underline-offset-[3px] decoration-background/50">
                       {p.title}
                     </h3>
                     <p className="block mt-3 text-[12px] md:text-sm leading-[1.4] md:leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
@@ -149,7 +149,7 @@ function AboutPage() {
                   </DialogTrigger>
                 </div>
                 <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-3xl border-0 bg-foreground text-background p-8 text-center [&_button]:text-background">
-                  <DialogTitle className="font-serif text-xl uppercase leading-tight underline underline-offset-[6px]">{p.title}</DialogTitle>
+                  <DialogTitle className="font-serif text-xl uppercase leading-snug underline underline-offset-[3px]">{p.title}</DialogTitle>
                   <p className="text-base leading-relaxed text-background/85">{p.body}</p>
                 </DialogContent>
               </Dialog>
@@ -208,7 +208,7 @@ function AboutPage() {
                     />
                   </div>
                   <div className="flex min-h-44 flex-1 flex-col items-center justify-center overflow-visible px-2 py-4 text-center md:min-h-0 md:px-8 md:py-6">
-                    <h3 className="font-serif font-bold text-xs md:text-lg leading-tight uppercase md:tracking-wide underline decoration-[1.5px] underline-offset-[6px] decoration-background/50">
+                    <h3 className="font-serif font-bold text-xs md:text-lg leading-snug uppercase md:tracking-wide underline decoration-[1.5px] underline-offset-[3px] decoration-background/50">
                       {w.title.split(" & ").map((part, i, arr) => (
                         <span key={i} className="block">
                           {i < arr.length - 1 ? `${part} &` : part}
@@ -224,7 +224,7 @@ function AboutPage() {
                 <DialogContent className="w-[calc(100%-2rem)] max-w-sm overflow-hidden rounded-3xl border-0 bg-foreground text-background p-0 text-center [&_button]:text-background">
                   <img src={w.img.url} alt="" className={`h-52 w-full object-cover ${w.imgClass}`} />
                   <div className="px-7 pb-8">
-                    <DialogTitle className="font-serif text-xl uppercase leading-tight underline underline-offset-[6px]">{w.title}</DialogTitle>
+                    <DialogTitle className="font-serif text-xl uppercase leading-snug underline underline-offset-[3px]">{w.title}</DialogTitle>
                     <p className="mt-4 text-base leading-relaxed text-background/85">{w.body}</p>
                   </div>
                 </DialogContent>

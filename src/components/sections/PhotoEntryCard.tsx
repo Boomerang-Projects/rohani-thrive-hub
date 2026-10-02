@@ -90,6 +90,7 @@ export function PhotoEntryCard({
       <div className="relative h-56 md:h-64">
         <div
           ref={trackRef}
+          data-swipe-ignore
           className="flex h-full overflow-x-auto snap-x snap-mandatory overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((src, i) => (
