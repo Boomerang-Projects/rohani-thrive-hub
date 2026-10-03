@@ -47,17 +47,38 @@ export const orgQuotes: OrgQuote[] = [
   },
 ];
 
-/** Testimonials from participants (first name + initial, age). */
-export type PersonQuote = { key: string; quote: string; quoteSv?: string; name: string; age: number };
+/**
+ * Testimonials from participants (first name + initial, age).
+ * context: where they took part, shown after the age (e.g. "Tjej-retreat").
+ * role: replaces age + context for people who are not participants (e.g. a project leader).
+ */
+export type PersonQuote = {
+  key: string;
+  quote: string;
+  quoteSv?: string;
+  name: string;
+  age?: number;
+  context?: { sv: string; en: string };
+  role?: { sv: string; en: string };
+};
+
+/** "Victoria, 16 år, Tjej-retreat" / "David N., Projektledare ABF Södertörn" */
+export function personCaption(q: PersonQuote, lang: "sv" | "en") {
+  if (q.role) return `${q.name}, ${q.role[lang]}`;
+  const parts = [q.name];
+  if (q.age) parts.push(`${q.age} ${lang === "en" ? "years" : "år"}`);
+  if (q.context) parts.push(q.context[lang]);
+  return parts.join(", ");
+}
 
 
 
 export const personQuotes: PersonQuote[] = [
   {
     key: "saida",
-    quoteSv: "Du är verkligen i rätt yrke. Arbetet du gör är otroligt värdefullt och djupt behövt i dagens värld. Alla som får möjlighet att ta del av ditt arbete har verkligen tur. Ditt arbete skapar bestående positiv förändring som sträcker sig långt bortom individen och stärker relationer, gemenskaper och samhället som helhet. Det behövs nu mer än någonsin.",
+    quoteSv: "Du är verkligen i rätt yrke. Arbetet du gör är otroligt värdefullt och djupt behövt i dagens värld. Alla som får möjlighet att ta del av ditt arbete har verkligen tur!",
     quote:
-      "You are truly in the right profession. The work you do is incredibly valuable and deeply needed in today's world. Anyone who has the opportunity to be part of your work is truly fortunate. Your work creates lasting positive change that extends far beyond the individual, strengthening relationships, communities, and society as a whole. It's needed now more than ever.",
+      "You are truly in the right profession. The work you do is incredibly valuable and deeply needed in today's world. Anyone who has the opportunity to be part of your work is truly fortunate!",
     name: "Saida C.",
     age: 63,
   },
@@ -65,7 +86,7 @@ export const personQuotes: PersonQuote[] = [
     key: "aneesa",
     quoteSv: "Jag trodde aldrig att jag kunde känna ett sådant lugn. Din röst känns så lugn och trygg att följa. Du kommer att hjälpa många människor.",
     quote: "I never thought I could feel such peace, your voice feels so calm and comforting to follow. You will help a lot of people.",
-    name: "Aneesa K.",
+    name: "Aneesa B.",
     age: 60,
   },
   {
@@ -73,7 +94,7 @@ export const personQuotes: PersonQuote[] = [
     quoteSv: "Min kropp hade ont före vår session - det har den inte längre.", quote: "My body was in pain before our session - it's not anymore.", name: "Jamila K.", age: 47 },
   {
     key: "esmeralda",
-    quoteSv: "Du har det vackraste sättet att sprida vänlighet och verkligen se de unika egenskaperna hos människorna omkring dig. Du hittar alltid de perfekta orden för att få andra att känna sig sedda och uppskattade. Du är rent solsken, Madeeha!",
+    // Shown in the original English on both language versions, at her request.
     quote:
       "You have the most beautiful way of spreading kindness and truly seeing the unique qualities in the people around you. You always find the perfect words to make others feel seen and appreciated. You're pure sunshine, Madeeha!",
     name: "Esmeralda L.",
@@ -95,6 +116,52 @@ export const personQuotes: PersonQuote[] = [
     name: "Gunnar A.",
     age: 65,
   },
+  // ---- G-Flow (also shown in the G-Flow popup on Erfarenhet) ----
+  {
+    key: "david-n",
+    quoteSv:
+      "Ditt arbete skapar bestående positiv förändring som sträcker sig långt bortom individen och skapar ringar på vattnet för starkare relationer, gemenskaper och samhället som helhet. Det behövs nu mer än någonsin.",
+    quote:
+      "Your work creates lasting positive change that reaches far beyond the individual, sending ripples out towards stronger relationships, communities and society as a whole. It is needed now more than ever.",
+    name: "David N.",
+    role: { sv: "Projektledare ABF Södertörn", en: "Project Manager, ABF Södertörn" },
+  },
+  {
+    key: "victoria",
+    quoteSv: "Du känns som storasystern jag alltid behövt.",
+    quote: "You feel like the big sister I always needed.",
+    name: "Victoria",
+    age: 16,
+    context: { sv: "Tjej-retreat", en: "Girls' retreat" },
+  },
+  {
+    key: "inaaya",
+    quoteSv: "Jag önskar att detta aaaldrig behövde ta slut!",
+    quote: "I wish this never, ever had to end!",
+    name: "Inaaya",
+    age: 12,
+    context: { sv: "Tjej-retreat", en: "Girls' retreat" },
+  },
+  {
+    key: "sabida",
+    quoteSv:
+      "När jag känner mig upprörd hör jag din röst i mitt huvud om den flytande blomman i vattnet. Då blir jag genast lugnare och det är enklare att släppa taget om allt som tynger.",
+    quote:
+      "When I feel upset, I hear your voice in my head about the flower floating on the water. Then I calm down right away, and it is easier to let go of everything that weighs on me.",
+    name: "Sabida",
+    age: 14,
+    context: { sv: "Tjej-retreat", en: "Girls' retreat" },
+  },
+  {
+    key: "maryam",
+    quoteSv:
+      "Du lärde mig om tillhörighet, och det fick mig att tänka... denna platsen med er är var jag känner att jag tillhör!",
+    quote:
+      "You taught me about belonging, and it made me think... this place with you is where I feel I belong!",
+    name: "Maryam",
+    age: 16,
+    context: { sv: "Tjej-retreat", en: "Girls' retreat" },
+  },
 ];
 
 /**
@@ -109,7 +176,7 @@ export function findTestimonial(
   const org = orgQuotes.find((q) => q.key === key);
   if (org) return { quote: pick(org), who: org.who };
   const p = personQuotes.find((q) => q.key === key);
-  if (p) return { quote: pick(p), who: { sv: `${p.name}, ${p.age} år`, en: `${p.name}, ${p.age} years` } };
+  if (p) return { quote: pick(p), who: { sv: personCaption(p, "sv"), en: personCaption(p, "en") } };
   return undefined;
 }
 

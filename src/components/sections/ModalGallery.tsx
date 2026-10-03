@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { PhotoLightbox } from "@/components/sections/PhotoLightbox";
 
 /**
  * All the gallery photos, found automatically.
@@ -30,6 +31,7 @@ export function galleryFor(folder: string): string[] {
 export function ModalGallery({ photos, label, lang }: { photos: string[]; label: string; lang: "sv" | "en" }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const [viewer, setViewer] = useState<number | null>(null);
   const sv = lang === "sv";
 
   if (photos.length === 0) return null;
@@ -67,15 +69,24 @@ export function ModalGallery({ photos, label, lang }: { photos: string[]; label:
         className="-mx-6 px-6 flex gap-3 overflow-x-auto snap-x snap-mandatory overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {photos.map((src, i) => (
-          <img
+          <button
             key={src}
-            src={src}
-            alt={`${label}, ${sv ? "bild" : "photo"} ${i + 1}`}
-            draggable={false}
-            className="h-64 md:h-80 w-auto max-w-[85%] shrink-0 snap-center rounded-2xl object-cover"
-          />
+            type="button"
+            onClick={() => setViewer(i)}
+            aria-label={`${sv ? "Förstora" : "Enlarge"}: ${label}, ${sv ? "bild" : "photo"} ${i + 1}`}
+            className="shrink-0 max-w-[85%] snap-center cursor-zoom-in"
+          >
+            <img
+              src={src}
+              alt={`${label}, ${sv ? "bild" : "photo"} ${i + 1}`}
+              draggable={false}
+              className="h-64 md:h-80 w-auto max-w-full rounded-2xl object-cover"
+            />
+          </button>
         ))}
       </div>
+
+      <PhotoLightbox photos={photos} start={viewer ?? 0} open={viewer !== null} onClose={() => setViewer(null)} lang={lang} />
 
       {/* Dots, counter and arrows */}
       {photos.length > 1 && (

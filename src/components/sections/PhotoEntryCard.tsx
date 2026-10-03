@@ -1,4 +1,5 @@
-import { useEffect, useRef, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { PhotoLightbox } from "@/components/sections/PhotoLightbox";
 
 /**
  * Card with photos on top, used for "Social påverkan".
@@ -11,6 +12,11 @@ import { useEffect, useRef, type MouseEvent } from "react";
  * we start in the middle copy, and when you end up in the first or last copy
  * we jump one full copy back without animation. It looks identical, so it
  * never runs out in either direction.
+ *
+ * Tapping a photo opens it full screen (PhotoLightbox); tapping anywhere
+ * else on the card opens the popup.
+ * Upright (portrait) photos would lose their top and bottom in the wide
+ * frame, so they are shown whole, centred on a soft blurred copy of themselves.
  */
 export function PhotoEntryCard({
   photos,
@@ -34,6 +40,8 @@ export function PhotoEntryCard({
   const many = n > 1;
   const slides = many ? [...photos, ...photos, ...photos] : photos;
   const sv = lang === "sv";
+  const [viewer, setViewer] = useState<number | null>(null);
+  const [upright, setUpright] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const track = trackRef.current;
@@ -94,13 +102,32 @@ export function PhotoEntryCard({
           className="flex h-full overflow-x-auto snap-x snap-mandatory overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((src, i) => (
-            <img
+            <button
               key={i}
-              src={src}
-              alt=""
-              draggable={false}
-              className="h-full w-full shrink-0 snap-center object-cover"
-            />
+              type="button"
+              tabIndex={many && (i < n || i >= 2 * n) ? -1 : undefined}
+              onClick={(e) => {
+                e.stopPropagation();
+                setViewer(i % n);
+              }}
+              aria-label={sv ? `Förstora bild ${(i % n) + 1}` : `Enlarge photo ${(i % n) + 1}`}
+              className="relative h-full w-full shrink-0 snap-center overflow-hidden cursor-zoom-in"
+            >
+              {upright[src] && (
+                <img src={src} alt="" aria-hidden draggable={false} className="absolute inset-0 h-full w-full scale-110 object-cover blur-xl opacity-70" />
+              )}
+              <img
+                src={src}
+                alt=""
+                draggable={false}
+                onLoad={(e) => {
+                  const img = e.currentTarget;
+                  const tall = img.naturalHeight > img.naturalWidth * 0.9;
+                  if (tall !== !!upright[src]) setUpright((u) => ({ ...u, [src]: tall }));
+                }}
+                className={`relative h-full w-full ${upright[src] ? "object-contain" : "object-cover"}`}
+              />
+            </button>
           ))}
         </div>
         {many && (
@@ -125,6 +152,11 @@ export function PhotoEntryCard({
             {readMore} <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </span>
         </span>
+      </div>
+      {/* The viewer opens in a layer on top of the page, but React still passes its clicks
+          up to this card. Stop them here, or closing the viewer would open the popup. */}
+      <div onClick={(e) => e.stopPropagation()} className="contents">
+        <PhotoLightbox photos={photos} start={viewer ?? 0} open={viewer !== null} onClose={() => setViewer(null)} lang={lang} />
       </div>
     </article>
   );

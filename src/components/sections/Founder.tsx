@@ -57,19 +57,24 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
           <p className="md:mt-6 font-serif text-3xl md:text-4xl leading-[1.15] text-foreground">
             Jag heter Madeeha Qazi och är legitimerad psykolog, facilitator och grundaren av ROHANI.
           </p>
-          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/90">
-            <p>Mitt arbete är förankrat i modern psykologi och berikat av en livslång nyfikenhet på mänsklig potential, välbefinnande och det som gör att människor kan leva, leda och relatera mer fullt ut. Genom åren har jag arbetat med individer, grupper och organisationer och stöttat tillväxt, motståndskraft och meningsfull förändring genom evidensbaserade metoder och äkta mänsklig gemenskap.</p>
-            <p>Efter att ha bott, studerat och arbetat i olika länder och kulturer har jag lärt mig uppskatta både det universella i mänsklig upplevelse och det unika i varje människas berättelse. Dessa erfarenheter fortsätter att forma mitt sätt att arbeta - med öppenhet, kulturell känslighet och djup respekt för komplexiteten i att vara människa.</p>
-            <p>ROHANI skapades som en bro mellan psykologisk vetenskap och mänsklig upplevelse. En plats där evidensbaserad kunskap möter närvaro, reflektion och personlig utveckling. Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att frodas.</p>
-            <p>För när människor får stöd att frodas växer allt annat därifrån.</p>
+          <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/85">
+            <p>Jag har alltid varit fascinerad av <b className="font-semibold text-foreground">människans potential</b>, av vad som gör att vi kan <b className="font-semibold text-foreground">leva, leda och känna större tillfredsställelse.</b> Mitt arbete är förankrat i <b className="font-semibold text-foreground">modern psykologi</b> och berikat av en <b className="font-semibold text-foreground">livslång nyfikenhet</b> på <b className="font-semibold text-foreground">vad som formar, driver och förändrar oss</b>!</p>
+            <p>Jag har klinisk erfarenhet från <b className="font-semibold text-foreground">vuxenpsykiatrin</b>, <b className="font-semibold text-foreground">barn- och ungdomspsykiatrin</b> och <b className="font-semibold text-foreground">Karolinska sjukhuspsykiatri</b>, och leder även <b className="font-semibold text-foreground">yoga</b>, <b className="font-semibold text-foreground">meditation</b> och <b className="font-semibold text-foreground">breathwork</b> för att möta människor genom <b className="font-semibold text-foreground">kropp</b>, <b className="font-semibold text-foreground">andning</b> och <b className="font-semibold text-foreground">närvaro</b>.</p>
+            <p>Efter att ha bott, studerat och arbetat i <b className="font-semibold text-foreground">olika länder och kulturer</b> har jag lärt mig se både det <b className="font-semibold text-foreground">universella</b> i mänsklig upplevelse och det <b className="font-semibold text-foreground">unika</b> i varje människas berättelse. Det präglar mitt arbete idag med <b className="font-semibold text-foreground">individer, grupper och organisationer</b>, med <b className="font-semibold text-foreground">kulturell känslighet</b> och <b className="font-semibold text-foreground">djup respekt för komplexiteten i att vara människa</b>.</p>
+            <p><b className="font-semibold text-foreground">ROHANI</b> skapades som en <b className="font-semibold text-foreground">bro mellan psykologisk vetenskap och mänsklig upplevelse</b>, där <b className="font-semibold text-foreground">evidensbaserad kunskap</b> möter <b className="font-semibold text-foreground">medvetenhet</b>, <b className="font-semibold text-foreground">mening</b> och <b className="font-semibold text-foreground">självförverkligande</b>.</p>
+            <p>Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att <b className="font-semibold text-foreground">blomstra</b>.</p>
           </div>
+          {/* The closing line: larger, in italic serif, so it stands out */}
+          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
+            För när människor får utrymme att blomstra växer allt annat därifrån.
+          </p>
           {showLink && (
             <div className="pt-8">
               <Link
                 to="/experience"
-                className="text-xs uppercase tracking-[0.22em] font-medium border-b border-foreground pb-1 hover:text-accent hover:border-accent transition-colors"
+                className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-background transition-colors hover:bg-accent"
               >
-                Min erfarenhet →
+                Min erfarenhet <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>
             </div>
           )}

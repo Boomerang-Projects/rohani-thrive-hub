@@ -25,7 +25,7 @@ import { useEffect, useState } from "react";
 export const OPEN_LOGOS_EVENT = "rohani:open-logos";
 
 // Logos in their original colours. Exception: logos with black text (the Region
-// Stockholm ones, Huddinge and lululemon) use white-text versions, so they show on the brown band.
+// Stockholm ones, Huddinge (text only, the crest keeps its colours) and lululemon) use white-text versions, so they show on the brown band.
 // Order: logos that look alike (the three Region Stockholm ones, and Fryshuset and
 // Tillsammans för Sverige) are spread out so they never sit next to each other.
 const logos = [
@@ -40,7 +40,7 @@ const logos = [
   { src: betteryou, alt: "Better You", w: 270, h: 97 },
   { src: karolinska, alt: "Karolinska Universitetssjukhuset", w: 500, h: 100 },
   { src: hero, alt: "Hero idrottsförening", w: 242, h: 94 },
-  { src: huddinge, alt: "Huddinge kommun", w: 319, h: 95 },
+  { src: huddinge, alt: "Huddinge kommun", w: 520, h: 157 },
   { src: myHappyHead, alt: "My Happy Head", w: 353, h: 69 },
   { src: regionStockholm, alt: "Region Stockholm", w: 279, h: 71 },
   { src: tillsammans, alt: "Tillsammans för Sverige", w: 273, h: 145 },

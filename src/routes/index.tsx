@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Founder } from "@/components/sections/Founder";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
-import { OrgTestimonials, PersonTestimonials } from "@/components/sections/Testimonials";
+import { PersonTestimonials } from "@/components/sections/Testimonials";
 import heroDesktop from "@/assets/hero-desktop.jpg";
 import heroMobile from "@/assets/hero-mobile.jpg";
 import missionPhoto from "@/assets/experience-hero.jpg.asset.json";
@@ -99,14 +99,13 @@ function AboutPage() {
           <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pb-10 md:pb-16 lg:pb-20">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
               {/* Statement and next steps */}
-              <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem]">
+              <div className="max-w-[34rem] md:max-w-[38rem]">
                 <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
-                  {t("Legitimerad psykolog · Föreläsare · Workshopledare", "Licensed Psychologist · Speaker · Workshop Facilitator")}
+                  {t("Legitimerad psykolog · Föreläsare · Facilitator · Yogainstruktör", "Licensed Psychologist · Workshop Facilitator · Speaker · Yoga Teacher")}
                 </p>
-                <h1 className="mt-4 md:mt-6 font-serif text-[clamp(1.4rem,1.8vw+1rem,2.6rem)] leading-[1.15] text-background">
-                  {t("ROHANI förenar ", "ROHANI brings together ")}
-                  <em className="italic">{t("psykologi, mindfulness och mänsklig utveckling", "psychology, mindfulness and human development")}</em>
-                  {t(" för att stödja människor, team och organisationer.", " to support people, teams and organisations.")}
+                {/* The slogan, the same on both languages */}
+                <h1 className="mt-4 md:mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">
+                  Rethinking wellbeing...
                 </h1>
                 <div className="mt-7 md:mt-9 flex flex-wrap gap-3">
                   <Link
@@ -130,67 +129,7 @@ function AboutPage() {
 
 
 
-        {/* What Guides Us */}
-        <section id="vagleder" className="scroll-mt-32 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
-          <SectionHeader title={t("Det som vägleder mig", "What guides me")} />
-          {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
-          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
-            {principles.map((p) => (
-              <Dialog key={p.title}>
-                <div className="relative flex flex-col items-center text-center">
-                  <div className="flex w-full min-h-52 md:h-56 flex-col items-center justify-center overflow-visible rounded-3xl bg-foreground text-background px-3 py-4 md:px-8 md:py-0 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
-                    <h3 className="font-serif font-bold text-sm md:text-lg leading-snug uppercase tracking-wide underline decoration-[1.5px] underline-offset-[3px] decoration-background/50">
-                      {p.title}
-                    </h3>
-                    <p className="block mt-3 text-[12px] md:text-sm leading-[1.4] md:leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
-                  </div>
-                  <DialogTrigger asChild>
-                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl hover:bg-transparent active:bg-transparent focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${p.title}`} />
-                  </DialogTrigger>
-                </div>
-                <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-3xl border-0 bg-foreground text-background p-8 text-center [&_button]:text-background">
-                  <DialogTitle className="font-serif text-xl uppercase leading-snug underline underline-offset-[3px]">{p.title}</DialogTitle>
-                  <p className="text-base leading-relaxed text-background/85">{p.body}</p>
-                </DialogContent>
-              </Dialog>
-            ))}
-          </div>
-        </section>
-
-        {/* Our Mission: full-bleed photo like the hero */}
-        <section id="mission" className="scroll-mt-32 relative overflow-hidden">
-
-            <img
-              src={missionPhoto.url}
-              alt={t("Grupp på mattor utomhus i kvällsljus", "A group resting on mats outdoors in the evening sun")}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "50% 60%" }}
-            />
-            <div className="absolute inset-0 bg-foreground/65 md:hidden" aria-hidden="true" />
-
-            <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
-              <div className="max-w-3xl">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
-                  {t("Min mission", "My Mission")}
-                </p>
-                <h2 className="mt-6 md:mt-8 font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
-
-                  {t("En mer sammankopplad, förenad och medveten värld börjar inom oss.", "A more connected, united and conscious world starts within.")}
-                </h2>
-                <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
-                  {t("Jag tror att verklig förändring börjar i relationen vi har med oss själva. När sinne, kropp och inre jag är i större harmoni kan vi leva mer medvetet, göra val som känns sanna för oss och skapa mer meningsfulla relationer.", "I believe that true change begins with the relationship we have with ourselves. When mind, body and inner self are in greater harmony, we can live more consciously, make choices that feel true to us, and create more meaningful relationships.")}
-                </p>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-background/75">
-                  {t("Min mission är att stödja denna resa - från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
-                </p>
-              </div>
-
-            </div>
-        </section>
-
-
-        {/* How we work: same layout as "What guides us" */}
+        {/* How I work: first section after the hero */}
         <section id="metod" className="scroll-mt-24 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
           <SectionHeader title={t("Så arbetar jag", "How I work")} />
           <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
@@ -233,12 +172,66 @@ function AboutPage() {
           </div>
         </section>
 
+        {/* Our Mission: full-bleed photo like the hero */}
+        <section id="mission" className="scroll-mt-32 relative overflow-hidden">
+
+            <img
+              src={missionPhoto.url}
+              alt={t("Grupp på mattor utomhus i kvällsljus", "A group resting on mats outdoors in the evening sun")}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "50% 60%" }}
+            />
+            <div className="absolute inset-0 bg-foreground/65 md:hidden" aria-hidden="true" />
+
+            <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-56 pb-20 md:pb-28 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
+              <div className="max-w-3xl">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-background/70">
+                  {t("Min mission", "My Mission")}
+                </p>
+                <h2 className="mt-6 md:mt-8 font-serif text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] leading-[1.08] text-background">
+
+                  {t("En mer sammankopplad, förenad och medveten värld börjar inom oss.", "A more connected, united and conscious world starts within.")}
+                </h2>
+                <p className="mt-6 md:mt-8 max-w-xl text-[clamp(0.95rem,0.8vw+0.8rem,1.2rem)] leading-relaxed text-background/85">
+                  {t("Min mission är att stödja denna resa - från den personliga, inre förbindelsen till ett kollektivt välbefinnande.", "My mission is to support this journey, from personal inner connection to collective wellbeing.")}
+                </p>
+              </div>
+
+            </div>
+        </section>
+
+
+        {/* What Guides Us */}
+        <section id="vagleder" className="scroll-mt-32 pt-16 md:pt-20 pb-20 md:pb-28 px-6 md:px-10 max-w-7xl mx-auto">
+          <SectionHeader title={t("Det som vägleder mig", "What guides me")} />
+          {/* Light list instead of boxes: a thin line, a number, a title and one sentence */}
+          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
+            {principles.map((p) => (
+              <Dialog key={p.title}>
+                <div className="relative flex flex-col items-center text-center">
+                  <div className="flex w-full min-h-52 md:h-56 flex-col items-center justify-center overflow-visible rounded-3xl bg-foreground text-background px-3 py-4 md:px-8 md:py-0 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)]">
+                    <h3 className="font-serif font-bold text-sm md:text-lg leading-snug uppercase tracking-wide underline decoration-[1.5px] underline-offset-[3px] decoration-background/50">
+                      {p.title}
+                    </h3>
+                    <p className="block mt-3 text-[12px] md:text-sm leading-[1.4] md:leading-relaxed text-background/80 max-w-[13rem]">{p.body}</p>
+                  </div>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" className="md:hidden absolute inset-0 h-full w-full rounded-3xl hover:bg-transparent active:bg-transparent focus-visible:ring-2 focus-visible:ring-ring" aria-label={`${t("Läs mer om", "Read more about")} ${p.title}`} />
+                  </DialogTrigger>
+                </div>
+                <DialogContent className="w-[calc(100%-2rem)] max-w-sm rounded-3xl border-0 bg-foreground text-background p-8 text-center [&_button]:text-background">
+                  <DialogTitle className="font-serif text-xl uppercase leading-snug underline underline-offset-[3px]">{p.title}</DialogTitle>
+                  <p className="text-base leading-relaxed text-background/85">{p.body}</p>
+                </DialogContent>
+              </Dialog>
+            ))}
+          </div>
+        </section>
+
         <div id="grundaren" className="scroll-mt-32 bg-sand py-16 md:py-20">
           <Founder />
         </div>
-
-        {/* What participants say: right after meeting the founder */}
-        <PersonTestimonials />
 
         {/* Heart of the work */}
         {/* Equal space above and below the title: 56px top, 16px + the heading's 40px margin below */}
@@ -266,26 +259,8 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* What organisations say: speaks to partners, just before the call to action and the logo band */}
-        <OrgTestimonials />
-
-        <section id="cta" className="scroll-mt-24 mt-10 md:mt-16 bg-foreground text-background py-24 px-6 md:px-10">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-medium uppercase tracking-[0.15em] leading-snug text-balance">
-              {t("Börja där du är.", "Begin where you are.")}
-            </h2>
-            <p className="text-background/90 text-lg">
-              {t("Meningsfull förändring börjar sällan med att ha alla svar. Ibland börjar det helt enkelt med ett samtal.", "Meaningful change rarely begins with having all the answers. Sometimes, it simply begins with a conversation.")}
-            </p>
-            <Link
-              to="/contact"
-              hash="contact"
-              className="inline-flex px-8 py-4 bg-background text-foreground rounded-full text-xs uppercase tracking-[0.22em] hover:bg-secondary transition-all"
-            >
-              {t("Boka ett introducerande samtal", "Book a Discovery Call")}
-            </Link>
-          </div>
-        </section>
+        {/* What participants say: last, just above the logo band */}
+        <PersonTestimonials />
 
         <LogoMarquee />
 

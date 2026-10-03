@@ -40,6 +40,7 @@ import mediaMagazine from "@/assets/media-magazine.jpg";
 import { type ExperienceSection } from "@/components/sections/ExperienceTabs";
 import { ExperienceSwipe } from "@/components/sections/ExperienceSwipe";
 import { findTestimonial } from "@/lib/testimonials";
+import { RichText } from "@/lib/rich-text";
 /* ---------- Data ---------- */
 
 type Entry = {
@@ -58,6 +59,12 @@ type Entry = {
   meta: string;
   body: string[];
   longBody?: string[];
+  /** The popup text as bullet points. **text** = bold, [label](url) = link (see lib/rich-text.tsx). */
+  bullets?: string[];
+  /** Show the quotes between the text and the photos instead of after the photos (G-Flow). */
+  quotesFirst?: boolean;
+  /** Also show the card's main photo first in the popup's photo row (Vägen tillbaka). */
+  coverInGallery?: boolean;
   tags?: string;
   link?: { label: string; href: string };
 };
@@ -71,10 +78,10 @@ const clinicalEntries: Entry[] = [
     image: logoVuxen,
     meta: "Offentlig vård · Legitimerad psykolog",
     body: ["Som legitimerad psykolog utreder och behandlar jag vuxna inom psykiatrin. Jag anpassar behandlingen efter varje människas behov och livssituation."],
-    longBody: [
-      "Jag genomför psykologisk utredning och behandling inom vuxenpsykiatrisk vård, med ett brett spektrum av psykisk ohälsa - bland annat ångest, depression, stressrelaterade besvär och komplexa tillstånd.",
-      "Tjänsten innefattar självständigt kliniskt arbete, behandlingsplanering och terapeutiska interventioner.",
-      "Att arbeta över olika tillstånd och individuella behov har ytterligare utvecklat min förmåga att anpassa psykologiska förhållningssätt, kommunikation och interventioner efter personen, kontexten och livsskeden.",
+    bullets: [
+      "**Psykologisk utredning** och **behandling** vid bland annat **ångest**, **depression**, **stressrelaterad ohälsa** och **komplexa tillstånd**",
+      "**Självständigt kliniskt arbete**, **behandlingsplanering** och **terapeutiska interventioner**",
+      "**Individanpassat** förhållningssätt utifrån person, kontext och livsskede",
     ],
   },
   {
@@ -84,10 +91,11 @@ const clinicalEntries: Entry[] = [
     image: logoBup,
     meta: "BUP Brommaplan, Stockholm · Legitimerad psykolog",
     body: ["På BUP utredde och behandlade jag barn och unga, i nära samarbete med familjer och vårdteam. Arbetet lärde mig att möta varje ung person utifrån deras förutsättningar."],
-    longBody: [
-      "Jag arbetade inom barn- och ungdomspsykiatrin och stödde unga människor med ett brett spektrum av psykologiska och psykiska utmaningar.",
-      "Mitt arbete omfattade psykologisk utredning, terapeutiska interventioner, psykoedukation, krishantering och samverkan med familjer och tvärprofessionella team.",
-      "Den erfarenheten har stärkt och format min förmåga att anpassa terapeutiska förhållningssätt, kommunikation och interventioner efter olika utvecklingsskeden, individuella behov och familjekonstellationer.",
+    bullets: [
+      "Arbetade inom **barn- och ungdomspsykiatrin** med ett brett spektrum av **psykiska utmaningar** bland barn och unga",
+      "**Psykologisk utredning**, **terapeutiska interventioner**, **psykoedukation** och **krishantering**",
+      "**Samverkan** med **familjer** och **tvärprofessionella team**",
+      "Anpassade **kommunikation** och **interventioner** efter **utvecklingsskede** och **individuella behov**",
     ],
   },
   {
@@ -96,11 +104,11 @@ const clinicalEntries: Entry[] = [
     image: logoKarolinska,
     meta: "Karolinska Universitetssjukhuset · Krisintervention",
     body: ["På Karolinska arbetade jag med svår psykisk ohälsa, krisintervention och suicidprevention. Det har gett mig trygghet att vara närvarande också i komplexa och pressade situationer."],
-    longBody: [
-      "Erfarenhet från vuxenpsykiatrisk verksamhet, med arbete tillsammans med personer som befinner sig i svår psykisk ohälsa.",
-      "Jag byggde en stark grund i krisintervention, psykologisk vård och arbete i komplexa, krävande kliniska miljöer.",
-      "Särskilda erfarenhetsområden är personlighetssyndrom, psykos, krishantering och suicidprevention.",
-      "Att arbeta i krävande kliniska miljöer stärkte min förmåga att förbli förankrad, närvarande och lösningsfokuserad i komplexitet och osäkerhet.",
+    bullets: [
+      "Arbete nära personer med **svår psykisk ohälsa** inom **vuxenpsykiatrin**",
+      "Stark grund i **krisintervention**, **psykologisk vård** och **komplexa kliniska tillstånd**",
+      "Erfarenhet av **personlighetssyndrom**, **psykos**, **krishantering** och **suicidprevention**",
+      "Utvecklade förmågan att vara **förankrad**, **närvarande** och **lösningsfokuserad** i komplexitet",
     ],
   },
 ];
@@ -112,9 +120,9 @@ const organisationalEntries: Entry[] = [
     image: somayaLogo,
     meta: "Psykologiskt & välbefinnandearbete",
     body: ["Mental hälsa och rörelse - workshop för en organisation som stödjer kvinnor och familjer som möter svåra livsvillkor."],
-    longBody: [
-      "Mental hälsa och rörelse - workshop för en organisation som stödjer kvinnor och familjer som lever med komplexa hem-, sociala och psykiska utmaningar.",
-      "Detta arbete fördjupade min förståelse för sambandet mellan psykiskt välbefinnande, trygghet, relationer, kultur och yttre livsvillkor.",
+    bullets: [
+      "Höll **workshop** för en organisation som stöttar **kvinnor och familjer** med **komplexa psykosociala utmaningar**",
+      "Fördjupad förståelse för samspelet mellan **psykiskt välbefinnande**, **trygghet**, **relationer**, **kultur** och **livsvillkor**",
     ],
     link: {
       label: "Somaya Stödjour",
@@ -122,14 +130,15 @@ const organisationalEntries: Entry[] = [
     },
   },
   {
-    title: "Guidad meditation på arbetsplatsen",
+    title: "Meditation för vårdpersonal",
     testimonials: ["bup-1"],
     image: regionStockholmLogo,
     meta: "Region Stockholm · BUP Brommaplan",
     body: ["Jag ledde återkommande meditationer för vårdpersonal på BUP, med konkreta verktyg för återhämtning och stressreglering i en krävande vardag."],
-    longBody: [
-      "Jag ledde återkommande guidade meditationssessioner för vårdpersonal inom barn- och ungdomspsykiatrin, med fokus på att skapa en strukturerad paus för förankring, närvaro och återhämtning i en krävande klinisk vardag.",
-      "Genom praktiska mindfulnessbaserade verktyg fick deltagarna möjlighet att utveckla strategier för stressreglering, ökad närvaro och ett mer hållbart välbefinnande i arbetet.",
+    bullets: [
+      "Ledde **veckovisa meditationssessioner** för vårdpersonal inom **BUP**",
+      "Fokus på **närvaro**, **förankring** och **återhämtning**",
+      "Gav praktiska **mindfulnessverktyg** för **stressreglering** i en krävande arbetsmiljö",
     ],
     tags: "Välbefinnande i arbetslivet · Mindfulness · Stressreglering · Sjukvård",
   },
@@ -140,11 +149,11 @@ const organisationalEntries: Entry[] = [
     image: satsLogo,
     meta: "Yoga · Hot yoga · Avslappning & rörelse",
     body: ["Som yogainstruktör på SATS guidar jag deltagare genom rörelse och avslappning, bland annat i hot yoga i 38 grader."],
-    longBody: [
-      "Som utbildad yogainstruktör på SATS leder jag regelbundet yoga- och återhämtningsklasser på olika anläggningar runt om i Stockholm. Jag är utbildad för att undervisa även i hotsalar och håller framför allt klasser inom Yin Yoga, Aroma Relax, Meditation och Breathwork med fokus på närvaro, kroppskännedom och återhämtning.",
-      "Aroma Relax är en guidad avslappningsklass där olika essentiella oljor kombineras med andning, närvaro och djup avslappning. Breathwork och meditation fokuserar främst på andningstekniker och mindfulness. Klasserna skapar en möjlighet att stanna upp, landa i kroppen och ge nervsystemet utrymme för återhämtning.",
-      "Klasserna är mellan 60-90 minuter och anpassas efter klassens format och deltagarnas behov. Genom att kombinera yoga, andning och avslappning vill jag skapa en upplevelse där deltagarna får möjlighet att släppa prestation, lyssna inåt och återknyta till kroppen.",
-      "Arbetet på SATS speglar en central del av mitt förhållningssätt: att välbefinnande inte bara handlar om hur vi tänker, utan också om hur vi förhåller oss till kroppen, återhämtning och vår egen närvaro.",
+    bullets: [
+      "Utbildad **yogainstruktör** som leder **yoga- och återhämtningsklasser** på flera anläggningar i Stockholm, även i **hotsalar**",
+      "Håller främst **Yin Yoga**, **Aroma Relax**, **Meditation** och **Breathwork**, med fokus på **närvaro**, **kroppskännedom** och **återhämtning**",
+      "Klasser på **60-90 minuter** som kombinerar **yoga**, **andning**, **mindfulness** och **avslappning**",
+      "Förhållningssätt: **kropp och sinne** behöver få ta plats tillsammans, och **återhämtning** är en viktig del av att må och fungera väl",
     ],
   },
   {
@@ -154,20 +163,23 @@ const organisationalEntries: Entry[] = [
     image: groLogo,
     meta: "Yogastudio · Mariatorget, Stockholm · Facilitator",
     body: ["Som facilitator på GRO, en yogastudio vid Mariatorget, höll jag yoga- och meditationsklasser med fokus på närvaro, återhämtning och mental balans."],
-    longBody: [
-      "GRO var en yogastudio vid Mariatorget i Stockholm, grundad av legitimerad psykolog Sabina Landehag efter över 15 års kliniskt arbete. Visionen var att samla väletablerade facilitatorer med en gemensam övertygelse om vikten av ett mer holistiskt perspektiv på hälsa och välbefinnande.",
-      "Som facilitator på GRO höll jag yoga- och meditationsklasser med fokus på närvaro, återhämtning, kroppskännedom och mental balans. Jag var en del av ett lärarteam med olika professionella bakgrunder inom människans psykiska hälsa, där bland annat terapeuter, socionomer och andra hälsoinriktade yrkespersoner möttes kring en gemensam syn på människan som en helhet.",
-      "Utöver de regelbundna klasserna var GRO en plats för community och möten. Studion arrangerade olika events, workshops och sammankomster där människor fick möjlighet att utforska välbefinnande ur olika perspektiv och samtidigt mötas och skapa gemenskap.",
-      "Min tid på GRO speglar mycket av det som också präglar mitt arbete idag - mötet mellan psykologi, kropp, närvaro och gemenskap, och övertygelsen om att välbefinnande kan stärkas när vi får möjlighet att se och möta hela människan.",
+    bullets: [
+      "Yogastudio vid **Mariatorget** i Stockholm, grundad av legitimerad **psykolog** Sabina Landehag efter över 15 års kliniskt arbete",
+      "Facilitator för **yoga- och meditationsklasser** med fokus på **närvaro**, **återhämtning**, **kroppskännedom** och **mental balans**",
+      "Del av ett **lärarteam** med olika bakgrunder inom **psykisk hälsa**, bland annat terapeuter och socionomer",
+      "Studion var en plats för **community**, med **events**, **workshops** och **sammankomster**",
+      "Speglar mitt arbete idag: mötet mellan **psykologi**, **kropp**, **närvaro** och **gemenskap**, med synen på **hela människan**",
     ],
-  },  {
-    title: "Edboskolan · Dans, rörelse och hälsa",
+  },
+  {
+    title: "Edboskolan · Rörelse & hälsa",
     image: huddingeLogo,
     meta: "Idrottsdag · Grundskola · Workshop",
     body: ["Under Edboskolans idrottsdag höll jag en 1,5 timmes workshop för elever i grundskolan med fokus på rörelse och hälsa."],
-    longBody: [
-      "Under Edboskolans idrottsdag höll jag en 1,5 timmes workshop för elever i grundskolan med fokus på rörelse och hälsa.",
-      "Workshopen lyfte hur rörelse kan bidra till både fysisk och psykisk hälsa, samtidigt som den skapar energi, glädje och gemenskap. Genom dans och lekfulla övningar fick eleverna röra på sig, utforska kroppen och uppleva rörelse utan fokus på prestation.",
+    bullets: [
+      "**Workshop på 1,5 timme** för **grundskoleelever** under skolans idrottsdag",
+      "Fokus på hur **rörelse** stärker både **fysisk** och **psykisk hälsa**",
+      "Genom **dans** och **lekfulla övningar** fick eleverna uppleva **energi**, **glädje** och **gemenskap**, **utan fokus på prestation**",
     ],
   },
 
@@ -176,20 +188,24 @@ const organisationalEntries: Entry[] = [
 
 const communityEntries: Entry[] = [
   {
-    title: "G-Flow · ABF Södertörn & Haninge kommun",
+    title: "G-Flow Tjej-retreat för ungdomar",
+    testimonials: ["david-n", "victoria", "inaaya", "sabida", "maryam"],
+    quotesFirst: true,
     photo: photoGflow,
     gallery: "gflow",
     image: haningeLogo,
     meta: "Folkbildning · Ungdomars välbefinnande · Samhällsutveckling",
 
     body: ["Tillsammans med ABF Södertörn och Haninge kommun gjorde jag psykologi, rörelse och gemenskap tillgängligt för unga genom G-Flow - ett tryggt rum för självuttryck och utveckling."],
-    longBody: [
-      "G-Flow är ett initiativ jag grundat för att skapats för att ge unga tjejer en trygg, inkluderande och prestationsfri plats att utforska självkänsla, identitet, känslor, kropp, tillhörighet och relationer.",
-      "Genom initiativet har jag, i samarbete med ABF Södertörn och lokala samhällsaktörer, utvecklat och lett kostnadsfria träffar där psykologisk kunskap och psykoedukation kombineras med meditation, andningsövningar, rörelse, dans och reflektion.",
-      "Syftet har varit att göra verktyg för mental hälsa och personlig utveckling mer tillgängliga, samtidigt som deltagarna får möjlighet att känna sig sedda, hörda och delaktiga i en trygg gemenskap.",
-      "G-Flow har genomförts i flera omgångar under skollov och har skapat ett rum där unga tjejer kan utforska sig själva, stärka sin självkänsla och bygga relationer med andra utan fokus på prestation.",
-      "Initiativet har även fått uppmärksamhet i Sveriges Radio och Psykologtidningen, vilket har bidragit till att lyfta betydelsen av förebyggande och lättillgängliga insatser för ungas psykiska och sociala välbefinnande.",
-      "G-Flow bygger på en enkel övertygelse: när unga får utrymme att möta sig själva och varandra, skapar vi starkare förutsättningar för både individuellt och kollektivt välbefinnande.",
+    bullets: [
+      "Eget initiativ som jag **grundat** för **unga tjejer**: en **trygg**, **inkluderande** och **prestationsfri** plats",
+      "Huvudteman: **självkänsla**, **identitet**, **känslor**, **kropp** och **relationer**",
+      "Kostnadsfria träffar i samarbete med **ABF Södertörn**, **Haninge kommun** och lokala samhällsaktörer",
+      "**Psykoedukation** kombinerat med **meditation**, **andning**, **rörelse**, **dans** och **reflektion**",
+      "Genomfört i **flera omgångar** under **skollov**",
+      "Uppmärksammat i [**Sveriges Radio**](https://www.sverigesradio.se/artikel/david-nzinga-leder-projekt-om-psykisk-ohalsa-och-kultur) och [**Psykologtidningen**](#psykologtidningen)",
+      "Arbetet fortsätter, med **stor efterfrågan** bland ungdomarna",
+      "**Min övertygelse:** när unga får utrymme att möta **sig själva** och **varandra** stärks både **individuellt** och **kollektivt** välbefinnande",
     ],
   },
   {
@@ -200,12 +216,11 @@ const communityEntries: Entry[] = [
 
     meta: "Ideell förening · Fysisk hälsa · Självkänsla & mental hälsa",
     body: ["En ideell förening för unga tjejer med fokus på fysisk hälsa - där jag regelbundet håller dansklasser med fokus på att stärka självkänsla och mental hälsa."],
-    longBody: [
-      "Hero Idrottsförening är en ideell organisation som skapar möjligheter för unga tjejer i förorten att stärka sin hälsa, gemenskap och sitt välbefinnande genom träning och rörelse.",
-      "Genom mitt samarbete med Hero håller jag regelbundna dansklasser under terminen, där dans och rörelse kombineras med fokus på självkänsla, kroppsmedvetenhet och mental hälsa.",
-      "På Alla hjärtans dag höll jag även en integrativ workshop och föreläsning om självkärlek, självomsorg och självmedkänsla. Ungdomarna fick utforska vad det faktiskt innebär att ta hand om sig själva, hur de ser på och pratar med sig själva, och hur den egna självbilden kan påverka relationerna vi skapar med andra.",
-      "Arbetet fortsätter genom återkommande dansklasser, föreläsningar och workshops, och fortsätter att ha en stor efterfrågan bland ungdomarna.",
-      "Genom att kombinera rörelse, psykologi och gemenskap vill jag skapa utrymme för unga tjejer att inte bara må bättre - utan också utveckla en starkare, medveten och mer positiv relation till sig själva och varandra.",
+    bullets: [
+      "Ideell organisation som ger **unga tjejer i förorten** möjlighet att stärka **hälsa**, **gemenskap** och **välbefinnande** genom rörelse",
+      "Hållit i **regelbundna dansklasser** med fokus på **självkänsla**, **kroppsmedvetenhet** och **mental hälsa**",
+      "**Workshop och föreläsning** på Alla hjärtans dag om **självkärlek**, **självomsorg** och **självmedkänsla**",
+      "Rörelse, psykologi och gemenskap för en **starkare relation till sig själv** och andra",
     ],
   },
   {
@@ -214,41 +229,42 @@ const communityEntries: Entry[] = [
     gallery: "joy-in-the-wild",
     meta: "Grundare & facilitator",
     body: ["En natur- och välbefinnandeupplevelse för kvinnor, med fokus på gemenskap, närvaro, rörelse och självreflektion."],
-    longBody: [
-      "Joy in the Wild skapades för kvinnor med olika kulturella bakgrunder, med en önskan att utforska vad lycka faktiskt betyder för oss bortom prestation, förväntningar och kulturella föreställningar.",
-      "Genom skrivövningar, reflektion och öppna samtal fick deltagarna utforska vilken plats lycka har haft i deras liv, hur de såg på lycka som barn och hur kulturella normer och erfarenheter kan påverka vår relation till glädje, frihet och oss själva.",
-      "Tillsammans med poeten och dansaren Melissa utforskade vi även dans och somatisk rörelse. Att få röra sig för att återknyta till känslan, uttrycket och glädjens skull.",
-      "Vi mediterade, andades, reflekterade och framför allt - hade kul.",
-      "Joy in the Wild skapades som en påminnelse om att lycka inte behöver vara något vi förtjänar eller presterar oss till. Ibland är det så simpelt som att sakta ner, och lägga märke till, och återknyta till det som redan får oss att känna oss levande.",
+    bullets: [
+      "Skapat för **kvinnor med olika kulturella bakgrunder**, för att utforska vad **lycka** betyder bortom **prestation**, **förväntningar** och **kulturella föreställningar**",
+      "**Skrivövningar**, **reflektion** och **öppna samtal**",
+      "**Dans** och **somatisk rörelse** tillsammans med poeten och dansaren **Melissa Kawooya**",
+      "**Meditation**, **andning** och framför allt **glädje**",
+      "En påminnelse om att lycka inte är något vi **förtjänar** eller **presterar** oss till",
     ],
   },
   {
-    title: "House of Creatives Solna",
+    title: "Movement & Meditation · House of Creatives",
     photo: photoHoc,
     gallery: "house-of-creatives",
     image: houseOfCreativeLogo,
     meta: "Rörelse & Meditation · Gemenskap",
     body: ["Rörelse och meditation hos House of Creatives - ett stöttande rum för närvaro, återhämtning och gemenskap."],
-    longBody: [
-      "Som en del av det ideella kreativa initiativet House of Creatives håller jag Meditation & Movement-klasser för människor med olika åldrar, kön och kulturella bakgrunder.",
-      "Klasserna kombinerar fri somatisk rörelse, musik, meditation och andning. Genom lätt guidning och olika teman får deltagarna möjlighet att släppa prestation och återknyta till mer lekfulla, fria och närvarande delar av sig själva.",
-      "Rörelsen blir ett sätt att landa i kroppen, släppa på stress och skapa mer utrymme innan vi växlar ner i stillhet. Klassen avslutas med meditation och andning, följt av gemensam delning och integration.",
-      "Genom att skapa ett inkluderande rum där människor med olika erfarenheter och bakgrunder möts, blir klassen också en plats för gemenskap, uttryck och mänsklig kontakt - något många idag längtar efter.",
+    bullets: [
+      "**Meditation & Movement-klasser** i ett ideellt kreativt initiativ, för människor i **alla åldrar**, **kön** och **kulturella bakgrunder**",
+      "**Fri somatisk rörelse**, **musik**, **meditation** och **andning**",
+      "Att **släppa prestation** och återknyta till det **lekfulla** och **närvarande**",
+      "Avslutas med **delning** och **integration**",
+      "En plats för **gemenskap**, **uttryck** och **mänsklig kontakt**",
     ],
   },
   {
-    title: "Tillsammans för Sverige · Fryshuset · Jakten på Tro & Mening",
+    title: "Jakten på tro och mening · Podcast",
     photo: photoFryshuset,
     gallery: "fryshuset",
     image: fryshusetLogo,
     extraLogo: tfsLogo,
     meta: "Podcast · Samtal om mening & välbefinnande",
     body: ["Gäst i Fryshusets podcast Jakten på Tro & Mening - ett samtal om psykologisk hälsa och det som ger livet mening."],
-    longBody: [
-      "Jakten på tro och mening är ett initiativ av Tillsammans för Sverige och Fryshuset som utforskar människans behov av mening, sammanhang och existentiell förankring.",
-      "I poddavsnittet blir jag intervjuad om mina perspektiv på människans tillvaro ur ett existentiellt och psykologiskt perspektiv, samt hur min personliga resa har format mitt professionella förhållningssätt och sätt att se på människor i olika sammanhang.",
-      "I samtalet berörde jag också hur samhället länge har tenderat att separera kropp, själ och sinne, och hur ett växande behov av mer integrerade perspektiv på människans välbefinnande kan öppna för en mer holistisk syn på hälsa och vård.",
-      "För mig handlar ett sådant perspektiv om att se människan som en helhet - där psykologi, kropp, relationer, livserfarenheter, mening och sammanhang alla kan vara delar av det som formar vårt välbefinnande och tillfredsställelse.",
+    bullets: [
+      "Initiativ av **Tillsammans för Sverige** och **Fryshuset** om människans behov av **mening**, **sammanhang** och **existentiell förankring**",
+      "**Intervjuad i podcast** om människans tillvaro ur ett **existentiellt** och **psykologiskt** perspektiv",
+      "Hur min **personliga resa** format mitt professionella förhållningssätt",
+      "Behovet av en mer **holistisk syn** på **hälsa** och **vård**, där **kropp**, **själ** och **sinne** hänger ihop",
     ],
     link: { label: "Se avsnittet på YouTube", href: "https://www.youtube.com/watch?v=nLSdBQndF0E&t=1285s" },
   },
@@ -256,14 +272,15 @@ const communityEntries: Entry[] = [
     title: "Vägen tillbaka · Retreat",
     photo: photoVagen,
     gallery: "vagen-tillbaka",
+    coverInGallery: true,
     meta: "Retreat · 3 dagar · Uppsala",
     body: ["Ett tre dagars retreat för kvinnor i skogen utanför Uppsala, med yoga, meditation, breathwork och reflektion i naturen."],
-    longBody: [
-      "Vägen tillbaka var ett tre dagars retreat för kvinnor, omgivet av natur och skog utanför Uppsala. Retreatet skapades som en möjlighet att stanna upp från vardagens tempo och återknyta till sig själv, kroppen och det som skapar välbefinnande.",
-      "Jag initierade, planerade och faciliterade retreatet, med ansvar för retreatets övergripande upplägg, innehåll och deltagarupplevelse. Jag utformade och höll i delar av programmet med fokus på psykologiskt välbefinnande, självreflektion, återhämtning och kroppslig närvaro, genom bland annat yoga, meditation, breathwork, reflektion och samtal.",
-      "Dagarna gav deltagarna möjlighet att landa i kroppen, lyssna inåt och utforska sina behov, samtidigt som det fanns gott om utrymme för vila, natur och gemenskap. En viktig del var också tiden mellan aktiviteterna - att äta god mat tillsammans, samtala, skratta och helt enkelt få vara.",
-      "Retreatet höll jag tillsammans med en shaman från Peru, som bidrog med traditioner, perspektiv och kunskap från sin kulturella och andliga tradition.",
-      "Tillsammans skapade vi ett möte mellan olika perspektiv på människan, välbefinnande och vår relation till oss själva och naturen - det många idag längtar efter.",
+    bullets: [
+      "**Tre dagars retreat för kvinnor** i naturen utanför **Uppsala**",
+      "**Initierade**, **planerade** och **faciliterade** retreatet, med ansvar för **upplägg**, **innehåll** och **deltagarupplevelse**",
+      "**Yoga**, **meditation**, **breathwork**, **reflektion** och **samtal** med fokus på **psykologiskt välbefinnande** och **kroppslig närvaro**",
+      "Utrymme för **vila**, **natur**, **god mat** och **gemenskap**",
+      "Hölls tillsammans med en **shaman från Peru**, som bidrog med **traditioner**, **perspektiv** och **kunskap** från sin kulturella och andliga tradition",
     ],
   },
   {
@@ -273,12 +290,12 @@ const communityEntries: Entry[] = [
     gallery: "mother-roots",
     meta: "Event · Mammor 40+ · Flera generationer",
     body: ["Ett event för mammor 40+, om hur moderskapet har förändrats över åren och vad det har inneburit för dem som individer."],
-    longBody: [
-      "Motheroots var ett event för mammor över 40 år, skapat som ett utrymme för reflektion, återhämtning och gemenskap kring moderskapets många dimensioner.",
-      "Deltagarna fick utforska hur moderskapet hade förändrats genom livet och vilken betydelse det haft för dem som individer - bortom rollen som mamma. Genom reflektion, samtal och olika kroppsnära praktiker fick de möjlighet att stanna upp och uppmärksamma sig själva, sina behov och sin egen resa.",
-      "Under eventet kombinerade vi meditation, visualisering, andningsövningar, dans och stretch för att skapa en helhet där både kropp och sinne fick ta plats. Dagen avslutades med en öppen reflektionscirkel där deltagarna fick dela sina erfarenheter och perspektiv om moderskap med varandra.",
-      "En särskild dimension var mötet mellan generationer. Flera deltagare kom tillsammans med sina egna mammor, vilket skapade ett fint utrymme för gemenskap, igenkänning och samtal över generationsgränser.",
-      "Motheroots handlade om att få möta kvinnan bakom rollen som mamma - och att ge utrymme åt den egna berättelsen, kroppen och identiteten.",
+    bullets: [
+      "Event för **mammor över 40 år** om **moderskapets många dimensioner**",
+      "Utforskade **kvinnan bakom rollen som mamma**: egna behov, berättelser och identitet",
+      "Skräddarsydd **meditation**, **visualisering**, **andning**, **dans** och **stretch**",
+      "Avslutades med en **reflektionscirkel**",
+      "Särskild dimension: **generationsmöten**, då flera deltagare kom tillsammans med sina **egna mammor**, vilket skapade utrymme för **igenkänning** och **samtal över generationsgränser**",
     ],
   },
 ];
@@ -483,6 +500,39 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
+  // Pieces of the popup, so their order can change per card (see quotesFirst)
+  const galleryBlock = selected && (selected.gallery && (
+                  <ModalGallery photos={[...(selected.coverInGallery && selected.photo ? [selected.photo] : []), ...galleryFor(selected.gallery)]} label={selected.title} lang="sv" />
+                ));
+  const quotesBlock = selected && (selected.testimonials && selected.testimonials.length > 0 && (
+                  <section className="pt-4 border-t border-border">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">Vad de säger</p>
+                    <div className="mt-4 space-y-3">
+                      {selected.testimonials.map((k) => {
+                        const q = findTestimonial(k, "sv");
+                        if (!q) return null;
+                        return (
+                          <figure key={k} className="relative rounded-2xl bg-white border border-foreground/10 shadow-[0_10px_30px_-18px_rgba(27,43,36,0.35)] p-6 md:p-7">
+                            <span aria-hidden className="absolute top-3 left-5 font-serif text-5xl leading-none text-accent/50">"</span>
+                            <blockquote className="relative pt-5 font-sans text-[15px] md:text-base font-light leading-[1.8] text-foreground/80">{q.quote}</blockquote>
+                            <figcaption className="mt-4 flex items-center gap-3">
+                              <span className="h-px w-6 bg-accent" />
+                              <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">{q.who.sv}</span>
+                            </figcaption>
+                          </figure>
+                        );
+                      })}
+                    </div>
+                  </section>
+                ));
+  // Links inside the bullet texts that are not web pages, e.g. "#psykologtidningen"
+  const openAction = (id: string) => {
+    if (id === "psykologtidningen") {
+      setSelected(null);
+      window.setTimeout(() => setLightboxOpen(true), 200);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -497,13 +547,15 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
-            <h1 className="text-5xl md:text-7xl font-serif leading-[1.02] text-balance max-w-4xl text-background">
-              Psykologi, välbefinnande & mänsklig utveckling
+            {/* Same eyebrow and slogan as the hero on Om, plus one line about the work */}
+            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
+              Legitimerad psykolog · Föreläsare · Facilitator · Yogainstruktör
+            </p>
+            <h1 className="!mt-4 md:!mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">
+              Rethinking wellbeing...
             </h1>
             <p className="text-lg md:text-xl leading-[1.7] text-background/85 max-w-2xl">
-              Mitt arbete förenar psykologisk expertis, mänsklig utveckling
-              och kroppsnära vägar till välbefinnande - inom klinisk
-              verksamhet, organisationer och samhälle.
+              Hållbara vägar till välbefinnande, utveckling och mänsklig potential, för människor, team och organisationer.
             </p>
           </div>
         </section>
@@ -706,39 +758,24 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
                     </div>
                   </div>
                 </DialogHeader>
-                <div className="space-y-4">
-                  {(selected.longBody ?? selected.body).map((p) => (
-                    <p key={p} className="text-base leading-[1.75] text-foreground/75">{p}</p>
-                  ))}
-                </div>
-                {/* Photos first, right after her own text, then what others say */}
-                {selected.gallery && (
-                  <ModalGallery photos={galleryFor(selected.gallery)} label={selected.title} lang="sv" />
+                {selected.bullets ? (
+                  <ul className="space-y-3">
+                    {selected.bullets.map((b) => (
+                      <li key={b} className="relative pl-5 text-base leading-[1.7] text-foreground/75">
+                        <span aria-hidden className="absolute left-0 top-[0.7em] h-1.5 w-1.5 rounded-full bg-accent" />
+                        <RichText text={b} onAction={openAction} />
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="space-y-4">
+                    {(selected.longBody ?? selected.body).map((p) => (
+                      <p key={p} className="text-base leading-[1.75] text-foreground/75">{p}</p>
+                    ))}
+                  </div>
                 )}
-                {/* What the organisation says: its own labelled section with white boxes,
-                    so it reads clearly as someone else's voice, separate from her own text */}
-                {selected.testimonials && selected.testimonials.length > 0 && (
-                  <section className="pt-4 border-t border-border">
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-semibold">Vad de säger</p>
-                    <div className="mt-4 space-y-3">
-                      {selected.testimonials.map((k) => {
-                        const q = findTestimonial(k, "sv");
-                        if (!q) return null;
-                        return (
-                          <figure key={k} className="relative rounded-2xl bg-white border border-foreground/10 shadow-[0_10px_30px_-18px_rgba(27,43,36,0.35)] p-6 md:p-7">
-                            <span aria-hidden className="absolute top-3 left-5 font-serif text-5xl leading-none text-accent/50">"</span>
-                            <blockquote className="relative pt-5 font-sans text-[15px] md:text-base font-light leading-[1.8] text-foreground/80">{q.quote}</blockquote>
-                            <figcaption className="mt-4 flex items-center gap-3">
-                              <span className="h-px w-6 bg-accent" />
-                              <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">{q.who.sv}</span>
-                            </figcaption>
-                          </figure>
-                        );
-                      })}
-                    </div>
-                  </section>
-                )}
-
+                {/* Usually photos first, then what others say. G-Flow: quotes first. */}
+                {selected.quotesFirst ? <>{quotesBlock}{galleryBlock}</> : <>{galleryBlock}{quotesBlock}</>}
                 {selected.tags && (
                   <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/55">{selected.tags}</p>
                 )}

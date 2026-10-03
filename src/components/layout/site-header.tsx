@@ -17,9 +17,9 @@ const navLinksSv: NavItem[] = [
     to: "/",
     label: "OM",
     subs: [
-      { id: "vagleder", label: "Det som vägleder mig" },
-      { id: "mission", label: "Min mission" },
       { id: "metod", label: "Så arbetar jag" },
+      { id: "mission", label: "Min mission" },
+      { id: "vagleder", label: "Det som vägleder mig" },
       { id: "grundaren", label: "Möt grundaren" },
       { id: "heart", label: "Hjärtat av ROHANI" },
     ],
@@ -47,9 +47,9 @@ const navLinksSv: NavItem[] = [
 
 const navLinksEn: NavItem[] = [
   { to: "/", label: "About", subs: [
-    { id: "vagleder", label: "What Guides Me" },
-    { id: "mission", label: "My Mission" },
     { id: "metod", label: "How I Work" },
+    { id: "mission", label: "My Mission" },
+    { id: "vagleder", label: "What Guides Me" },
     { id: "grundaren", label: "Meet the Founder" },
     { id: "heart", label: "The Heart of ROHANI" },
   ] },

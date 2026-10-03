@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { SectionHeader } from "@/components/sections/SectionHeader";
-import { orgQuotes, personQuotes, quoteText, type PersonQuote } from "@/lib/testimonials";
+import { orgQuotes, personQuotes, personCaption, quoteText, type PersonQuote } from "@/lib/testimonials";
 
 /*
  * Two kinds of testimonials, shown two different ways:
@@ -63,7 +63,7 @@ function PersonCard({ q, lang, hidden }: { q: PersonQuote; lang: "sv" | "en"; hi
         </button>
       )}
       <figcaption className="mt-auto pt-6 text-[10px] uppercase tracking-[0.22em] text-foreground/55 font-semibold">
-        {q.name}, {q.age} {lang === "en" ? "years" : "år"}
+        {personCaption(q, lang)}
       </figcaption>
     </figure>
   );
