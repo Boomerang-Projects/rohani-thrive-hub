@@ -548,7 +548,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
             {/* Same eyebrow, slogan and narrow column as the hero on Om, plus one line about the work */}
             <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem] space-y-7">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
-                Legitimerad psykolog · Föreläsare · Yogainstruktör
+                Legitimerad psykolog · Föreläsare · Yogainstruktör · Workshopledare
               </p>
               <h1 className="!mt-4 md:!mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">
                 Rethinking wellbeing...

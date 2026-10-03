@@ -101,7 +101,7 @@ function AboutPage() {
               {/* Statement and next steps */}
               <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem]">
                 <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
-                  {t("Legitimerad psykolog · Föreläsare · Yogainstruktör", "Licensed Psychologist · Workshop Facilitator · Speaker · Yoga Teacher")}
+                  {t("Legitimerad psykolog · Föreläsare · Yogainstruktör · Workshopledare", "Licensed Psychologist · Workshop Facilitator · Speaker · Yoga Teacher")}
                 </p>
                 {/* The slogan, the same on both languages */}
                 <h1 className="mt-4 md:mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">
@@ -247,13 +247,7 @@ function AboutPage() {
                 {t("I hjärtat av detta arbete ligger en nyfikenhet på vem vi är, vad som format oss - och vem vi håller på att bli.", "At the heart of this work is a curiosity about who we are, what shapes us, and who we are becoming.")}
               </h2>
               <p className="text-base leading-[1.75] text-background/90">
-                {t("Hur kan vi röra oss genom livet med större medvetenhet, handlingskraft och intention - istället för att bara reagera på det som händer omkring oss?", "How can we move through life with greater awareness, agency and intention - rather than simply reacting to what happens around us?")}
-              </p>
-              <p className="text-base leading-[1.75] text-background/90">
                 {t("Tänk om meningsfull förändring börjar med att bli mer medveten om hur vi ser, upplever och möter världen?", "What if meaningful change begins with becoming more conscious of the way we see, experience and engage with the world?")}
-              </p>
-              <p className="text-base leading-[1.75] text-background/90">
-                {t("Mitt arbete förenar psykologisk vetenskap med ett mänskligt, kroppsnära och kulturellt anpassningsbart förhållningssätt till välbefinnande och utveckling.", "My work combines psychological science with a human, embodied and culturally responsive approach to wellbeing and development.")}
               </p>
             </div>
           </div>
