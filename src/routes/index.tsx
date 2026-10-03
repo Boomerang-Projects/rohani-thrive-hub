@@ -99,9 +99,9 @@ function AboutPage() {
           <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-10 pb-10 md:pb-16 lg:pb-20">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
               {/* Statement and next steps */}
-              <div className="max-w-[34rem] md:max-w-[38rem]">
+              <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem]">
                 <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
-                  {t("Legitimerad psykolog · Föreläsare · Facilitator · Yogainstruktör", "Licensed Psychologist · Workshop Facilitator · Speaker · Yoga Teacher")}
+                  {t("Legitimerad psykolog · Föreläsare · Yogainstruktör", "Licensed Psychologist · Workshop Facilitator · Speaker · Yoga Teacher")}
                 </p>
                 {/* The slogan, the same on both languages */}
                 <h1 className="mt-4 md:mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">

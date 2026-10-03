@@ -63,8 +63,6 @@ type Entry = {
   bullets?: string[];
   /** Show the quotes between the text and the photos instead of after the photos (G-Flow). */
   quotesFirst?: boolean;
-  /** Also show the card's main photo first in the popup's photo row (Vägen tillbaka). */
-  coverInGallery?: boolean;
   tags?: string;
   link?: { label: string; href: string };
 };
@@ -173,6 +171,7 @@ const organisationalEntries: Entry[] = [
   },
   {
     title: "Edboskolan · Rörelse & hälsa",
+    gallery: "edboskolan",
     image: huddingeLogo,
     meta: "Idrottsdag · Grundskola · Workshop",
     body: ["Under Edboskolans idrottsdag höll jag en 1,5 timmes workshop för elever i grundskolan med fokus på rörelse och hälsa."],
@@ -272,7 +271,6 @@ const communityEntries: Entry[] = [
     title: "Vägen tillbaka · Retreat",
     photo: photoVagen,
     gallery: "vagen-tillbaka",
-    coverInGallery: true,
     meta: "Retreat · 3 dagar · Uppsala",
     body: ["Ett tre dagars retreat för kvinnor i skogen utanför Uppsala, med yoga, meditation, breathwork och reflektion i naturen."],
     bullets: [
@@ -502,7 +500,7 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
 
   // Pieces of the popup, so their order can change per card (see quotesFirst)
   const galleryBlock = selected && (selected.gallery && (
-                  <ModalGallery photos={[...(selected.coverInGallery && selected.photo ? [selected.photo] : []), ...galleryFor(selected.gallery)]} label={selected.title} lang="sv" />
+                  <ModalGallery photos={[...(selected.photo ? [selected.photo] : []), ...galleryFor(selected.gallery)]} label={selected.title} lang="sv" />
                 ));
   const quotesBlock = selected && (selected.testimonials && selected.testimonials.length > 0 && (
                   <section className="pt-4 border-t border-border">
@@ -547,16 +545,18 @@ export function ExperiencePageSv({ section = "clinical" }: { section?: Experienc
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/60 to-foreground/25" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 pt-44 md:pt-60 pb-16 md:pb-24 space-y-7 [text-shadow:0_2px_18px_rgba(58,41,34,0.55)]">
-            {/* Same eyebrow and slogan as the hero on Om, plus one line about the work */}
-            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
-              Legitimerad psykolog · Föreläsare · Facilitator · Yogainstruktör
-            </p>
-            <h1 className="!mt-4 md:!mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">
-              Rethinking wellbeing...
-            </h1>
-            <p className="text-lg md:text-xl leading-[1.7] text-background/85 max-w-2xl">
-              Hållbara vägar till välbefinnande, utveckling och mänsklig potential, för människor, team och organisationer.
-            </p>
+            {/* Same eyebrow, slogan and narrow column as the hero on Om, plus one line about the work */}
+            <div className="max-w-[34rem] md:max-w-[26rem] lg:max-w-[30rem] space-y-7">
+              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-background/90">
+                Legitimerad psykolog · Föreläsare · Yogainstruktör
+              </p>
+              <h1 className="!mt-4 md:!mt-6 font-serif uppercase tracking-[0.12em] text-[clamp(1.9rem,3.2vw+1rem,3.6rem)] leading-[1.05] text-background">
+                Rethinking wellbeing...
+              </h1>
+              <p className="text-lg md:text-xl leading-[1.6] text-background/85">
+                Hållbara vägar till välbefinnande, utveckling och mänsklig potential, för människor, team och organisationer.
+              </p>
+            </div>
           </div>
         </section>
 

@@ -1,5 +1,5 @@
 /**
- * Social media icons for the footer: LinkedIn, Instagram, TikTok.
+ * Social media icons for the footer: LinkedIn and Instagram.
  * Plain inline SVGs in the text colour (currentColor), inside thin round
  * outlines, so they match the calm look of the site instead of the brands'
  * own bright colours. Used by both the Swedish and the English footer.
@@ -22,15 +22,6 @@ const links = [
         <rect x="3" y="3" width="18" height="18" rx="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    name: "TikTok",
-    href: "https://www.tiktok.com/@rohani.se",
-    icon: (
-      <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
-        <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.77.12V9.77a5.7 5.7 0 0 0-.77-.05 5.69 5.69 0 1 0 5.69 5.69V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.25-1.48z" />
       </svg>
     ),
   },

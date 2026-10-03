@@ -17,6 +17,7 @@ import { PhotoLightbox } from "@/components/sections/PhotoLightbox";
  * else on the card opens the popup.
  * Upright (portrait) photos would lose their top and bottom in the wide
  * frame, so they are shown whole, centred on a soft blurred copy of themselves.
+ * The first photo (the card's cover) always fills the frame, like before.
  */
 export function PhotoEntryCard({
   photos,
@@ -101,7 +102,9 @@ export function PhotoEntryCard({
           data-swipe-ignore
           className="flex h-full overflow-x-auto snap-x snap-mandatory overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {slides.map((src, i) => (
+          {slides.map((src, i) => {
+            const fit = upright[src] && i % n !== 0; // the cover always fills the frame
+            return (
             <button
               key={i}
               type="button"
@@ -113,7 +116,7 @@ export function PhotoEntryCard({
               aria-label={sv ? `Förstora bild ${(i % n) + 1}` : `Enlarge photo ${(i % n) + 1}`}
               className="relative h-full w-full shrink-0 snap-center overflow-hidden cursor-zoom-in"
             >
-              {upright[src] && (
+              {fit && (
                 <img src={src} alt="" aria-hidden draggable={false} className="absolute inset-0 h-full w-full scale-110 object-cover blur-xl opacity-70" />
               )}
               <img
@@ -125,10 +128,11 @@ export function PhotoEntryCard({
                   const tall = img.naturalHeight > img.naturalWidth * 0.9;
                   if (tall !== !!upright[src]) setUpright((u) => ({ ...u, [src]: tall }));
                 }}
-                className={`relative h-full w-full ${upright[src] ? "object-contain" : "object-cover"}`}
+                className={`relative h-full w-full ${fit ? "object-contain" : "object-cover"}`}
               />
             </button>
-          ))}
+            );
+          })}
         </div>
         {many && (
           <>
