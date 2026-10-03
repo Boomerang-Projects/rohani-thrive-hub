@@ -21,6 +21,8 @@ import { PhotoLightbox } from "@/components/sections/PhotoLightbox";
  */
 export function PhotoEntryCard({
   photos,
+  coverPosition,
+  period,
   title,
   meta,
   text,
@@ -29,6 +31,10 @@ export function PhotoEntryCard({
   onOpen,
 }: {
   photos: string[];
+  /** Which part of the cover photo to keep when it is cropped, e.g. "50% 85%" = lower part. */
+  coverPosition?: string;
+  /** Years shown above the title, e.g. "2025 - Nu" (same as the Kliniskt arbete cards). */
+  period?: string;
   title: string;
   meta: string;
   text: string;
@@ -42,6 +48,7 @@ export function PhotoEntryCard({
   const slides = many ? [...photos, ...photos, ...photos] : photos;
   const sv = lang === "sv";
   const [viewer, setViewer] = useState<number | null>(null);
+  const tapStart = useRef<{ x: number; y: number; t: number } | null>(null);
   const [upright, setUpright] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -113,6 +120,24 @@ export function PhotoEntryCard({
                 e.stopPropagation();
                 setViewer(i % n);
               }}
+              // Phones: iPhone Safari sometimes swallows the "click" inside a sideways
+              // photo scroller (e.g. right after the row has snapped into place).
+              // So we also catch the tap ourselves: finger down and up again in
+              // about the same spot, quickly = a tap, not a swipe.
+              onPointerDown={(e) => {
+                if (e.pointerType === "mouse") return;
+                tapStart.current = { x: e.clientX, y: e.clientY, t: e.timeStamp };
+              }}
+              onPointerUp={(e) => {
+                const s0 = tapStart.current;
+                tapStart.current = null;
+                if (!s0 || e.pointerType === "mouse") return;
+                const still = Math.abs(e.clientX - s0.x) < 10 && Math.abs(e.clientY - s0.y) < 10;
+                if (still && e.timeStamp - s0.t < 500) {
+                  e.stopPropagation();
+                  setViewer(i % n);
+                }
+              }}
               aria-label={sv ? `Förstora bild ${(i % n) + 1}` : `Enlarge photo ${(i % n) + 1}`}
               className="relative h-full w-full shrink-0 snap-center overflow-hidden cursor-zoom-in"
             >
@@ -129,6 +154,7 @@ export function PhotoEntryCard({
                   if (tall !== !!upright[src]) setUpright((u) => ({ ...u, [src]: tall }));
                 }}
                 className={`relative h-full w-full ${fit ? "object-contain" : "object-cover"}`}
+                style={i % n === 0 && coverPosition ? { objectPosition: coverPosition } : undefined}
               />
             </button>
             );
@@ -146,6 +172,7 @@ export function PhotoEntryCard({
         )}
       </div>
       <div className="flex flex-1 flex-col items-center px-6 py-7 text-center">
+        {period && <p className="mb-3 text-[10px] uppercase tracking-[0.25em] text-accent">{period}</p>}
         <h3 className="font-serif font-bold text-lg leading-tight uppercase text-balance">
           {title}
         </h3>

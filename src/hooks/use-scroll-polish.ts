@@ -6,7 +6,7 @@ import Lenis from "lenis";
  *
  * 1. Smooth scroll (Lenis): the mouse wheel glides instead of jumping in steps.
  *
- * 2. Soft lock-on: while you scroll slowly, we look at where the glide is
+ * 2. Soft lock-on (currently OFF, see LOCK_ENABLED): while you scroll slowly, we look at where the glide is
  *    going to land. If that landing spot is close to a section's resting
  *    point (its content centred on screen), we bend the glide to land there, the same eased
  *    movement as clicking a menu link. Fast scrolling is never touched.
@@ -35,6 +35,13 @@ export function useScrollPolish(pathname: string) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // All three effects are switched off for now, at Rohani's request: plain
+    // browser scrolling, no glide, no settling on sections, no fade-in.
+    // To bring the smooth glide back, set POLISH_ENABLED to true
+    // (the lock-on and fade-in also have their own switches further down).
+    const POLISH_ENABLED = false;
+    if (!POLISH_ENABLED) return;
 
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
     const header = document.querySelector("header");
@@ -119,10 +126,15 @@ export function useScrollPolish(pathname: string) {
       }, 160);
     };
 
-    window.addEventListener("wheel", onWheel, { passive: true });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-    lenis.on("scroll", onScroll);
+    // Switched off: Rohani didn't like the page settling on sections by itself.
+    // To turn it back on, set LOCK_ENABLED to true.
+    const LOCK_ENABLED = false;
+    if (LOCK_ENABLED) {
+      window.addEventListener("wheel", onWheel, { passive: true });
+      window.addEventListener("touchstart", onTouchStart, { passive: true });
+      window.addEventListener("touchend", onTouchEnd, { passive: true });
+      lenis.on("scroll", onScroll);
+    }
 
     // ---------- 3. Reveal ----------
     // Every piece of content (heading, text, each card...) is watched on its

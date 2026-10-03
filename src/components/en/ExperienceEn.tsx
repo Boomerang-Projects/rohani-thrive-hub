@@ -61,6 +61,8 @@ type Entry = {
   longBody?: string[];
   /** The popup text as bullet points. **text** = bold, [label](url) = link (see lib/rich-text.tsx). */
   bullets?: string[];
+  /** Which part of the cover photo to show on the card when it is cropped (CSS object-position). */
+  photoPosition?: string;
   /** Show the quotes between the text and the photos instead of after the photos (G-Flow). */
   quotesFirst?: boolean;
   tags?: string;
@@ -83,7 +85,7 @@ const clinicalEntries: Entry[] = [
     ],
   },
   {
-    period: "2022 - 2025",
+    period: "2023 - 2025",
     title: "Child & Adolescent Mental Health",
     testimonials: ["bup-2"],
     image: logoBup,
@@ -113,6 +115,7 @@ const clinicalEntries: Entry[] = [
 
 const organisationalEntries: Entry[] = [
   {
+    period: "2025",
     title: "Somaya Women's Support Centre",
     testimonials: ["somaya"],
     image: somayaLogo,
@@ -128,6 +131,7 @@ const organisationalEntries: Entry[] = [
     },
   },
   {
+    period: "2024",
     title: "Meditation for Healthcare Staff",
     testimonials: ["bup-1"],
     image: regionStockholmLogo,
@@ -141,6 +145,7 @@ const organisationalEntries: Entry[] = [
     tags: "Workplace Wellbeing · Mindfulness · Stress Regulation · Healthcare",
   },
   {
+    period: "2025 - Present",
     title: "SATS · Yoga Instructor",
     gallery: "sats",
     testimonials: ["sats"],
@@ -155,6 +160,7 @@ const organisationalEntries: Entry[] = [
     ],
   },
   {
+    period: "2025 - 2026",
     title: "g:ro studio",
     testimonials: ["frida"],
     gallery: "gro",
@@ -170,6 +176,7 @@ const organisationalEntries: Entry[] = [
     ],
   },
   {
+    period: "2025",
     title: "Edboskolan · Movement & Health",
     gallery: "edboskolan",
     image: huddingeLogo,
@@ -187,9 +194,9 @@ const organisationalEntries: Entry[] = [
 
 const communityEntries: Entry[] = [
   {
+    period: "2025 - Present",
     title: "G-Flow Girls' Retreat for Young People",
     testimonials: ["david-n", "victoria", "inaaya", "sabida", "maryam"],
-    quotesFirst: true,
     photo: photoGflow,
     gallery: "gflow",
     image: haningeLogo,
@@ -208,8 +215,10 @@ const communityEntries: Entry[] = [
     ],
   },
   {
+    period: "2025 - Present",
     title: "Hero Sports Club",
     photo: photoHero,
+    photoPosition: "50% 85%", // lower part, so "HERO" on her shirt shows
     gallery: "hero",
     image: heroLogo,
 
@@ -223,6 +232,7 @@ const communityEntries: Entry[] = [
     ],
   },
   {
+    period: "2026",
     title: "Joy in the Wild",
     photo: photoJoy,
     gallery: "joy-in-the-wild",
@@ -237,6 +247,7 @@ const communityEntries: Entry[] = [
     ],
   },
   {
+    period: "2025 - Present",
     title: "Movement & Meditation · House of Creatives",
     photo: photoHoc,
     gallery: "house-of-creatives",
@@ -252,6 +263,7 @@ const communityEntries: Entry[] = [
     ],
   },
   {
+    period: "2025",
     title: "Jakten på tro och mening · Podcast",
     photo: photoFryshuset,
     gallery: "fryshuset",
@@ -268,6 +280,7 @@ const communityEntries: Entry[] = [
     link: { label: "Watch the episode on YouTube", href: "https://www.youtube.com/watch?v=nLSdBQndF0E&t=1285s" },
   },
   {
+    period: "2025",
     title: "The Way Back · Retreat",
     photo: photoVagen,
     gallery: "vagen-tillbaka",
@@ -282,6 +295,7 @@ const communityEntries: Entry[] = [
     ],
   },
   {
+    period: "2024",
     title: "Motheroots",
     testimonials: ["saida", "jamila", "aneesa"],
     photo: photoMotherRoots,
@@ -624,6 +638,8 @@ export function ExperienceEn({ section = "clinical" }: { section?: ExperienceSec
                  <PhotoEntryCard
                    key={e.title}
                    photos={[e.photo!, ...(e.gallery ? galleryFor(e.gallery) : [])]}
+                  coverPosition={e.photoPosition}
+                  period={e.period}
                    lang="en"
                    title={e.title}
                    meta={e.meta}
