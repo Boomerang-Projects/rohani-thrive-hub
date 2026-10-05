@@ -74,7 +74,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             </div>
           </ReadMore>
           {/* Closing line sits between "Läs mer" and the link, regardless of expansion */}
-          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
+          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent font-bold">
             För när människor får utrymme att blomstra växer allt annat därifrån.
           </p>
           {showLink && (

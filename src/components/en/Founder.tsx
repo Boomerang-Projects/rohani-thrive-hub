@@ -73,7 +73,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
             </div>
           </ReadMore>
           {/* Closing line sits between "Read more" and the link, regardless of expansion */}
-          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
+          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent font-bold">
             Because when people are given room to flourish, everything else grows from there.
           </p>
           {showLink && (
