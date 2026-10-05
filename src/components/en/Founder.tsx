@@ -71,11 +71,11 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
               <p>ROHANI was created as a bridge between psychological science and human experience, where evidence-based knowledge meets awareness, meaning and self-actualisation.</p>
               <p>Whether I work with individuals, teams or organisations, my intention is always the same: to create the conditions for people to flourish.</p>
             </div>
-            {/* The closing line: larger, in italic serif, so it stands out */}
-            <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
-              Because when people are given room to flourish, everything else grows from there.
-            </p>
           </ReadMore>
+          {/* Closing line sits between "Read more" and the link, regardless of expansion */}
+          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
+            Because when people are given room to flourish, everything else grows from there.
+          </p>
           {showLink && (
             <div className="pt-8">
               <Link

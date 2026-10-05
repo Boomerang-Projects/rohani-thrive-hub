@@ -72,11 +72,11 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
               <p>ROHANI skapades som en bro mellan psykologisk vetenskap och mänsklig upplevelse, där evidensbaserad kunskap möter medvetenhet, mening och självförverkligande.</p>
               <p>Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att blomstra.</p>
             </div>
-            {/* The closing line: larger, in italic serif, so it stands out */}
-            <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
-              För när människor får utrymme att blomstra växer allt annat därifrån.
-            </p>
           </ReadMore>
+          {/* Closing line sits between "Läs mer" and the link, regardless of expansion */}
+          <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
+            För när människor får utrymme att blomstra växer allt annat därifrån.
+          </p>
           {showLink && (
             <div className="pt-8">
               <Link
