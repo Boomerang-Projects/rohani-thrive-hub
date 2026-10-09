@@ -62,21 +62,28 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
             Jag heter Madeeha Qazi och är legitimerad psykolog, facilitator och grundaren av ROHANI.
           </p>
           <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/85">
-            <p>Jag har alltid varit fascinerad av <b className="font-semibold text-foreground">människans potential</b>, av vad som gör att vi kan <b className="font-semibold text-foreground">leva, leda och känna större tillfredsställelse.</b> Mitt arbete är förankrat i <b className="font-semibold text-foreground">modern psykologi</b> och berikat av en <b className="font-semibold text-foreground">livslång nyfikenhet</b> på <b className="font-semibold text-foreground">vad som formar, driver och förändrar oss</b>!</p>
-            <p>Jag har klinisk erfarenhet från <b className="font-semibold text-foreground">vuxenpsykiatrin</b>, <b className="font-semibold text-foreground">barn- och ungdomspsykiatrin</b> och <b className="font-semibold text-foreground">Karolinska sjukhuspsykiatri</b>, och leder även <b className="font-semibold text-foreground">yoga</b>, <b className="font-semibold text-foreground">meditation</b> och <b className="font-semibold text-foreground">breathwork</b> för att möta människor genom <b className="font-semibold text-foreground">kropp</b>, <b className="font-semibold text-foreground">andning</b> och <b className="font-semibold text-foreground">närvaro</b>.</p>
+            <p>Jag har alltid varit fascinerad av människans potential, av vad som gör att vi kan leva, leda och känna större tillfredsställelse. Mitt arbete är förankrat i modern psykologi och berikat av en livslång nyfikenhet på vad som formar, driver och förändrar oss!</p>
+            <p>Jag har klinisk erfarenhet från vuxenpsykiatrin, barn- och ungdomspsykiatrin och Karolinska sjukhuspsykiatri, och leder även yoga, meditation och breathwork för att möta människor genom kropp, andning och närvaro.</p>
           </div>
           {/* The rest of the story opens with "Läs mer" (see ReadMore.tsx) */}
           <ReadMore lang="sv">
             <div className="pt-4 space-y-4 text-base leading-[1.65] text-foreground/85">
-              <p>Efter att ha bott, studerat och arbetat i <b className="font-semibold text-foreground">olika länder och kulturer</b> har jag lärt mig se både det <b className="font-semibold text-foreground">universella</b> i mänsklig upplevelse och det <b className="font-semibold text-foreground">unika</b> i varje människas berättelse. Det präglar mitt arbete idag med <b className="font-semibold text-foreground">individer, grupper och organisationer</b>, med <b className="font-semibold text-foreground">kulturell känslighet</b> och <b className="font-semibold text-foreground">djup respekt för komplexiteten i att vara människa</b>.</p>
-              <p><b className="font-semibold text-foreground">ROHANI</b> skapades som en <b className="font-semibold text-foreground">bro mellan psykologisk vetenskap och mänsklig upplevelse</b>, där <b className="font-semibold text-foreground">evidensbaserad kunskap</b> möter <b className="font-semibold text-foreground">medvetenhet</b>, <b className="font-semibold text-foreground">mening</b> och <b className="font-semibold text-foreground">självförverkligande</b>.</p>
-              <p>Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att <b className="font-semibold text-foreground">blomstra</b>.</p>
+              <p>Efter att ha bott, studerat och arbetat i olika länder och kulturer har jag lärt mig se både det universella i mänsklig upplevelse och det unika i varje människas berättelse. Det präglar mitt arbete idag med individer, grupper och organisationer, med kulturell känslighet och djup respekt för komplexiteten i att vara människa.</p>
+              <p>ROHANI skapades som en bro mellan psykologisk vetenskap och mänsklig upplevelse, där evidensbaserad kunskap möter medvetenhet, mening och självförverkligande.</p>
+              <p>Oavsett om jag arbetar med individer, team eller organisationer är min intention alltid densamma: att skapa förutsättningar för människor att blomstra.</p>
             </div>
-            {/* The closing line: larger, in italic serif, so it stands out */}
-            <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
-              För när människor får utrymme att blomstra växer allt annat därifrån.
-            </p>
           </ReadMore>
+          {/* Closing line sits between "Läs mer" and the link, regardless of expansion */}
+          <div className="mt-10">
+            <p className="font-serif font-light text-3xl md:text-4xl leading-[1.15] tracking-tight text-accent">
+              För när människor får utrymme att <span className="italic text-sage">blomstra</span> växer allt annat därifrån.
+            </p>
+            <div className="mt-6 flex items-center gap-4" aria-hidden>
+              <div className="w-12 h-px bg-sage/30" />
+              <div className="w-1.5 h-1.5 rounded-full bg-sage/40" />
+              <div className="w-12 h-px bg-sage/30" />
+            </div>
+          </div>
           {showLink && (
             <div className="pt-8">
               <Link

@@ -61,21 +61,28 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
             My name is Madeeha Qazi, and I am a licensed psychologist, facilitator and the founder of ROHANI.
           </p>
           <div className="mt-6 space-y-4 text-base leading-[1.65] text-foreground/85">
-            <p>I have always been fascinated by <b className="font-semibold text-foreground">human potential</b>, by what allows us to <b className="font-semibold text-foreground">live, lead and feel more fulfilled.</b> My work is rooted in <b className="font-semibold text-foreground">modern psychology</b> and enriched by a <b className="font-semibold text-foreground">lifelong curiosity</b> about <b className="font-semibold text-foreground">what shapes, drives and changes us</b>!</p>
-            <p>I have clinical experience from <b className="font-semibold text-foreground">adult psychiatry</b>, <b className="font-semibold text-foreground">child and adolescent psychiatry</b> and <b className="font-semibold text-foreground">Karolinska hospital psychiatry</b>, and I also lead <b className="font-semibold text-foreground">yoga</b>, <b className="font-semibold text-foreground">meditation</b> and <b className="font-semibold text-foreground">breathwork</b> to meet people through the <b className="font-semibold text-foreground">body</b>, <b className="font-semibold text-foreground">breath</b> and <b className="font-semibold text-foreground">presence</b>.</p>
+            <p>I have always been fascinated by human potential, by what allows us to live, lead and feel more fulfilled. My work is rooted in modern psychology and enriched by a lifelong curiosity about what shapes, drives and changes us!</p>
+            <p>I have clinical experience from adult psychiatry, child and adolescent psychiatry and Karolinska hospital psychiatry, and I also lead yoga, meditation and breathwork to meet people through the body, breath and presence.</p>
           </div>
           {/* The rest of the story opens with "Läs mer" (see ReadMore.tsx) */}
           <ReadMore lang="en">
             <div className="pt-4 space-y-4 text-base leading-[1.65] text-foreground/85">
-              <p>Having lived, studied and worked across <b className="font-semibold text-foreground">different countries and cultures</b>, I have learned to see both the <b className="font-semibold text-foreground">universal</b> in human experience and the <b className="font-semibold text-foreground">unique</b> in every person's story. It shapes my work today with <b className="font-semibold text-foreground">individuals, groups and organisations</b>, with <b className="font-semibold text-foreground">cultural sensitivity</b> and <b className="font-semibold text-foreground">a deep respect for the complexity of being human</b>.</p>
-              <p><b className="font-semibold text-foreground">ROHANI</b> was created as a <b className="font-semibold text-foreground">bridge between psychological science and human experience</b>, where <b className="font-semibold text-foreground">evidence-based knowledge</b> meets <b className="font-semibold text-foreground">awareness</b>, <b className="font-semibold text-foreground">meaning</b> and <b className="font-semibold text-foreground">self-actualisation</b>.</p>
-              <p>Whether I work with individuals, teams or organisations, my intention is always the same: to create the conditions for people to <b className="font-semibold text-foreground">flourish</b>.</p>
+              <p>Having lived, studied and worked across different countries and cultures, I have learned to see both the universal in human experience and the unique in every person's story. It shapes my work today with individuals, groups and organisations, with cultural sensitivity and a deep respect for the complexity of being human.</p>
+              <p>ROHANI was created as a bridge between psychological science and human experience, where evidence-based knowledge meets awareness, meaning and self-actualisation.</p>
+              <p>Whether I work with individuals, teams or organisations, my intention is always the same: to create the conditions for people to flourish.</p>
             </div>
-            {/* The closing line: larger, in italic serif, so it stands out */}
-            <p className="mt-8 font-serif italic text-2xl md:text-[1.75rem] leading-snug text-accent">
-              Because when people are given room to flourish, everything else grows from there.
-            </p>
           </ReadMore>
+          {/* Closing line sits between "Read more" and the link, regardless of expansion */}
+          <div className="mt-10">
+            <p className="font-serif font-light text-3xl md:text-4xl leading-[1.15] tracking-tight text-accent">
+              Because when people are given room to <span className="italic text-sage">flourish</span>, everything else grows from there.
+            </p>
+            <div className="mt-6 flex items-center gap-4" aria-hidden>
+              <div className="w-12 h-px bg-sage/30" />
+              <div className="w-1.5 h-1.5 rounded-full bg-sage/40" />
+              <div className="w-12 h-px bg-sage/30" />
+            </div>
+          </div>
           {showLink && (
             <div className="pt-8">
               <Link
