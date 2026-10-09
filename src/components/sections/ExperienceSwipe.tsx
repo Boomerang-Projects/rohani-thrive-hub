@@ -168,6 +168,37 @@ export function ExperienceSwipe({
     };
   }, [go, panels.length]);
 
+  // Side arrows: only shown while the panels fill a good part of the screen,
+  // so they never float over the hero or the footer.
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    // Measured on scroll instead of with IntersectionObserver: inside an embedded
+    // frame (like the preview) browsers ignore the observer's margins, and the
+    // arrows then showed up over the hero and the footer.
+    let queued = false;
+    const check = () => {
+      queued = false;
+      const r = vp.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // "In view" = the panels cover the middle of the screen (35% to 65% down)
+      setInView(r.top < vh * 0.35 && r.bottom > vh * 0.65);
+    };
+    const queue = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    return () => {
+      window.removeEventListener("scroll", queue);
+      window.removeEventListener("resize", queue);
+    };
+  }, []);
+
   // Track height follows the visible panel, also when its content changes size.
   useEffect(() => {
     const el = panelRefs.current[safeIndex];
@@ -253,6 +284,28 @@ export function ExperienceSwipe({
           )}
         </div>
       </div>
+
+      {/* Side arrows (">"): make it obvious there is more to the left/right.
+          Fixed to the screen's sides so they stay in view while you scroll a long panel. */}
+      {[-1, 1].map((dir) => {
+        const target = safeIndex + dir;
+        const show = inView && target >= 0 && target <= last;
+        return (
+          <button
+            key={dir}
+            type="button"
+            onClick={() => go(target)}
+            tabIndex={show ? undefined : -1}
+            aria-hidden={!show || undefined}
+            aria-label={dir === 1 ? `${sv ? "Nästa" : "Next"}: ${panels[target]?.label ?? ""}` : `${sv ? "Föregående" : "Previous"}: ${panels[target]?.label ?? ""}`}
+            className={`fixed top-1/2 z-30 -translate-y-1/2 ${dir === 1 ? "right-1.5 md:right-4" : "left-1.5 md:left-4"} flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-foreground/80 text-background shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] backdrop-blur-sm transition-[opacity,transform] duration-300 hover:bg-foreground ${show ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d={dir === 1 ? "M9 5l7 7-7 7" : "M15 5l-7 7 7 7"} />
+            </svg>
+          </button>
+        );
+      })}
 
       {/* The swipe track: a window (viewport) and the row of panels that slides inside it */}
       <div
