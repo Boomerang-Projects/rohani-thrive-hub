@@ -34,7 +34,7 @@ export function FounderEn({ showLink = true }: { showLink?: boolean }) {
             to="/experience/media"
             hash="media"
             aria-label="Read the article in Psykologtidningen"
-            className="group relative z-10 block -mt-16 mx-4 md:mx-0 md:mt-0 md:absolute md:-bottom-12 md:-right-10 md:max-w-sm"
+            className="group absolute z-10 top-4 left-4 right-4 md:top-10 md:-left-8 md:right-auto md:max-w-sm"
           >
             <figure className="bg-background rounded-3xl p-7 md:p-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
               <blockquote className="font-serif italic text-lg md:text-xl leading-relaxed text-foreground">
