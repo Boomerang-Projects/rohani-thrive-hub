@@ -9,7 +9,7 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
   return (
     <section className="px-6 md:px-10 max-w-7xl mx-auto">
       <SectionHeader title="Möt grundaren" />
-      {/* Same rhythm as the hero: photo, quote card over its corner, one short text */}
+      {/* Same rhythm as the hero: quote card resting on the photo's top edge, one short text */}
       {/* Phones: the role sits right under the title, above the photo (from md it's in the text column) */}
       <div className="md:hidden -mt-2 mb-6 flex justify-center">
         <p className="inline-flex whitespace-nowrap rounded-full bg-foreground/5 px-4 py-2.5 text-[10px] uppercase tracking-[0.18em] text-foreground/60">
@@ -17,26 +17,14 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
         </p>
       </div>
       <div className="grid md:grid-cols-2 gap-16 md:gap-20 items-start [&>*]:min-w-0">
-        {/* Left: portrait with the quote card */}
+        {/* Left: quote card resting on the top edge of the portrait (in flow, so it never covers the photo) */}
         <div className="relative md:mb-12">
-          {/* Like the original layout: the whole photo is shown (nothing cropped, so her face is never cut),
-              and the quote card sits below it instead of on top of it */}
-          <div className="bg-secondary/40">
-            <img
-              src={founderImage}
-              alt="Madeeha Rani Qazi, grundare av Rohani"
-              width={820}
-              height={1200}
-              loading="lazy"
-              className="w-full h-[30rem] md:h-[38rem] object-contain"
-            />
-          </div>
           {/* Quote from the article about her: Psykologtidningen #4 2026, p. 7, "Kulturkollen: ABF-kurs" by Maria Jernberg */}
           <Link
             to="/experience/media"
             hash="media"
             aria-label="Läs artikeln i Psykologtidningen"
-            className="group absolute z-10 top-4 left-4 right-4 md:top-10 md:-left-8 md:right-auto md:max-w-sm"
+            className="group relative z-10 block -mb-10 md:-ml-8 md:max-w-sm"
           >
             <figure className="bg-background rounded-3xl p-7 md:p-8 shadow-[0_20px_60px_-20px_rgba(27,43,36,0.35)] cursor-pointer transition-transform duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_28px_70px_-20px_rgba(27,43,36,0.5)]">
               <blockquote className="font-serif italic text-lg md:text-xl leading-relaxed text-foreground">
@@ -51,6 +39,17 @@ function FounderSv({ showLink = true }: { showLink?: boolean }) {
               </figcaption>
             </figure>
           </Link>
+          {/* The whole photo is shown (nothing cropped, so her face is never cut) */}
+          <div className="bg-secondary/40">
+            <img
+              src={founderImage}
+              alt="Madeeha Rani Qazi, grundare av Rohani"
+              width={820}
+              height={1200}
+              loading="lazy"
+              className="w-full h-[30rem] md:h-[38rem] object-contain"
+            />
+          </div>
         </div>
 
         {/* Right: original founder story */}
